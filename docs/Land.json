@@ -46,7 +46,7 @@
     [
       "通称",
       "alternateName",
-      "array",
+      "Array",
       "*",
       ""
     ],
@@ -88,7 +88,7 @@
     [
       "連絡先",
       "refContactPoint",
-      "Relationshop",
+      "Relationship",
       "1",
       ""
     ],
