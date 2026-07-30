@@ -84,6 +84,60 @@
       "Array",
       "*",
       ""
+    ],
+    [
+      "　-",
+      "　observedProperty",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　value",
+      "Text / Number / Boolean / object",
+      "1"
+    ],
+    [
+      "　-",
+      "　unit",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　precision",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　thresholdBreached",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　actionTaken",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　notes",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　observedState",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　match",
+      "Text",
+      "1"
     ]
   ]
 }

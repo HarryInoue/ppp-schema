@@ -275,6 +275,36 @@
       ""
     ],
     [
+      "　場所大分類",
+      "　zoneName",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　subzones",
+      "Array(Object)",
+      "*"
+    ],
+    [
+      "　　-",
+      "　　subzoneName",
+      "Array",
+      "1"
+    ],
+    [
+      "　　　場所中分類",
+      "　　　[0]",
+      "Text",
+      "1"
+    ],
+    [
+      "　　　場所小分類",
+      "　　　[1]",
+      "Array(Text)",
+      "*"
+    ],
+    [
       "管理方式",
       "managementForm",
       "Text",

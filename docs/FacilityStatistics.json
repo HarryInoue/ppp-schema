@@ -72,6 +72,24 @@
       ""
     ],
     [
+      "　-",
+      "　usageFee",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　commission",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　otherIncome",
+      "Number",
+      "1"
+    ],
+    [
       "-",
       "operatingExpense",
       "StructuredValue",
@@ -79,11 +97,77 @@
       ""
     ],
     [
+      "　-",
+      "　utilitiesFee",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　fuelFee",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　repairFee",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　buildingManagementFee",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　rentalFee",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　otherExpense",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　businessOperationCost",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　personnelExpense",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　designatedManagementFee",
+      "Number",
+      "1"
+    ],
+    [
       "-",
       "capitalExpense",
       "StructuredValue",
       "1",
       ""
+    ],
+    [
+      "　-",
+      "　constructionFee",
+      "Number",
+      "1"
+    ],
+    [
+      "　-",
+      "　otherCapitalExpense",
+      "Number",
+      "1"
     ],
     [
       "-",
@@ -133,6 +217,18 @@
       "Array",
       "*",
       ""
+    ],
+    [
+      "　-",
+      "　customAttributeName",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　customAttributeValue",
+      "Number",
+      "1"
     ]
   ]
 }

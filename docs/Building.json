@@ -296,11 +296,47 @@
       ""
     ],
     [
+      "　フロア",
+      "　floor",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　floorInformation",
+      "Array(Object)",
+      "*"
+    ],
+    [
+      "　　用途",
+      "　　use",
+      "Text",
+      "1"
+    ],
+    [
+      "　　面積",
+      "　　area",
+      "Number",
+      "1"
+    ],
+    [
       "用途別床面積",
       "areaByUse",
       "Array",
       "*",
       ""
+    ],
+    [
+      "　用途",
+      "　use",
+      "Text",
+      "1"
+    ],
+    [
+      "　面積",
+      "　area",
+      "Number",
+      "1"
     ],
     [
       "部門ID",
@@ -338,6 +374,36 @@
       ""
     ],
     [
+      "　場所大分類",
+      "　zoneName",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　subzones",
+      "Array(Object)",
+      "*"
+    ],
+    [
+      "　　-",
+      "　　subzoneName",
+      "Array",
+      "1"
+    ],
+    [
+      "　　　場所中分類",
+      "　　　[0]",
+      "Text",
+      "1"
+    ],
+    [
+      "　　　場所小分類",
+      "　　　[1]",
+      "Array(Text)",
+      "*"
+    ],
+    [
       "施設管理者ID",
       "refFacilityManager",
       "Relationship",
@@ -359,11 +425,47 @@
       ""
     ],
     [
+      "　名称",
+      "　name",
+      "Text",
+      "1"
+    ],
+    [
+      "　発行者",
+      "　permitter",
+      "Text",
+      "1"
+    ],
+    [
+      "　交付番号",
+      "　permitNumber",
+      "Text",
+      "1"
+    ],
+    [
+      "　交付日",
+      "　datePermitted",
+      "Text",
+      "1"
+    ],
+    [
       "履歴",
       "history",
       "Array",
       "*",
       ""
+    ],
+    [
+      "　改修日付",
+      "　dateRenovated",
+      "Text",
+      "1"
+    ],
+    [
+      "　改修内容",
+      "　renovation",
+      "Text",
+      "1"
     ],
     [
       "排気設備",
@@ -373,11 +475,59 @@
       ""
     ],
     [
+      "　室用途",
+      "　roomClassification",
+      "Text",
+      "1"
+    ],
+    [
+      "　説明",
+      "　descriptions",
+      "Array(Object)",
+      "*"
+    ],
+    [
+      "　　方式",
+      "　　method",
+      "Text",
+      "1"
+    ],
+    [
+      "　　対象",
+      "　　zone",
+      "Text",
+      "1"
+    ],
+    [
       "排煙設備",
       "smokeExtraction",
       "Array",
       "*",
       ""
+    ],
+    [
+      "　室用途",
+      "　roomClassification",
+      "Text",
+      "1"
+    ],
+    [
+      "　説明",
+      "　descriptions",
+      "Array(Object)",
+      "*"
+    ],
+    [
+      "　　方式",
+      "　　method",
+      "Text",
+      "1"
+    ],
+    [
+      "　　対象",
+      "　　zone",
+      "Text",
+      "1"
     ]
   ]
 }

@@ -30,6 +30,18 @@
       ""
     ],
     [
+      "　-",
+      "　category",
+      "Array(Text)",
+      "*"
+    ],
+    [
+      "　-",
+      "　remarks",
+      "Text",
+      "1"
+    ],
+    [
       "-",
       "dataProvider",
       "Text",
@@ -107,6 +119,18 @@
       ""
     ],
     [
+      "　-",
+      "　step",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　timestamp",
+      "Text",
+      "1"
+    ],
+    [
       "-",
       "refFacility",
       "Relationship",
@@ -128,6 +152,18 @@
       ""
     ],
     [
+      "　-",
+      "　abstracts",
+      "Array(Text)",
+      "*"
+    ],
+    [
+      "　-",
+      "　remarks",
+      "Text",
+      "1"
+    ],
+    [
       "-",
       "parts",
       "StructuredValue",
@@ -135,11 +171,41 @@
       ""
     ],
     [
+      "　-",
+      "　abstracts",
+      "Array(Text)",
+      "*"
+    ],
+    [
+      "　-",
+      "　refComponent",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　remarks",
+      "Text",
+      "1"
+    ],
+    [
       "-",
       "cause",
       "StructuredValue",
       "1",
       ""
+    ],
+    [
+      "　-",
+      "　abstracts",
+      "Text",
+      "1"
+    ],
+    [
+      "　-",
+      "　remarks",
+      "Text",
+      "1"
     ],
     [
       "-",
