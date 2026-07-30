@@ -24,26 +24,16 @@
           "type": "array",
           "x-key": "identificationType",
           "items": {
-            "type": "object",
-            "properties": {
-              "identificationType": {
-                "title": "ID種別",
-                "type": "string",
-                "enum": [
-                  "法人番号",
-                  "自治体コード"
-                ]
-              },
-              "identification": {
-                "title": "ID",
-                "type": "string"
+            "allOf": [
+              { "$ref": "../CommonParts.schema.json#/$defs/IdentificationItem" },
+              {
+                "properties": {
+                  "identificationType": {
+                    "enum": ["法人番号", "自治体コード"]
+                  }
+                }
               }
-            },
-            "required": [
-              "identificationType",
-              "identification"
-            ],
-            "additionalProperties": false
+            ]
           }
         }
       },

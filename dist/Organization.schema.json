@@ -24,26 +24,37 @@
           "type": "array",
           "x-key": "identificationType",
           "items": {
-            "type": "object",
-            "properties": {
-              "identificationType": {
-                "title": "ID種別",
-                "type": "string",
-                "enum": [
-                  "法人番号",
-                  "自治体コード"
-                ]
+            "allOf": [
+              {
+                "type": "object",
+                "description": "identificationGroup.valueの配列要素の共通構造。identificationTypeのenumはモデルごとに異なるため、利用側でallOfにより追加すること。",
+                "properties": {
+                  "identificationType": {
+                    "title": "ID種別",
+                    "type": "string"
+                  },
+                  "identification": {
+                    "title": "ID",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "identificationType",
+                  "identification"
+                ],
+                "additionalProperties": false
               },
-              "identification": {
-                "title": "ID",
-                "type": "string"
+              {
+                "properties": {
+                  "identificationType": {
+                    "enum": [
+                      "法人番号",
+                      "自治体コード"
+                    ]
+                  }
+                }
               }
-            },
-            "required": [
-              "identificationType",
-              "identification"
-            ],
-            "additionalProperties": false
+            ]
           }
         }
       },

@@ -130,12 +130,52 @@ def infer_type_and_occurrence(prop_schema: dict):
     return linkify_type(ngsi_type), occurrence, value_schema, ngsi_type
 
 
+def merge_allof(schema: dict) -> dict:
+    """allOfの各分岐を表示用に浅くマージする。
+
+    JSON Schemaの検証としては各分岐が独立にANDされるだけだが、表生成では
+    1つの実効的なスキーマとして扱いたいので、properties/requiredを合成し、
+    それ以外のキーは先に見つかった値を採用する。$refは事前にrefresolve.pyで
+    展開済みである前提。
+    """
+    if "allOf" not in schema:
+        return schema
+
+    merged = {k: v for k, v in schema.items() if k != "allOf"}
+    merged_properties = dict(merged.get("properties", {}))
+    merged_required = list(merged.get("required", []))
+
+    for branch in schema["allOf"]:
+        branch = merge_allof(branch)
+        for key, value in branch.items():
+            if key == "properties":
+                for pname, pschema in value.items():
+                    if pname in merged_properties:
+                        merged_properties[pname] = {**merged_properties[pname], **pschema}
+                    else:
+                        merged_properties[pname] = pschema
+            elif key == "required":
+                for r in value:
+                    if r not in merged_required:
+                        merged_required.append(r)
+            elif key not in merged:
+                merged[key] = value
+
+    if merged_properties:
+        merged["properties"] = merged_properties
+    if merged_required:
+        merged["required"] = merged_required
+
+    return merged
+
+
 def analyze_nested(schema: dict):
     """ラッパーなしのプレーンなJSON Schemaフィールドを解析する。
 
     戻り値: (type列表示, 回数列表示, [(子のAttribute name, 子のschema), ...])
     子が無い場合は空リストを返す。
     """
+    schema = merge_allof(schema)
     json_type = schema.get("type")
 
     if json_type == "array":
@@ -147,6 +187,7 @@ def analyze_nested(schema: dict):
             return "Array", "1", children
 
         if isinstance(items, dict):
+            items = merge_allof(items)
             max_items = items.get("maxItems")
             occurrence = f"*(最大{max_items})" if max_items else "*"
             if items.get("type") == "object" and "properties" in items:
