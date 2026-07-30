@@ -1,376 +1,383 @@
 {
   "model": "Building",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
-      "id",
       "建物ID",
-      "",
+      "id",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
-      "category",
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
       "用途（建築基準法）",
-      "",
+      "category",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "name",
       "建物名",
-      "",
+      "name",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "nameKana",
       "建物名カナ",
-      "",
+      "nameKana",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "nameEn",
       "建物名英語",
-      "",
+      "nameEn",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "alternateName",
       "通称",
-      "",
+      "alternateName",
       "Text",
-      "N"
+      "*",
+      ""
     ],
     [
-      "facilityID",
       "管理通番",
-      "",
+      "facilityID",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "abstract",
       "概要",
-      "",
+      "abstract",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "description",
       "説明",
-      "",
+      "description",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "status",
       "状態",
-      "",
+      "status",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refLand",
       "土地ID",
-      "",
+      "refLand",
       "Relationship",
-      "N"
+      "*",
+      ""
     ],
     [
-      "mainFunctions",
       "主要機能",
-      "",
+      "mainFunctions",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "usage",
       "用途（都市計画）",
-      "",
+      "usage",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "buildingArea",
       "建築面積",
-      "",
+      "buildingArea",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "totalFloorArea",
       "総床面積",
-      "",
+      "totalFloorArea",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "maximumHeight",
       "最高の高さ",
-      "",
+      "maximumHeight",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "floorsAboveGround",
       "地上階数",
-      "",
+      "floorsAboveGround",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "floorsBelowGround",
       "地下階数",
-      "",
+      "floorsBelowGround",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "floorsRoofStructure",
       "塔屋階数",
-      "",
+      "floorsRoofStructure",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "structure",
       "構造",
-      "",
+      "structure",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "completionDate",
       "竣工日",
-      "",
+      "completionDate",
       "Date",
-      "1"
+      "1",
+      ""
     ],
     [
-      "completionYear",
       "竣工年度",
-      "",
+      "completionYear",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "accessibility",
       "アクセシビリティ情報",
-      "",
+      "accessibility",
       "Accessibility",
-      "1"
+      "1",
+      ""
     ],
     [
-      "floorArea",
       "フロア床面積",
-      "",
+      "floorArea",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "acquisitionPrice",
       "取得価格",
-      "",
+      "acquisitionPrice",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "performanceVerificationMethod",
       "性能検証法",
-      "",
+      "performanceVerificationMethod",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "propertyClass",
       "財産区分",
-      "",
+      "propertyClass",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "usePermission",
       "行政財産使用許可",
-      "",
+      "usePermission",
       "Boolean",
-      "1"
+      "1",
+      ""
     ],
     [
-      "mixedUseFacility",
       "複合施設",
-      "",
+      "mixedUseFacility",
       "Boolean",
-      "1"
+      "1",
+      ""
     ],
     [
-      "ownership",
       "所有形態",
-      "",
+      "ownership",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "rebuildingPlan",
       "更新予定時期",
-      "",
+      "rebuildingPlan",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "rebuildingCost",
       "更新費用",
-      "",
+      "rebuildingCost",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "serviceLife",
       "耐用年数",
-      "",
+      "serviceLife",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "numberOfBuildings",
       "棟数",
-      "",
+      "numberOfBuildings",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "asbestosControl",
       "アスベスト対策",
-      "",
+      "asbestosControl",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "seismicDesignStandard",
       "耐震基準",
-      "",
+      "seismicDesignStandard",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "seismicAssessment",
       "耐震診断",
-      "",
+      "seismicAssessment",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "seismicRetrofit",
       "耐震改修",
-      "",
+      "seismicRetrofit",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "map",
       "地図",
-      "",
+      "map",
       "URL",
-      "1"
+      "1",
+      ""
     ],
     [
-      "areaByUseByFloor",
       "フロア別用途別床面積",
-      "",
+      "areaByUseByFloor",
       "StructuredValue",
-      "N"
+      "*",
+      ""
     ],
     [
-      "areaByUse",
       "用途別床面積",
-      "",
+      "areaByUse",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "refDepartment",
       "部門ID",
-      "",
+      "refDepartment",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "identificationGroup",
       "ID情報",
-      "",
+      "identificationGroup",
       "IdentificationGroup",
-      "N"
+      "*",
+      ""
     ],
     [
-      "refParking",
       "駐車場ID",
-      "",
+      "refParking",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refOwner",
       "法人ID",
-      "",
+      "refOwner",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "zones",
       "場所",
-      "",
+      "zones",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "refFacilityManager",
       "施設管理者ID",
-      "",
+      "refFacilityManager",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "buildingParent",
       "親建物ID",
-      "",
+      "buildingParent",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "permits",
       "認可証",
-      "",
+      "permits",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "history",
       "履歴",
-      "",
+      "history",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "ventilation",
       "排気設備",
-      "",
+      "ventilation",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "smokeExtraction",
       "排煙設備",
-      "",
+      "smokeExtraction",
       "Array",
-      "N"
+      "*",
+      ""
     ]
   ]
 }

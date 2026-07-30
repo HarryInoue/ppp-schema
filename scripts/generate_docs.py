@@ -12,37 +12,54 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMAS_DIR = REPO_ROOT / "schemas"
 DOCS_DIR = REPO_ROOT / "docs"
 
-COLUMNS = ["Attribute name", "呼称", "説明", "type", "回数"]
+COLUMNS = ["呼称", "Attribute name", "type", "回数", "説明"]
+
+
+def _json_type_of_const(value) -> str:
+    if isinstance(value, bool):
+        return "boolean"
+    if isinstance(value, str):
+        return "string"
+    if isinstance(value, int):
+        return "integer"
+    if isinstance(value, float):
+        return "number"
+    return ""
 
 
 def infer_type_and_occurrence(prop_schema: dict) -> tuple[str, str]:
     """1属性分のスキーマからNGSI型(type列)と単一/配列(回数列)を推定する。
 
     NGSI-LDラッパー形式 {"properties": {"type": {"const": "Text"}, "value": {...}}}
-    と、id等のフラットな形式 {"type": "string"} の両方に対応する。
+    と、id/typeのようなフラットな形式 {"type": "string"} / {"const": "..."} の
+    両方に対応する。
     """
     props = prop_schema.get("properties")
     if props and "type" in props and "value" in props:
         ngsi_type = props["type"].get("const", "")
         value_schema = props["value"]
     else:
-        ngsi_type = prop_schema.get("type", "")
         value_schema = prop_schema
+        ngsi_type = prop_schema.get("type", "")
+        if not ngsi_type and "const" in prop_schema:
+            ngsi_type = _json_type_of_const(prop_schema["const"])
 
-    occurrence = "N" if value_schema.get("type") == "array" else "1"
+    if value_schema.get("type") == "array":
+        max_items = value_schema.get("maxItems")
+        occurrence = f"*(最大{max_items})" if max_items else "*"
+    else:
+        occurrence = "1"
+
     return ngsi_type, occurrence
 
 
 def build_table(schema: dict, model: str) -> dict:
     rows = []
     for attr_name, prop_schema in schema.get("properties", {}).items():
-        if attr_name == "type":
-            continue  # エンティティタイプの固定マーカー（NGSI構造上のもの）は表に出さない
-
-        title = prop_schema.get("title", "")
+        title = prop_schema.get("title", "") or "-"
         description = prop_schema.get("description", "")
         ngsi_type, occurrence = infer_type_and_occurrence(prop_schema)
-        rows.append([attr_name, title, description, ngsi_type, occurrence])
+        rows.append([title, attr_name, ngsi_type, occurrence, description])
 
     return {"model": model, "columns": COLUMNS, "rows": rows}
 
@@ -65,7 +82,7 @@ def main() -> None:
             json.dumps(table, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
-        missing_titles = sum(1 for r in table["rows"] if not r[1])
+        missing_titles = sum(1 for r in table["rows"] if r[0] == "-")
         print(f"[ok] {model}: {len(table['rows'])} rows, 呼称欠落 {missing_titles}件 -> {out_path}")
 
 

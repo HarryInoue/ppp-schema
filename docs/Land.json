@@ -1,145 +1,152 @@
 {
   "model": "Land",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
-      "id",
       "土地ID",
-      "",
+      "id",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
-      "identificationGroup",
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
       "ID情報",
-      "",
+      "identificationGroup",
       "IdentificationGroup",
-      "N"
+      "*",
+      ""
     ],
     [
-      "usage",
       "用途",
-      "",
+      "usage",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "name",
       "土地名",
-      "",
+      "name",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "alternateName",
       "通称",
-      "",
+      "alternateName",
       "array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "description",
       "説明",
-      "",
+      "description",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "address",
       "住所",
-      "",
+      "address",
       "PostalAddress",
-      "1"
+      "1",
+      ""
     ],
     [
-      "siteArea",
       "面積",
-      "",
+      "siteArea",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "location",
       "座標",
-      "",
+      "location",
       "geo:json",
-      "1"
+      "1",
+      ""
     ],
     [
-      "remarks",
       "備考",
-      "",
+      "remarks",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refContactPoint",
       "連絡先",
-      "",
+      "refContactPoint",
       "Relationshop",
-      "1"
+      "1",
+      ""
     ],
     [
-      "fireZone",
       "防火地域",
-      "",
+      "fireZone",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "landUseZone",
       "用途地域",
-      "",
+      "landUseZone",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "ownership",
       "所有形態",
-      "",
+      "ownership",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "acquisitionPrice",
       "取得価格",
-      "",
+      "acquisitionPrice",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "coverageRatio",
       "建ぺい率",
-      "",
+      "coverageRatio",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "floorAreaRatio",
       "容積率",
-      "",
+      "floorAreaRatio",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refOwner",
       "所有者",
-      "",
+      "refOwner",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refDepartment",
       "所管部門",
-      "",
+      "refDepartment",
       "Relationship",
-      "1"
+      "1",
+      ""
     ]
   ]
 }

@@ -1,131 +1,138 @@
 {
   "model": "FacilityStatistics",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
+      "-",
       "id",
-      "",
-      "",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
+      "-",
       "startDateOfPeriod",
-      "",
-      "",
       "Date",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "endDateOfPeriod",
-      "",
-      "",
       "Date",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "name",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "target",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "refFacility",
-      "",
-      "",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "area",
-      "",
-      "",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "income",
-      "",
-      "",
       "StructuredValue",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "operatingExpense",
-      "",
-      "",
       "StructuredValue",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "capitalExpense",
-      "",
-      "",
       "StructuredValue",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "depreciationCost",
-      "",
-      "",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "operationDays",
-      "",
-      "",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "operationHours",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "usageCount",
-      "",
-      "",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "availableCount",
-      "",
-      "",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "numberOfUsers",
-      "",
-      "",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "customAttribute",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ]
   ]
 }

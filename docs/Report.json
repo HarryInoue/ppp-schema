@@ -1,138 +1,145 @@
 {
   "model": "Report",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
+      "-",
       "id",
-      "",
-      "",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
+      "-",
       "timestamp",
-      "",
-      "",
       "Date",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "category",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "dateOperation",
       "",
-      "",
-      "",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "operationName",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "refSubmitter",
-      "",
-      "",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "inspector",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "reportParent",
-      "",
-      "",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "refTarget",
-      "",
-      "",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "refFacility",
-      "",
-      "",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "refComplaint",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "equipment",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "damageControl",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "pictures",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "request",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "remarks",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "opinion",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "document",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ]
   ]
 }

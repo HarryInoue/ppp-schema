@@ -1,173 +1,180 @@
 {
   "model": "Organization",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
-      "id",
       "法人ID",
-      "",
+      "id",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
-      "identificationGroup",
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
       "ID情報",
-      "",
+      "identificationGroup",
       "IdentificationGroup",
-      "N"
+      "*",
+      ""
     ],
     [
-      "name",
       "法人名",
-      "",
+      "name",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "containedInPlace",
       "県名",
-      "",
+      "containedInPlace",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "nameKana",
       "法人名カナ",
-      "",
+      "nameKana",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "nameEn",
       "法人名英語",
-      "",
+      "nameEn",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "organizationTypePosition",
       "組織種別位置",
-      "",
+      "organizationTypePosition",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "category",
       "組織種別",
-      "",
+      "category",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "alternateName",
       "通称",
-      "",
+      "alternateName",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "status",
       "活動状況",
-      "",
+      "status",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "description",
       "説明",
-      "",
+      "description",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
       "url",
       "url",
-      "",
       "URL",
-      "1"
+      "1",
+      ""
     ],
     [
-      "numberOfRegularEmployees",
       "正社員数",
-      "",
+      "numberOfRegularEmployees",
       "Integer",
-      "1"
+      "1",
+      ""
     ],
     [
-      "numberOfEmployees",
       "従業員数",
-      "",
+      "numberOfEmployees",
       "Integer",
-      "1"
+      "1",
+      ""
     ],
     [
-      "establishedDate",
       "設立年月日",
-      "",
+      "establishedDate",
       "Date",
-      "1"
+      "1",
+      ""
     ],
     [
-      "yearOfEstablishment",
       "創業年",
-      "",
+      "yearOfEstablishment",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "businessCategory",
       "事業種目",
-      "",
+      "businessCategory",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "fiscalYearStartDay",
       "事業年度開始日",
-      "",
+      "fiscalYearStartDay",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "capital",
       "資本金",
-      "",
+      "capital",
       "Integer",
-      "1"
+      "1",
+      ""
     ],
     [
-      "registeredAddress",
       "登記住所",
-      "",
+      "registeredAddress",
       "PostalAddress",
-      "1"
+      "1",
+      ""
     ],
     [
-      "contactPoint",
       "連絡先",
-      "",
+      "contactPoint",
       "ContactPoint",
-      "N"
+      "*",
+      ""
     ],
     [
-      "refFacility",
       "施設ID",
-      "",
+      "refFacility",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "architectOfficeRegNumber",
       "事務所登録番号",
-      "",
+      "architectOfficeRegNumber",
       "Text",
-      "1"
+      "1",
+      ""
     ]
   ]
 }

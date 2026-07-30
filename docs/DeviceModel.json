@@ -1,173 +1,180 @@
 {
   "model": "DeviceModel",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
+      "-",
       "id",
-      "",
-      "",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
+      "-",
       "alternateName",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "annotations",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "brandName",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "category",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "color",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "controlledProperty",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "dataProvider",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "description",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "deviceClass",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "documentation",
-      "",
-      "",
       "URL",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "energyLimitationClass",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "function",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "image",
-      "",
-      "",
       "URL",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "manufacturerName",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "modelName",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "name",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "owner",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "seeAlso",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "serviceLife",
-      "",
-      "",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "source",
-      "",
-      "",
       "URL",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "supportedProtocol",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
+      "-",
       "supportedUnits",
-      "",
-      "",
       "Array",
-      "N"
+      "*",
+      ""
     ]
   ]
 }

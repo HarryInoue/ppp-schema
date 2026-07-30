@@ -1,103 +1,110 @@
 {
   "model": "BuildingComponent",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
+      "-",
       "id",
-      "",
-      "",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
+      "-",
       "category",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "name",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "nameKana",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "nameEn",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "description",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "status",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "refFacility",
-      "",
-      "",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "refBuilding",
-      "",
-      "",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "url",
-      "",
-      "",
       "URL",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "remarks",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
+      "-",
       "zoneInstalled",
-      "",
-      "",
       "Array",
-      "N"
+      "*(最大3)",
+      ""
     ],
     [
+      "-",
       "zoneRemarks",
-      "",
-      "",
       "Text",
-      "1"
+      "1",
+      ""
     ]
   ]
 }

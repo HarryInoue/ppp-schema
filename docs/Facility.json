@@ -1,327 +1,334 @@
 {
   "model": "Facility",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
-      "id",
       "施設ID",
-      "",
+      "id",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
-      "name",
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
       "施設名",
-      "",
+      "name",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "nameKana",
       "施設名カナ",
-      "",
+      "nameKana",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "nameEn",
       "施設名英語",
-      "",
+      "nameEn",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "alternateName",
       "通称",
-      "",
+      "alternateName",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "facilityID",
       "管理通番",
-      "",
+      "facilityID",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "category",
       "施設大分類",
-      "",
+      "category",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "subcategory",
       "施設小分類",
-      "",
+      "subcategory",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "originalCategory",
       "施設分類",
-      "",
+      "originalCategory",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "abstract",
       "施設概要",
-      "",
+      "abstract",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "description",
       "施設説明",
-      "",
+      "description",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "status",
       "ステータス",
-      "",
+      "status",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "shelter",
       "防災施設情報",
-      "",
+      "shelter",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "postalCode",
       "個別郵便番号",
-      "",
+      "postalCode",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refBuilding",
       "建物ID",
-      "",
+      "refBuilding",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "floor",
       "フロア",
-      "",
+      "floor",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "openingHours",
       "開館時間",
-      "",
+      "openingHours",
       "OpeningHours",
-      "N"
+      "*",
+      ""
     ],
     [
-      "openingHoursRemarks",
       "開館時間補足",
-      "",
+      "openingHoursRemarks",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "chargeType",
       "料金種別",
-      "",
+      "chargeType",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "price",
       "料金",
-      "",
+      "price",
       "Integer",
-      "1"
+      "1",
+      ""
     ],
     [
-      "priceRemarks",
       "料金備考",
-      "",
+      "priceRemarks",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "paymentMethod",
       "決済種別",
-      "",
+      "paymentMethod",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "peopleCapacity",
       "収容人数",
-      "",
+      "peopleCapacity",
       "Integer",
-      "1"
+      "1",
+      ""
     ],
     [
-      "accessMethod",
       "アクセス方法",
-      "",
+      "accessMethod",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refOffStreetParking",
       "駐車場ID",
-      "",
+      "refOffStreetParking",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "areaServed",
       "サービス担当区域",
-      "",
+      "areaServed",
       "Array",
-      "1"
+      "1",
+      ""
     ],
     [
-      "areaServedaRemarks",
       "サービス担当区域備考",
-      "",
+      "areaServedaRemarks",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "contactPoint",
       "連絡先",
-      "",
+      "contactPoint",
       "ContactPoint",
-      "N"
+      "*",
+      ""
     ],
     [
-      "refOperationManager",
       "運営者",
-      "",
+      "refOperationManager",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refFacilityManager",
       "管理者",
-      "",
+      "refFacilityManager",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "accessibility",
       "アクセシビリティ情報",
-      "",
+      "accessibility",
       "Accessibility",
-      "1"
+      "1",
+      ""
     ],
     [
-      "childCare",
       "子育て支援情報",
-      "",
+      "childCare",
       "ChildCare",
-      "1"
+      "1",
+      ""
     ],
     [
-      "facilityParent",
       "主施設ID",
-      "",
+      "facilityParent",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "usage",
       "用途",
-      "",
+      "usage",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refDepartment",
       "所管部門ID",
-      "",
+      "refDepartment",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "totalFloorArea",
       "床面積",
-      "",
+      "totalFloorArea",
       "Number",
-      "1"
+      "1",
+      ""
     ],
     [
-      "zones",
       "場所",
-      "",
+      "zones",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "managementForm",
       "管理方式",
-      "",
+      "managementForm",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "basisLaw",
       "根拠法",
-      "",
+      "basisLaw",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "localDisasterPreventionPlan",
       "防災計画",
-      "",
+      "localDisasterPreventionPlan",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refPix",
       "写真",
-      "",
+      "refPix",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "remarks",
       "特記事項",
-      "",
+      "remarks",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refMaterials",
       "図絵等",
-      "",
+      "refMaterials",
       "Array",
-      "N"
+      "*",
+      ""
     ],
     [
-      "userLimitation",
       "利用制限",
-      "",
+      "userLimitation",
       "Boolean",
-      "1"
+      "1",
+      ""
     ],
     [
-      "availableUsers",
       "利用可能者",
-      "",
+      "availableUsers",
       "Text",
-      "1"
+      "1",
+      ""
     ]
   ]
 }

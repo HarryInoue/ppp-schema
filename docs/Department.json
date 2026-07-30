@@ -1,47 +1,54 @@
 {
   "model": "Department",
   "columns": [
-    "Attribute name",
     "呼称",
-    "説明",
+    "Attribute name",
     "type",
-    "回数"
+    "回数",
+    "説明"
   ],
   "rows": [
     [
-      "id",
       "部門ID",
-      "",
+      "id",
       "string",
-      "1"
+      "1",
+      ""
     ],
     [
-      "name",
+      "-",
+      "type",
+      "string",
+      "1",
+      ""
+    ],
+    [
       "部門名",
-      "",
+      "name",
       "Text",
-      "1"
+      "1",
+      ""
     ],
     [
-      "departmentOf",
       "法人ID",
-      "",
+      "departmentOf",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "refFacility",
       "施設ID",
-      "",
+      "refFacility",
       "Relationship",
-      "1"
+      "1",
+      ""
     ],
     [
-      "contactPoint",
       "連絡先",
-      "",
+      "contactPoint",
       "ContactPoint",
-      "N"
+      "*",
+      ""
     ]
   ]
 }
