@@ -1,0 +1,268 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/Land/",
+  "title": "土地",
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "土地ID",
+      "type": "string"
+    },
+    "type": {"type": "string"},
+    "identificationGroup": {
+      "title": "ID情報",
+      "type": "object",
+      "properties": {
+        "type": {"const": "IdentificationGroup"},
+        "value": {
+          "type": "array",
+          "x-key": "identificationType",
+          "items": {
+            "type": "object",
+            "properties": {
+              "identificationType": {
+                "title": "ID種別",
+                "type": "string",
+                "enum": ["不動産ID"]
+              },
+              "identification": {
+                "title": "ID",
+                "type": "string"}
+            },
+            "required": ["identificationType", "identification" ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["type", "value"]
+    },
+    "usage": {
+      "title": "用途",
+      "type": "object",
+      "properties":{
+        "type": {"const": "Array"},
+        "value": {
+          "type": "array",
+          "items":{
+            "type":"string",
+            "enum": ["田", "畑", "山林", "水面", "その他自然地", "住宅用地", "商業用地",
+                     "工業用地", "農林漁業施設用地", "公益施設用地", "道路用地", "交通施設用地",
+                     "公共空地", "その他公的施設用地", "その他の空地①", "その他空地②",
+                     "その他の空地③", "その他の空地④", "不明", 
+                     "可住地", "非可住地", 
+                     "農地", "宅地", "道路・鉄軌道敷", "空地"]
+          }
+        }
+      },
+      "required": ["type","value"]
+    },
+    "name": {
+      "title": "土地名",
+      "type": "object",
+      "properties":{
+        "type": {"const": "Text"},
+        "value": {"type": "string"}  
+      },
+      "required": ["type","value"]
+    },
+    "alternateName": {
+      "title": "通称",
+      "type": "object",
+      "properties":{
+        "type": {"const": "array"},
+        "value": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "required": ["type","value"]
+    },
+    "description": {
+      "title": "説明",
+      "type": "object",
+      "properties":{
+        "type": {"const": "Text"},
+        "value": {"type": "string"}  
+      },
+      "required": ["type","value"]
+    },
+    "address": {
+      "title": "住所",
+      "type": "object",
+      "properties":{
+        "type": {"const": "PostalAddress" },
+        "value": {
+          "type": "object",
+          "properties": {
+            "addressCountry": {"type": "string"},
+            "addressRegion": {"type": "string"},
+            "addressLocality": {"type": "string"},
+            "streetAddress": {"type": "string"},
+            "postalCode": {"type": "string"}
+          },
+          "format": "PostalAddress"
+        }
+      },
+      "required": ["type","value"],
+      "additionalProperties": false
+    },
+    "siteArea": {
+      "title": "面積",
+      "type": "object",
+      "properties":{
+        "type": {"const": "Number"},
+        "value": {"type": "number"}  
+      },
+      "required": ["type","value"]
+    },
+    "location": {
+      "title": "座標",
+      "type": "object",
+      "properties": {
+        "type": {"const": "geo:json"},
+        "value": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": {"const":"Point"},
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minItems": 2,
+                    "maxItems": 3
+                  }
+                }
+              },
+              "required": ["type", "coordinates"]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {"const":"Polygon"},
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "minItems": 2,
+                        "maxItems": 3
+                      }
+                    }
+                  }
+                }
+              },
+              "required": ["type", "coordinates"]
+            }
+          ]
+        }
+      },
+      "required": ["type", "value"]
+    },
+    "remarks": {
+      "title": "備考",
+      "type": "object",
+      "properties":{
+        "type": {"const": "Text"},
+        "value": {"type": "string"}  
+      },
+      "required": ["type","value"]
+    },
+    "refContactPoint": {
+      "title": "連絡先",
+      "type": "object",
+      "properties":{
+        "type": {"const": "Relationshop"},
+        "value": {
+          "type": "string",
+          "x-refType": ["Organization", "Department"]
+        }
+      },
+      "required": ["type","value"]
+    },
+    "fireZone": {
+      "title": "防火地域",
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "landUseZone": {
+      "title": "用途地域",
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "ownership": {
+      "title": "所有形態",
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "acquisitionPrice": {
+      "title": "取得価格",
+      "type": "object",
+      "properties": {
+        "type": {"const": "Number"},
+        "value": {"type": "number"}
+      },
+      "required": ["type", "value"]
+    },
+    "coverageRatio": {
+      "title": "建ぺい率",
+      "type": "object",
+      "properties": {
+        "type": {"const": "Number"},
+        "value": { "type": "number" }
+      },
+      "required": ["type", "value"]
+    },
+    "floorAreaRatio": {
+      "title": "容積率",
+      "type": "object",
+      "properties": {
+        "type": {"const": "Number"},
+        "value": { "type": "number" }
+      },
+      "required": ["type", "value"]
+    },
+    "refOwner": {
+      "title": "所有者",
+      "type": "object",
+      "properties":{
+        "type": {"const": "Relationship"},
+        "value": {
+          "type": "string",
+          "x-refType": "Organization"
+        }
+      },
+      "required": ["type","value"]
+    },
+    "refDepartment": {
+      "title": "所管部門",
+      "type": "object",
+      "properties": {
+        "type": {"const": "Relationship"},
+        "value": {
+          "type": "string",
+          "x-refType": "Department"
+        }
+      },
+      "required": ["type", "value"]
+    }
+  },
+  "required": ["id","type"],
+  "additionalProperties": false
+}

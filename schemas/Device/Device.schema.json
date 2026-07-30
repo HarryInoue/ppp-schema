@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/Device/",
+  "type": "object",
+  "properties": {
+    "id": {"type": "string"},
+    "type": {"const": "Device"},
+    "areaServed": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "controlledAsset": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Array"},
+        "value": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "required": ["type", "value"]
+    },
+    "controlledProperty": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Array"},
+        "value": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "required": ["type", "value"]
+    },
+    "dateInstalled": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Date"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "dateManufactured": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Date"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "nameKana": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "nameEn": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "pricePurchased": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Number"},
+        "value": {"type": "number"}
+      },
+      "required": ["type", "value"]
+    },
+    "refDeviceModel": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Relationship"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "refFacility": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Relationship"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "refBuilding": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Relationship"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "remarks": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "serialNumber": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "url": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "URL"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    },
+    "zoneInstalled": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Array"},
+        "value": {
+          "type": "array",
+          "items": {"type": "string"},
+          "maxItems": 3
+        }
+      },
+      "required": ["type", "value"]
+    },
+    "zoneRemarks": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Text"},
+        "value": {"type": "string"}
+      },
+      "required": ["type", "value"]
+    }
+  },
+  "required": ["id", "type"]
+}
+  

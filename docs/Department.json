@@ -1,0 +1,47 @@
+{
+  "model": "Department",
+  "columns": [
+    "Attribute name",
+    "呼称",
+    "説明",
+    "type",
+    "回数"
+  ],
+  "rows": [
+    [
+      "id",
+      "部門ID",
+      "",
+      "string",
+      "1"
+    ],
+    [
+      "name",
+      "部門名",
+      "",
+      "Text",
+      "1"
+    ],
+    [
+      "departmentOf",
+      "法人ID",
+      "",
+      "Relationship",
+      "1"
+    ],
+    [
+      "refFacility",
+      "施設ID",
+      "",
+      "Relationship",
+      "1"
+    ],
+    [
+      "contactPoint",
+      "連絡先",
+      "",
+      "ContactPoint",
+      "N"
+    ]
+  ]
+}
