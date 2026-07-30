@@ -8,6 +8,8 @@ import json
 import sys
 from pathlib import Path
 
+from refresolve import load_and_expand
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SCHEMAS_DIR = REPO_ROOT / "schemas"
 DOCS_DIR = REPO_ROOT / "docs"
@@ -69,8 +71,19 @@ def infer_type_and_occurrence(prop_schema: dict) -> tuple[str, str]:
 
     NGSI-LDラッパー形式 {"properties": {"type": {"const": "Text"}, "value": {...}}}
     と、id/typeのようなフラットな形式 {"type": "string"} / {"const": "..."} の
-    両方に対応する。
+    両方に対応する。属性直下がoneOf（例: Observation.performedAt）の場合は
+    各バリアントを解決して " / " で連結する。
     """
+    if "oneOf" in prop_schema and "properties" not in prop_schema:
+        types, occurrences = [], []
+        for variant in prop_schema["oneOf"]:
+            t, occ = infer_type_and_occurrence(variant)
+            types.append(t)
+            occurrences.append(occ)
+        uniq_types = list(dict.fromkeys(types))
+        uniq_occurrences = list(dict.fromkeys(occurrences))
+        return " / ".join(uniq_types), " / ".join(uniq_occurrences)
+
     props = prop_schema.get("properties")
     if props and "type" in props and "value" in props:
         ngsi_type = props["type"].get("const", "")
@@ -122,7 +135,7 @@ def main() -> None:
             print(f"[skip] {model}: schema file not found", file=sys.stderr)
             continue
 
-        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+        schema = load_and_expand(schema_path)  # $ref(同一ファイル/CommonParts等)を展開してから処理
         table = build_table(schema, model)
 
         out_path = DOCS_DIR / f"{model}.json"

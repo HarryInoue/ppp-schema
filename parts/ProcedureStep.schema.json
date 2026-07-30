@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/part/ProcedureStep",
+  "title": "Procedure Step Item Schema",
+  "description": "Defines the structure for a single step within the Procedure's steps array, allowing for different step types.",
+  "oneOf": [
+    { "$ref": "#/$defs/MeasurementStep" },
+    { "$ref": "#/$defs/CheckStep" },
+    { "$ref": "#/$defs/SampleStep" }
+  ],
+
+  "$defs": {
+    "Threshold": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "min": { "type": "number" },
+        "inclusiveMin": { "type": "boolean" },
+        "max": { "type": "number" },
+        "inclusiveMax": { "type": "boolean" },
+        "actionOnBreach": { "type": "string" }
+      }
+    },
+    "MeasurementStep": {
+      "type": "object",
+      "required": ["stepType"],
+      "properties": {
+        "stepType": { "const": "measurement" },
+        "name": { "type": "string" },
+        "stepNumber": { "type": "integer" },
+        "description": { "type": "string" },
+        "refFeatureOfInterest": { "type": "array", "items": { "type": "string" } },
+        "observedProperty": { "type": "string" },
+        "refSensors": { "type": "array", "items": { "type": "string" } },
+        "unit": { "type": "string" },
+        "Precision": { "type": "number" },
+        "thresholds": { "type": "array", "items": { "$ref": "#/$defs/Threshold" } }
+      }
+    },
+    "CheckStep": {
+      "type": "object",
+      "required": ["stepType","action", "expectedState"],
+      "properties": {
+        "stepType": { "const": "check" },
+        "name": { "type": "string" },
+        "stepNumber": { "type": "integer" },
+        "description": { "type": "string" },
+        "refFeatureOfInterest": { "type": "array", "items": { "type": "string" } },
+        "action": { "type": "string" },
+        "expectedState": { "type": "string" },
+        "actionOnMismatch": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "SampleStep": {
+      "type": "object",
+      "required": ["stepType"],
+      "properties": {
+        "stepType": { "const": "sample" },
+        "name": { "type": "string" },
+        "stepNumber": { "type": "integer" },
+        "description": { "type": "string" },
+        "sampleSource": { "type": "string" },
+        "sampleTarget": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

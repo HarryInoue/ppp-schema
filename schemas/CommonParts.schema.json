@@ -1,0 +1,131 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/part/CommonParts.schema.json",
+  "title": "NGSI v2 Common Attribute Definitions",
+  "description": "Commonly used attribute definitions and relationships for NGSI v2 Normalized entities.",
+  
+  "$defs": {
+    
+    "TextAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Text" },
+        "value": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    
+    "NumberAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Number" },
+        "value": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    
+    "ArrayAttributeText": {
+      "type": "object",
+      "properties": {
+        "type": {"const": "Array"},
+        "value": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "required": ["type", "value"]
+    },
+    
+    "DateAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Date" },
+        "value": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    
+    "DateTimeAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "DateTime" },
+        "value": { "type": "string", "format": "date-time" }
+      },
+      "additionalProperties": false
+    },
+    
+    "UrlAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "URL" },
+        "value": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    
+    "RelationshipAttributeDevice": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Device:.*" }
+      },
+      "additionalProperties": false
+    },
+    
+    "RelationshipAttributeDeviceModel": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:DeviceModel:.*" }
+      },
+      "additionalProperties": false
+    },
+    
+    "RelationshipAttributeFacility": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Facility:.*" }
+      },
+      "additionalProperties": false
+    },
+    
+    "RelationshipAttributeBuilding": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Building:.*" }
+      },
+      "additionalProperties": false
+    },
+    
+    "RelationshipAttributeBuildingComponent": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:BuildingComponent:.*" }
+      },
+      "additionalProperties": false
+    },
+    
+    "RelationshipAttributeProcedure": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Procedure:.*" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

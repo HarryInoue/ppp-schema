@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/Observation/",
+  "title": "NGSI v2 Observation Entity (Normalized) - Procedure Step Result",
+  "type": "object",
+  "required": ["id", "type", "performedAt", "results", "refProcedure", "refFeatureOfInterest"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^urn:ngsi-ld:Observation:.*",
+      "description": "Entity ID (URN format). Example: urn:ngsi-ld:Observation:T123456"
+    },
+    "type": {
+      "type": "string",
+      "const": "Observation",
+      "description": "Entity Type must be 'Observation'"
+    },
+    "stepType": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Text" },
+        "value": {
+          "type": "string",
+          "enum": ["measurement", "check", "sample"] 
+        }
+      },
+      "additionalProperties": false
+    },
+    "refProcedure": {
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeProcedure"
+    },
+    "name": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute"
+    },
+    "stepNumber": {
+      "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute"
+    },
+    "description": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute"
+    },
+    "performedAt": {
+        "oneOf": [
+          {
+            "$ref": "../CommonParts.schema.json#/$defs/DateTimeAttribute"
+          },
+          {
+            "type": "object",
+            "description": "Standard NGSI Array Attribute for a DateTime range",
+            "required": ["type", "value"],
+            "properties": {
+              "type": { "const": "Array" },
+              "value": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "minItems": 1,
+                "maxItems": 2
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+    },
+    "operator": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute"
+    },
+    
+    "refFeatureOfInterest": {
+      "description": "The Feature of Interest being observed (Device or BuildingComponent).",
+      "oneOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeDevice" },
+        { "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeBuildingComponent" }
+      ]
+    },
+    
+    "results": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": {"const": "Array"},
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "observedProperty": { "type": "string"},
+              "value": { "type": ["string", "number", "boolean", "object"]},
+              "unit": { "type": "string"},
+              "precision": { "type": "number" },
+              "thresholdBreached": { "type": "string"},
+              "actionTaken": { "type": "string"},
+              "notes": { "type": "string"},
+              "observedState": { "type": "string"},
+              "match": { "type": "string"}
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

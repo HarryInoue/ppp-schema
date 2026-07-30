@@ -1,0 +1,54 @@
+{
+  "model": "Procedure",
+  "columns": [
+    "呼称",
+    "Attribute name",
+    "type",
+    "回数",
+    "説明"
+  ],
+  "rows": [
+    [
+      "-",
+      "id",
+      "[Id](https://ppp-database.org/spec/parts/id/)",
+      "1",
+      "Entity ID (URN format)"
+    ],
+    [
+      "-",
+      "type",
+      "Text",
+      "1",
+      "Entity Type"
+    ],
+    [
+      "-",
+      "name",
+      "Text",
+      "1",
+      "Standard NGSI Text Attribute"
+    ],
+    [
+      "-",
+      "description",
+      "Text",
+      "1",
+      "Standard NGSI Text Attribute"
+    ],
+    [
+      "-",
+      "refFacility",
+      "Relationship",
+      "1",
+      "NGSI Relationship Attribute (Facility)"
+    ],
+    [
+      "-",
+      "steps",
+      "Array",
+      "*",
+      "Peocedureを構成する各ステップのArray"
+    ]
+  ]
+}

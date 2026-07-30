@@ -1,0 +1,89 @@
+{
+  "model": "Observation",
+  "columns": [
+    "呼称",
+    "Attribute name",
+    "type",
+    "回数",
+    "説明"
+  ],
+  "rows": [
+    [
+      "-",
+      "id",
+      "[Id](https://ppp-database.org/spec/parts/id/)",
+      "1",
+      "Entity ID (URN format). Example: urn:ngsi-ld:Observation:T123456"
+    ],
+    [
+      "-",
+      "type",
+      "Text",
+      "1",
+      "Entity Type must be 'Observation'"
+    ],
+    [
+      "-",
+      "stepType",
+      "Text",
+      "1",
+      ""
+    ],
+    [
+      "-",
+      "refProcedure",
+      "Relationship",
+      "1",
+      ""
+    ],
+    [
+      "-",
+      "name",
+      "Text",
+      "1",
+      ""
+    ],
+    [
+      "-",
+      "stepNumber",
+      "Number",
+      "1",
+      ""
+    ],
+    [
+      "-",
+      "description",
+      "Text",
+      "1",
+      ""
+    ],
+    [
+      "-",
+      "performedAt",
+      "DateTime / Array",
+      "1 / *(最大2)",
+      ""
+    ],
+    [
+      "-",
+      "operator",
+      "Text",
+      "1",
+      ""
+    ],
+    [
+      "-",
+      "refFeatureOfInterest",
+      "Relationship",
+      "1",
+      "The Feature of Interest being observed (Device or BuildingComponent)."
+    ],
+    [
+      "-",
+      "results",
+      "Array",
+      "*",
+      ""
+    ]
+  ]
+}
