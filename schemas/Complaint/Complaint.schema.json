@@ -3,224 +3,417 @@
   "$id": "https://ppp-database.org/spec/datamodel/Complaint/",
   "type": "object",
   "properties": {
-    "id": {"type": "string"},
-    "type": {"const": "Complaint"},
+    "id": {
+      "type": "string",
+      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Complaint:”<一意となる番号>。一意となる番号は事業者が交代しても一意となる様な運用が必要です。",
+      "title": "案件ID"
+    },
+    "type": {
+      "const": "Complaint",
+      "description": "必ず”Complaint”の文字列でなくてはならない"
+    },
     "phenomenon": {
       "type": "object",
       "properties": {
-        "type": {"const": "StructuredValue"},
+        "type": {
+          "const": "StructuredValue"
+        },
         "value": {
           "type": "object",
           "properties": {
             "category": {
               "type": "array",
-              "items": {"type": "string"}
+              "items": {
+                "type": "string"
+              }
             },
-            "remarks": {"type": "string"}
+            "remarks": {
+              "type": "string"
+            }
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "不具合現象です。",
+      "title": "現象"
     },
     "dataProvider": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "データのプロバイダのid。このWGが想定するシステムでは関係しないと考えます"
     },
     "description": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "説明を記載",
+      "title": "説明"
     },
     "isFiledTo": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "苦情をエスカレーションする先。例えば自治体の所管課など"
     },
     "isMadeBy": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "この苦情を申し立てたユーザーの ID。個人情報にならない様に留意が必要。例えば、定期検査による検出はこの項目を記入するが、個人や利用者団体は記入しないなど。",
+      "title": "依頼者"
     },
     "isPartOf": {
       "type": "object",
       "properties": {
-        "type": {"const": "Array"},
+        "type": {
+          "const": "Array"
+        },
         "value": {
           "type": "array",
-          "items": {"type": "string"}
+          "items": {
+            "type": "string"
+          }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "ひとつの不具合が複数の「案件」から構成される場合などにこの項目で相互参照したり階層化したりします。各「案件」は基本的に「報告」からリンクされますが、「報告」登録後に追加で「案件」を追加登録されるケースも想定されます。その場合は追加登録した「案件」からこの「関連案件ID」で元の「案件」をリンクする事で、間接的に「報告」と結びつけます。",
+      "title": "関連案件ID"
     },
     "location": {
       "type": "object",
       "properties": {
-        "type": {"const": "geo:json"},
+        "type": {
+          "const": "geo:json"
+        },
         "value": {
           "type": "object",
           "properties": {
-            "type": {"const": "Point"},
+            "type": {
+              "const": "Point"
+            },
             "coordinates": {
               "type": "array",
-              "items": {"type": "number"}
+              "items": {
+                "type": "number"
+              }
             }
           },
-          "required": ["type", "coordinates"]
+          "required": [
+            "type",
+            "coordinates"
+          ]
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "不具合の発生個所を座標で示します。例えば、道路の陥没、河川の汚染、街角の異臭などを想定しています。今回のユースケースとは合わないと考えます",
+      "title": "座標"
     },
     "name": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      }
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "description": "案件の名称",
+      "title": "案件名"
     },
     "seeAlso": {
       "type": "object",
       "properties": {
-        "type": {"const": "URL"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "URL"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "追加情報のurlの列です",
+      "title": "追加情報"
     },
     "source": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      }
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "description": "この情報の提供元に関するurl等を格納します"
     },
     "status": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      }
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "description": "活動状況を登録します。”処置中”、”完了”など。用語について「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください",
+      "title": "ステータス"
     },
     "timestamps": {
       "type": "object",
       "properties": {
-        "type": {"const": "Array"},
+        "type": {
+          "const": "Array"
+        },
         "value": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "step": {"type": "string"},
+              "step": {
+                "type": "string"
+              },
               "timestamp": {
                 "type": "string",
                 "format": "date"
               }
             },
-            "required": ["step", "timestamp"]
+            "required": [
+              "step",
+              "timestamp"
+            ]
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "受付から完了に至る一連の手順における日付、または日時を登録します。予定も含めて構いません。尚、12条点検で報告する不具合については少なくとも受付の日時を記入すると共に、作業未実施の場合は作業予定の日時も記入します。",
+      "title": "経緯"
     },
     "refFacility": {
       "type": "object",
       "properties": {
-        "type": {"const": "Relationship"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"] },
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "案件の対象となる施設(Facility)に対するリンクです。FacilityのEntity idを格納します。refFacilityかrefBuildingのどちらかを必ず登録します。施設からBuildingを辿ることができます。",
+      "title": "施設ID"
+    },
     "refBuilding": {
       "type": "object",
       "properties": {
-        "type": {"const": "Relationship"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "案件の対象となる建物(Building)に対するリンクです。BuildingのEntity idを格納します。refFacilityかrefBuildingのどちらかを必ず登録します。",
+      "title": "建物ID"
     },
     "zones": {
       "type": "object",
       "properties": {
-        "type": {"const": "StructuredValue"},
+        "type": {
+          "const": "StructuredValue"
+        },
         "value": {
           "type": "object",
           "properties": {
             "abstracts": {
               "type": "array",
-              "items": {"type": "string"}
+              "items": {
+                "type": "string"
+              }
             },
-            "remarks": {"type": "string"}
+            "remarks": {
+              "type": "string"
+            }
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "不具合発生の場所を格納します。列挙型項目の列と自由記述文字列の組み合わせで格納します。場所大分類・場所中分類・場所小分類は「建物」または「施設」のZonesから選択した文字列です。この項目は不具合の現象を検出した場所であり、修繕した場所と異なる可能性があります。修繕した場所は「修繕計画(repairPlan)」に登録します。",
+      "title": "場所"
     },
     "parts": {
       "type": "object",
       "properties": {
-        "type": {"const": "StructuredValue"},
+        "type": {
+          "const": "StructuredValue"
+        },
         "value": {
           "type": "object",
           "properties": {
             "abstracts": {
               "type": "array",
-              "items": {"type": "string"}
+              "items": {
+                "type": "string"
+              }
             },
-            "refComponent": {"type": "string"},
-            "remarks": {"type": "string"}
+            "refComponent": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "string"
+            }
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "不具合を発生したBuildingComponent(部位)やDevice(設備)を示す",
+      "title": "部位"
     },
     "cause": {
       "type": "object",
       "properties": {
-        "type": {"const": "StructuredValue"},
+        "type": {
+          "const": "StructuredValue"
+        },
         "value": {
           "type": "object",
           "properties": {
-            "abstracts": {"type": "string"},
-            "remarks": {"type": "string"}
+            "abstracts": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "string"
+            }
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "不具合を発生させた原因。原因は「処置計画(repairPlan)」に記載する修繕の内容に対応したものである必要がある。修繕が完了し承認を得た後に現象が再発した場合は新たに「報告」や「案件」の登録を検討します。尚、「報告」や「案件」の登録例については[包括施設管理における使い方 (6/7)](https://ppp-database.org/howtouse/tutorial2-6/)もご覧ください。",
+      "title": "原因"
     },
     "severityMark": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "不具合に対する緊急性を示すマークを登録する項目です。登録する用語は[ComplaintSeverity](https://ppp-database.org/spec/enum/ComplaintSeverity/)をご覧ください。",
+      "title": "緊急度マーク"
     },
     "severity": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
         }
+      },
+      "description": "不具合に対する処置の緊急性を示す項目です。sevirityMarkに対する補足の位置づけとなります。例えば”放置すると機能不全に至る可能性あり”、”施設運営に影響あり”など",
+      "title": "緊急度補足"
     },
     "repairPlan": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "処置の計画です。”部品交換”などと記載します。修繕する場所が「場所(zones)」と異なる場合は修繕した場所も記載します。また、修繕が複数の工程や複数の箇所に及ぶ場合は、出来る限りそれぞれの箇所や修繕内容が分かる様に記述します。",
+      "title": "修繕計画"
     }
   },
-  "required": ["id", "type"]
+  "required": [
+    "id",
+    "type"
+  ]
 }
-  

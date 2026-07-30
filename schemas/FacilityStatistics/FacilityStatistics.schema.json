@@ -1,181 +1,346 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ppp-database.org/spec/datamodel/FacilityStatistics/",    
+  "$id": "https://ppp-database.org/spec/datamodel/FacilityStatistics/",
   "type": "object",
   "properties": {
-    "id": {"type": "string"},
-    "type": {"const": "FacilityStatistics"},
+    "id": {
+      "type": "string",
+      "description": "必須",
+      "title": "1::1"
+    },
+    "type": {
+      "const": "FacilityStatistics",
+      "description": "必須",
+      "title": "1::1"
+    },
     "startDateOfPeriod": {
       "type": "object",
       "properties": {
-        "type": {"const": "Date"},
+        "type": {
+          "const": "Date"
+        },
         "value": {
           "type": "string",
           "format": "date"
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "〇",
+      "title": "0::1"
     },
     "endDateOfPeriod": {
       "type": "object",
       "properties": {
-        "type": {"const": "Date"},
+        "type": {
+          "const": "Date"
+        },
         "value": {
           "type": "string",
-        "format": "date"
+          "format": "date"
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "〇",
+      "title": "0::1"
     },
     "name": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "〇",
+      "title": "0::1"
     },
     "target": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "refFacility": {
       "type": "object",
       "properties": {
-        "type": {"const": "Relationship"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "description": "〇",
+      "title": "0::1"
     },
     "area": {
       "type": "object",
       "properties": {
-        "type": {"const": "Number"},
-        "value": {"type": "number"}
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "income": {
       "type": "object",
       "properties": {
-        "type": {"const": "StructuredValue"},
+        "type": {
+          "const": "StructuredValue"
+        },
         "value": {
           "type": "object",
           "properties": {
-            "usageFee": {"type": "number" },
-            "commission": {"type": "number" },
-            "otherIncome": {"type": "number" }
+            "usageFee": {
+              "type": "number"
+            },
+            "commission": {
+              "type": "number"
+            },
+            "otherIncome": {
+              "type": "number"
+            }
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "operatingExpense": {
       "type": "object",
       "properties": {
-        "type": {"const": "StructuredValue"},
+        "type": {
+          "const": "StructuredValue"
+        },
         "value": {
           "type": "object",
           "properties": {
-            "utilitiesFee": {"type": "number" },
-            "fuelFee": {"type": "number" },
-            "repairFee": {"type": "number" },
-            "buildingManagementFee": {"type": "number" },
-            "rentalFee": {"type": "number" },
-            "otherExpense": {"type": "number" },
-            "businessOperationCost": {"type": "number" },
-            "personnelExpense": {"type": "number" },
-            "designatedManagementFee": {"type": "number" }
+            "utilitiesFee": {
+              "type": "number"
+            },
+            "fuelFee": {
+              "type": "number"
+            },
+            "repairFee": {
+              "type": "number"
+            },
+            "buildingManagementFee": {
+              "type": "number"
+            },
+            "rentalFee": {
+              "type": "number"
+            },
+            "otherExpense": {
+              "type": "number"
+            },
+            "businessOperationCost": {
+              "type": "number"
+            },
+            "personnelExpense": {
+              "type": "number"
+            },
+            "designatedManagementFee": {
+              "type": "number"
+            }
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "capitalExpense": {
       "type": "object",
       "properties": {
-        "type": {"const": "StructuredValue"},
+        "type": {
+          "const": "StructuredValue"
+        },
         "value": {
           "type": "object",
           "properties": {
-            "constructionFee": {"type": "number" },
-            "otherCapitalExpense": {"type": "number" }
+            "constructionFee": {
+              "type": "number"
+            },
+            "otherCapitalExpense": {
+              "type": "number"
+            }
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "depreciationCost": {
       "type": "object",
       "properties": {
-        "type": {"const": "Number"},
-        "value": {"type": "number"}
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "operationDays": {
       "type": "object",
       "properties": {
-        "type": {"const": "Number"},
-        "value": {"type": "number"}
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "operationHours": {
       "type": "object",
       "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "usageCount": {
       "type": "object",
       "properties": {
-        "type": {"const": "Number"},
-        "value": {"type": "number"}
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "availableCount": {
       "type": "object",
       "properties": {
-        "type": {"const": "Number"},
-        "value": {"type": "number"}
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "numberOfUsers": {
       "type": "object",
       "properties": {
-        "type": {"const": "Number"},
-        "value": {"type": "number"}
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::1"
     },
     "customAttribute": {
       "type": "object",
       "properties": {
-        "type": {"const": "Array"},
+        "type": {
+          "const": "Array"
+        },
         "value": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "customAttributeName": {"type": "string" },
-              "customAttributeValue": {"type": "number" }
+              "customAttributeName": {
+                "type": "string"
+              },
+              "customAttributeValue": {
+                "type": "number"
+              }
             },
-            "required": ["customAttributeName", "customAttributeValue"]
+            "required": [
+              "customAttributeName",
+              "customAttributeValue"
+            ]
           }
         }
       },
-      "required": ["type", "value"]
+      "required": [
+        "type",
+        "value"
+      ],
+      "title": "0::n"
     }
   },
-  "required": ["id", "type"]
+  "required": [
+    "id",
+    "type"
+  ]
 }
-  

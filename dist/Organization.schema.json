@@ -6,10 +6,12 @@
   "properties": {
     "id": {
       "title": "法人ID",
-      "type": "string"
+      "type": "string",
+      "description": "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)です。NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Organization:”<国名コード><法人番号>。国名コードは日本の場合は”JP”です。日本の法人番号を取得していない法人もあり得るため、国名コードを付けています。尚、日本以外の法人については、<法人番号>をどう定義するのか、必要時に再度検討する必要があります。同様に大半の町内会やボランティア団体は登記しておらず法人番号を持たないため、本データモデルのスコープを任意団体に広げる場合は、この文字列を再定義する必要があります"
     },
     "type": {
-      "const": "Organization"
+      "const": "Organization",
+      "description": "NGSI V2およびNGSI-LDの仕様にあわせ、必ず”Organization”の文字列を登録します"
     },
     "identificationGroup": {
       "title": "ID情報",
@@ -48,7 +50,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "この項目は、法人に関する各種IDを並べて登録するための「箱」です。詳しくはtypeにあるリンク先の共通パーツを参照して下さい。法人番号の登録は必須です。これは、GIFのコア・データモデルで必須と指定されているためです。自治体の場合は自治体コードも必須です。政令市の場合、区のコードではなく法人である市のコードを登録します。この点、住所の情報であるPostalAddressとは異なります"
     },
     "name": {
       "type": "object",
@@ -64,7 +67,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "法人の名称を設定する"
     },
     "containedInPlace": {
       "type": "object",
@@ -80,7 +84,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "法人が基礎自治体、または東京都の特別区の場合は必須とし、都道府県名を記載する"
     },
     "nameKana": {
       "title": "法人名カナ",
@@ -96,7 +101,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "法人の名称のカナ表記を設定する"
     },
     "nameEn": {
       "title": "法人名英語",
@@ -112,7 +118,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "法人の名称の英語表記を設定する"
     },
     "organizationTypePosition": {
       "title": "組織種別位置",
@@ -128,7 +135,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "組織種別（株式会社等）を法人名の前後のどちらに付与するかを記載します"
     },
     "category": {
       "title": "組織種別",
@@ -144,7 +152,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "列挙型項目。”市区町村”、”都道府県”、”株式会社”などの区別を登録する。値は[OrganizationCategory](https://ppp-database.org/spec/enum/OrganizationCategory)を参照のこと。"
     },
     "alternateName": {
       "title": "通称",
@@ -163,7 +172,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "自治体の場合、”塩釜市”や”廣島市”など。略称のアルファベットも登録する"
     },
     "status": {
       "title": "活動状況",
@@ -179,7 +189,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "活動状況（倒産、破産、休眠、休業、廃業等）を記載。"
     },
     "description": {
       "title": "説明",
@@ -195,7 +206,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "この組織に関する説明を記載"
     },
     "url": {
       "title": "url",
@@ -212,7 +224,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "法人が開設しているWebサイトURLを記載。"
     },
     "numberOfRegularEmployees": {
       "title": "正社員数",
@@ -228,7 +241,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "正社員数と従業員数を記載。この項目は変動する数値の項目であり、実装するのであれば誰が更新し続けるのかなどのルール策定が必要"
     },
     "numberOfEmployees": {
       "title": "従業員数",
@@ -261,7 +275,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "設立日を記載"
     },
     "yearOfEstablishment": {
       "title": "創業年",
@@ -277,7 +292,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "創業年を西暦YYYY形式で記載"
     },
     "businessCategory": {
       "title": "事業種目",
@@ -296,7 +312,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "事業種目（[日本標準産業分類](https://www.soumu.go.jp/toukei_toukatsu/index/seido/sangyo/02toukatsu01_03000044.html)）を記載。　”都道府県機関”、”市町村機関”など"
     },
     "fiscalYearStartDay": {
       "title": "事業年度開始日",
@@ -312,7 +329,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "年度開始日を”MM-DD”形式で記載。省略時には”04-01″を指定したと解釈する"
     },
     "capital": {
       "title": "資本金",
@@ -328,7 +346,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "資本金を記載。この項目が必要な場合は、更新の責任をだれが負うのかなどの運用と、通貨の属性の必要性について検討が必要"
     },
     "registeredAddress": {
       "title": "登記住所",
@@ -362,7 +381,8 @@
         "type",
         "value"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "法人の登記上の住所"
     },
     "contactPoint": {
       "title": "連絡先",
@@ -416,7 +436,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "連絡先情報は法人と部門の両方にある。本項目は代表電話などを期待"
     },
     "refFacility": {
       "title": "施設ID",
@@ -434,7 +455,8 @@
         "type",
         "value"
       ],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "民間企業の本社や自治体の本庁舎が実際に存在する施設へのリンクです。このリンクを経由して法人の住所情報が得られます。継承元のコア・データモデルに倣い必須としています。尚、業務上住所情報が不要な法人を登録する場合は必ずしも登録は必須ではありません。"
     },
     "architectOfficeRegNumber": {
       "title": "事務所登録番号",
@@ -450,7 +472,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "12条点検において、調査者や検査者の勤務先が建築士事務所のときに事務所登録番号を”○○知事登録第○○号”の形式で登録します。但し、本項目は統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。"
     }
   },
   "required": [

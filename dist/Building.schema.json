@@ -6,10 +6,12 @@
   "properties": {
     "id": {
       "title": "建物ID",
-      "type": "string"
+      "type": "string",
+      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた建物IDは変更する事はできません。例えば、持ち主が変わった場合、登記して不動産IDを取得し場合、不動産IDの附番ルールが変更になった場合など、どの様な場合でも同様です。また、建物を建て替えた場合は建物IDは再度附番しなおして、別の識別子に変更する必要があります。これは、過去のデータを保存するためのルールです。\nデータを登録する時点で建物IDを以下の方法で附番します。\n■登記済みの建物(注: 不動産IDはまだ正式に公開されていないため、当面他の方式で附番してください)\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Building:”<不動産ID>。不動産IDについては、「[不動産IDルールガイドライン](https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/content/001594268.pdf)」を参照してください。建物の不動産IDは<不動産番号>”-“<特定コード>の形式。不動産番号は13桁のASCII文字列。特定コードは4桁のASCII文字列。不動産番号と特定コードの間の文字はハイフン(“-“)以外も利用可能となっていますが、idに利用する場合はハイフンのみ利用可能とします。建物に複数の不動産IDがある場合は、建物全体を表すID、もしくは主たる区分の不動産IDを用います。尚、改築や土地の分筆などで不動産IDが変わる事があっても、idは変更しません。\n■登記していない建物(オーナーが通番管理している場合)\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Building:”<国名コード><法人番号>-<通番>。<国名コード>は日本の法人が所有する建物の場合は”JP”、<法人番号>は建物を所有する法人の法人番号、<通番>はその法人内で定める重複のない任意の文字列です。\n■登記していないその他の建物\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Building:”<UUID>。<UUID>はUUIDの規格に従う重複の無いランダムな16進文字列です。"
     },
     "type": {
-      "const": "Building"
+      "const": "Building",
+      "description": "必ず”Building”の文字列でなくてはならない"
     },
     "category": {
       "title": "用途（建築基準法）",
@@ -25,7 +27,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の用途。”一戸建ての住宅”、”工場”等、建築基準法施行規則 （別記様式）に定める建築物用途区分 を使用できる。本項目は列挙型項目ではないが、用途について[BuildingCategory](https://ppp-database.org/spec/enum/BuildingCategory/)にて例示する。尚、入居する施設のPOIコードと一致するとは限らない"
     },
     "name": {
       "title": "建物名",
@@ -41,7 +44,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の名前を日本語で設定する。本項目は、住所の方書情報としても利用される。通称はalternateNameに設定する"
     },
     "nameKana": {
       "title": "建物名カナ",
@@ -57,7 +61,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物のカナ表記を設定する"
     },
     "nameEn": {
       "title": "建物名英語",
@@ -73,7 +78,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の米国英語表記を設定する。この項目はGIFのコアデータモデルに従い必須としてある。"
     },
     "alternateName": {
       "title": "通称",
@@ -92,7 +98,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "住民からの問い合わせや掲示などで使われる一般的な通称。リストで列挙する"
     },
     "facilityID": {
       "title": "管理通番",
@@ -108,7 +115,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "管理通番。オーナーが管理対象の建物を区別するために付番した文字列。事業者によっては「施設ID」と表現する事があるが、”id”と混同する可能性があるため管理通番と表現します。施設管理では管理対象をBuildingかFacilityのいずれかを管理する単位とするが、この項目は管理対象をBuildingとする場合に指定する"
     },
     "abstract": {
       "title": "概要",
@@ -124,7 +132,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物情報として公開可能な概要情報"
     },
     "description": {
       "title": "説明",
@@ -140,7 +149,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物情報として公開可能な詳細情報。この項目はGIFのコアデータモデルに従い必須としてある。"
     },
     "status": {
       "title": "状態",
@@ -156,7 +166,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "「計画中」「建築中」「稼働中」「一時閉鎖」「閉鎖中」「解体済み」「管理対象外」などのステータス。例えば、○○小学校という施設は継続しているのに、校舎は立て替えるという場合があります。その様な場合にも過去のデータを保存しておき分析等に供したい場合は、この項目で「解体済み」などとしておきます。尚、この項目は用語定義していません。用語定義のニーズがある場合には事務局に連絡してください。"
     },
     "refLand": {
       "title": "土地ID",
@@ -176,7 +187,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "立地する土地を表す「[土地(Land)](https://ppp-database.org/spec/datamodel/Land/)」のEntityへのリンク。継承元のコア・データモデルで住所情報が必須のため、この項目を必須とした。複数の土地に跨って立地している場合は住所としている土地を最初のエントリとして登録する。二つ目以降の要素の順序については意味を持たない"
     },
     "mainFunctions": {
       "title": "主要機能",
@@ -192,7 +204,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の主な働き。例えば”耐火建物”など。この項目はGIFのコアデータモデルから継承して設けられています"
     },
     "usage": {
       "title": "用途（都市計画）",
@@ -208,7 +221,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "都市計画基礎調査実施要領 に準拠する。定義は[BuildingUsage](https://ppp-database.org/spec/enum/BuildingUsage/)を参照。この項目はGIFのコアデータモデルから継承して設けられています"
     },
     "buildingArea": {
       "title": "建築面積",
@@ -224,7 +238,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の建築面積(㎡)"
     },
     "totalFloorArea": {
       "title": "総床面積",
@@ -240,7 +255,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の延べ床面積(㎡)"
     },
     "maximumHeight": {
       "title": "最高の高さ",
@@ -256,7 +272,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の最高点の高さ(m)"
     },
     "floorsAboveGround": {
       "title": "地上階数",
@@ -272,7 +289,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の地上階数"
     },
     "floorsBelowGround": {
       "title": "地下階数",
@@ -288,7 +306,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の地下階数"
     },
     "floorsRoofStructure": {
       "title": "塔屋階数",
@@ -304,7 +323,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "塔屋の階数。自治体によっては、12条点検の報告書で塔屋の項目があるため、この項目を用意している。自治体により登録要否を判断する必要がある"
     },
     "structure": {
       "title": "構造",
@@ -320,7 +340,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "不動産登記の「構造」を格納する。木造、鉄骨造、鉄筋コンクリート造、鉄骨鉄筋コンクリート造などの建物構造を登録する。RC造やRCなどと省略せずに登録する。複数登録する必要がある場合は、TextのArrayで登録する(※技術情報のJSON Schemaと補足に記述があります)"
     },
     "completionDate": {
       "title": "竣工日",
@@ -336,7 +357,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の竣工日。次項も参照してください"
     },
     "completionYear": {
       "title": "竣工年度",
@@ -352,7 +374,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の竣工年度を西暦YYYY形式で登録。竣工日が分かっている場合はcompletionDateを用いる"
     },
     "accessibility": {
       "title": "アクセシビリティ情報",
@@ -427,7 +450,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "詳細は、共通パーツAccessibilityを参照してください"
     },
     "floorArea": {
       "title": "フロア床面積",
@@ -443,7 +467,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "各階の床面積(㎡)。消防法令により定められている、防火対象物の床面積"
     },
     "acquisitionPrice": {
       "title": "取得価格",
@@ -459,7 +484,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "取得時の建物の取得価格(土地を除く)"
     },
     "performanceVerificationMethod": {
       "title": "性能検証法",
@@ -478,7 +504,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "性能検証法の適用状況。”耐火性能検証法”、”防火区画検証法”、”区画避難安全検証法(〇階)”、”階避難安全検証法(〇階)”、”全館避難安全検証法”などをリストで登録"
     },
     "propertyClass": {
       "title": "財産区分",
@@ -494,7 +521,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "財産の区分。”行政財産(公用財産)”、”行政財産(公共用財産)”、”普通財産”など"
     },
     "usePermission": {
       "title": "行政財産使用許可",
@@ -510,7 +538,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "行政財産使用許可が有るか否か"
     },
     "mixedUseFacility": {
       "title": "複合施設",
@@ -526,7 +555,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "複合施設か否か。ここでいう複合施設とは、一つの建物内に異なる用途区分類の施設がある場合を示します。施設カルテ等で使用する項目です。"
     },
     "ownership": {
       "title": "所有形態",
@@ -542,7 +572,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "所有形態。”市”、”町”、”県”、”借上”など"
     },
     "rebuildingPlan": {
       "title": "更新予定時期",
@@ -558,7 +589,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "更新を計画している時期"
     },
     "rebuildingCost": {
       "title": "更新費用",
@@ -574,7 +606,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "予測される更新費用を円単位で登録"
     },
     "serviceLife": {
       "title": "耐用年数",
@@ -590,7 +623,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "耐用年数を年単位で登録"
     },
     "numberOfBuildings": {
       "title": "棟数",
@@ -606,7 +640,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物を構成する棟の数。施設カルテ等で使用する項目です。"
     },
     "asbestosControl": {
       "title": "アスベスト対策",
@@ -622,7 +657,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "アスベスト対策の状況。”対応済”など"
     },
     "seismicDesignStandard": {
       "title": "耐震基準",
@@ -638,7 +674,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "適用している耐震基準"
     },
     "seismicAssessment": {
       "title": "耐震診断",
@@ -654,7 +691,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "耐震診断の状況。例えば”実施済み”、”YYYY-MM実施予定”など。年は西暦4桁で表現する。"
     },
     "seismicRetrofit": {
       "title": "耐震改修",
@@ -670,7 +708,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "耐震改修の状況。例えば”実施済み”、”YYYY-MM実施予定”など。年は西暦4桁で表現する。"
     },
     "map": {
       "title": "地図",
@@ -686,7 +725,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物の位置を示す地図"
     },
     "areaByUseByFloor": {
       "title": "フロア別用途別床面積",
@@ -735,7 +775,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物内の階毎のリスト。階毎に次項のフロア名やフロアの用途のリストを登録する"
     },
     "areaByUse": {
       "title": "用途別床面積",
@@ -768,7 +809,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物内の用途毎のアレイ"
     },
     "refDepartment": {
       "title": "部門ID",
@@ -785,7 +827,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "所有する法人内に本建物の所管部門がある場合にDepartmentにリンクする。管理部門へのリンクは「建物(Building)」にもあり、管理形態によりどちらか、または両方にリンクを格納する。公共施設の場合は、どちらかの登録は必須"
     },
     "identificationGroup": {
       "title": "ID情報",
@@ -823,7 +866,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物を一意に識別するID。不動産IDの登録を想定。不動産IDを登録する場合は、不動産IDの生成ルールが今後変更される可能性がある事に留意が必要です。"
     },
     "refParking": {
       "title": "駐車場ID",
@@ -839,7 +883,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "この建物の駐車・駐輪スペースについて記載してある、OffStreetParking、またはOnStreetParkingへのリンク"
     },
     "refOwner": {
       "title": "法人ID",
@@ -856,7 +901,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "所有する法人の「法人(Organization)」へりリンク。例えば、自治体の公共施設の場合は自治体の「法人」にリンクする"
     },
     "zones": {
       "title": "場所",
@@ -908,7 +954,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設内外の大まかな場所の名称の列です。同じ項目が「施設」にもあります。どちらを使用するのかは利用者の業務に依存しますが、基本的には「施設」に登録します。記述方法は「施設 ([Facility](https://ppp-database.org/spec/datamodel/Facility/))」のzonesを参照してください"
     },
     "refFacilityManager": {
       "title": "施設管理者ID",
@@ -925,7 +972,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設を管理する事業者の「法人」Entityへのリンクの情報。包括施設管理業務委託の場合は包括施設管理事業者の「法人(Organization)」へのリンクとなる場合があります。但し、本項目は統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。"
     },
     "buildingParent": {
       "title": "親建物ID",
@@ -942,7 +990,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "建物を建物と棟に階層化して管理する場合、上位階層のEntityへのリンク情報。例えば複数の棟から構成される建物において、棟のEntityから建物をリンクするなど"
     },
     "permits": {
       "title": "認可証",
@@ -985,7 +1034,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "各種認可証などの情報を登録します。12条点検において、関連図書の内、確認証や検査証を登録するための項目です。但し、本項目は統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。"
     },
     "history": {
       "title": "履歴",
@@ -1018,7 +1068,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "用途変更、模様替又は修繕（以下「増築、改築、用途変更等」という。）について、経過の古いものから順に記入する。この項目は順序が意味を持ちます(順序付きリストと言います)。事業者交替時の引継ぎ情報としては必須情報です"
     },
     "ventilation": {
       "title": "排気設備",
@@ -1068,7 +1119,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "12条点検で報告する換気設備の概要について登録する。但し、本項目は本来BIMや建物OSで管理すべき項目である可能性があり、また統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。"
     },
     "smokeExtraction": {
       "title": "排煙設備",
@@ -1118,7 +1170,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "12条点検で報告する排煙設備の概要について登録する。但し、本項目は本来BIMや建物OSで管理すべき項目である可能性があり、また統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。"
     }
   },
   "required": [

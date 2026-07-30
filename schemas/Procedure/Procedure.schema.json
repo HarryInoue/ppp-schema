@@ -3,37 +3,68 @@
   "$id": "https://ppp-database.org/spec/datamodel/Procedure/",
   "title": "NGSI v2 Procedure Entity (Normalized - Refactored)",
   "type": "object",
-  "required": ["id", "type", "steps"],
+  "required": [
+    "id",
+    "type",
+    "steps"
+  ],
   "properties": {
     "id": {
       "type": "string",
       "pattern": "^urn:ngsi-ld:Procedure:.*",
-      "description": "Entity ID (URN format)"
+      "description": "測定や確認などを行う観測手順を一意に識別する識別子です。この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。文字列の”urn:ngsi-ld:Procedure:”<一意となる文字列>です。<一意となる文字列>は一意となる文字列であれば何でもよいですが、本項目値全体でurnの規格に合致する必要がある。",
+      "title": "手順ID"
     },
     "type": {
       "type": "string",
       "const": "Procedure",
-      "description": "Entity Type"
+      "description": "必ず”Procedure”の文字列でなくてはなりません。"
     },
-    "name": { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
-    "description": { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
-    "refFacility": { "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility" },
-    "steps": { "$ref": "#/$defs/StepsAttribute" }
+    "name": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "description": "この手順が示す作業の名称です。必須項目ではありませんが、人的作業を伴う場合は名称を付与する事を推奨します。",
+      "title": "手順名"
+    },
+    "description": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "description": "この手順に関する概要説明です。",
+      "title": "説明"
+    },
+    "refFacility": {
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility",
+      "description": "この手順の対象となる施設を識別するためのIDです。手順が多数ある際の絞り込みなどに用いる情報です。",
+      "title": "施設ID"
+    },
+    "steps": {
+      "$ref": "#/$defs/StepsAttribute",
+      "description": "「作業指示(ProcedureStep)」を要素とするArrayです。出来る限り実際の手順の順序に合わせて登録する事を推奨します。",
+      "title": "作業項目"
+    }
   },
   "$defs": {
     "StepsAttribute": {
       "type": "object",
-      "description": "Peocedureを構成する各ステップのArray",
-      "required": ["type", "value"],
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
-        "type": { "const": "Array" },
+        "type": {
+          "const": "Array"
+        },
         "value": {
           "type": "array",
           "items": {
             "oneOf": [
-              { "$ref": "../../parts/ProcedureStep.schema.json#/$defs/MeasurementStep" },
-              { "$ref": "../../parts/ProcedureStep.schema.json#/$defs/CheckStep" },
-              { "$ref": "../../parts/ProcedureStep.schema.json#/$defs/SampleStep" }
+              {
+                "$ref": "../../parts/ProcedureStep.schema.json#/$defs/MeasurementStep"
+              },
+              {
+                "$ref": "../../parts/ProcedureStep.schema.json#/$defs/CheckStep"
+              },
+              {
+                "$ref": "../../parts/ProcedureStep.schema.json#/$defs/SampleStep"
+              }
             ]
           }
         }

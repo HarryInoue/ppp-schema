@@ -9,63 +9,63 @@
   ],
   "rows": [
     [
-      "-",
+      "1::1",
       "id",
       "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
-      ""
+      "必須"
     ],
     [
-      "-",
+      "1::1",
       "type",
       "Text",
       "1",
-      ""
+      "必須"
     ],
     [
-      "-",
+      "0::1",
       "startDateOfPeriod",
       "Date",
       "1",
-      ""
+      "〇"
     ],
     [
-      "-",
+      "0::1",
       "endDateOfPeriod",
       "Date",
       "1",
-      ""
+      "〇"
     ],
     [
-      "-",
+      "0::1",
       "name",
       "Text",
       "1",
-      ""
+      "〇"
     ],
     [
-      "-",
+      "0::1",
       "target",
       "Text",
       "1",
       ""
     ],
     [
-      "-",
+      "0::1",
       "refFacility",
       "Relationship",
       "1",
-      ""
+      "〇"
     ],
     [
-      "-",
+      "0::1",
       "area",
       "Number",
       "1",
       ""
     ],
     [
-      "-",
+      "0::1",
       "income",
       "StructuredValue",
       "1",
@@ -90,7 +90,7 @@
       "1"
     ],
     [
-      "-",
+      "0::1",
       "operatingExpense",
       "StructuredValue",
       "1",
@@ -151,7 +151,7 @@
       "1"
     ],
     [
-      "-",
+      "0::1",
       "capitalExpense",
       "StructuredValue",
       "1",
@@ -170,49 +170,49 @@
       "1"
     ],
     [
-      "-",
+      "0::1",
       "depreciationCost",
       "Number",
       "1",
       ""
     ],
     [
-      "-",
+      "0::1",
       "operationDays",
       "Number",
       "1",
       ""
     ],
     [
-      "-",
+      "0::1",
       "operationHours",
       "Text",
       "1",
       ""
     ],
     [
-      "-",
+      "0::1",
       "usageCount",
       "Number",
       "1",
       ""
     ],
     [
-      "-",
+      "0::1",
       "availableCount",
       "Number",
       "1",
       ""
     ],
     [
-      "-",
+      "0::1",
       "numberOfUsers",
       "Number",
       "1",
       ""
     ],
     [
-      "-",
+      "0::n",
       "customAttribute",
       "Array",
       "*",

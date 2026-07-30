@@ -15,12 +15,13 @@
     "id": {
       "type": "string",
       "pattern": "^urn:ngsi-ld:Observation:.*",
-      "description": "Entity ID (URN format). Example: urn:ngsi-ld:Observation:T123456"
+      "description": "測定値や確認結果を一意に識別する識別子です。この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。文字列の”urn:ngsi-ld:Observation”<一意となる文字列>です。<一意となる文字列>は一意となる文字列であれば何でもよいですが、本項目値全体でurnの規格に合致する必要がある。",
+      "title": "観測活動ID"
     },
     "type": {
       "type": "string",
       "const": "Observation",
-      "description": "Entity Type must be 'Observation'"
+      "description": "必ず”Observation”の文字列でなくてはなりません。"
     },
     "stepType": {
       "type": "object",
@@ -41,9 +42,13 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "「観測手順(Procedure)」で定義した各「作業項目 (steps)」のstepTypeです。定義した手順の場合は必須ですが、定義していない作業の場合は省略します。",
+      "title": "作業タイプ"
     },
     "refProcedure": {
+      "description": "この観測活動が基づく「[観測手順 (Procedure)](https://ppp-database.org/spec/datamodel/Procedure/)」のIDです。「観測手順」で定義した「手順ID」です。手順に基づく観測活動の場合は必須です。",
+      "title": "手順ID",
       "type": "object",
       "required": [
         "type",
@@ -61,6 +66,8 @@
       "additionalProperties": false
     },
     "name": {
+      "description": "「[観測手順 (Procedure)](https://ppp-database.org/spec/datamodel/Procedure/)」に基づく場合は「観測手順」内の「作業項目 (ProcedureSteps)」の各ステップで定義した「作業名」です。手順に基づく作業の場合は、手順IDとこの作業名またはステップ番号で作業を特定できるため、どちらかは必須です。尚、ステップ番号で識別する場合も作業名を付与する事を推奨します。",
+      "title": "作業名",
       "type": "object",
       "required": [
         "type",
@@ -77,6 +84,8 @@
       "additionalProperties": false
     },
     "stepNumber": {
+      "description": "「[観測手順 (Procedure)](https://ppp-database.org/spec/datamodel/procedure/)」に基づく場合は「観測手順 (Procedure)」内の「作業指示 (ProcedureSteps)」で定義した「ステップ番号」です。",
+      "title": "ステップ番号",
       "type": "object",
       "required": [
         "type",
@@ -93,6 +102,8 @@
       "additionalProperties": false
     },
     "description": {
+      "description": "この観測活動に関する概要説明です。",
+      "title": "説明",
       "type": "object",
       "required": [
         "type",
@@ -150,9 +161,13 @@
           },
           "additionalProperties": false
         }
-      ]
+      ],
+      "description": "観測活動を実施した日時です。開始と終了を明示する必要がある時は、2項目のArrayで開始日時・終了日時の順番で指定します。",
+      "title": "実施日時"
     },
     "operator": {
+      "description": "実施主体を区別するための情報です。データを流通する観点から個人名は望ましくありません。",
+      "title": "実施者",
       "type": "object",
       "required": [
         "type",
@@ -169,7 +184,7 @@
       "additionalProperties": false
     },
     "refFeatureOfInterest": {
-      "description": "The Feature of Interest being observed (Device or BuildingComponent).",
+      "description": "観測対象の「設備」「部位」「備品」をリンクするためのそれぞれのIDです。",
       "oneOf": [
         {
           "type": "object",
@@ -205,7 +220,8 @@
           },
           "additionalProperties": false
         }
-      ]
+      ],
+      "title": "観測対象"
     },
     "results": {
       "type": "object",
@@ -258,7 +274,9 @@
           }
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "観測結果と共に、付随する情報を登録する構造体です。付随する情報とは、例えば室温の測定結果と共に、外気温や日照量などの分析に役立つ情報を指します。主たる測定結果はArray内の一つ目の要素に格納します。このArrayの要素には以下のみっつの形式があります。",
+      "title": "観測結果"
     }
   }
 }

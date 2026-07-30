@@ -9,172 +9,172 @@
   ],
   "rows": [
     [
-      "-",
+      "機種ID",
       "id",
       "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
-      ""
+      "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた設備IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:DeviceModel:”<一意となる文字列>。一意となる文字列は、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます、例えば国名コードとメーカの法人番号の後にハイフンを挟んで型番を並べたものなど。"
     ],
     [
       "-",
       "type",
       "Text",
       "1",
-      ""
+      "必ず”DeviceModel”の文字列でなくてはならない"
     ],
     [
-      "-",
+      "通称",
       "alternateName",
       "Text",
       "1",
-      ""
+      "通称を入れる (もしあれば)"
     ],
     [
-      "-",
+      "注釈",
       "annotations",
       "Array",
       "*",
-      ""
+      "設備に関する注釈"
     ],
     [
-      "-",
+      "ブランド名",
       "brandName",
       "Text",
       "1",
-      ""
+      "機器のブランド名を設定する。例えば”しろくまくん”。"
     ],
     [
-      "-",
+      "設備種別",
       "category",
       "Text",
       "1",
-      ""
+      "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照。尚、設備の種別が階層化されているときは、高位の階層から順番に格納する。"
     ],
     [
-      "-",
+      "色",
       "color",
       "Text",
       "1",
-      ""
+      "機器の色を設定する。例えば”白”"
     ],
     [
-      "-",
+      "制御対象",
       "controlledProperty",
       "Array",
       "*",
-      ""
+      "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。"
     ],
     [
-      "-",
+      "プロバイダ",
       "dataProvider",
       "Text",
       "1",
-      ""
+      "このEntityに対するプロバイダを特定する文字列。今回のユースケースではプロバイダは存在しません。"
     ],
     [
-      "-",
+      "説明",
       "description",
       "Text",
       "1",
-      ""
+      "機種情報として公開可能な詳細情報"
     ],
     [
-      "-",
+      "クラス",
       "deviceClass",
       "Text",
       "1",
-      ""
+      "制約条件付きデバイス(constrained device)のクラスです。RFC7228で規定。制約条件付きデバイスではない場合、意味を持ちません"
     ],
     [
-      "-",
+      "ドキュメント",
       "documentation",
       "URL",
       "1",
-      ""
+      "デバイスのドキュメントに対するリンク"
     ],
     [
-      "-",
+      "エネルギークラス",
       "energyLimitationClass",
       "Text",
       "1",
-      ""
+      "これも、デバイスのクラスです。RFC7228で規定されています"
     ],
     [
-      "-",
+      "機能",
       "function",
       "Array",
       "*",
-      ""
+      "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがある"
     ],
     [
-      "-",
+      "写真",
       "image",
       "URL",
       "1",
-      ""
+      "デバイスの写真等のurlです。"
     ],
     [
-      "-",
+      "メーカ名",
       "manufacturerName",
       "Text",
       "1",
-      ""
+      "メーカ名を設定する。例えば”日立製作所”"
     ],
     [
-      "-",
+      "モデル名",
       "modelName",
       "Text",
       "1",
-      ""
+      "機器のモデル名を設定する。例えば”RAS-DM28KE8″"
     ],
     [
-      "-",
+      "機種名",
       "name",
       "Text",
       "1",
-      ""
+      "機種に個別に名称が付いているときに、その名称を設定する"
     ],
     [
-      "-",
+      "所有者",
       "owner",
       "Array",
       "*",
-      ""
+      "所有者のidです"
     ],
     [
-      "-",
+      "追加情報",
       "seeAlso",
       "Array",
       "*",
-      ""
+      "追加情報のURIを格納します。つまり、idやurlが入ります。"
     ],
     [
-      "-",
+      "耐用年数",
       "serviceLife",
       "Number",
       "1",
-      ""
+      "耐用年数です。会計上、税務上の耐用年数ではなく、実際に利用可能な年数です"
     ],
     [
-      "-",
+      "データー提供者",
       "source",
       "URL",
       "1",
-      ""
+      "データ提供者のurlです"
     ],
     [
-      "-",
+      "プロトコル",
       "supportedProtocol",
       "Array",
       "*",
-      ""
+      "サポートしているプロトコルです"
     ],
     [
-      "-",
+      "精度",
       "supportedUnits",
       "Array",
       "*",
-      ""
+      "サポートしている測定値の精度です"
     ]
   ]
 }

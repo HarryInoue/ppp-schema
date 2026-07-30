@@ -4,10 +4,13 @@
   "type": "object",
   "properties": {
     "id": {
-      "type": "string"
+      "type": "string",
+      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた部位IDは変更する事はできません。また、改築等で部位が継続性が無い状況でを入れ替えた場合は部位IDは再度附番しなおして、別の識別子に変更する必要があります。これは、保存された過去のデータと区別するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:BuildingComponent:”<一意となる文字列>。一意となる文字列は一意であれば何でもよいが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。",
+      "title": "部位ID"
     },
     "type": {
-      "const": "BuildingComponent"
+      "const": "BuildingComponent",
+      "description": "必ず”BuildingComponent”の文字列でなくてはならない"
     },
     "category": {
       "type": "object",
@@ -22,7 +25,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "部位の種別。列挙型項目であり、用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照",
+      "title": "部位種別"
     },
     "name": {
       "type": "object",
@@ -37,7 +42,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "部位に他と区別すべき名称が付いている場合に、名称を設定する。名称は”中央階段”、”職員門扉”などの様に利用者が使う名称を用いても、”〇小-1F-空調-A01″などの様に管理上の名称でも使用上は構わない。オーナーと管理者との協議により決まる。",
+      "title": "部位名称"
     },
     "nameKana": {
       "type": "object",
@@ -52,7 +59,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "部位の名称のカナ表記を設定する"
     },
     "nameEn": {
       "type": "object",
@@ -67,7 +75,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "部位の名称の米国英語表記を設定する"
     },
     "description": {
       "type": "object",
@@ -82,7 +91,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "部位情報として公開可能な詳細情報",
+      "title": "説明"
     },
     "status": {
       "type": "object",
@@ -97,7 +108,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "「稼働中」、「故障中」などのステータス。この項目を利用する場合は、更新責任をだれが担うかなどのルールの策定が必要",
+      "title": "ステータス"
     },
     "refFacility": {
       "type": "object",
@@ -112,7 +125,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "設置している対象の施設へのリンクです。施設管理業務においては、施設全体を表す「施設 (Facility)」または、施設にテナントとして入居するテナント施設の「施設 (Facility)」をリンクします。尚、テナント施設からは「主施設ID(facilityParent)」という項目により、施設全体の情報を辿る事ができます。",
+      "title": "施設ID"
     },
     "refBuilding": {
       "type": "object",
@@ -127,7 +142,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "設置している対象の建物へのリンク。12条点検などの公的点検では部位や設備の不具合は棟毎に分けて報告する仕様になっているためこの項目があります。",
+      "title": "建物ID"
     },
     "url": {
       "type": "object",
@@ -142,7 +159,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "設置場所写真のURLなど",
+      "title": "url"
     },
     "remarks": {
       "type": "object",
@@ -157,7 +176,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "備考",
+      "title": "備考"
     },
     "zoneInstalled": {
       "type": "object",
@@ -176,7 +197,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "部位がある場所です。「建物(Building)」または「施設(Facility)」で定義したZonesの名称の配列で記載します。例えば[“校舎”, “2F”,”1年C組”]です。",
+      "title": "場所"
     },
     "zoneRemarks": {
       "type": "object",
@@ -191,7 +214,9 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "前項の補足情報を記入します。例えば”内壁”の部位情報で、前項の値が[“校舎”, “2F”,”1年C組”]である時に、更に南側の内壁である事を明示したい場合は”南側”などと記入します。",
+      "title": "場所備考"
     }
   },
   "required": [

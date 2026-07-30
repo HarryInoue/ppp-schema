@@ -6,10 +6,12 @@
   "properties": {
     "id": {
       "title": "施設ID",
-      "type": "string"
+      "type": "string",
+      "description": "NGSI V2に準拠する際の[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)です。一旦割り当てた施設IDは変更する事はできません。。NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Facility:”<通番>。<通番>は全ての施設で一意となる文字列です。例えば採番時に施設を所有する法人の<国名コード><法人番号>-<管理通番>などです。ここでいう管理通番はオーナーの法人内で施設を一意に識別する文字列です。尚、オーナーの法人が替わるなどにより法人番号や管理通番が変わっても、施設として継続している場合はこの施設IDは変更してはならない決まりです。"
     },
     "type": {
-      "const": "Facility"
+      "const": "Facility",
+      "description": "必ず”Facility”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "name": {
       "title": "施設名",
@@ -25,7 +27,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "正式な施設名を日本語で設定する"
     },
     "nameKana": {
       "title": "施設名カナ",
@@ -41,7 +44,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設のカナ表記を設定する。GIFで必須となっているため必須としています。"
     },
     "nameEn": {
       "title": "施設名英語",
@@ -57,7 +61,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設の米国英語表記を設定する"
     },
     "alternateName": {
       "title": "通称",
@@ -76,7 +81,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "住民や来街者からの問い合わせや掲示などで使われる一般的な通称がある場合はリスト構造で列挙します。公共施設ドメインの場合、省略すると通称はないと解釈されます"
     },
     "facilityID": {
       "title": "管理通番",
@@ -92,7 +98,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "オーナーが管理対象の施設を区別するために付番した文字列です。事業者によっては施設IDや施設番号などと表現する事がありますが、項目の呼称「施設ID(id)」と混同する可能性があるため共通データ仕様では管理通番と表現しています。施設管理では基本的にこの「施設(Facility)」を管理単位としますが、データ仕様上は「建物(Building)」を管理対象とすることも可能です。本項目は管理対象をFacilityとする場合には必須です。また複合施設等に入居するテナント施設の場合もデータ管理上附番しておくことが望ましいです。"
     },
     "category": {
       "title": "施設大分類",
@@ -108,7 +115,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設の分類。GIFのPOIの大分類の名称を登録。GIFの規定上必須となっているので本仕様も必須としているが、必ずしも該当する分類があるとは限らない。例えば”給食センター”などはない"
     },
     "subcategory": {
       "title": "施設小分類",
@@ -124,7 +132,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設の分類。GIFのPOIの小分類の名称を登録。GIFの規定上必須となっているので本仕様も必須としているが、必ずしも該当する分類があるとは限らない。"
     },
     "originalCategory": {
       "title": "施設分類",
@@ -143,7 +152,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "POI以外の分類がある場合に登録。独自の分類で構わない。分類が階層構造になっている場合は大まかな分類から順にリストで登録"
     },
     "abstract": {
       "title": "施設概要",
@@ -159,7 +169,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設情報として公開可能なリード文です。"
     },
     "description": {
       "title": "施設説明",
@@ -175,7 +186,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設の概要を記載します。"
     },
     "status": {
       "title": "ステータス",
@@ -191,7 +203,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設の状態です。”計画中”、”準備中”、”稼働中”、”一時閉鎖”、”閉鎖中”、”廃止”などを登録します。施設が廃止されても、統計データや分析データは残るためこのデータモデルのデータも削除できません。そこで、この項目に”廃止”などと記述する事で存在する施設の情報なのかどうかを区別します。この項目には用語は定義されていません。定義が必要な場合はこのページの一番上の「コメント投稿」から事務局に連絡してください。"
     },
     "shelter": {
       "title": "防災施設情報",
@@ -210,7 +223,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "防災施設を示す属性。例えば[“指定緊急避難場所”, “洪水”, “地震”]など"
     },
     "postalCode": {
       "title": "個別郵便番号",
@@ -226,7 +240,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設が個別郵便番号を有する場合に登録する。このAttributeに登録が無い場合は、リンクを辿ってLandのpostalCodeを参照する"
     },
     "refBuilding": {
       "title": "建物ID",
@@ -243,7 +258,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "入居するBuilding(建物)へのリンクです。リンクを辿ることで住所)やビル名を求めることができます"
     },
     "floor": {
       "title": "フロア",
@@ -259,7 +275,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "入居する建物内の位置。方書にフロア情報も必要な場合に登録"
     },
     "openingHours": {
       "title": "開館時間",
@@ -278,7 +295,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "曜日ごとの開館閉館時刻の配列。"
     },
     "openingHoursRemarks": {
       "title": "開館時間補足",
@@ -294,7 +312,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "openingHoursの定型では表現できない施設の利用日時情報"
     },
     "chargeType": {
       "title": "料金種別",
@@ -313,7 +332,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "料金の種別。”有料”、”年額”、”月額”、”無料”など"
     },
     "price": {
       "title": "料金",
@@ -329,7 +349,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設利用に必要な基本料金を日本円で記載(1円単位)"
     },
     "priceRemarks": {
       "title": "料金備考",
@@ -345,7 +366,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "料金の備考。例: “１グループ1000円”、または”大人１名1500円、子供１名500円(18歳以下)、65歳以上１名1000円”など"
     },
     "paymentMethod": {
       "title": "決済種別",
@@ -364,7 +386,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "料金の支払方法。列挙型項目。列挙型メンバは、[http://schema.org/paymentMethod](http://schema.org/paymentMethod)を参照"
     },
     "peopleCapacity": {
       "title": "収容人数",
@@ -380,7 +403,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "定員"
     },
     "accessMethod": {
       "title": "アクセス方法",
@@ -396,7 +420,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "公共交通や車でのアクセス方法を記載します。"
     },
     "refOffStreetParking": {
       "title": "駐車場ID",
@@ -415,7 +440,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "駐車場情報のid。駐車可能な台数などの説明、料金、優先駐車場の有無などを辿れる。データモデルはSmart Data Modelsの[OffStreetParking](https://github.com/smart-data-models/dataModel.Parking/tree/a8d826a5ba45ccfe2f4d35273a5c4bfb05d85117/OffStreetParking)を参照されたい"
     },
     "areaServed": {
       "title": "サービス担当区域",
@@ -484,7 +510,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "この施設がサービスを提供する区域をポリゴンで指定する。前項とどちらかしか登録できない"
     },
     "areaServedaRemarks": {
       "title": "サービス担当区域備考",
@@ -554,7 +581,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設の代表電話などを登録する"
     },
     "refOperationManager": {
       "title": "運営者",
@@ -574,7 +602,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "運営を担当している法人へのリンク。自治体の場合、包括施設管理事業者の場合、および第三の事業者の場合などがある"
     },
     "refFacilityManager": {
       "title": "管理者",
@@ -594,7 +623,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設を管理する事業者の「法人」Entityへのリンクの情報。包括施設管理業務委託の場合は包括施設管理事業者へのリンク"
     },
     "accessibility": {
       "title": "アクセシビリティ情報",
@@ -669,7 +699,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設のバリアフリー情報などを登録します。"
     },
     "childCare": {
       "title": "子育て支援情報",
@@ -748,7 +779,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "子育て施設の場合、受け入れ年齢と一時預かりの有無の情報の登録を推奨。共通パーツを参照"
     },
     "facilityParent": {
       "title": "主施設ID",
@@ -765,7 +797,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "複合施設へ入居するテナント施設)において、建物や土地を含めた複合施設全体を表す「施設」の施設IDを登録します。施設全体を表す「施設」の場合はこの項目を登録しません。またはNULLを登録します。入居施設とは複合施設のテナント施設だけでなく、例えば学校に臨時的に設置する避難所、公共施設に併設する防災倉庫などがあります。"
     },
     "usage": {
       "title": "用途",
@@ -781,7 +814,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "消防法施行令別表第一に掲げる防火対象物の用途。http://www.chikuta119.jp/info/ihan_kohyo/pdf/beppyo01.pdf"
     },
     "refDepartment": {
       "title": "所管部門ID",
@@ -798,7 +832,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "本施設を管理する部署の「部門(Department)」へのリンク。公共施設の場合は所管課のDepartmentへのリンク。管理部門へのリンクは「建物(Building)」にもあり、管理形態によりどちらか、または両方にリンクを格納する。公共施設の場合は、どちらかの登録は必須"
     },
     "totalFloorArea": {
       "title": "床面積",
@@ -814,7 +849,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設が建物の一部に入居している場合は、占有部分の床面積の総計。尚、建物全体の延べ床面積は「建物」に登録する"
     },
     "zones": {
       "title": "場所",
@@ -866,7 +902,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設内外を大まかに区分した場所の名称を最大3階層で登録します。最もおおまかな場所の名称は、zoneNameで指定します。更に区分した場所の名称は、subzoneNameの一つ目の項目で指定します。更に区分した最も細かい場所の名称は、subzoneNameの二つ目の項目で指定します。二つ目の情報はTextのリストです。この情報は、不具合の通報者、コールセンタ、受託事業者、および自治体職員間の意思疎通のために使われる事を想定しています。「建物」か「施設」のどちらかへの登録は必須です。subzoneNameのArrayは順番に意味を持ちます(順序付きリスト)。棟毎にこの「建物」の情報を登録する場合も、この場所の情報は建物全体の「建物」に登録します"
     },
     "managementForm": {
       "title": "管理方式",
@@ -882,7 +919,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "自治体の場合、直営、指定管理などの区別を登録"
     },
     "basisLaw": {
       "title": "根拠法",
@@ -898,7 +936,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "設置の根拠となる法令など。”○○設置条例”など"
     },
     "localDisasterPreventionPlan": {
       "title": "防災計画",
@@ -914,7 +953,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "地域防災計画における本施設の位置づけ。”避難所”など"
     },
     "refPix": {
       "title": "写真",
@@ -933,7 +973,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設の写真のurl"
     },
     "remarks": {
       "title": "特記事項",
@@ -949,7 +990,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "特記事項があれば記述"
     },
     "refMaterials": {
       "title": "図絵等",
@@ -968,7 +1010,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "グラフ等の図絵があれば、urlを登録"
     },
     "userLimitation": {
       "title": "利用制限",
@@ -984,7 +1027,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "施設の利用者に制限があるかどうか"
     },
     "availableUsers": {
       "title": "利用可能者",
@@ -1000,7 +1044,8 @@
       "required": [
         "type",
         "value"
-      ]
+      ],
+      "description": "利用者に制限がある場合、利用できる人等の属性を記述"
     }
   },
   "required": [

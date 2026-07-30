@@ -13,140 +13,140 @@
       "id",
       "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
-      ""
+      "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)です。データを登録する時点で登記済みの土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Land:”<不動産ID>。不動産IDについては、「[不動産IDルールガイドライン](https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/content/001594268.pdf)」を参照してください。このガイドラインでは土地の不動産IDは<不動産番号>”-0000″の形式。不動産番号は13桁のASCII文字列。不動産番号直後の文字はハイフン(“-“)以外も利用可能となっていますが、idとして利用する場合はハイフンのみ利用可能です。\nデータを登録する時点で登記していない土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Land:”<国名コード><法人番号>-<通番>、または”urn:ngsi-ld:Land:”<UUID>。<国名コード>は日本の法人が所有する土地の場合は”JP”、<法人番号>は土地を所有する法人番号、<通番>はその法人内で定める重複のない任意の文字列です。<UUID>はUUIDの規格に従う重複の無いランダムな16進文字列です。\n不動産IDのルールは今後変更されるかもしれませんが、その場合も一旦割り当てたidは変更する事はできません。"
     ],
     [
       "-",
       "type",
       "Text",
       "1",
-      ""
+      "NGSI V2およびNGSI-LDの仕様にあわせ、必ず”Land”の文字列を登録します"
     ],
     [
       "ID情報",
       "identificationGroup",
       "[IdentificationGroup](https://ppp-database.org/spec/parts/IdentificationGroup/)",
       "*",
-      ""
+      "この項目は、土地に関する各種IDを並べて登録するための「箱」です。将来的に土地単位に付番される、不動産IDの登録を想定しています。不動産IDを登録する場合は、不動産IDの生成ルールが今後変更される可能性がある事に留意が必要です。"
     ],
     [
       "用途",
       "usage",
       "Array",
       "*",
-      ""
+      "土地の主要な用途です。本仕様が継承しているGIFのコア・データモデルで必須の指定があるため、本仕様でも必須としてあります。登録して良い用語(列挙型メンバ)の定義は、[LandUsage](https://ppp-database.org/spec/enum/LandUsage)を参照してください"
     ],
     [
       "土地名",
       "name",
       "Text",
       "1",
-      ""
+      "土地の名前がある場合は必ず設定します。”○○公園”など。但し、小学校など、通常建物名称や施設名称で呼ばれる場合は省略して構いません"
     ],
     [
       "通称",
       "alternateName",
       "Array",
       "*",
-      ""
+      "住民からの問い合わせや掲示などで使われる一般的な通称がある場合はリスト形式で列挙します"
     ],
     [
       "説明",
       "description",
       "Text",
       "1",
-      ""
+      "土地情報として公開可能な詳細情報です"
     ],
     [
       "住所",
       "address",
       "[PostalAddress](https://ppp-database.org/spec/parts/PostalAddress/)",
       "1",
-      ""
+      "住所をPostalAddress形式で設定します。郵便番号は、土地に付番された郵便番号を登録するものとし、個別郵便番号は施設のデータモデルである[Facility](https://ppp-database.org/spc/datamodel/Facility)に登録します"
     ],
     [
       "面積",
       "siteArea",
       "Number",
       "1",
-      ""
+      "土地の敷地面積(㎡)。公共施設の土地では必須です(施設カルテ等で使用します)"
     ],
     [
       "座標",
       "location",
       "[Point](https://ppp-database.org/spec/parts/Point/) / [Polygon](https://ppp-database.org/spec/parts/Polygon/)",
       "1",
-      ""
+      "土地の座標点を登録します (注1)"
     ],
     [
       "備考",
       "remarks",
       "Text",
       "1",
-      ""
+      "土地の備考です"
     ],
     [
       "連絡先",
       "refContactPoint",
       "Relationship",
       "1",
-      ""
+      "所有者と連絡先が異なる場合に、連絡先となっている法人のOrganizationか担当部門のDepartmentへのリンクを設定します。リンク先の施設管理事業者の情報には、電話番号などの連絡方法に関する情報が記載されています"
     ],
     [
       "防火地域",
       "fireZone",
       "Text",
       "1",
-      ""
+      "防火地域、準防火地域などの区別です。施設カルテや12条点検の報告等での利用を期待しています。特に、12条点検の対象となる建物では、点検結果の報告書に必要な情報です。"
     ],
     [
       "用途地域",
       "landUseZone",
       "Text",
       "1",
-      ""
+      "用途地域を表す列挙型項目です。施設カルテ等や12条点検の報告等での利用を期待しており、特に、12条点検の対象となる建物では、点検結果の報告書に必要な情報です。登録して良い用語(列挙型メンバ)の定義は[「土地の用途地域 (LandUseZone)」](https://ppp-database.org/spec/enum/LandUseZone)です。"
     ],
     [
       "所有形態",
       "ownership",
       "Text",
       "1",
-      ""
+      "所有形態。”市”、”町”、”県”、”借上”げなど。公共施設の場合は必須です(施設カルテ等で使用します)。但し、建物が”借上”の場合、記入は必須ではない"
     ],
     [
       "取得価格",
       "acquisitionPrice",
       "Number",
       "1",
-      ""
+      "土地の取得価格。公共の土地では必須です(施設カルテ等で使用します)"
     ],
     [
       "建ぺい率",
       "coverageRatio",
       "Number",
       "1",
-      ""
+      "建ぺい率を%で記載します(施設カルテ等で使用します)"
     ],
     [
       "容積率",
       "floorAreaRatio",
       "Number",
       "1",
-      ""
+      "容積率を%で記載します(施設カルテ等で使用します)"
     ],
     [
       "所有者",
       "refOwner",
       "Relationship",
       "1",
-      ""
+      "所有する法人へのリンクです。例えば、自治体が公有地を本データモデル管理する場合に、自治体のOrganizationにリンクします。建物の管理業務において「建物」とオーナーが異なる場合は必須です。"
     ],
     [
       "所管部門",
       "refDepartment",
       "Relationship",
       "1",
-      ""
+      "所有する法人に所管部門がある場合にDepartmentにリンクする"
     ]
   ]
 }
