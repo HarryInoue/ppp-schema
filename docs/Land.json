@@ -11,21 +11,21 @@
     [
       "土地ID",
       "id",
-      "string",
+      "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
       ""
     ],
     [
       "-",
       "type",
-      "string",
+      "Text",
       "1",
       ""
     ],
     [
       "ID情報",
       "identificationGroup",
-      "IdentificationGroup",
+      "[IdentificationGroup](https://ppp-database.org/spec/parts/IdentificationGroup/)",
       "*",
       ""
     ],
@@ -60,7 +60,7 @@
     [
       "住所",
       "address",
-      "PostalAddress",
+      "[PostalAddress](https://ppp-database.org/spec/parts/PostalAddress/)",
       "1",
       ""
     ],
@@ -74,7 +74,7 @@
     [
       "座標",
       "location",
-      "geo:json",
+      "[Point](https://ppp-database.org/spec/parts/Point/) / [Polygon](https://ppp-database.org/spec/parts/Polygon/)",
       "1",
       ""
     ],

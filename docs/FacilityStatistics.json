@@ -11,14 +11,14 @@
     [
       "-",
       "id",
-      "string",
+      "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
       ""
     ],
     [
       "-",
       "type",
-      "string",
+      "Text",
       "1",
       ""
     ],

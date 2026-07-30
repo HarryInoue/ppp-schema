@@ -11,14 +11,14 @@
     [
       "施設ID",
       "id",
-      "string",
+      "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
       ""
     ],
     [
       "-",
       "type",
-      "string",
+      "Text",
       "1",
       ""
     ],
@@ -130,7 +130,7 @@
     [
       "開館時間",
       "openingHours",
-      "OpeningHours",
+      "[OpeningHours](https://ppp-database.org/spec/parts/OpeningHours/)",
       "*",
       ""
     ],
@@ -207,7 +207,7 @@
     [
       "連絡先",
       "contactPoint",
-      "ContactPoint",
+      "[ContactPoint](https://ppp-database.org/spec/parts/ContactPoint/)",
       "*",
       ""
     ],
@@ -228,14 +228,14 @@
     [
       "アクセシビリティ情報",
       "accessibility",
-      "Accessibility",
+      "[Accessibility](https://ppp-database.org/spec/parts/Accessibility/)",
       "1",
       ""
     ],
     [
       "子育て支援情報",
       "childCare",
-      "ChildCare",
+      "[ChildCare](https://ppp-database.org/spec/parts/ChildCare/)",
       "1",
       ""
     ],

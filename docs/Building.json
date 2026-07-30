@@ -11,14 +11,14 @@
     [
       "建物ID",
       "id",
-      "string",
+      "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
       ""
     ],
     [
       "-",
       "type",
-      "string",
+      "Text",
       "1",
       ""
     ],
@@ -172,7 +172,7 @@
     [
       "アクセシビリティ情報",
       "accessibility",
-      "Accessibility",
+      "[Accessibility](https://ppp-database.org/spec/parts/Accessibility/)",
       "1",
       ""
     ],
@@ -312,7 +312,7 @@
     [
       "ID情報",
       "identificationGroup",
-      "IdentificationGroup",
+      "[IdentificationGroup](https://ppp-database.org/spec/parts/IdentificationGroup/)",
       "*",
       ""
     ],

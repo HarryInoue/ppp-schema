@@ -11,21 +11,21 @@
     [
       "法人ID",
       "id",
-      "string",
+      "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
       ""
     ],
     [
       "-",
       "type",
-      "string",
+      "Text",
       "1",
       ""
     ],
     [
       "ID情報",
       "identificationGroup",
-      "IdentificationGroup",
+      "[IdentificationGroup](https://ppp-database.org/spec/parts/IdentificationGroup/)",
       "*",
       ""
     ],
@@ -151,14 +151,14 @@
     [
       "登記住所",
       "registeredAddress",
-      "PostalAddress",
+      "[PostalAddress](https://ppp-database.org/spec/parts/PostalAddress/)",
       "1",
       ""
     ],
     [
       "連絡先",
       "contactPoint",
-      "ContactPoint",
+      "[ContactPoint](https://ppp-database.org/spec/parts/ContactPoint/)",
       "*",
       ""
     ],

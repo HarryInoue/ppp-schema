@@ -14,6 +14,43 @@ DOCS_DIR = REPO_ROOT / "docs"
 
 COLUMNS = ["呼称", "Attribute name", "type", "回数", "説明"]
 
+# https://ppp-database.org/spec/parts/ に実在するページ一覧(2026-07確認)
+PART_LINKS = {
+    "ContactPoint": "https://ppp-database.org/spec/parts/ContactPoint/",
+    "IdentificationGroup": "https://ppp-database.org/spec/parts/IdentificationGroup/",
+    "OpeningHours": "https://ppp-database.org/spec/parts/OpeningHours/",
+    "Point": "https://ppp-database.org/spec/parts/Point/",
+    "Polygon": "https://ppp-database.org/spec/parts/Polygon/",
+    "PostalAddress": "https://ppp-database.org/spec/parts/PostalAddress/",
+    "PriceSpecification": "https://ppp-database.org/spec/parts/PriceSpecification/",
+    "Accessibility": "https://ppp-database.org/spec/parts/Accessibility/",
+    "ChildCare": "https://ppp-database.org/spec/parts/ChildCare/",
+    "ProcedureStep": "https://ppp-database.org/spec/parts/ProcedureStep/",
+    "Id": "https://ppp-database.org/spec/parts/id/",
+}
+
+
+def linkify_type(type_name: str) -> str:
+    """type列の値を、部品ページが存在すれば [text](url) 記法に変換する。"""
+    url = PART_LINKS.get(type_name)
+    return f"[{type_name}]({url})" if url else type_name
+
+
+def resolve_geo_types(value_schema: dict) -> list[str]:
+    """geo:json属性のvalueスキーマから実際のジオメトリ型名(Point/Polygon等)を取り出す。
+
+    単一形式 {"properties": {"type": {"const": "Point"}, ...}} と、
+    oneOf形式 {"oneOf": [{"properties": {"type": {"const": "Point"}}}, ...]} の
+    両方に対応する。
+    """
+    variants = value_schema.get("oneOf") or [value_schema]
+    names = []
+    for variant in variants:
+        const = variant.get("properties", {}).get("type", {}).get("const")
+        if const:
+            names.append(const)
+    return names
+
 
 def _json_type_of_const(value) -> str:
     if isinstance(value, bool):
@@ -50,7 +87,13 @@ def infer_type_and_occurrence(prop_schema: dict) -> tuple[str, str]:
     else:
         occurrence = "1"
 
-    return ngsi_type, occurrence
+    if ngsi_type == "geo:json":
+        geo_names = resolve_geo_types(value_schema)
+        display_type = " / ".join(linkify_type(n) for n in geo_names) if geo_names else ngsi_type
+    else:
+        display_type = linkify_type(ngsi_type)
+
+    return display_type, occurrence
 
 
 def build_table(schema: dict, model: str) -> dict:
@@ -58,7 +101,12 @@ def build_table(schema: dict, model: str) -> dict:
     for attr_name, prop_schema in schema.get("properties", {}).items():
         title = prop_schema.get("title", "") or "-"
         description = prop_schema.get("description", "")
-        ngsi_type, occurrence = infer_type_and_occurrence(prop_schema)
+        if attr_name == "id":
+            ngsi_type, occurrence = linkify_type("Id"), "1"
+        elif attr_name == "type":
+            ngsi_type, occurrence = "Text", "1"  # /spec/parts/type/ は存在しないためリンクなし
+        else:
+            ngsi_type, occurrence = infer_type_and_occurrence(prop_schema)
         rows.append([title, attr_name, ngsi_type, occurrence, description])
 
     return {"model": model, "columns": COLUMNS, "rows": rows}
