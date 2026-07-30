@@ -1,0 +1,224 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/Procedure/",
+  "title": "NGSI v2 Procedure Entity (Normalized - Refactored)",
+  "type": "object",
+  "required": [
+    "id",
+    "type",
+    "steps"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^urn:ngsi-ld:Procedure:.*",
+      "description": "Entity ID (URN format)"
+    },
+    "type": {
+      "type": "string",
+      "const": "Procedure",
+      "description": "Entity Type"
+    },
+    "name": {
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "description": {
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "refFacility": {
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:Facility:.*"
+        }
+      },
+      "additionalProperties": false
+    },
+    "steps": {
+      "type": "object",
+      "description": "Peocedureを構成する各ステップのArray",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "required": [
+                  "stepType"
+                ],
+                "properties": {
+                  "stepType": {
+                    "const": "measurement"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "stepNumber": {
+                    "type": "integer"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "refFeatureOfInterest": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "observedProperty": {
+                    "type": "string"
+                  },
+                  "refSensors": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "unit": {
+                    "type": "string"
+                  },
+                  "Precision": {
+                    "type": "number"
+                  },
+                  "thresholds": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "min": {
+                          "type": "number"
+                        },
+                        "inclusiveMin": {
+                          "type": "boolean"
+                        },
+                        "max": {
+                          "type": "number"
+                        },
+                        "inclusiveMax": {
+                          "type": "boolean"
+                        },
+                        "actionOnBreach": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "required": [
+                  "stepType",
+                  "action",
+                  "expectedState"
+                ],
+                "properties": {
+                  "stepType": {
+                    "const": "check"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "stepNumber": {
+                    "type": "integer"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "refFeatureOfInterest": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "action": {
+                    "type": "string"
+                  },
+                  "expectedState": {
+                    "type": "string"
+                  },
+                  "actionOnMismatch": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "stepType"
+                ],
+                "properties": {
+                  "stepType": {
+                    "const": "sample"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "stepNumber": {
+                    "type": "integer"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "sampleSource": {
+                    "type": "string"
+                  },
+                  "sampleTarget": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

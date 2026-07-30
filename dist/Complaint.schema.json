@@ -1,0 +1,379 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/Complaint/",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "const": "Complaint"
+    },
+    "phenomenon": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "StructuredValue"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "remarks": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "dataProvider": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "isFiledTo": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "isMadeBy": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "isPartOf": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "location": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "geo:json"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "Point"
+            },
+            "coordinates": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            }
+          },
+          "required": [
+            "type",
+            "coordinates"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "seeAlso": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "URL"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "timestamps": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "step": {
+                "type": "string"
+              },
+              "timestamp": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "required": [
+              "step",
+              "timestamp"
+            ]
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refFacility": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refBuilding": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "zones": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "StructuredValue"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "abstracts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "remarks": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "parts": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "StructuredValue"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "abstracts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "refComponent": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "cause": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "StructuredValue"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "abstracts": {
+              "type": "string"
+            },
+            "remarks": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "severityMark": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "severity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "repairPlan": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}

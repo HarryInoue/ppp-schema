@@ -15,30 +15,12 @@
       "const": "Procedure",
       "description": "Entity Type"
     },
-    "name": { "$ref": "#/$defs/TextAttribute" },
-    "description": { "$ref": "#/$defs/TextAttribute" },
-    "refFacility": { "$ref": "#/$defs/FacilityRelationshipAttribute" },
+    "name": { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+    "description": { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+    "refFacility": { "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility" },
     "steps": { "$ref": "#/$defs/StepsAttribute" }
   },
   "$defs": {
-    "TextAttribute": {
-      "type": "object",
-      "description": "Standard NGSI Text Attribute",
-      "required": ["type", "value"],
-      "properties": {
-        "type": { "const": "Text" },
-        "value": { "type": "string" }
-      }
-    },
-    "FacilityRelationshipAttribute": {
-      "type": "object",
-      "description": "NGSI Relationship Attribute (Facility)",
-      "required": ["type", "value"],
-      "properties": {
-        "type": { "const": "Relationship" },
-        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Facility:.*" }
-      }
-    },
     "StepsAttribute": {
       "type": "object",
       "description": "Peocedureを構成する各ステップのArray",
@@ -49,68 +31,13 @@
           "type": "array",
           "items": {
             "oneOf": [
-              { "$ref": "#/$defs/MeasurementStep" },
-              { "$ref": "#/$defs/CheckStep" },
-              { "$ref": "#/$defs/SampleStep" }
+              { "$ref": "../../parts/ProcedureStep.schema.json#/$defs/MeasurementStep" },
+              { "$ref": "../../parts/ProcedureStep.schema.json#/$defs/CheckStep" },
+              { "$ref": "../../parts/ProcedureStep.schema.json#/$defs/SampleStep" }
             ]
           }
         }
       }
-    },
-    "Threshold": {
-      "type": "object",
-      "properties": {
-        "name": { "type": "string" },
-        "min": { "type": "number" },
-        "inclusiveMin": { "type": "boolean" },
-        "max": { "type": "number" },
-        "inclusiveMax": { "type": "boolean" },
-        "actionOnBreach": { "type": "string" }
-      }
-    },
-    "MeasurementStep": {
-      "type": "object",
-      "required": ["stepType"],
-      "properties": {
-        "stepType": { "const": "measurement" },
-        "name": { "type": "string" },
-        "stepNumber": { "type": "integer" },
-        "description": { "type": "string" },
-        "refFeatureOfInterest": { "type": "array", "items": { "type": "string" } },
-        "observedProperty": { "type": "string" },
-        "refSensors": { "type": "array", "items": { "type": "string" } },
-        "unit": { "type": "string" },
-        "Precision": { "type": "number" },
-        "thresholds": { "type": "array", "items": { "$ref": "#/$defs/Threshold" } }
-      }
-    },
-    "CheckStep": {
-      "type": "object",
-      "required": ["stepType","action", "expectedState"],
-      "properties": {
-        "stepType": { "const": "check" },
-        "name": { "type": "string" },
-        "stepNumber": { "type": "integer" },
-        "description": { "type": "string" },
-        "refFeatureOfInterest": { "type": "array", "items": { "type": "string" } },
-        "action": { "type": "string" },
-        "expectedState": { "type": "string" },
-        "actionOnMismatch": { "type": "string" }
-      },
-      "additionalProperties": false
-    },
-    "SampleStep": {
-      "type": "object",
-      "required": ["stepType"],
-      "properties": {
-        "stepType": { "const": "sample" },
-        "name": { "type": "string" },
-        "stepNumber": { "type": "integer" },
-        "description": { "type": "string" },
-        "sampleSource": { "type": "string" },
-        "sampleTarget": { "type": "string" }
-      },
-      "additionalProperties": false
     }
   }
 }

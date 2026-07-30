@@ -27,21 +27,21 @@
       "name",
       "Text",
       "1",
-      "Standard NGSI Text Attribute"
+      ""
     ],
     [
       "-",
       "description",
       "Text",
       "1",
-      "Standard NGSI Text Attribute"
+      ""
     ],
     [
       "-",
       "refFacility",
       "Relationship",
       "1",
-      "NGSI Relationship Attribute (Facility)"
+      ""
     ],
     [
       "-",

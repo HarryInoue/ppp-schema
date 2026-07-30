@@ -1,0 +1,322 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/FacilityStatistics/",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "const": "FacilityStatistics"
+    },
+    "startDateOfPeriod": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Date"
+        },
+        "value": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "endDateOfPeriod": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Date"
+        },
+        "value": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refFacility": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "area": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "income": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "StructuredValue"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "usageFee": {
+              "type": "number"
+            },
+            "commission": {
+              "type": "number"
+            },
+            "otherIncome": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "operatingExpense": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "StructuredValue"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "utilitiesFee": {
+              "type": "number"
+            },
+            "fuelFee": {
+              "type": "number"
+            },
+            "repairFee": {
+              "type": "number"
+            },
+            "buildingManagementFee": {
+              "type": "number"
+            },
+            "rentalFee": {
+              "type": "number"
+            },
+            "otherExpense": {
+              "type": "number"
+            },
+            "businessOperationCost": {
+              "type": "number"
+            },
+            "personnelExpense": {
+              "type": "number"
+            },
+            "designatedManagementFee": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "capitalExpense": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "StructuredValue"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "constructionFee": {
+              "type": "number"
+            },
+            "otherCapitalExpense": {
+              "type": "number"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "depreciationCost": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "operationDays": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "operationHours": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "usageCount": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "availableCount": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "numberOfUsers": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "customAttribute": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "customAttributeName": {
+                "type": "string"
+              },
+              "customAttributeValue": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "customAttributeName",
+              "customAttributeValue"
+            ]
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/DeviceModel/",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "type": {
+      "const": "DeviceModel"
+    },
+    "alternateName": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "annotations": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "brandName": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "category": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "color": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "controlledProperty": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "dataProvider": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "description": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "deviceClass": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "documentation": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "URL"
+        },
+        "value": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "energyLimitationClass": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "function": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "image": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "URL"
+        },
+        "value": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "manufacturerName": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "modelName": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "name": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "seeAlso": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "serviceLife": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "URL"
+        },
+        "value": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "supportedProtocol": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "supportedUnits": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}

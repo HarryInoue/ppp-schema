@@ -1,0 +1,1010 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/Facility/",
+  "title": "施設",
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "施設ID",
+      "type": "string"
+    },
+    "type": {
+      "const": "Facility"
+    },
+    "name": {
+      "title": "施設名",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "nameKana": {
+      "title": "施設名カナ",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "nameEn": {
+      "title": "施設名英語",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "alternateName": {
+      "title": "通称",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "facilityID": {
+      "title": "管理通番",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "category": {
+      "title": "施設大分類",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "subcategory": {
+      "title": "施設小分類",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "originalCategory": {
+      "title": "施設分類",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "abstract": {
+      "title": "施設概要",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "description": {
+      "title": "施設説明",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "status": {
+      "title": "ステータス",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "shelter": {
+      "title": "防災施設情報",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "postalCode": {
+      "title": "個別郵便番号",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refBuilding": {
+      "title": "建物ID",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": "Building"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "floor": {
+      "title": "フロア",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "openingHours": {
+      "title": "開館時間",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "OpeningHours"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "openingHoursRemarks": {
+      "title": "開館時間補足",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "chargeType": {
+      "title": "料金種別",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "price": {
+      "title": "料金",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "priceRemarks": {
+      "title": "料金備考",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "paymentMethod": {
+      "title": "決済種別",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "peopleCapacity": {
+      "title": "収容人数",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "accessMethod": {
+      "title": "アクセス方法",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refOffStreetParking": {
+      "title": "駐車場ID",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "areaServed": {
+      "title": "サービス担当区域",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "region": {
+                    "title": "都道府県",
+                    "type": "string"
+                  },
+                  "subRegion": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "locality": {
+                          "title": "市区町村",
+                          "type": "string"
+                        },
+                        "street": {
+                          "title": "町字以下",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "const": "Polygon"
+                },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "type",
+                "coordinates"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "areaServedaRemarks": {
+      "title": "サービス担当区域備考",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "contactPoint": {
+      "title": "連絡先",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "ContactPoint"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "availableLanguage": {
+                "title": "対応言語",
+                "type": "string"
+              },
+              "contactType": {
+                "title": "連絡先種別",
+                "type": "string"
+              },
+              "email": {
+                "title": "メールアドレス",
+                "type": "string",
+                "format": "email"
+              },
+              "telephone": {
+                "title": "電話番号",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "extension": {
+                "title": "内線番号",
+                "type": "string"
+              },
+              "formURL": {
+                "title": "フォーム",
+                "type": "string",
+                "format": "uri"
+              },
+              "faxNumber": {
+                "title": "FAX",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refOperationManager": {
+      "title": "運営者",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": [
+            "Organization",
+            "Department"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refFacilityManager": {
+      "title": "管理者",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": [
+            "Organization",
+            "Department"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "accessibility": {
+      "title": "アクセシビリティ情報",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Accessibility"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "wheelchairAccessible": {
+              "type": "boolean"
+            },
+            "wheelchairRental": {
+              "type": "boolean"
+            },
+            "caneRental": {
+              "type": "boolean"
+            },
+            "multipurposeToilet": {
+              "type": "boolean"
+            },
+            "ramp": {
+              "type": "boolean"
+            },
+            "elevator": {
+              "type": "boolean"
+            },
+            "escalator": {
+              "type": "boolean"
+            },
+            "mobilitySupportForBrailleBlocks": {
+              "type": "boolean"
+            },
+            "brailleAndReadingAssistance": {
+              "type": "boolean"
+            },
+            "accompaniedByGuideDogsAndServiceDogs": {
+              "type": "boolean"
+            },
+            "subtitles": {
+              "type": "boolean"
+            },
+            "writingSupport": {
+              "type": "boolean"
+            },
+            "toiletForOstomates": {
+              "type": "boolean"
+            },
+            "remarks": {
+              "type": "string"
+            },
+            "priorityParking": {
+              "type": "boolean"
+            },
+            "publicPhoneForWheelchairUsers": {
+              "type": "boolean"
+            },
+            "barrierFreeFloor": {
+              "type": "boolean"
+            },
+            "handrail": {
+              "type": "boolean"
+            },
+            "automaticDoor": {
+              "type": "boolean"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "childCare": {
+      "title": "子育て支援情報",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "ChildCare"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "childCareType": {
+              "type": "string"
+            },
+            "childCareFee": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "unitText": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "priceCurrency": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "unitText",
+                  "price",
+                  "priceCurrency"
+                ]
+              }
+            },
+            "childCareFeeRemarks": {
+              "type": "string"
+            },
+            "minAge": {
+              "type": "integer"
+            },
+            "minAgeInMonths": {
+              "type": "integer"
+            },
+            "maxAge": {
+              "type": "integer"
+            },
+            "childCareOpeningHours": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nursery": {
+              "type": "boolean"
+            },
+            "diaperChangingCorner": {
+              "type": "boolean"
+            },
+            "foodAndDrinkAvailable": {
+              "type": "boolean"
+            },
+            "strollerRental": {
+              "type": "boolean"
+            },
+            "strollerUse": {
+              "type": "boolean"
+            },
+            "remarks": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "facilityParent": {
+      "title": "主施設ID",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": "Facility"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "usage": {
+      "title": "用途",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refDepartment": {
+      "title": "所管部門ID",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": "Department"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "totalFloorArea": {
+      "title": "床面積",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "zones": {
+      "title": "場所",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "zoneName": {
+                "title": "場所大分類",
+                "type": "string"
+              },
+              "subzones": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "subzoneName": {
+                      "type": "array",
+                      "items": [
+                        {
+                          "title": "場所中分類",
+                          "type": "string"
+                        },
+                        {
+                          "title": "場所小分類",
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "required": [
+              "zoneName"
+            ]
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "managementForm": {
+      "title": "管理方式",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "basisLaw": {
+      "title": "根拠法",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "localDisasterPreventionPlan": {
+      "title": "防災計画",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refPix": {
+      "title": "写真",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "remarks": {
+      "title": "特記事項",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refMaterials": {
+      "title": "図絵等",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "userLimitation": {
+      "title": "利用制限",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Boolean"
+        },
+        "value": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "availableUsers": {
+      "title": "利用可能者",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}
