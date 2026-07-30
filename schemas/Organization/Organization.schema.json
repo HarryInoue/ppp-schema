@@ -1,298 +1,460 @@
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ppp-database.org/spec/datamodel/Organization/",
-  "title": "法人",
-  "type": "object",
-  "properties": {
-    "id": {
-      "title": "法人ID",
-      "type": "string"
-    },
-    "type": {"const": "Organization"},
-    "identificationGroup": {
-      "title": "ID情報",
-      "type": "object",
-      "properties": {
-        "type": {"const": "IdentificationGroup"},
-        "value": {
-          "type": "array",
-          "x-key": "identificationType",
-          "items": {
-            "type": "object",
-            "properties": {
-              "identificationType": {
-                "title": "ID種別",
-                "type": "string",
-                "enum": ["法人番号", "自治体コード"]
-              },
-              "identification": {
-                "title": "ID",
-                "type": "string"}
-            },
-            "required": ["identificationType", "identification" ],
-            "additionalProperties": false
-          }
-        }
-      },
-      "required": ["type", "value"]
-    },
-    "name": {
-      "type": "object",
-      "title": "法人名",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "containedInPlace": {
-      "type": "object",
-      "title": "県名",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "nameKana": {
-      "title": "法人名カナ",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "nameEn": {
-      "title": "法人名英語",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "organizationTypePosition": {
-      "title": "組織種別位置",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "category": {
-      "title": "組織種別",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "alternateName": {
-      "title": "通称",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Array"},
-        "value": {
-          "type": "array",
-          "items": {"type": "string"}
-        }
-      },
-      "required": ["type", "value"]
-    },
-    "status": {
-      "title": "活動状況",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "description": {
-      "title": "説明",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "url": {
-      "title": "url",
-      "type": "object",
-      "properties": {
-        "type": {"const": "URL"},
-        "value": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "required": ["type", "value"]
-    },
-    "numberOfRegularEmployees": {
-      "title": "正社員数",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Integer"},
-        "value": {"type": "integer"}
-      },
-      "required": ["type", "value"]
-    },
-    "numberOfEmployees": {
-      "title": "従業員数",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Integer"},
-        "value": {"type": "integer"}
-      },
-      "required": ["type", "value"]
-    },
-    "establishedDate": {
-      "title": "設立年月日",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Date"},
-        "value": {
-          "type": "string",
-          "format": "date"
-        }
-      },
-      "required": ["type", "value"]
-    },
-    "yearOfEstablishment": {
-      "title": "創業年",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "businessCategory": {
-      "title": "事業種目",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": ["type", "value"]
-    },
-    "fiscalYearStartDay": {
-      "title": "事業年度開始日",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    },
-    "capital": {
-      "title": "資本金",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Integer"},
-        "value": {"type": "integer"}
-      },
-      "required": ["type", "value"]
-    },
-    "registeredAddress": {
-      "title": "登記住所",
-      "type": "object",
-      "properties": {
-        "type": {"const": "PostalAddress"},
-        "value": {
-          "type": "object",
-          "properties": {
-            "addressCountry": {"type": "string"},
-            "addressRegion": {"type": "string"},
-            "addressLocality": {"type": "string"},
-            "streetAddress": {"type": "string"},
-            "postalCode": {"type": "string"}
-          }
-        }
-      },
-      "required": ["type", "value"],
-      "additionalProperties": false
-    },
-    "contactPoint": {
-      "title": "連絡先",
-      "type": "object",
-      "properties": {
-        "type": {"const": "ContactPoint"},
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "availableLanguage": {
-                "title": "対応言語",
-                "type": "string"
-              },
-              "contactType": {
-                "title": "連絡先種別",
-                "type": "string"
-              },
-              "email": {
-                "title": "メールアドレス",
-                "type": "string",
-                "format": "email"
-              },
-              "telephone": {
-                "title": "電話番号",
-                "type": "array",
-                "items": {"type": "string"}
-              },
-              "extension": {
-                "title": "内線番号",
-                "type": "string"
-              },
-              "formURL": {
-                "title": "フォーム",
-                "type": "string",
-                "format": "uri"
-              },
-              "faxNumber": {
-                "title": "FAX",
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "required": ["type", "value"]
-    },
-    "refFacility": {
-      "title": "施設ID",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Relationship"},
-        "value": {
-          "type": "string",
-          "x-refType": "Facility"
-        }
-      },
-      "required": ["type", "value"],
-      "additionalProperties": false
-    },
-    "architectOfficeRegNumber": {
-      "title": "事務所登録番号",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {"type": "string"}
-      },
-      "required": ["type", "value"]
-    }
-  },
-  "required": ["id", "type"]
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/Organization/",
+  "title": "法人",
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "法人ID",
+      "type": "string"
+    },
+    "type": {
+      "const": "Organization"
+    },
+    "identificationGroup": {
+      "title": "ID情報",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "IdentificationGroup"
+        },
+        "value": {
+          "type": "array",
+          "x-key": "identificationType",
+          "items": {
+            "type": "object",
+            "properties": {
+              "identificationType": {
+                "title": "ID種別",
+                "type": "string",
+                "enum": [
+                  "法人番号",
+                  "自治体コード"
+                ]
+              },
+              "identification": {
+                "title": "ID",
+                "type": "string"
+              }
+            },
+            "required": [
+              "identificationType",
+              "identification"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "name": {
+      "type": "object",
+      "title": "法人名",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "containedInPlace": {
+      "type": "object",
+      "title": "県名",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "nameKana": {
+      "title": "法人名カナ",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "nameEn": {
+      "title": "法人名英語",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "organizationTypePosition": {
+      "title": "組織種別位置",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "category": {
+      "title": "組織種別",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "alternateName": {
+      "title": "通称",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "status": {
+      "title": "活動状況",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "description": {
+      "title": "説明",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "url": {
+      "title": "url",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "URL"
+        },
+        "value": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "numberOfRegularEmployees": {
+      "title": "正社員数",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Integer"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "numberOfEmployees": {
+      "title": "従業員数",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Integer"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "establishedDate": {
+      "title": "設立年月日",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Date"
+        },
+        "value": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "yearOfEstablishment": {
+      "title": "創業年",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "businessCategory": {
+      "title": "事業種目",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "fiscalYearStartDay": {
+      "title": "事業年度開始日",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "capital": {
+      "title": "資本金",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Integer"
+        },
+        "value": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "registeredAddress": {
+      "title": "登記住所",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "PostalAddress"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "addressCountry": {
+              "type": "string"
+            },
+            "addressRegion": {
+              "type": "string"
+            },
+            "addressLocality": {
+              "type": "string"
+            },
+            "streetAddress": {
+              "type": "string"
+            },
+            "postalCode": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "contactPoint": {
+      "title": "連絡先",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "ContactPoint"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "availableLanguage": {
+                "title": "対応言語",
+                "type": "string"
+              },
+              "contactType": {
+                "title": "連絡先種別",
+                "type": "string"
+              },
+              "email": {
+                "title": "メールアドレス",
+                "type": "string",
+                "format": "email"
+              },
+              "telephone": {
+                "title": "電話番号",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "extension": {
+                "title": "内線番号",
+                "type": "string"
+              },
+              "formURL": {
+                "title": "フォーム",
+                "type": "string",
+                "format": "uri"
+              },
+              "faxNumber": {
+                "title": "FAX",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    },
+    "refFacility": {
+      "title": "施設ID",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": "Facility"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "architectOfficeRegNumber": {
+      "title": "事務所登録番号",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
 }

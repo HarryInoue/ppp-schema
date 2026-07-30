@@ -1,100 +1,126 @@
-{
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://ppp-database.org/spec/datamodel/Department/",
-  "title": "部門",
-  "type": "object",
-  "properties": {
-    "id": {
-      "title": "部門ID",
-      "type": "string"
-    },
-    "type": {"const": "Department"},
-    "name": {
-      "title": "部門名",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Text"},
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": ["type", "value"],
-      "additionalProperties": false
-    },
-    "departmentOf": {
-      "title": "法人ID",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Relationship"},
-        "value": {
-          "type": "string",
-          "x-refType": "Organization"
-        }
-      },
-      "required": ["type", "value"],
-      "additionalProperties": false
-    },
-    "refFacility": {
-      "title": "施設ID",
-      "type": "object",
-      "properties": {
-        "type": {"const": "Relationship"},
-        "value": {
-          "type": "string",
-          "x-refType": "Facility"
-        }
-      },
-      "required": ["type", "value"],
-      "additionalProperties": false
-    },
-    "contactPoint": {
-      "title": "連絡先",
-      "type": "object",
-      "properties": {
-        "type": {"const": "ContactPoint"},
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "availableLanguage": {
-                "title": "対応言語",
-                "type": "string"
-              },
-              "contactType": {
-                "title": "連絡先種別",
-                "type": "string"
-              },
-              "email": {
-                "title": "メールアドレス",
-                "type": "string",
-                "format": "email"
-              },
-              "telephone": {
-                "title": "電話番号",
-                "type": "array",
-                "items": {"type": "string"}
-              },
-              "extension": {
-                "title": "内線番号",
-                "type": "string"
-              },
-              "formURL": {
-                "title": "フォーム",
-                "type": "string",
-                "format": "uri"
-              },
-              "faxNumber": {
-                "title": "FAX",
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "required": ["type", "value"]
-    }
-  },
-  "required": ["id", "type"]
-}
-  
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/datamodel/Department/",
+  "title": "部門",
+  "type": "object",
+  "properties": {
+    "id": {
+      "title": "部門ID",
+      "type": "string"
+    },
+    "type": {
+      "const": "Department"
+    },
+    "name": {
+      "title": "部門名",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "departmentOf": {
+      "title": "法人ID",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": "Organization"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "refFacility": {
+      "title": "施設ID",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": "Facility"
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "contactPoint": {
+      "title": "連絡先",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "ContactPoint"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "availableLanguage": {
+                "title": "対応言語",
+                "type": "string"
+              },
+              "contactType": {
+                "title": "連絡先種別",
+                "type": "string"
+              },
+              "email": {
+                "title": "メールアドレス",
+                "type": "string",
+                "format": "email"
+              },
+              "telephone": {
+                "title": "電話番号",
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "extension": {
+                "title": "内線番号",
+                "type": "string"
+              },
+              "formURL": {
+                "title": "フォーム",
+                "type": "string",
+                "format": "uri"
+              },
+              "faxNumber": {
+                "title": "FAX",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "type"
+  ]
+}
