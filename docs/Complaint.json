@@ -30,14 +30,14 @@
       ""
     ],
     [
-      "　-",
-      "　category",
+      "∟-",
+      "∟category",
       "Array(Text)",
       "*"
     ],
     [
-      "　-",
-      "　remarks",
+      "∟-",
+      "∟remarks",
       "Text",
       "1"
     ],
@@ -119,14 +119,14 @@
       ""
     ],
     [
-      "　-",
-      "　step",
+      "∟-",
+      "∟step",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　timestamp",
+      "∟-",
+      "∟timestamp",
       "Text",
       "1"
     ],
@@ -152,14 +152,14 @@
       ""
     ],
     [
-      "　-",
-      "　abstracts",
+      "∟-",
+      "∟abstracts",
       "Array(Text)",
       "*"
     ],
     [
-      "　-",
-      "　remarks",
+      "∟-",
+      "∟remarks",
       "Text",
       "1"
     ],
@@ -171,20 +171,20 @@
       ""
     ],
     [
-      "　-",
-      "　abstracts",
+      "∟-",
+      "∟abstracts",
       "Array(Text)",
       "*"
     ],
     [
-      "　-",
-      "　refComponent",
+      "∟-",
+      "∟refComponent",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　remarks",
+      "∟-",
+      "∟remarks",
       "Text",
       "1"
     ],
@@ -196,14 +196,14 @@
       ""
     ],
     [
-      "　-",
-      "　abstracts",
+      "∟-",
+      "∟abstracts",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　remarks",
+      "∟-",
+      "∟remarks",
       "Text",
       "1"
     ],

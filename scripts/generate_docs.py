@@ -163,9 +163,16 @@ def analyze_nested(schema: dict):
     return display_json_type(json_type), "1", []
 
 
+def indent_prefix(depth: int) -> str:
+    """深さに応じたインデントを返す。直前の1つだけ枝記号「∟」にする。"""
+    if depth <= 0:
+        return ""
+    return INDENT * (depth - 1) + "∟"
+
+
 def render_field(name: str, schema: dict, depth: int) -> list:
     """1つのネストしたフィールドを、自身+子孫の「短い行」(説明列なし)のリストとして返す。"""
-    indent = INDENT * depth
+    indent = indent_prefix(depth)
     title = schema.get("title", "") or "-"
     disp_type, occurrence, children = analyze_nested(schema)
 

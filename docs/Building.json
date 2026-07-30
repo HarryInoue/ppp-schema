@@ -296,26 +296,26 @@
       ""
     ],
     [
-      "　フロア",
-      "　floor",
+      "∟フロア",
+      "∟floor",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　floorInformation",
+      "∟-",
+      "∟floorInformation",
       "Array(Object)",
       "*"
     ],
     [
-      "　　用途",
-      "　　use",
+      "　∟用途",
+      "　∟use",
       "Text",
       "1"
     ],
     [
-      "　　面積",
-      "　　area",
+      "　∟面積",
+      "　∟area",
       "Number",
       "1"
     ],
@@ -327,14 +327,14 @@
       ""
     ],
     [
-      "　用途",
-      "　use",
+      "∟用途",
+      "∟use",
       "Text",
       "1"
     ],
     [
-      "　面積",
-      "　area",
+      "∟面積",
+      "∟area",
       "Number",
       "1"
     ],
@@ -374,32 +374,32 @@
       ""
     ],
     [
-      "　場所大分類",
-      "　zoneName",
+      "∟場所大分類",
+      "∟zoneName",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　subzones",
+      "∟-",
+      "∟subzones",
       "Array(Object)",
       "*"
     ],
     [
-      "　　-",
-      "　　subzoneName",
+      "　∟-",
+      "　∟subzoneName",
       "Array",
       "1"
     ],
     [
-      "　　　場所中分類",
-      "　　　[0]",
+      "　　∟場所中分類",
+      "　　∟[0]",
       "Text",
       "1"
     ],
     [
-      "　　　場所小分類",
-      "　　　[1]",
+      "　　∟場所小分類",
+      "　　∟[1]",
       "Array(Text)",
       "*"
     ],
@@ -425,26 +425,26 @@
       ""
     ],
     [
-      "　名称",
-      "　name",
+      "∟名称",
+      "∟name",
       "Text",
       "1"
     ],
     [
-      "　発行者",
-      "　permitter",
+      "∟発行者",
+      "∟permitter",
       "Text",
       "1"
     ],
     [
-      "　交付番号",
-      "　permitNumber",
+      "∟交付番号",
+      "∟permitNumber",
       "Text",
       "1"
     ],
     [
-      "　交付日",
-      "　datePermitted",
+      "∟交付日",
+      "∟datePermitted",
       "Text",
       "1"
     ],
@@ -456,14 +456,14 @@
       ""
     ],
     [
-      "　改修日付",
-      "　dateRenovated",
+      "∟改修日付",
+      "∟dateRenovated",
       "Text",
       "1"
     ],
     [
-      "　改修内容",
-      "　renovation",
+      "∟改修内容",
+      "∟renovation",
       "Text",
       "1"
     ],
@@ -475,26 +475,26 @@
       ""
     ],
     [
-      "　室用途",
-      "　roomClassification",
+      "∟室用途",
+      "∟roomClassification",
       "Text",
       "1"
     ],
     [
-      "　説明",
-      "　descriptions",
+      "∟説明",
+      "∟descriptions",
       "Array(Object)",
       "*"
     ],
     [
-      "　　方式",
-      "　　method",
+      "　∟方式",
+      "　∟method",
       "Text",
       "1"
     ],
     [
-      "　　対象",
-      "　　zone",
+      "　∟対象",
+      "　∟zone",
       "Text",
       "1"
     ],
@@ -506,26 +506,26 @@
       ""
     ],
     [
-      "　室用途",
-      "　roomClassification",
+      "∟室用途",
+      "∟roomClassification",
       "Text",
       "1"
     ],
     [
-      "　説明",
-      "　descriptions",
+      "∟説明",
+      "∟descriptions",
       "Array(Object)",
       "*"
     ],
     [
-      "　　方式",
-      "　　method",
+      "　∟方式",
+      "　∟method",
       "Text",
       "1"
     ],
     [
-      "　　対象",
-      "　　zone",
+      "　∟対象",
+      "　∟zone",
       "Text",
       "1"
     ]

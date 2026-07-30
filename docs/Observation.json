@@ -86,56 +86,56 @@
       ""
     ],
     [
-      "　-",
-      "　observedProperty",
+      "∟-",
+      "∟observedProperty",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　value",
+      "∟-",
+      "∟value",
       "Text / Number / Boolean / object",
       "1"
     ],
     [
-      "　-",
-      "　unit",
+      "∟-",
+      "∟unit",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　precision",
+      "∟-",
+      "∟precision",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　thresholdBreached",
+      "∟-",
+      "∟thresholdBreached",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　actionTaken",
+      "∟-",
+      "∟actionTaken",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　notes",
+      "∟-",
+      "∟notes",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　observedState",
+      "∟-",
+      "∟observedState",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　match",
+      "∟-",
+      "∟match",
       "Text",
       "1"
     ]

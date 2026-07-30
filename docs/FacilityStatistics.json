@@ -72,20 +72,20 @@
       ""
     ],
     [
-      "　-",
-      "　usageFee",
+      "∟-",
+      "∟usageFee",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　commission",
+      "∟-",
+      "∟commission",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　otherIncome",
+      "∟-",
+      "∟otherIncome",
       "Number",
       "1"
     ],
@@ -97,56 +97,56 @@
       ""
     ],
     [
-      "　-",
-      "　utilitiesFee",
+      "∟-",
+      "∟utilitiesFee",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　fuelFee",
+      "∟-",
+      "∟fuelFee",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　repairFee",
+      "∟-",
+      "∟repairFee",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　buildingManagementFee",
+      "∟-",
+      "∟buildingManagementFee",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　rentalFee",
+      "∟-",
+      "∟rentalFee",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　otherExpense",
+      "∟-",
+      "∟otherExpense",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　businessOperationCost",
+      "∟-",
+      "∟businessOperationCost",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　personnelExpense",
+      "∟-",
+      "∟personnelExpense",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　designatedManagementFee",
+      "∟-",
+      "∟designatedManagementFee",
       "Number",
       "1"
     ],
@@ -158,14 +158,14 @@
       ""
     ],
     [
-      "　-",
-      "　constructionFee",
+      "∟-",
+      "∟constructionFee",
       "Number",
       "1"
     ],
     [
-      "　-",
-      "　otherCapitalExpense",
+      "∟-",
+      "∟otherCapitalExpense",
       "Number",
       "1"
     ],
@@ -219,14 +219,14 @@
       ""
     ],
     [
-      "　-",
-      "　customAttributeName",
+      "∟-",
+      "∟customAttributeName",
       "Text",
       "1"
     ],
     [
-      "　-",
-      "　customAttributeValue",
+      "∟-",
+      "∟customAttributeValue",
       "Number",
       "1"
     ]
