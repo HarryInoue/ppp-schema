@@ -347,24 +347,7 @@
           "const": "PostalAddress"
         },
         "value": {
-          "type": "object",
-          "properties": {
-            "addressCountry": {
-              "type": "string"
-            },
-            "addressRegion": {
-              "type": "string"
-            },
-            "addressLocality": {
-              "type": "string"
-            },
-            "streetAddress": {
-              "type": "string"
-            },
-            "postalCode": {
-              "type": "string"
-            }
-          }
+          "$ref": "../../parts/PostalAddress.schema.json#/$defs/PostalAddress"
         }
       },
       "required": [

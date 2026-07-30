@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/parts/PostalAddress.schema.json",
+  "title": "PostalAddress",
+  "description": "住所を表すデータパーツ(schema.orgと互換性がある形式/グローバル標準形式)。https://ppp-database.org/spec/parts/PostalAddress/ 参照。属性名(address/registeredAddress等)や外側のNGSIラッパー(type/value)は各モデル側で定義し、この$defにはvalueの中身(住所の構成要素)のみを含める。",
+  "$defs": {
+    "PostalAddress": {
+      "type": "object",
+      "properties": {
+        "addressCountry": {
+          "title": "国",
+          "type": "string",
+          "description": "国名または二文字の国コードで表現。日本の場合は\"Japan\"または\"JP\""
+        },
+        "addressRegion": {
+          "title": "都道府県",
+          "type": "string",
+          "description": "日本国内の住所については都道府県名。"
+        },
+        "addressLocality": {
+          "title": "市区町村",
+          "type": "string",
+          "description": "日本国内の住所については基礎自治体名。町村の場合は郡名も含む。政令市内の区名は次の「町字以下(streetAddress)」に登録する"
+        },
+        "streetAddress": {
+          "title": "町字以下",
+          "type": "string",
+          "description": "日本国内の住所については基礎自治体名より後ろの部分で方書を除いた部分。政令指定市区名・町名・字名以降。町名より後ろは数字をハイフンで結んだ形式とする。例えば、\"霞が関2-1-6\"。方書は、建物の名称などをaddressとは別項目で表現する"
+        },
+        "postalCode": {
+          "title": "郵便番号",
+          "type": "string",
+          "description": "日本国内の住所についてはハイフンを使わず、連続した7桁の数字からなる文字列。グローバル標準に合わせて項目を追加"
+        }
+      },
+      "required": ["addressRegion", "addressLocality", "streetAddress"],
+      "additionalProperties": false
+    }
+  }
+}
