@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/parts/OpeningHours.schema.json",
+  "title": "OpeningHours",
+  "description": "開館時間を表すデータパーツ。https://ppp-database.org/spec/parts/OpeningHours/ 参照。OpeningHoursValueはvalueのみ(他の部品にネストする場合に使用)、OpeningHoursはtype+value丸ごと(トップレベル属性として使う場合に使用)。",
+  "$defs": {
+    "OpeningHoursValue": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "曜日ごとの開館閉館時刻を表す文字列のリスト。各要素は\"<曜日> <開始時刻>-<終了時刻>\"形式(例: \"Mo-Fr 09:00-17:00\")。曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字、カンマ区切りやハイフンでの範囲指定も可"
+    },
+    "OpeningHours": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "OpeningHours" },
+        "value": { "$ref": "#/$defs/OpeningHoursValue" }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
+    }
+  }
+}

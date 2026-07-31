@@ -1095,7 +1095,8 @@
               },
               "datePermitted": {
                 "title": "交付日",
-                "type": "string"
+                "type": "string",
+                "format": "date"
               }
             },
             "required": [
@@ -1127,7 +1128,8 @@
             "properties": {
               "dateRenovated": {
                 "title": "改修日付",
-                "type": "string"
+                "type": "string",
+                "format": "date"
               },
               "renovation": {
                 "title": "改修内容",

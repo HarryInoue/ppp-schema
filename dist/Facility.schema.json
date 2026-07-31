@@ -15,7 +15,12 @@
     },
     "name": {
       "title": "施設名",
+      "description": "正式な施設名を日本語で設定する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -24,15 +29,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "正式な施設名を日本語で設定する"
+      "additionalProperties": false
     },
     "nameKana": {
       "title": "施設名カナ",
+      "description": "施設のカナ表記を設定する。GIFで必須となっているため必須としています。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -41,15 +47,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設のカナ表記を設定する。GIFで必須となっているため必須としています。"
+      "additionalProperties": false
     },
     "nameEn": {
       "title": "施設名英語",
+      "description": "施設の米国英語表記を設定する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -58,14 +65,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設の米国英語表記を設定する"
+      "additionalProperties": false
     },
     "alternateName": {
       "title": "通称",
+      "description": "住民や来街者からの問い合わせや掲示などで使われる一般的な通称がある場合はリスト構造で列挙します。公共施設ドメインの場合、省略すると通称はないと解釈されます",
       "type": "object",
       "properties": {
         "type": {
@@ -81,12 +85,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "住民や来街者からの問い合わせや掲示などで使われる一般的な通称がある場合はリスト構造で列挙します。公共施設ドメインの場合、省略すると通称はないと解釈されます"
+      ]
     },
     "facilityID": {
       "title": "管理通番",
+      "description": "オーナーが管理対象の施設を区別するために付番した文字列です。事業者によっては施設IDや施設番号などと表現する事がありますが、項目の呼称「施設ID(id)」と混同する可能性があるため共通データ仕様では管理通番と表現しています。施設管理では基本的にこの「施設(Facility)」を管理単位としますが、データ仕様上は「建物(Building)」を管理対象とすることも可能です。本項目は管理対象をFacilityとする場合には必須です。また複合施設等に入居するテナント施設の場合もデータ管理上附番しておくことが望ましいです。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -95,15 +103,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "オーナーが管理対象の施設を区別するために付番した文字列です。事業者によっては施設IDや施設番号などと表現する事がありますが、項目の呼称「施設ID(id)」と混同する可能性があるため共通データ仕様では管理通番と表現しています。施設管理では基本的にこの「施設(Facility)」を管理単位としますが、データ仕様上は「建物(Building)」を管理対象とすることも可能です。本項目は管理対象をFacilityとする場合には必須です。また複合施設等に入居するテナント施設の場合もデータ管理上附番しておくことが望ましいです。"
+      "additionalProperties": false
     },
     "category": {
       "title": "施設大分類",
+      "description": "施設の分類。GIFのPOIの大分類の名称を登録。GIFの規定上必須となっているので本仕様も必須としているが、必ずしも該当する分類があるとは限らない。例えば”給食センター”などはない",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -112,15 +121,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設の分類。GIFのPOIの大分類の名称を登録。GIFの規定上必須となっているので本仕様も必須としているが、必ずしも該当する分類があるとは限らない。例えば”給食センター”などはない"
+      "additionalProperties": false
     },
     "subcategory": {
       "title": "施設小分類",
+      "description": "施設の分類。GIFのPOIの小分類の名称を登録。GIFの規定上必須となっているので本仕様も必須としているが、必ずしも該当する分類があるとは限らない。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -129,14 +139,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設の分類。GIFのPOIの小分類の名称を登録。GIFの規定上必須となっているので本仕様も必須としているが、必ずしも該当する分類があるとは限らない。"
+      "additionalProperties": false
     },
     "originalCategory": {
       "title": "施設分類",
+      "description": "POI以外の分類がある場合に登録。独自の分類で構わない。分類が階層構造になっている場合は大まかな分類から順にリストで登録",
       "type": "object",
       "properties": {
         "type": {
@@ -152,12 +159,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "POI以外の分類がある場合に登録。独自の分類で構わない。分類が階層構造になっている場合は大まかな分類から順にリストで登録"
+      ]
     },
     "abstract": {
       "title": "施設概要",
+      "description": "施設情報として公開可能なリード文です。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -166,15 +177,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設情報として公開可能なリード文です。"
+      "additionalProperties": false
     },
     "description": {
       "title": "施設説明",
+      "description": "施設の概要を記載します。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -183,15 +195,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設の概要を記載します。"
+      "additionalProperties": false
     },
     "status": {
       "title": "ステータス",
+      "description": "施設の状態です。”計画中”、”準備中”、”稼働中”、”一時閉鎖”、”閉鎖中”、”廃止”などを登録します。施設が廃止されても、統計データや分析データは残るためこのデータモデルのデータも削除できません。そこで、この項目に”廃止”などと記述する事で存在する施設の情報なのかどうかを区別します。この項目には用語は定義されていません。定義が必要な場合はこのページの一番上の「コメント投稿」から事務局に連絡してください。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -200,14 +213,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設の状態です。”計画中”、”準備中”、”稼働中”、”一時閉鎖”、”閉鎖中”、”廃止”などを登録します。施設が廃止されても、統計データや分析データは残るためこのデータモデルのデータも削除できません。そこで、この項目に”廃止”などと記述する事で存在する施設の情報なのかどうかを区別します。この項目には用語は定義されていません。定義が必要な場合はこのページの一番上の「コメント投稿」から事務局に連絡してください。"
+      "additionalProperties": false
     },
     "shelter": {
       "title": "防災施設情報",
+      "description": "防災施設を示す属性。例えば[“指定緊急避難場所”, “洪水”, “地震”]など",
       "type": "object",
       "properties": {
         "type": {
@@ -223,12 +233,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "防災施設を示す属性。例えば[“指定緊急避難場所”, “洪水”, “地震”]など"
+      ]
     },
     "postalCode": {
       "title": "個別郵便番号",
+      "description": "施設が個別郵便番号を有する場合に登録する。このAttributeに登録が無い場合は、リンクを辿ってLandのpostalCodeを参照する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -237,33 +251,36 @@
           "type": "string"
         }
       },
+      "additionalProperties": false
+    },
+    "refBuilding": {
+      "title": "建物ID",
+      "description": "入居するBuilding(建物)へのリンクです。リンクを辿ることで住所)やビル名を求めることができます",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "施設が個別郵便番号を有する場合に登録する。このAttributeに登録が無い場合は、リンクを辿ってLandのpostalCodeを参照する"
-    },
-    "refBuilding": {
-      "title": "建物ID",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
           "type": "string",
+          "pattern": "^urn:ngsi-ld:Building:.*",
           "x-refType": "Building"
         }
       },
+      "additionalProperties": false
+    },
+    "floor": {
+      "title": "フロア",
+      "description": "入居する建物内の位置。方書にフロア情報も必要な場合に登録",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "入居するBuilding(建物)へのリンクです。リンクを辿ることで住所)やビル名を求めることができます"
-    },
-    "floor": {
-      "title": "フロア",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Text"
@@ -272,14 +289,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "入居する建物内の位置。方書にフロア情報も必要な場合に登録"
+      "additionalProperties": false
     },
     "openingHours": {
       "title": "開館時間",
+      "description": "曜日ごとの開館閉館時刻の配列。",
       "type": "object",
       "properties": {
         "type": {
@@ -289,18 +303,24 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "曜日ごとの開館閉館時刻を表す文字列のリスト。各要素は\"<曜日> <開始時刻>-<終了時刻>\"形式(例: \"Mo-Fr 09:00-17:00\")。曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字、カンマ区切りやハイフンでの範囲指定も可"
         }
       },
       "required": [
         "type",
         "value"
       ],
-      "description": "曜日ごとの開館閉館時刻の配列。"
+      "additionalProperties": false
     },
     "openingHoursRemarks": {
       "title": "開館時間補足",
+      "description": "openingHoursの定型では表現できない施設の利用日時情報",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -309,14 +329,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "openingHoursの定型では表現できない施設の利用日時情報"
+      "additionalProperties": false
     },
     "chargeType": {
       "title": "料金種別",
+      "description": "料金の種別。”有料”、”年額”、”月額”、”無料”など",
       "type": "object",
       "properties": {
         "type": {
@@ -332,29 +349,34 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "料金の種別。”有料”、”年額”、”月額”、”無料”など"
+      ]
     },
     "price": {
       "title": "料金",
+      "description": "施設利用に必要な基本料金を日本円で記載(1円単位)",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Integer"
         },
         "value": {
-          "type": "string"
+          "type": "integer"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設利用に必要な基本料金を日本円で記載(1円単位)"
+      "additionalProperties": false
     },
     "priceRemarks": {
       "title": "料金備考",
+      "description": "料金の備考。例: “１グループ1000円”、または”大人１名1500円、子供１名500円(18歳以下)、65歳以上１名1000円”など",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -363,14 +385,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "料金の備考。例: “１グループ1000円”、または”大人１名1500円、子供１名500円(18歳以下)、65歳以上１名1000円”など"
+      "additionalProperties": false
     },
     "paymentMethod": {
       "title": "決済種別",
+      "description": "料金の支払方法。列挙型項目。列挙型メンバは、[http://schema.org/paymentMethod](http://schema.org/paymentMethod)を参照",
       "type": "object",
       "properties": {
         "type": {
@@ -386,29 +405,34 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "料金の支払方法。列挙型項目。列挙型メンバは、[http://schema.org/paymentMethod](http://schema.org/paymentMethod)を参照"
+      ]
     },
     "peopleCapacity": {
       "title": "収容人数",
+      "description": "定員",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Integer"
         },
         "value": {
-          "type": "string"
+          "type": "integer"
         }
       },
+      "additionalProperties": false
+    },
+    "accessMethod": {
+      "title": "アクセス方法",
+      "description": "公共交通や車でのアクセス方法を記載します。",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "定員"
-    },
-    "accessMethod": {
-      "title": "アクセス方法",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Text"
@@ -417,14 +441,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "公共交通や車でのアクセス方法を記載します。"
+      "additionalProperties": false
     },
     "refOffStreetParking": {
       "title": "駐車場ID",
+      "description": "駐車場情報のid。駐車可能な台数などの説明、料金、優先駐車場の有無などを辿れる。データモデルはSmart Data Modelsの[OffStreetParking](https://github.com/smart-data-models/dataModel.Parking/tree/a8d826a5ba45ccfe2f4d35273a5c4bfb05d85117/OffStreetParking)を参照されたい",
       "type": "object",
       "properties": {
         "type": {
@@ -440,8 +461,7 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "駐車場情報のid。駐車可能な台数などの説明、料金、優先駐車場の有無などを辿れる。データモデルはSmart Data Modelsの[OffStreetParking](https://github.com/smart-data-models/dataModel.Parking/tree/a8d826a5ba45ccfe2f4d35273a5c4bfb05d85117/OffStreetParking)を参照されたい"
+      ]
     },
     "areaServed": {
       "title": "サービス担当区域",
@@ -516,6 +536,10 @@
     "areaServedaRemarks": {
       "title": "サービス担当区域備考",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -524,13 +548,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ]
+      "additionalProperties": false
     },
     "contactPoint": {
       "title": "連絡先",
+      "description": "施設の代表電話などを登録する",
       "type": "object",
       "properties": {
         "type": {
@@ -582,11 +604,16 @@
         "type",
         "value"
       ],
-      "description": "施設の代表電話などを登録する"
+      "additionalProperties": false
     },
     "refOperationManager": {
       "title": "運営者",
+      "description": "運営を担当している法人へのリンク。自治体の場合、包括施設管理事業者の場合、および第三の事業者の場合などがある",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
@@ -599,15 +626,16 @@
           ]
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "運営を担当している法人へのリンク。自治体の場合、包括施設管理事業者の場合、および第三の事業者の場合などがある"
+      "additionalProperties": false
     },
     "refFacilityManager": {
       "title": "管理者",
+      "description": "施設を管理する事業者の「法人」Entityへのリンクの情報。包括施設管理業務委託の場合は包括施設管理事業者へのリンク",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
@@ -620,14 +648,11 @@
           ]
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設を管理する事業者の「法人」Entityへのリンクの情報。包括施設管理業務委託の場合は包括施設管理事業者へのリンク"
+      "additionalProperties": false
     },
     "accessibility": {
       "title": "アクセシビリティ情報",
+      "description": "施設のバリアフリー情報などを登録します。",
       "type": "object",
       "properties": {
         "type": {
@@ -637,61 +662,80 @@
           "type": "object",
           "properties": {
             "wheelchairAccessible": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "車椅子の使用可"
             },
             "wheelchairRental": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "車椅子貸出有り"
             },
             "caneRental": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "ツエ貸出有り"
             },
             "multipurposeToilet": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "多目的トイレ有り"
             },
             "ramp": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "スロープ有り"
             },
             "elevator": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "エレベータ有り"
             },
             "escalator": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "エスカレーター有り"
             },
             "mobilitySupportForBrailleBlocks": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "点字ブロック等の移動支援有り"
             },
             "brailleAndReadingAssistance": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "点字や読上による支援有り"
             },
             "accompaniedByGuideDogsAndServiceDogs": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "盲導犬・介助犬・聴導犬などの同伴可"
             },
             "subtitles": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "字幕有り"
             },
             "writingSupport": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "筆談対応有り"
             },
             "toiletForOstomates": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "オストメイト対応トイレ有り"
             },
             "remarks": {
-              "type": "string"
+              "type": "string",
+              "description": "その他アクセシビリティ事項"
             },
             "priorityParking": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "優先駐車場有り"
             },
             "publicPhoneForWheelchairUsers": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "車椅子対応公衆電話有り"
             },
             "barrierFreeFloor": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "段差無し"
             },
             "handrail": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "手すり有り"
             },
             "automaticDoor": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "自動ドア有り"
             }
           }
         }
@@ -700,10 +744,11 @@
         "type",
         "value"
       ],
-      "description": "施設のバリアフリー情報などを登録します。"
+      "additionalProperties": false
     },
     "childCare": {
       "title": "子育て支援情報",
+      "description": "子育て施設の場合、受け入れ年齢と一時預かりの有無の情報の登録を推奨。共通パーツを参照",
       "type": "object",
       "properties": {
         "type": {
@@ -713,65 +758,82 @@
           "type": "object",
           "properties": {
             "childCareType": {
-              "type": "string"
+              "type": "string",
+              "description": "料金の種別。列挙型項目。ENUM: \"有償\"、\"無償\""
             },
             "childCareFee": {
+              "description": "有料の場合の料金",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
                   "unitText": {
-                    "type": "string"
+                    "title": "単位",
+                    "type": "string",
+                    "description": "測定単位を示す文字列またはテキスト。”1時間あたり料金”などと記載します。"
                   },
                   "price": {
-                    "type": "integer"
+                    "title": "価格",
+                    "type": "number",
+                    "description": "価格を数値で示します"
                   },
                   "priceCurrency": {
-                    "type": "string"
+                    "title": "通貨",
+                    "type": "string",
+                    "description": "支払い可能な通貨を示します。形式はISO4217です。日本円は”JPY”, 米ドルは”USD”です"
                   }
                 },
                 "required": [
-                  "unitText",
-                  "price",
-                  "priceCurrency"
+                  "price"
                 ]
               }
             },
             "childCareFeeRemarks": {
-              "type": "string"
+              "type": "string",
+              "description": "料金の備考"
             },
             "minAge": {
-              "type": "integer"
+              "type": "number",
+              "description": "参加可能年齢（下限）"
             },
             "minAgeInMonths": {
-              "type": "integer"
+              "type": "number",
+              "description": "参加可能月齢"
             },
             "maxAge": {
-              "type": "integer"
+              "type": "number",
+              "description": "参加可能年齢（上限）"
             },
             "childCareOpeningHours": {
+              "description": "曜日ごとの開館閉館時刻を表す文字列のリスト。各要素は\"<曜日> <開始時刻>-<終了時刻>\"形式(例: \"Mo-Fr 09:00-17:00\")。曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字、カンマ区切りやハイフンでの範囲指定も可",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
             "nursery": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "授乳室の有無"
             },
             "diaperChangingCorner": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "おむつ替えコーナーの有無"
             },
             "foodAndDrinkAvailable": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "飲食可否"
             },
             "strollerRental": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "ベビーカー貸出の有無"
             },
             "strollerUse": {
-              "type": "boolean"
+              "type": "boolean",
+              "description": "ベビーカー利用の有無"
             },
             "remarks": {
-              "type": "string"
+              "type": "string",
+              "description": "子育て支援情報の備考"
             }
           }
         }
@@ -780,29 +842,36 @@
         "type",
         "value"
       ],
-      "description": "子育て施設の場合、受け入れ年齢と一時預かりの有無の情報の登録を推奨。共通パーツを参照"
+      "additionalProperties": false
     },
     "facilityParent": {
       "title": "主施設ID",
+      "description": "複合施設へ入居するテナント施設)において、建物や土地を含めた複合施設全体を表す「施設」の施設IDを登録します。施設全体を表す「施設」の場合はこの項目を登録しません。またはNULLを登録します。入居施設とは複合施設のテナント施設だけでなく、例えば学校に臨時的に設置する避難所、公共施設に併設する防災倉庫などがあります。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
           "type": "string",
+          "pattern": "^urn:ngsi-ld:Facility:.*",
           "x-refType": "Facility"
         }
       },
+      "additionalProperties": false
+    },
+    "usage": {
+      "title": "用途",
+      "description": "消防法施行令別表第一に掲げる防火対象物の用途。http://www.chikuta119.jp/info/ihan_kohyo/pdf/beppyo01.pdf",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "複合施設へ入居するテナント施設)において、建物や土地を含めた複合施設全体を表す「施設」の施設IDを登録します。施設全体を表す「施設」の場合はこの項目を登録しません。またはNULLを登録します。入居施設とは複合施設のテナント施設だけでなく、例えば学校に臨時的に設置する避難所、公共施設に併設する防災倉庫などがあります。"
-    },
-    "usage": {
-      "title": "用途",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Text"
@@ -811,50 +880,54 @@
           "type": "string"
         }
       },
+      "additionalProperties": false
+    },
+    "refDepartment": {
+      "title": "所管部門ID",
+      "description": "本施設を管理する部署の「部門(Department)」へのリンク。公共施設の場合は所管課のDepartmentへのリンク。管理部門へのリンクは「建物(Building)」にもあり、管理形態によりどちらか、または両方にリンクを格納する。公共施設の場合は、どちらかの登録は必須",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "消防法施行令別表第一に掲げる防火対象物の用途。http://www.chikuta119.jp/info/ihan_kohyo/pdf/beppyo01.pdf"
-    },
-    "refDepartment": {
-      "title": "所管部門ID",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
           "type": "string",
+          "pattern": "^urn:ngsi-ld:Department:.*",
           "x-refType": "Department"
         }
       },
+      "additionalProperties": false
+    },
+    "totalFloorArea": {
+      "title": "床面積",
+      "description": "施設が建物の一部に入居している場合は、占有部分の床面積の総計。尚、建物全体の延べ床面積は「建物」に登録する",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "本施設を管理する部署の「部門(Department)」へのリンク。公共施設の場合は所管課のDepartmentへのリンク。管理部門へのリンクは「建物(Building)」にもあり、管理形態によりどちらか、または両方にリンクを格納する。公共施設の場合は、どちらかの登録は必須"
-    },
-    "totalFloorArea": {
-      "title": "床面積",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Number"
         },
         "value": {
-          "type": "integer"
+          "type": "number"
         }
       },
+      "additionalProperties": false
+    },
+    "zones": {
+      "title": "場所",
+      "description": "施設内外を大まかに区分した場所の名称を最大3階層で登録します。最もおおまかな場所の名称は、zoneNameで指定します。更に区分した場所の名称は、subzoneNameの一つ目の項目で指定します。更に区分した最も細かい場所の名称は、subzoneNameの二つ目の項目で指定します。二つ目の情報はTextのリストです。この情報は、不具合の通報者、コールセンタ、受託事業者、および自治体職員間の意思疎通のために使われる事を想定しています。「建物」か「施設」のどちらかへの登録は必須です。subzoneNameのArrayは順番に意味を持ちます(順序付きリスト)。棟毎にこの「建物」の情報を登録する場合も、この場所の情報は建物全体の「建物」に登録します",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "施設が建物の一部に入居している場合は、占有部分の床面積の総計。尚、建物全体の延べ床面積は「建物」に登録する"
-    },
-    "zones": {
-      "title": "場所",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Array"
@@ -898,16 +971,16 @@
             ]
           }
         }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設内外を大まかに区分した場所の名称を最大3階層で登録します。最もおおまかな場所の名称は、zoneNameで指定します。更に区分した場所の名称は、subzoneNameの一つ目の項目で指定します。更に区分した最も細かい場所の名称は、subzoneNameの二つ目の項目で指定します。二つ目の情報はTextのリストです。この情報は、不具合の通報者、コールセンタ、受託事業者、および自治体職員間の意思疎通のために使われる事を想定しています。「建物」か「施設」のどちらかへの登録は必須です。subzoneNameのArrayは順番に意味を持ちます(順序付きリスト)。棟毎にこの「建物」の情報を登録する場合も、この場所の情報は建物全体の「建物」に登録します"
+      }
     },
     "managementForm": {
       "title": "管理方式",
+      "description": "自治体の場合、直営、指定管理などの区別を登録",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -916,15 +989,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "自治体の場合、直営、指定管理などの区別を登録"
+      "additionalProperties": false
     },
     "basisLaw": {
       "title": "根拠法",
+      "description": "設置の根拠となる法令など。”○○設置条例”など",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -933,15 +1007,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設置の根拠となる法令など。”○○設置条例”など"
+      "additionalProperties": false
     },
     "localDisasterPreventionPlan": {
       "title": "防災計画",
+      "description": "地域防災計画における本施設の位置づけ。”避難所”など",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -950,14 +1025,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "地域防災計画における本施設の位置づけ。”避難所”など"
+      "additionalProperties": false
     },
     "refPix": {
       "title": "写真",
+      "description": "施設の写真のurl",
       "type": "object",
       "properties": {
         "type": {
@@ -973,12 +1045,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "施設の写真のurl"
+      ]
     },
     "remarks": {
       "title": "特記事項",
+      "description": "特記事項があれば記述",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -987,14 +1063,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "特記事項があれば記述"
+      "additionalProperties": false
     },
     "refMaterials": {
       "title": "図絵等",
+      "description": "グラフ等の図絵があれば、urlを登録",
       "type": "object",
       "properties": {
         "type": {
@@ -1010,12 +1083,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "グラフ等の図絵があれば、urlを登録"
+      ]
     },
     "userLimitation": {
       "title": "利用制限",
+      "description": "施設の利用者に制限があるかどうか",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Boolean"
@@ -1024,15 +1101,16 @@
           "type": "boolean"
         }
       },
+      "additionalProperties": false
+    },
+    "availableUsers": {
+      "title": "利用可能者",
+      "description": "利用者に制限がある場合、利用できる人等の属性を記述",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "施設の利用者に制限があるかどうか"
-    },
-    "availableUsers": {
-      "title": "利用可能者",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Text"
@@ -1041,11 +1119,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "利用者に制限がある場合、利用できる人等の属性を記述"
+      "additionalProperties": false
     }
   },
   "required": [

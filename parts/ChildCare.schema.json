@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/parts/ChildCare.schema.json",
+  "title": "ChildCare",
+  "description": "子育て支援情報を表すデータパーツ。https://ppp-database.org/spec/parts/ChildCare/ 参照。属性名は各モデル側で決め、title/descriptionも利用側で$refの兄弟キーとして指定する。",
+  "$defs": {
+    "ChildCare": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "ChildCare" },
+        "value": {
+          "type": "object",
+          "properties": {
+            "childCareType": { "type": "string", "description": "料金の種別。列挙型項目。ENUM: \"有償\"、\"無償\"" },
+            "childCareFee": {
+              "$ref": "PriceSpecification.schema.json#/$defs/PriceSpecificationValue",
+              "description": "有料の場合の料金"
+            },
+            "childCareFeeRemarks": { "type": "string", "description": "料金の備考" },
+            "minAge": { "type": "number", "description": "参加可能年齢（下限）" },
+            "minAgeInMonths": { "type": "number", "description": "参加可能月齢" },
+            "maxAge": { "type": "number", "description": "参加可能年齢（上限）" },
+            "childCareOpeningHours": {
+              "$ref": "OpeningHours.schema.json#/$defs/OpeningHoursValue",
+              "description": "対応時間帯。施設等のサービス時間帯と異なる場合にOpeningHoursの形式で登録する"
+            },
+            "nursery": { "type": "boolean", "description": "授乳室の有無" },
+            "diaperChangingCorner": { "type": "boolean", "description": "おむつ替えコーナーの有無" },
+            "foodAndDrinkAvailable": { "type": "boolean", "description": "飲食可否" },
+            "strollerRental": { "type": "boolean", "description": "ベビーカー貸出の有無" },
+            "strollerUse": { "type": "boolean", "description": "ベビーカー利用の有無" },
+            "remarks": { "type": "string", "description": "子育て支援情報の備考" }
+          }
+        }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
+    }
+  }
+}
