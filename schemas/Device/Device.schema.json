@@ -185,7 +185,8 @@
         "type",
         "value"
       ],
-      "description": "設備の名称の米国英語表記を設定する"
+      "description": "設備の名称の米国英語表記を設定する",
+      "title": "設備名称英語"
     },
     "pricePurchased": {
       "type": "object",

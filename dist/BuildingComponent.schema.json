@@ -60,7 +60,8 @@
         "type",
         "value"
       ],
-      "description": "部位の名称のカナ表記を設定する"
+      "description": "部位の名称のカナ表記を設定する",
+      "title": "部位名称カナ"
     },
     "nameEn": {
       "type": "object",
@@ -76,7 +77,8 @@
         "type",
         "value"
       ],
-      "description": "部位の名称の米国英語表記を設定する"
+      "description": "部位の名称の米国英語表記を設定する",
+      "title": "部位名称英語"
     },
     "description": {
       "type": "object",
@@ -188,9 +190,20 @@
         },
         "value": {
           "type": "array",
-          "items": {
-            "type": "string"
-          },
+          "items": [
+            {
+              "title": "場所大分類",
+              "type": "string"
+            },
+            {
+              "title": "場所中分類",
+              "type": "string"
+            },
+            {
+              "title": "場所小分類",
+              "type": "string"
+            }
+          ],
           "maxItems": 3
         }
       },
