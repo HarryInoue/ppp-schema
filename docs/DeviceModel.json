@@ -13,7 +13,7 @@
       "id",
       "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
-      "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた設備IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:DeviceModel:”<一意となる文字列>。一意となる文字列は、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます、例えば国名コードとメーカの法人番号の後にハイフンを挟んで型番を並べたものなど。"
+      "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:DeviceModel:”<一意となる文字列>。一意となる文字列は、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます、例えば国名コードとメーカの法人番号の後にハイフンを挟んで型番を並べたものなど。"
     ],
     [
       "-",

@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Complaint:”<一意となる番号>。一意となる番号は事業者が交代しても一意となる様な運用が必要です。",
+      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Complaint:”<一意となる番号>。一意となる番号は事業者が交代しても一意となる様な運用が必要です。",
       "title": "案件ID"
     },
     "type": {
@@ -149,9 +149,18 @@
             "abstracts": {
               "type": "array",
               "items": [
-                { "title": "場所大分類", "type": "string" },
-                { "title": "場所中分類", "type": "string" },
-                { "title": "場所小分類", "type": "string" }
+                {
+                  "title": "場所大分類",
+                  "type": "string"
+                },
+                {
+                  "title": "場所中分類",
+                  "type": "string"
+                },
+                {
+                  "title": "場所小分類",
+                  "type": "string"
+                }
               ]
             },
             "remarks": {
@@ -187,7 +196,10 @@
             "refComponent": {
               "title": "部位ID",
               "type": "string",
-              "x-refType": ["BuildingComponent", "Device"]
+              "x-refType": [
+                "BuildingComponent",
+                "Device"
+              ]
             },
             "remarks": {
               "title": "部位補足",

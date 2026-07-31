@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Report:”<一意となる文字列>。事業者が交代しても一意となる様な工夫が必要です。",
+      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Report:”<一意となる文字列>。事業者が交代しても一意となる様な工夫が必要です。",
       "title": "報告ID"
     },
     "type": {
@@ -24,7 +24,9 @@
     },
     "dateOperation": {
       "oneOf": [
-        { "$ref": "../CommonParts.schema.json#/$defs/DateAttribute" },
+        {
+          "$ref": "../CommonParts.schema.json#/$defs/DateAttribute"
+        },
         {
           "type": "object",
           "properties": {

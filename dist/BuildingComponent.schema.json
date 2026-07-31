@@ -5,7 +5,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)ですので、一旦割り当てた部位IDは変更する事はできません。また、改築等で部位が継続性が無い状況でを入れ替えた場合は部位IDは再度附番しなおして、別の識別子に変更する必要があります。これは、保存された過去のデータと区別するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:BuildingComponent:”<一意となる文字列>。一意となる文字列は一意であれば何でもよいが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。",
+      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた部位IDは変更する事はできません。また、改築等で部位が継続性が無い状況でを入れ替えた場合は部位IDは再度附番しなおして、別の識別子に変更する必要があります。これは、保存された過去のデータと区別するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:BuildingComponent:”<一意となる文字列>。一意となる文字列は一意であれば何でもよいが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。",
       "title": "部位ID"
     },
     "type": {
