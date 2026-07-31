@@ -13,7 +13,13 @@
       "description": "必ず”Report”の文字列でなくてはならない"
     },
     "timestamp": {
+      "title": "報告日",
+      "description": "報告日",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Date"
@@ -23,15 +29,16 @@
           "format": "date"
         }
       },
+      "additionalProperties": false
+    },
+    "category": {
+      "title": "報告書名称",
+      "description": "報告書の名称を記述します。報告書の名称は自治体や事業者により異なる可能性がありますが、法令で決められている名称は法令の通りに記述します。用語の定義は[ReportCategory](https://ppp-database.org/spec/enum/ReportCategory/)を参照",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "報告日",
-      "title": "報告日"
-    },
-    "category": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "Text"
@@ -40,17 +47,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "報告書の名称を記述します。報告書の名称は自治体や事業者により異なる可能性がありますが、法令で決められている名称は法令の通りに記述します。用語の定義は[ReportCategory](https://ppp-database.org/spec/enum/ReportCategory/)を参照",
-      "title": "報告書名称"
+      "additionalProperties": false
     },
     "dateOperation": {
       "oneOf": [
         {
           "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
           "properties": {
             "type": {
               "const": "Date"
@@ -60,10 +66,7 @@
               "format": "date"
             }
           },
-          "required": [
-            "type",
-            "value"
-          ]
+          "additionalProperties": false
         },
         {
           "type": "object",
@@ -91,7 +94,13 @@
       "title": "実施日"
     },
     "operationName": {
+      "title": "作業名",
+      "description": "「報告書名称」の補足情報です。例えば、報告書名称を”不具合報告”とし作業名を”巡回点検”とするなど",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -100,31 +109,31 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "「報告書名称」の補足情報です。例えば、報告書名称を”不具合報告”とし作業名を”巡回点検”とするなど",
-      "title": "作業名"
+      "additionalProperties": false
     },
     "refSubmitter": {
+      "title": "報告者",
+      "description": "報告者の法人に対するリンク。特定行政庁や自治体等に提出する公的な報告書など作成する場合は、その報告書の届出者/報告者の所属法人名や連絡先を取り出すために用います",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:Organization:.*",
+          "x-refType": "Organization"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "報告者の法人に対するリンク。特定行政庁や自治体等に提出する公的な報告書など作成する場合は、その報告書の届出者/報告者の所属法人名や連絡先を取り出すために用います",
-      "title": "報告者"
+      "additionalProperties": false
     },
     "inspector": {
+      "title": "調査者",
+      "description": "12条点検の報告における、調査者や検査者の法人に対するリンクを登録します。但し、本項目は統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。",
       "type": "object",
       "properties": {
         "type": {
@@ -140,62 +149,74 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "12条点検の報告における、調査者や検査者の法人に対するリンクを登録します。但し、本項目は統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。",
-      "title": "調査者"
+      ]
     },
     "reportParent": {
+      "title": "親報告",
+      "description": "12条点検の報告において、建物が複数の建築物(棟)から構成される場合、建築物の報告から建物の報告に対するリンクを登録します",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:Report:.*",
+          "x-refType": "Report"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "12条点検の報告において、建物が複数の建築物(棟)から構成される場合、建築物の報告から建物の報告に対するリンクを登録します",
-      "title": "親報告"
+      "additionalProperties": false
     },
     "refTarget": {
+      "title": "建物ID",
+      "description": "定期検査や不具合報告などにおいて、対象建物、建築物(棟)、設備、および部位へのリンク。一般的に、施設の寿命に比べて建物等の物理的な実体を持つモノの寿命は短いため、この情報が無いと対象施設や設備が現在も存在するのかどうかなどの「状態(status)」が確認できません。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "x-refType": [
+            "Building",
+            "Device",
+            "BuildingComponent"
+          ]
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "定期検査や不具合報告などにおいて、対象建物、建築物(棟)、設備、および部位へのリンク。一般的に、施設の寿命に比べて建物等の物理的な実体を持つモノの寿命は短いため、この情報が無いと対象施設や設備が現在も存在するのかどうかなどの「状態(status)」が確認できません。",
-      "title": "建物ID"
+      "additionalProperties": false
     },
     "refFacility": {
+      "title": "施設ID",
+      "description": "不具合の報告などにおいて、報告対象の施設へのリンクです。施設管理の管理単位が施設の場合に用います。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:Facility:.*",
+          "x-refType": "Facility"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "不具合の報告などにおいて、報告対象の施設へのリンクです。施設管理の管理単位が施設の場合に用います。",
-      "title": "施設ID"
+      "additionalProperties": false
     },
     "refComplaint": {
+      "title": "案件ID",
+      "description": "本報告が関係する「案件」へのリンク。複数の案件がある場合はリストで登録する。検査の結果不具合が見つからなかった場合にも本データモデルを登録するかどうかは運用に依存するが、登録する場合は本Attributeを設定しないか、不具合現象(phenomenonのcategory)に”良好”を登録した案件 (Complaint) をリンクする。「報告」と「案件」の関係の例については、[包括施設管理における使い方(6/7)](https://ppp-database.org/howtouse/tutorial2-6/)も参考にしてください。",
       "type": "object",
       "properties": {
         "type": {
@@ -211,11 +232,11 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "本報告が関係する「案件」へのリンク。複数の案件がある場合はリストで登録する。検査の結果不具合が見つからなかった場合にも本データモデルを登録するかどうかは運用に依存するが、登録する場合は本Attributeを設定しないか、不具合現象(phenomenonのcategory)に”良好”を登録した案件 (Complaint) をリンクする。「報告」と「案件」の関係の例については、[包括施設管理における使い方(6/7)](https://ppp-database.org/howtouse/tutorial2-6/)も参考にしてください。",
-      "title": "案件ID"
+      ]
     },
     "equipment": {
+      "title": "対象設備",
+      "description": "12条点検における検査対象の建築設備をリスト形式で登録します。登録する用語は”換気設備”、”排煙設備”、”非常用の照明装置”、および”給水設備及び排水設備”です",
       "type": "object",
       "properties": {
         "type": {
@@ -231,12 +252,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "12条点検における検査対象の建築設備をリスト形式で登録します。登録する用語は”換気設備”、”排煙設備”、”非常用の照明装置”、および”給水設備及び排水設備”です",
-      "title": "対象設備"
+      ]
     },
     "damageControl": {
+      "title": "簡易修繕",
+      "description": "簡易修繕の内容。列挙型項目。用語の定義は[DamageControl](https://ppp-database.org/spec/enum/DamageControl/)を参照。尚、簡易修繕を行わなかった場合はこの項目には登録しません",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -245,12 +270,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "簡易修繕の内容。列挙型項目。用語の定義は[DamageControl](https://ppp-database.org/spec/enum/DamageControl/)を参照。尚、簡易修繕を行わなかった場合はこの項目には登録しません",
-      "title": "簡易修繕"
+      "additionalProperties": false
     },
     "pictures": {
       "type": "object",
@@ -285,7 +305,13 @@
       "title": "写真"
     },
     "request": {
+      "title": "要望",
+      "description": "職員などからの要望事項です。修繕の期限などの条件がある場合は記述します。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -294,15 +320,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "職員などからの要望事項です。修繕の期限などの条件がある場合は記述します。",
-      "title": "要望"
+      "additionalProperties": false
     },
     "remarks": {
+      "title": "備考",
+      "description": "備考",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -311,15 +338,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "備考",
-      "title": "備考"
+      "additionalProperties": false
     },
     "opinion": {
+      "title": "所見",
+      "description": "担当者の所見",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -328,12 +356,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "担当者の所見",
-      "title": "所見"
+      "additionalProperties": false
     },
     "document": {
       "type": "object",
