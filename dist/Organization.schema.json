@@ -362,6 +362,7 @@
     },
     "registeredAddress": {
       "title": "登記住所",
+      "description": "法人の登記上の住所",
       "type": "object",
       "properties": {
         "type": {
@@ -408,8 +409,7 @@
         "type",
         "value"
       ],
-      "additionalProperties": false,
-      "description": "法人の登記上の住所"
+      "additionalProperties": false
     },
     "contactPoint": {
       "title": "連絡先",

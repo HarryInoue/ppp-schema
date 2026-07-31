@@ -340,21 +340,8 @@
       "description": "資本金を記載。この項目が必要な場合は、更新の責任をだれが負うのかなどの運用と、通貨の属性の必要性について検討が必要"
     },
     "registeredAddress": {
+      "$ref": "../../parts/PostalAddress.schema.json#/$defs/PostalAddress",
       "title": "登記住所",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "PostalAddress"
-        },
-        "value": {
-          "$ref": "../../parts/PostalAddress.schema.json#/$defs/PostalAddress"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "additionalProperties": false,
       "description": "法人の登記上の住所"
     },
     "contactPoint": {
