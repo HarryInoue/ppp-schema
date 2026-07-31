@@ -7,7 +7,7 @@
     "id": {
       "title": "土地ID",
       "type": "string",
-      "description": "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)です。データを登録する時点で登記済みの土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Land:”<不動産ID>。不動産IDについては、「[不動産IDルールガイドライン](https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/content/001594268.pdf)」を参照してください。このガイドラインでは土地の不動産IDは<不動産番号>”-0000″の形式。不動産番号は13桁のASCII文字列。不動産番号直後の文字はハイフン(“-“)以外も利用可能となっていますが、idとして利用する場合はハイフンのみ利用可能です。\nデータを登録する時点で登記していない土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Land:”<国名コード><法人番号>-<通番>、または”urn:ngsi-ld:Land:”<UUID>。<国名コード>は日本の法人が所有する土地の場合は”JP”、<法人番号>は土地を所有する法人番号、<通番>はその法人内で定める重複のない任意の文字列です。<UUID>はUUIDの規格に従う重複の無いランダムな16進文字列です。\n不動産IDのルールは今後変更されるかもしれませんが、その場合も一旦割り当てたidは変更する事はできません。"
+      "description": "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)です。データを登録する時点で登記済みの土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Land:”<不動産ID>。不動産IDについては、「[不動産IDルールガイドライン](https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/content/001594268.pdf)」を参照してください。このガイドラインでは土地の不動産IDは<不動産番号>”-0000″の形式。不動産番号は13桁のASCII文字列。不動産番号直後の文字はハイフン(“-“)以外も利用可能となっていますが、idとして利用する場合はハイフンのみ利用可能です。\nデータを登録する時点で登記していない土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Land:”<国名コード><法人番号>-<通番>、または”urn:ngsi-ld:Land:”<UUID>。<国名コード>は日本の法人が所有する土地の場合は”JP”、<法人番号>は土地を所有する法人番号、<通番>はその法人内で定める重複のない任意の文字列です。<UUID>はUUIDの規格に従う重複の無いランダムな16進文字列です。\n不動産IDのルールは今後変更されるかもしれませんが、その場合も一旦割り当てたidは変更する事はできません。"
     },
     "type": {
       "type": "string",
@@ -24,25 +24,16 @@
           "type": "array",
           "x-key": "identificationType",
           "items": {
-            "type": "object",
-            "properties": {
-              "identificationType": {
-                "title": "ID種別",
-                "type": "string",
-                "enum": [
-                  "不動産ID"
-                ]
-              },
-              "identification": {
-                "title": "ID",
-                "type": "string"
+            "allOf": [
+              { "$ref": "../CommonParts.schema.json#/$defs/IdentificationItem" },
+              {
+                "properties": {
+                  "identificationType": {
+                    "enum": ["不動産ID"]
+                  }
+                }
               }
-            },
-            "required": [
-              "identificationType",
-              "identification"
-            ],
-            "additionalProperties": false
+            ]
           }
         }
       },
@@ -100,350 +91,83 @@
       "description": "土地の主要な用途です。本仕様が継承しているGIFのコア・データモデルで必須の指定があるため、本仕様でも必須としてあります。登録して良い用語(列挙型メンバ)の定義は、[LandUsage](https://ppp-database.org/spec/enum/LandUsage)を参照してください"
     },
     "name": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "土地名",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "土地の名前がある場合は必ず設定します。”○○公園”など。但し、小学校など、通常建物名称や施設名称で呼ばれる場合は省略して構いません"
     },
     "alternateName": {
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
       "title": "通称",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "住民からの問い合わせや掲示などで使われる一般的な通称がある場合はリスト形式で列挙します"
     },
     "description": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "説明",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "土地情報として公開可能な詳細情報です"
     },
     "address": {
+      "$ref": "../../parts/PostalAddress.schema.json#/$defs/PostalAddress",
       "title": "住所",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "PostalAddress"
-        },
-        "value": {
-          "type": "object",
-          "properties": {
-            "addressCountry": {
-              "type": "string"
-            },
-            "addressRegion": {
-              "type": "string"
-            },
-            "addressLocality": {
-              "type": "string"
-            },
-            "streetAddress": {
-              "type": "string"
-            },
-            "postalCode": {
-              "type": "string"
-            }
-          },
-          "format": "PostalAddress"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "additionalProperties": false,
       "description": "住所をPostalAddress形式で設定します。郵便番号は、土地に付番された郵便番号を登録するものとし、個別郵便番号は施設のデータモデルである[Facility](https://ppp-database.org/spc/datamodel/Facility)に登録します"
     },
     "siteArea": {
+      "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "面積",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "土地の敷地面積(㎡)。公共施設の土地では必須です(施設カルテ等で使用します)"
     },
     "location": {
+      "$ref": "../CommonParts.schema.json#/$defs/GeoJsonPointOrPolygon",
       "title": "座標",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "geo:json"
-        },
-        "value": {
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "const": "Point"
-                },
-                "coordinates": {
-                  "type": "array",
-                  "items": {
-                    "type": "number",
-                    "minItems": 2,
-                    "maxItems": 3
-                  }
-                }
-              },
-              "required": [
-                "type",
-                "coordinates"
-              ]
-            },
-            {
-              "type": "object",
-              "properties": {
-                "type": {
-                  "const": "Polygon"
-                },
-                "coordinates": {
-                  "type": "array",
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "array",
-                      "items": {
-                        "type": "number",
-                        "minItems": 2,
-                        "maxItems": 3
-                      }
-                    }
-                  }
-                }
-              },
-              "required": [
-                "type",
-                "coordinates"
-              ]
-            }
-          ]
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "土地の座標点を登録します (注1)"
     },
     "remarks": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "備考",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "土地の備考です"
     },
     "refContactPoint": {
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeOrganizationOrDepartment",
       "title": "連絡先",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string",
-          "x-refType": [
-            "Organization",
-            "Department"
-          ]
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "所有者と連絡先が異なる場合に、連絡先となっている法人のOrganizationか担当部門のDepartmentへのリンクを設定します。リンク先の施設管理事業者の情報には、電話番号などの連絡方法に関する情報が記載されています"
     },
     "fireZone": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "防火地域",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "防火地域、準防火地域などの区別です。施設カルテや12条点検の報告等での利用を期待しています。特に、12条点検の対象となる建物では、点検結果の報告書に必要な情報です。"
     },
     "landUseZone": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "用途地域",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "用途地域を表す列挙型項目です。施設カルテ等や12条点検の報告等での利用を期待しており、特に、12条点検の対象となる建物では、点検結果の報告書に必要な情報です。登録して良い用語(列挙型メンバ)の定義は[「土地の用途地域 (LandUseZone)」](https://ppp-database.org/spec/enum/LandUseZone)です。"
     },
     "ownership": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "所有形態",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "所有形態。”市”、”町”、”県”、”借上”げなど。公共施設の場合は必須です(施設カルテ等で使用します)。但し、建物が”借上”の場合、記入は必須ではない"
     },
     "acquisitionPrice": {
+      "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "取得価格",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "土地の取得価格。公共の土地では必須です(施設カルテ等で使用します)"
     },
     "coverageRatio": {
+      "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "建ぺい率",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "建ぺい率を%で記載します(施設カルテ等で使用します)"
     },
     "floorAreaRatio": {
+      "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "容積率",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "容積率を%で記載します(施設カルテ等で使用します)"
     },
     "refOwner": {
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeOrganization",
       "title": "所有者",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string",
-          "x-refType": "Organization"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "所有する法人へのリンクです。例えば、自治体が公有地を本データモデル管理する場合に、自治体のOrganizationにリンクします。建物の管理業務において「建物」とオーナーが異なる場合は必須です。"
     },
     "refDepartment": {
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeDepartment",
       "title": "所管部門",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string",
-          "x-refType": "Department"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "所有する法人に所管部門がある場合にDepartmentにリンクする"
     }
   },

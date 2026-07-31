@@ -99,6 +99,67 @@
       "additionalProperties": false
     },
 
+    "RelationshipAttributeDepartment": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Department:.*", "x-refType": "Department" }
+      },
+      "additionalProperties": false
+    },
+
+    "RelationshipAttributeOrganizationOrDepartment": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "x-refType": ["Organization", "Department"] }
+      },
+      "additionalProperties": false
+    },
+
+    "GeoJsonPointOrPolygon": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "geo:json" },
+        "value": {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "type": { "const": "Point" },
+                "coordinates": {
+                  "type": "array",
+                  "items": { "type": "number", "minItems": 2, "maxItems": 3 }
+                }
+              },
+              "required": ["type", "coordinates"]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "type": { "const": "Polygon" },
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": { "type": "number", "minItems": 2, "maxItems": 3 }
+                    }
+                  }
+                }
+              },
+              "required": ["type", "coordinates"]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+
     "RelationshipAttributeDevice": {
       "type": "object",
       "required": ["type", "value"],
