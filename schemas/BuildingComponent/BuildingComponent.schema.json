@@ -13,214 +13,64 @@
       "description": "必ず”BuildingComponent”の文字列でなくてはならない"
     },
     "category": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位の種別。列挙型項目であり、用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照",
-      "title": "部位種別"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "部位種別",
+      "description": "部位の種別。列挙型項目であり、用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照"
     },
     "name": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位に他と区別すべき名称が付いている場合に、名称を設定する。名称は”中央階段”、”職員門扉”などの様に利用者が使う名称を用いても、”〇小-1F-空調-A01″などの様に管理上の名称でも使用上は構わない。オーナーと管理者との協議により決まる。",
-      "title": "部位名称"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "部位名称",
+      "description": "部位に他と区別すべき名称が付いている場合に、名称を設定する。名称は”中央階段”、”職員門扉”などの様に利用者が使う名称を用いても、”〇小-1F-空調-A01″などの様に管理上の名称でも使用上は構わない。オーナーと管理者との協議により決まる。"
     },
     "nameKana": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位の名称のカナ表記を設定する",
-      "title": "部位名称カナ"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "部位名称カナ",
+      "description": "部位の名称のカナ表記を設定する"
     },
     "nameEn": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位の名称の米国英語表記を設定する",
-      "title": "部位名称英語"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "部位名称英語",
+      "description": "部位の名称の米国英語表記を設定する"
     },
     "description": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位情報として公開可能な詳細情報",
-      "title": "説明"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "説明",
+      "description": "部位情報として公開可能な詳細情報"
     },
     "status": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "「稼働中」、「故障中」などのステータス。この項目を利用する場合は、更新責任をだれが担うかなどのルールの策定が必要",
-      "title": "ステータス"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "ステータス",
+      "description": "「稼働中」、「故障中」などのステータス。この項目を利用する場合は、更新責任をだれが担うかなどのルールの策定が必要"
     },
     "refFacility": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設置している対象の施設へのリンクです。施設管理業務においては、施設全体を表す「施設 (Facility)」または、施設にテナントとして入居するテナント施設の「施設 (Facility)」をリンクします。尚、テナント施設からは「主施設ID(facilityParent)」という項目により、施設全体の情報を辿る事ができます。",
-      "title": "施設ID"
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility",
+      "title": "施設ID",
+      "description": "設置している対象の施設へのリンクです。施設管理業務においては、施設全体を表す「施設 (Facility)」または、施設にテナントとして入居するテナント施設の「施設 (Facility)」をリンクします。尚、テナント施設からは「主施設ID(facilityParent)」という項目により、施設全体の情報を辿る事ができます。"
     },
     "refBuilding": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設置している対象の建物へのリンク。12条点検などの公的点検では部位や設備の不具合は棟毎に分けて報告する仕様になっているためこの項目があります。",
-      "title": "建物ID"
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeBuilding",
+      "title": "建物ID",
+      "description": "設置している対象の建物へのリンク。12条点検などの公的点検では部位や設備の不具合は棟毎に分けて報告する仕様になっているためこの項目があります。"
     },
     "url": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "URL"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設置場所写真のURLなど",
-      "title": "url"
+      "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
+      "title": "url",
+      "description": "設置場所写真のURLなど"
     },
     "remarks": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "備考",
-      "title": "備考"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "備考",
+      "description": "備考"
     },
     "zoneInstalled": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": [
-            { "title": "場所大分類", "type": "string" },
-            { "title": "場所中分類", "type": "string" },
-            { "title": "場所小分類", "type": "string" }
-          ],
-          "maxItems": 3
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位がある場所です。「建物(Building)」または「施設(Facility)」で定義したZonesの名称の配列で記載します。例えば[“校舎”, “2F”,”1年C組”]です。",
-      "title": "場所"
+      "$ref": "../CommonParts.schema.json#/$defs/ZoneInstalledAttribute",
+      "title": "場所",
+      "description": "部位がある場所です。「建物(Building)」または「施設(Facility)」で定義したZonesの名称の配列で記載します。例えば[“校舎”, “2F”,”1年C組”]です。"
     },
     "zoneRemarks": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "前項の補足情報を記入します。例えば”内壁”の部位情報で、前項の値が[“校舎”, “2F”,”1年C組”]である時に、更に南側の内壁である事を明示したい場合は”南側”などと記入します。",
-      "title": "場所備考"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "場所備考",
+      "description": "前項の補足情報を記入します。例えば”内壁”の部位情報で、前項の値が[“校舎”, “2F”,”1年C組”]である時に、更に南側の内壁である事を明示したい場合は”南側”などと記入します。"
     }
   },
   "required": [

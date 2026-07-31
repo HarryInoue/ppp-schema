@@ -13,7 +13,13 @@
       "description": "必ず”BuildingComponent”の文字列でなくてはならない"
     },
     "category": {
+      "title": "部位種別",
+      "description": "部位の種別。列挙型項目であり、用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -22,15 +28,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位の種別。列挙型項目であり、用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照",
-      "title": "部位種別"
+      "additionalProperties": false
     },
     "name": {
+      "title": "部位名称",
+      "description": "部位に他と区別すべき名称が付いている場合に、名称を設定する。名称は”中央階段”、”職員門扉”などの様に利用者が使う名称を用いても、”〇小-1F-空調-A01″などの様に管理上の名称でも使用上は構わない。オーナーと管理者との協議により決まる。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -39,15 +46,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位に他と区別すべき名称が付いている場合に、名称を設定する。名称は”中央階段”、”職員門扉”などの様に利用者が使う名称を用いても、”〇小-1F-空調-A01″などの様に管理上の名称でも使用上は構わない。オーナーと管理者との協議により決まる。",
-      "title": "部位名称"
+      "additionalProperties": false
     },
     "nameKana": {
+      "title": "部位名称カナ",
+      "description": "部位の名称のカナ表記を設定する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -56,15 +64,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位の名称のカナ表記を設定する",
-      "title": "部位名称カナ"
+      "additionalProperties": false
     },
     "nameEn": {
+      "title": "部位名称英語",
+      "description": "部位の名称の米国英語表記を設定する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -73,15 +82,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位の名称の米国英語表記を設定する",
-      "title": "部位名称英語"
+      "additionalProperties": false
     },
     "description": {
+      "title": "説明",
+      "description": "部位情報として公開可能な詳細情報",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -90,15 +100,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "部位情報として公開可能な詳細情報",
-      "title": "説明"
+      "additionalProperties": false
     },
     "status": {
+      "title": "ステータス",
+      "description": "「稼働中」、「故障中」などのステータス。この項目を利用する場合は、更新責任をだれが担うかなどのルールの策定が必要",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -107,66 +118,75 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "「稼働中」、「故障中」などのステータス。この項目を利用する場合は、更新責任をだれが担うかなどのルールの策定が必要",
-      "title": "ステータス"
+      "additionalProperties": false
     },
     "refFacility": {
+      "title": "施設ID",
+      "description": "設置している対象の施設へのリンクです。施設管理業務においては、施設全体を表す「施設 (Facility)」または、施設にテナントとして入居するテナント施設の「施設 (Facility)」をリンクします。尚、テナント施設からは「主施設ID(facilityParent)」という項目により、施設全体の情報を辿る事ができます。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:Facility:.*",
+          "x-refType": "Facility"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設置している対象の施設へのリンクです。施設管理業務においては、施設全体を表す「施設 (Facility)」または、施設にテナントとして入居するテナント施設の「施設 (Facility)」をリンクします。尚、テナント施設からは「主施設ID(facilityParent)」という項目により、施設全体の情報を辿る事ができます。",
-      "title": "施設ID"
+      "additionalProperties": false
     },
     "refBuilding": {
+      "title": "建物ID",
+      "description": "設置している対象の建物へのリンク。12条点検などの公的点検では部位や設備の不具合は棟毎に分けて報告する仕様になっているためこの項目があります。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:Building:.*",
+          "x-refType": "Building"
         }
       },
+      "additionalProperties": false
+    },
+    "url": {
+      "title": "url",
+      "description": "設置場所写真のURLなど",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "設置している対象の建物へのリンク。12条点検などの公的点検では部位や設備の不具合は棟毎に分けて報告する仕様になっているためこの項目があります。",
-      "title": "建物ID"
-    },
-    "url": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "URL"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       },
+      "additionalProperties": false
+    },
+    "remarks": {
+      "title": "備考",
+      "description": "備考",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "設置場所写真のURLなど",
-      "title": "url"
-    },
-    "remarks": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "Text"
@@ -175,15 +195,16 @@
           "type": "string"
         }
       },
+      "additionalProperties": false
+    },
+    "zoneInstalled": {
+      "title": "場所",
+      "description": "部位がある場所です。「建物(Building)」または「施設(Facility)」で定義したZonesの名称の配列で記載します。例えば[“校舎”, “2F”,”1年C組”]です。",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "備考",
-      "title": "備考"
-    },
-    "zoneInstalled": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "Array"
@@ -206,16 +227,16 @@
           ],
           "maxItems": 3
         }
-      },
+      }
+    },
+    "zoneRemarks": {
+      "title": "場所備考",
+      "description": "前項の補足情報を記入します。例えば”内壁”の部位情報で、前項の値が[“校舎”, “2F”,”1年C組”]である時に、更に南側の内壁である事を明示したい場合は”南側”などと記入します。",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "部位がある場所です。「建物(Building)」または「施設(Facility)」で定義したZonesの名称の配列で記載します。例えば[“校舎”, “2F”,”1年C組”]です。",
-      "title": "場所"
-    },
-    "zoneRemarks": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "Text"
@@ -224,12 +245,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "前項の補足情報を記入します。例えば”内壁”の部位情報で、前項の値が[“校舎”, “2F”,”1年C組”]である時に、更に南側の内壁である事を明示したい場合は”南側”などと記入します。",
-      "title": "場所備考"
+      "additionalProperties": false
     }
   },
   "required": [
