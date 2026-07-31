@@ -13,402 +13,114 @@
       "description": "必ず”DeviceModel”の文字列でなくてはならない"
     },
     "alternateName": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "通称を入れる (もしあれば)",
-      "title": "通称"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "通称",
+      "description": "通称を入れる (もしあれば)"
     },
     "annotations": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設備に関する注釈",
-      "title": "注釈"
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "title": "注釈",
+      "description": "設備に関する注釈"
     },
     "brandName": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機器のブランド名を設定する。例えば”しろくまくん”。",
-      "title": "ブランド名"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "ブランド名",
+      "description": "機器のブランド名を設定する。例えば”しろくまくん”。"
     },
     "category": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照。尚、設備の種別が階層化されているときは、高位の階層から順番に格納する。",
-      "title": "設備種別"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "設備種別",
+      "description": "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照。尚、設備の種別が階層化されているときは、高位の階層から順番に格納する。"
     },
     "color": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機器の色を設定する。例えば”白”",
-      "title": "色"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "色",
+      "description": "機器の色を設定する。例えば”白”"
     },
     "controlledProperty": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。",
-      "title": "制御対象"
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "title": "制御対象",
+      "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。"
     },
     "dataProvider": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "このEntityに対するプロバイダを特定する文字列。今回のユースケースではプロバイダは存在しません。",
-      "title": "プロバイダ"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "プロバイダ",
+      "description": "このEntityに対するプロバイダを特定する文字列。今回のユースケースではプロバイダは存在しません。"
     },
     "description": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機種情報として公開可能な詳細情報",
-      "title": "説明"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "説明",
+      "description": "機種情報として公開可能な詳細情報"
     },
     "deviceClass": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "制約条件付きデバイス(constrained device)のクラスです。RFC7228で規定。制約条件付きデバイスではない場合、意味を持ちません",
-      "title": "クラス"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "クラス",
+      "description": "制約条件付きデバイス(constrained device)のクラスです。RFC7228で規定。制約条件付きデバイスではない場合、意味を持ちません"
     },
     "documentation": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "URL"
-        },
-        "value": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "デバイスのドキュメントに対するリンク",
-      "title": "ドキュメント"
+      "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
+      "title": "ドキュメント",
+      "description": "デバイスのドキュメントに対するリンク"
     },
     "energyLimitationClass": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "これも、デバイスのクラスです。RFC7228で規定されています",
-      "title": "エネルギークラス"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "エネルギークラス",
+      "description": "これも、デバイスのクラスです。RFC7228で規定されています"
     },
     "function": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがある",
-      "title": "機能"
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "title": "機能",
+      "description": "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがある"
     },
     "image": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "URL"
-        },
-        "value": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "デバイスの写真等のurlです。",
-      "title": "写真"
+      "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
+      "title": "写真",
+      "description": "デバイスの写真等のurlです。"
     },
     "manufacturerName": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "メーカ名を設定する。例えば”日立製作所”",
-      "title": "メーカ名"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "メーカ名",
+      "description": "メーカ名を設定する。例えば”日立製作所”"
     },
     "modelName": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機器のモデル名を設定する。例えば”RAS-DM28KE8″",
-      "title": "モデル名"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "モデル名",
+      "description": "機器のモデル名を設定する。例えば”RAS-DM28KE8″"
     },
     "name": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機種に個別に名称が付いているときに、その名称を設定する",
-      "title": "機種名"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "機種名",
+      "description": "機種に個別に名称が付いているときに、その名称を設定する"
     },
     "owner": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "所有者のidです",
-      "title": "所有者"
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "title": "所有者",
+      "description": "所有者のidです"
     },
     "seeAlso": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "追加情報のURIを格納します。つまり、idやurlが入ります。",
-      "title": "追加情報"
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "title": "追加情報",
+      "description": "追加情報のURIを格納します。つまり、idやurlが入ります。"
     },
     "serviceLife": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "integer"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "耐用年数です。会計上、税務上の耐用年数ではなく、実際に利用可能な年数です",
-      "title": "耐用年数"
+      "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
+      "title": "耐用年数",
+      "description": "耐用年数です。会計上、税務上の耐用年数ではなく、実際に利用可能な年数です"
     },
     "source": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "URL"
-        },
-        "value": {
-          "type": "string",
-          "format": "uri"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "データ提供者のurlです",
-      "title": "データー提供者"
+      "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
+      "title": "データー提供者",
+      "description": "データ提供者のurlです"
     },
     "supportedProtocol": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "サポートしているプロトコルです",
-      "title": "プロトコル"
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "title": "プロトコル",
+      "description": "サポートしているプロトコルです"
     },
     "supportedUnits": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "サポートしている測定値の精度です",
-      "title": "精度"
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "title": "精度",
+      "description": "サポートしている測定値の精度です"
     }
   },
   "required": [

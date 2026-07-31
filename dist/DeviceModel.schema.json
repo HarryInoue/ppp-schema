@@ -13,7 +13,13 @@
       "description": "必ず”DeviceModel”の文字列でなくてはならない"
     },
     "alternateName": {
+      "title": "通称",
+      "description": "通称を入れる (もしあれば)",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -22,14 +28,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "通称を入れる (もしあれば)",
-      "title": "通称"
+      "additionalProperties": false
     },
     "annotations": {
+      "title": "注釈",
+      "description": "設備に関する注釈",
       "type": "object",
       "properties": {
         "type": {
@@ -45,12 +48,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "設備に関する注釈",
-      "title": "注釈"
+      ]
     },
     "brandName": {
+      "title": "ブランド名",
+      "description": "機器のブランド名を設定する。例えば”しろくまくん”。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -59,15 +66,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機器のブランド名を設定する。例えば”しろくまくん”。",
-      "title": "ブランド名"
+      "additionalProperties": false
     },
     "category": {
+      "title": "設備種別",
+      "description": "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照。尚、設備の種別が階層化されているときは、高位の階層から順番に格納する。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -76,15 +84,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照。尚、設備の種別が階層化されているときは、高位の階層から順番に格納する。",
-      "title": "設備種別"
+      "additionalProperties": false
     },
     "color": {
+      "title": "色",
+      "description": "機器の色を設定する。例えば”白”",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -93,14 +102,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機器の色を設定する。例えば”白”",
-      "title": "色"
+      "additionalProperties": false
     },
     "controlledProperty": {
+      "title": "制御対象",
+      "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。",
       "type": "object",
       "properties": {
         "type": {
@@ -116,12 +122,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。",
-      "title": "制御対象"
+      ]
     },
     "dataProvider": {
+      "title": "プロバイダ",
+      "description": "このEntityに対するプロバイダを特定する文字列。今回のユースケースではプロバイダは存在しません。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -130,15 +140,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "このEntityに対するプロバイダを特定する文字列。今回のユースケースではプロバイダは存在しません。",
-      "title": "プロバイダ"
+      "additionalProperties": false
     },
     "description": {
+      "title": "説明",
+      "description": "機種情報として公開可能な詳細情報",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -147,15 +158,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機種情報として公開可能な詳細情報",
-      "title": "説明"
+      "additionalProperties": false
     },
     "deviceClass": {
+      "title": "クラス",
+      "description": "制約条件付きデバイス(constrained device)のクラスです。RFC7228で規定。制約条件付きデバイスではない場合、意味を持ちません",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -164,15 +176,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "制約条件付きデバイス(constrained device)のクラスです。RFC7228で規定。制約条件付きデバイスではない場合、意味を持ちません",
-      "title": "クラス"
+      "additionalProperties": false
     },
     "documentation": {
+      "title": "ドキュメント",
+      "description": "デバイスのドキュメントに対するリンク",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "URL"
@@ -182,15 +195,16 @@
           "format": "uri"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "デバイスのドキュメントに対するリンク",
-      "title": "ドキュメント"
+      "additionalProperties": false
     },
     "energyLimitationClass": {
+      "title": "エネルギークラス",
+      "description": "これも、デバイスのクラスです。RFC7228で規定されています",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -199,14 +213,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "これも、デバイスのクラスです。RFC7228で規定されています",
-      "title": "エネルギークラス"
+      "additionalProperties": false
     },
     "function": {
+      "title": "機能",
+      "description": "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがある",
       "type": "object",
       "properties": {
         "type": {
@@ -222,12 +233,16 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがある",
-      "title": "機能"
+      ]
     },
     "image": {
+      "title": "写真",
+      "description": "デバイスの写真等のurlです。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "URL"
@@ -237,15 +252,16 @@
           "format": "uri"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "デバイスの写真等のurlです。",
-      "title": "写真"
+      "additionalProperties": false
     },
     "manufacturerName": {
+      "title": "メーカ名",
+      "description": "メーカ名を設定する。例えば”日立製作所”",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -254,15 +270,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "メーカ名を設定する。例えば”日立製作所”",
-      "title": "メーカ名"
+      "additionalProperties": false
     },
     "modelName": {
+      "title": "モデル名",
+      "description": "機器のモデル名を設定する。例えば”RAS-DM28KE8″",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -271,15 +288,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機器のモデル名を設定する。例えば”RAS-DM28KE8″",
-      "title": "モデル名"
+      "additionalProperties": false
     },
     "name": {
+      "title": "機種名",
+      "description": "機種に個別に名称が付いているときに、その名称を設定する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -288,14 +306,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "機種に個別に名称が付いているときに、その名称を設定する",
-      "title": "機種名"
+      "additionalProperties": false
     },
     "owner": {
+      "title": "所有者",
+      "description": "所有者のidです",
       "type": "object",
       "properties": {
         "type": {
@@ -311,11 +326,11 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "所有者のidです",
-      "title": "所有者"
+      ]
     },
     "seeAlso": {
+      "title": "追加情報",
+      "description": "追加情報のURIを格納します。つまり、idやurlが入ります。",
       "type": "object",
       "properties": {
         "type": {
@@ -331,29 +346,34 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "追加情報のURIを格納します。つまり、idやurlが入ります。",
-      "title": "追加情報"
+      ]
     },
     "serviceLife": {
+      "title": "耐用年数",
+      "description": "耐用年数です。会計上、税務上の耐用年数ではなく、実際に利用可能な年数です",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
         },
         "value": {
-          "type": "integer"
+          "type": "number"
         }
       },
+      "additionalProperties": false
+    },
+    "source": {
+      "title": "データー提供者",
+      "description": "データ提供者のurlです",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "耐用年数です。会計上、税務上の耐用年数ではなく、実際に利用可能な年数です",
-      "title": "耐用年数"
-    },
-    "source": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "URL"
@@ -363,14 +383,11 @@
           "format": "uri"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "データ提供者のurlです",
-      "title": "データー提供者"
+      "additionalProperties": false
     },
     "supportedProtocol": {
+      "title": "プロトコル",
+      "description": "サポートしているプロトコルです",
       "type": "object",
       "properties": {
         "type": {
@@ -386,11 +403,11 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "サポートしているプロトコルです",
-      "title": "プロトコル"
+      ]
     },
     "supportedUnits": {
+      "title": "精度",
+      "description": "サポートしている測定値の精度です",
       "type": "object",
       "properties": {
         "type": {
@@ -406,9 +423,7 @@
       "required": [
         "type",
         "value"
-      ],
-      "description": "サポートしている測定値の精度です",
-      "title": "精度"
+      ]
     }
   },
   "required": [
