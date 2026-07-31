@@ -60,7 +60,8 @@
         },
         "value": {
           "type": "string",
-          "pattern": "^urn:ngsi-ld:Procedure:.*"
+          "pattern": "^urn:ngsi-ld:Procedure:.*",
+          "x-refType": "Procedure"
         }
       },
       "additionalProperties": false
@@ -198,7 +199,8 @@
             },
             "value": {
               "type": "string",
-              "pattern": "^urn:ngsi-ld:Device:.*"
+              "pattern": "^urn:ngsi-ld:Device:.*",
+              "x-refType": "Device"
             }
           },
           "additionalProperties": false
@@ -215,7 +217,8 @@
             },
             "value": {
               "type": "string",
-              "pattern": "^urn:ngsi-ld:BuildingComponent:.*"
+              "pattern": "^urn:ngsi-ld:BuildingComponent:.*",
+              "x-refType": "BuildingComponent"
             }
           },
           "additionalProperties": false

@@ -84,57 +84,57 @@
       "required": ["type", "value"],
       "properties": {
         "type": { "const": "Relationship" },
-        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Device:.*" }
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Device:.*", "x-refType": "Device" }
       },
       "additionalProperties": false
     },
-    
+
     "RelationshipAttributeDeviceModel": {
       "type": "object",
       "required": ["type", "value"],
       "properties": {
         "type": { "const": "Relationship" },
-        "value": { "type": "string", "pattern": "^urn:ngsi-ld:DeviceModel:.*" }
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:DeviceModel:.*", "x-refType": "DeviceModel" }
       },
       "additionalProperties": false
     },
-    
+
     "RelationshipAttributeFacility": {
       "type": "object",
       "required": ["type", "value"],
       "properties": {
         "type": { "const": "Relationship" },
-        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Facility:.*" }
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Facility:.*", "x-refType": "Facility" }
       },
       "additionalProperties": false
     },
-    
+
     "RelationshipAttributeBuilding": {
       "type": "object",
       "required": ["type", "value"],
       "properties": {
         "type": { "const": "Relationship" },
-        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Building:.*" }
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Building:.*", "x-refType": "Building" }
       },
       "additionalProperties": false
     },
-    
+
     "RelationshipAttributeBuildingComponent": {
       "type": "object",
       "required": ["type", "value"],
       "properties": {
         "type": { "const": "Relationship" },
-        "value": { "type": "string", "pattern": "^urn:ngsi-ld:BuildingComponent:.*" }
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:BuildingComponent:.*", "x-refType": "BuildingComponent" }
       },
       "additionalProperties": false
     },
-    
+
     "RelationshipAttributeProcedure": {
       "type": "object",
       "required": ["type", "value"],
       "properties": {
         "type": { "const": "Relationship" },
-        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Procedure:.*" }
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Procedure:.*", "x-refType": "Procedure" }
       },
       "additionalProperties": false
     }

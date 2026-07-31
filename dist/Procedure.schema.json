@@ -70,7 +70,8 @@
         },
         "value": {
           "type": "string",
-          "pattern": "^urn:ngsi-ld:Facility:.*"
+          "pattern": "^urn:ngsi-ld:Facility:.*",
+          "x-refType": "Facility"
         }
       },
       "additionalProperties": false
