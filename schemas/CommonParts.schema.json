@@ -230,6 +230,46 @@
       "additionalProperties": false
     },
 
+    "GeoJsonPoint": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "geo:json" },
+        "value": {
+          "type": "object",
+          "properties": {
+            "type": { "const": "Point" },
+            "coordinates": {
+              "type": "array",
+              "items": { "type": "number" }
+            }
+          },
+          "required": ["type", "coordinates"]
+        }
+      },
+      "additionalProperties": false
+    },
+
+    "RelationshipAttributeReport": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Report:.*", "x-refType": "Report" }
+      },
+      "additionalProperties": false
+    },
+
+    "RelationshipAttributeBuildingDeviceOrBuildingComponent": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "x-refType": ["Building", "Device", "BuildingComponent"] }
+      },
+      "additionalProperties": false
+    },
+
     "RelationshipAttributeDevice": {
       "type": "object",
       "required": ["type", "value"],

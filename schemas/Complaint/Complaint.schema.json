@@ -22,12 +22,14 @@
           "type": "object",
           "properties": {
             "category": {
+              "title": "現象概要",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
             "remarks": {
+              "title": "現象補足",
               "type": "string"
             }
           }
@@ -41,177 +43,54 @@
       "title": "現象"
     },
     "dataProvider": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "プロバイダ",
       "description": "データのプロバイダのid。このWGが想定するシステムでは関係しないと考えます"
     },
     "description": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "説明を記載",
-      "title": "説明"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "説明",
+      "description": "説明を記載"
     },
     "isFiledTo": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "提出先",
       "description": "苦情をエスカレーションする先。例えば自治体の所管課など"
     },
     "isMadeBy": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "この苦情を申し立てたユーザーの ID。個人情報にならない様に留意が必要。例えば、定期検査による検出はこの項目を記入するが、個人や利用者団体は記入しないなど。",
-      "title": "依頼者"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "依頼者",
+      "description": "この苦情を申し立てたユーザーの ID。個人情報にならない様に留意が必要。例えば、定期検査による検出はこの項目を記入するが、個人や利用者団体は記入しないなど。"
     },
     "isPartOf": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "ひとつの不具合が複数の「案件」から構成される場合などにこの項目で相互参照したり階層化したりします。各「案件」は基本的に「報告」からリンクされますが、「報告」登録後に追加で「案件」を追加登録されるケースも想定されます。その場合は追加登録した「案件」からこの「関連案件ID」で元の「案件」をリンクする事で、間接的に「報告」と結びつけます。",
-      "title": "関連案件ID"
+      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "title": "関連案件ID",
+      "description": "ひとつの不具合が複数の「案件」から構成される場合などにこの項目で相互参照したり階層化したりします。各「案件」は基本的に「報告」からリンクされますが、「報告」登録後に追加で「案件」を追加登録されるケースも想定されます。その場合は追加登録した「案件」からこの「関連案件ID」で元の「案件」をリンクする事で、間接的に「報告」と結びつけます。"
     },
     "location": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "geo:json"
-        },
-        "value": {
-          "type": "object",
-          "properties": {
-            "type": {
-              "const": "Point"
-            },
-            "coordinates": {
-              "type": "array",
-              "items": {
-                "type": "number"
-              }
-            }
-          },
-          "required": [
-            "type",
-            "coordinates"
-          ]
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "不具合の発生個所を座標で示します。例えば、道路の陥没、河川の汚染、街角の異臭などを想定しています。今回のユースケースとは合わないと考えます",
-      "title": "座標"
+      "$ref": "../CommonParts.schema.json#/$defs/GeoJsonPoint",
+      "title": "座標",
+      "description": "不具合の発生個所を座標で示します。例えば、道路の陥没、河川の汚染、街角の異臭などを想定しています。今回のユースケースとは合わないと考えます"
     },
     "name": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "description": "案件の名称",
-      "title": "案件名"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "案件名",
+      "description": "案件の名称"
     },
     "seeAlso": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "URL"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "追加情報のurlの列です",
-      "title": "追加情報"
+      "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
+      "title": "追加情報",
+      "description": "追加情報のurlの列です"
     },
     "source": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "提供元",
       "description": "この情報の提供元に関するurl等を格納します"
     },
     "status": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "description": "活動状況を登録します。”処置中”、”完了”など。用語について「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください",
-      "title": "ステータス"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "ステータス",
+      "description": "活動状況を登録します。”処置中”、”完了”など。用語について「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください"
     },
     "timestamps": {
       "type": "object",
@@ -225,11 +104,13 @@
             "type": "object",
             "properties": {
               "step": {
+                "title": "ステップ",
                 "type": "string"
               },
               "timestamp": {
+                "title": "日時",
                 "type": "string",
-                "format": "date"
+                "format": "date-time"
               }
             },
             "required": [
@@ -247,38 +128,14 @@
       "title": "経緯"
     },
     "refFacility": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "案件の対象となる施設(Facility)に対するリンクです。FacilityのEntity idを格納します。refFacilityかrefBuildingのどちらかを必ず登録します。施設からBuildingを辿ることができます。",
-      "title": "施設ID"
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility",
+      "title": "施設ID",
+      "description": "案件の対象となる施設(Facility)に対するリンクです。FacilityのEntity idを格納します。refFacilityかrefBuildingのどちらかを必ず登録します。施設からBuildingを辿ることができます。"
     },
     "refBuilding": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "案件の対象となる建物(Building)に対するリンクです。BuildingのEntity idを格納します。refFacilityかrefBuildingのどちらかを必ず登録します。",
-      "title": "建物ID"
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeBuilding",
+      "title": "建物ID",
+      "description": "案件の対象となる建物(Building)に対するリンクです。BuildingのEntity idを格納します。refFacilityかrefBuildingのどちらかを必ず登録します。"
     },
     "zones": {
       "type": "object",
@@ -291,11 +148,14 @@
           "properties": {
             "abstracts": {
               "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "items": [
+                { "title": "場所大分類", "type": "string" },
+                { "title": "場所中分類", "type": "string" },
+                { "title": "場所小分類", "type": "string" }
+              ]
             },
             "remarks": {
+              "title": "場所補足",
               "type": "string"
             }
           }
@@ -318,15 +178,19 @@
           "type": "object",
           "properties": {
             "abstracts": {
+              "title": "部位概要",
               "type": "array",
               "items": {
                 "type": "string"
               }
             },
             "refComponent": {
-              "type": "string"
+              "title": "部位ID",
+              "type": "string",
+              "x-refType": ["BuildingComponent", "Device"]
             },
             "remarks": {
+              "title": "部位補足",
               "type": "string"
             }
           }
@@ -349,9 +213,11 @@
           "type": "object",
           "properties": {
             "abstracts": {
+              "title": "原因概要",
               "type": "string"
             },
             "remarks": {
+              "title": "原因補足",
               "type": "string"
             }
           }
@@ -365,51 +231,19 @@
       "title": "原因"
     },
     "severityMark": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "不具合に対する緊急性を示すマークを登録する項目です。登録する用語は[ComplaintSeverity](https://ppp-database.org/spec/enum/ComplaintSeverity/)をご覧ください。",
-      "title": "緊急度マーク"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "緊急度マーク",
+      "description": "不具合に対する緊急性を示すマークを登録する項目です。登録する用語は[ComplaintSeverity](https://ppp-database.org/spec/enum/ComplaintSeverity/)をご覧ください。"
     },
     "severity": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "description": "不具合に対する処置の緊急性を示す項目です。sevirityMarkに対する補足の位置づけとなります。例えば”放置すると機能不全に至る可能性あり”、”施設運営に影響あり”など",
-      "title": "緊急度補足"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "緊急度補足",
+      "description": "不具合に対する処置の緊急性を示す項目です。sevirityMarkに対する補足の位置づけとなります。例えば”放置すると機能不全に至る可能性あり”、”施設運営に影響あり”など"
     },
     "repairPlan": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "処置の計画です。”部品交換”などと記載します。修繕する場所が「場所(zones)」と異なる場合は修繕した場所も記載します。また、修繕が複数の工程や複数の箇所に及ぶ場合は、出来る限りそれぞれの箇所や修繕内容が分かる様に記述します。",
-      "title": "修繕計画"
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "title": "修繕計画",
+      "description": "処置の計画です。”部品交換”などと記載します。修繕する場所が「場所(zones)」と異なる場合は修繕した場所も記載します。また、修繕が複数の工程や複数の箇所に及ぶ場合は、出来る限りそれぞれの箇所や修繕内容が分かる様に記述します。"
     }
   },
   "required": [
