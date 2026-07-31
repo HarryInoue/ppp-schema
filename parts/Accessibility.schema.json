@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/parts/Accessibility.schema.json",
+  "title": "Accessibility",
+  "description": "施設・建物のアクセシビリティ情報を表すデータパーツ。https://ppp-database.org/spec/parts/Accessibility/ 参照。属性名は各モデル側で決め、title/descriptionも利用側で$refの兄弟キーとして指定する。",
+  "$defs": {
+    "Accessibility": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "Accessibility" },
+        "value": {
+          "type": "object",
+          "properties": {
+            "wheelchairAccessible": { "type": "boolean", "description": "車椅子の使用可" },
+            "wheelchairRental": { "type": "boolean", "description": "車椅子貸出有り" },
+            "caneRental": { "type": "boolean", "description": "ツエ貸出有り" },
+            "multipurposeToilet": { "type": "boolean", "description": "多目的トイレ有り" },
+            "ramp": { "type": "boolean", "description": "スロープ有り" },
+            "elevator": { "type": "boolean", "description": "エレベータ有り" },
+            "escalator": { "type": "boolean", "description": "エスカレーター有り" },
+            "mobilitySupportForBrailleBlocks": { "type": "boolean", "description": "点字ブロック等の移動支援有り" },
+            "brailleAndReadingAssistance": { "type": "boolean", "description": "点字や読上による支援有り" },
+            "accompaniedByGuideDogsAndServiceDogs": { "type": "boolean", "description": "盲導犬・介助犬・聴導犬などの同伴可" },
+            "subtitles": { "type": "boolean", "description": "字幕有り" },
+            "writingSupport": { "type": "boolean", "description": "筆談対応有り" },
+            "toiletForOstomates": { "type": "boolean", "description": "オストメイト対応トイレ有り" },
+            "remarks": { "type": "string", "description": "その他アクセシビリティ事項" },
+            "priorityParking": { "type": "boolean", "description": "優先駐車場有り" },
+            "publicPhoneForWheelchairUsers": { "type": "boolean", "description": "車椅子対応公衆電話有り" },
+            "barrierFreeFloor": { "type": "boolean", "description": "段差無し" },
+            "handrail": { "type": "boolean", "description": "手すり有り" },
+            "automaticDoor": { "type": "boolean", "description": "自動ドア有り" }
+          }
+        }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
+    }
+  }
+}

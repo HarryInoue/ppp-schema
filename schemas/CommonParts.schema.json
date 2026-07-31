@@ -26,6 +26,49 @@
       "additionalProperties": false
     },
 
+    "BooleanAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Boolean" },
+        "value": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+
+    "ZonesAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Array" },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "zoneName": { "title": "場所大分類", "type": "string" },
+              "subzones": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "subzoneName": {
+                      "type": "array",
+                      "items": [
+                        { "title": "場所中分類", "type": "string" },
+                        { "title": "場所小分類", "type": "array", "items": { "type": "string" } }
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "required": ["zoneName"]
+          }
+        }
+      }
+    },
+
     "IntegerAttribute": {
       "type": "object",
       "required": ["type", "value"],
@@ -105,6 +148,16 @@
       "properties": {
         "type": { "const": "Relationship" },
         "value": { "type": "string", "pattern": "^urn:ngsi-ld:Department:.*", "x-refType": "Department" }
+      },
+      "additionalProperties": false
+    },
+
+    "RelationshipAttributeLandArray": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "array", "items": { "type": "string" }, "x-refType": "Land" }
       },
       "additionalProperties": false
     },

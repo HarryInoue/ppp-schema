@@ -15,7 +15,12 @@
     },
     "category": {
       "title": "用途（建築基準法）",
+      "description": "建物の用途。”一戸建ての住宅”、”工場”等、建築基準法施行規則 （別記様式）に定める建築物用途区分 を使用できる。本項目は列挙型項目ではないが、用途について[BuildingCategory](https://ppp-database.org/spec/enum/BuildingCategory/)にて例示する。尚、入居する施設のPOIコードと一致するとは限らない",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -24,15 +29,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の用途。”一戸建ての住宅”、”工場”等、建築基準法施行規則 （別記様式）に定める建築物用途区分 を使用できる。本項目は列挙型項目ではないが、用途について[BuildingCategory](https://ppp-database.org/spec/enum/BuildingCategory/)にて例示する。尚、入居する施設のPOIコードと一致するとは限らない"
+      "additionalProperties": false
     },
     "name": {
       "title": "建物名",
+      "description": "建物の名前を日本語で設定する。本項目は、住所の方書情報としても利用される。通称はalternateNameに設定する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -41,15 +47,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の名前を日本語で設定する。本項目は、住所の方書情報としても利用される。通称はalternateNameに設定する"
+      "additionalProperties": false
     },
     "nameKana": {
       "title": "建物名カナ",
+      "description": "建物のカナ表記を設定する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -58,15 +65,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物のカナ表記を設定する"
+      "additionalProperties": false
     },
     "nameEn": {
       "title": "建物名英語",
+      "description": "建物の米国英語表記を設定する。この項目はGIFのコアデータモデルに従い必須としてある。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -75,420 +83,11 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の米国英語表記を設定する。この項目はGIFのコアデータモデルに従い必須としてある。"
+      "additionalProperties": false
     },
     "alternateName": {
       "title": "通称",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "住民からの問い合わせや掲示などで使われる一般的な通称。リストで列挙する"
-    },
-    "facilityID": {
-      "title": "管理通番",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "管理通番。オーナーが管理対象の建物を区別するために付番した文字列。事業者によっては「施設ID」と表現する事があるが、”id”と混同する可能性があるため管理通番と表現します。施設管理では管理対象をBuildingかFacilityのいずれかを管理する単位とするが、この項目は管理対象をBuildingとする場合に指定する"
-    },
-    "abstract": {
-      "title": "概要",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物情報として公開可能な概要情報"
-    },
-    "description": {
-      "title": "説明",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物情報として公開可能な詳細情報。この項目はGIFのコアデータモデルに従い必須としてある。"
-    },
-    "status": {
-      "title": "状態",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "「計画中」「建築中」「稼働中」「一時閉鎖」「閉鎖中」「解体済み」「管理対象外」などのステータス。例えば、○○小学校という施設は継続しているのに、校舎は立て替えるという場合があります。その様な場合にも過去のデータを保存しておき分析等に供したい場合は、この項目で「解体済み」などとしておきます。尚、この項目は用語定義していません。用語定義のニーズがある場合には事務局に連絡してください。"
-    },
-    "refLand": {
-      "title": "土地ID",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "x-refType": "Land"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "立地する土地を表す「[土地(Land)](https://ppp-database.org/spec/datamodel/Land/)」のEntityへのリンク。継承元のコア・データモデルで住所情報が必須のため、この項目を必須とした。複数の土地に跨って立地している場合は住所としている土地を最初のエントリとして登録する。二つ目以降の要素の順序については意味を持たない"
-    },
-    "mainFunctions": {
-      "title": "主要機能",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の主な働き。例えば”耐火建物”など。この項目はGIFのコアデータモデルから継承して設けられています"
-    },
-    "usage": {
-      "title": "用途（都市計画）",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "都市計画基礎調査実施要領 に準拠する。定義は[BuildingUsage](https://ppp-database.org/spec/enum/BuildingUsage/)を参照。この項目はGIFのコアデータモデルから継承して設けられています"
-    },
-    "buildingArea": {
-      "title": "建築面積",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の建築面積(㎡)"
-    },
-    "totalFloorArea": {
-      "title": "総床面積",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の延べ床面積(㎡)"
-    },
-    "maximumHeight": {
-      "title": "最高の高さ",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の最高点の高さ(m)"
-    },
-    "floorsAboveGround": {
-      "title": "地上階数",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の地上階数"
-    },
-    "floorsBelowGround": {
-      "title": "地下階数",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の地下階数"
-    },
-    "floorsRoofStructure": {
-      "title": "塔屋階数",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "塔屋の階数。自治体によっては、12条点検の報告書で塔屋の項目があるため、この項目を用意している。自治体により登録要否を判断する必要がある"
-    },
-    "structure": {
-      "title": "構造",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "不動産登記の「構造」を格納する。木造、鉄骨造、鉄筋コンクリート造、鉄骨鉄筋コンクリート造などの建物構造を登録する。RC造やRCなどと省略せずに登録する。複数登録する必要がある場合は、TextのArrayで登録する(※技術情報のJSON Schemaと補足に記述があります)"
-    },
-    "completionDate": {
-      "title": "竣工日",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Date"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の竣工日。次項も参照してください"
-    },
-    "completionYear": {
-      "title": "竣工年度",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の竣工年度を西暦YYYY形式で登録。竣工日が分かっている場合はcompletionDateを用いる"
-    },
-    "accessibility": {
-      "title": "アクセシビリティ情報",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Accessibility"
-        },
-        "value": {
-          "type": "object",
-          "properties": {
-            "wheelchairAccessible": {
-              "type": "boolean"
-            },
-            "wheelchairRental": {
-              "type": "boolean"
-            },
-            "caneRental": {
-              "type": "boolean"
-            },
-            "multipurposeToilet": {
-              "type": "boolean"
-            },
-            "ramp": {
-              "type": "boolean"
-            },
-            "elevator": {
-              "type": "boolean"
-            },
-            "escalator": {
-              "type": "boolean"
-            },
-            "mobilitySupportForBrailleBlocks": {
-              "type": "boolean"
-            },
-            "brailleAndReadingAssistance": {
-              "type": "boolean"
-            },
-            "accompaniedByGuideDogsAndServiceDogs": {
-              "type": "boolean"
-            },
-            "subtitles": {
-              "type": "boolean"
-            },
-            "writingSupport": {
-              "type": "boolean"
-            },
-            "toiletForOstomates": {
-              "type": "boolean"
-            },
-            "remarks": {
-              "type": "string"
-            },
-            "priorityParking": {
-              "type": "boolean"
-            },
-            "publicPhoneForWheelchairUsers": {
-              "type": "boolean"
-            },
-            "barrierFreeFloor": {
-              "type": "boolean"
-            },
-            "handrail": {
-              "type": "boolean"
-            },
-            "automaticDoor": {
-              "type": "boolean"
-            }
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "詳細は、共通パーツAccessibilityを参照してください"
-    },
-    "floorArea": {
-      "title": "フロア床面積",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "各階の床面積(㎡)。消防法令により定められている、防火対象物の床面積"
-    },
-    "acquisitionPrice": {
-      "title": "取得価格",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Number"
-        },
-        "value": {
-          "type": "number"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "取得時の建物の取得価格(土地を除く)"
-    },
-    "performanceVerificationMethod": {
-      "title": "性能検証法",
+      "description": "住民からの問い合わせや掲示などで使われる一般的な通称。リストで列挙する",
       "type": "object",
       "properties": {
         "type": {
@@ -504,12 +103,461 @@
       "required": [
         "type",
         "value"
+      ]
+    },
+    "facilityID": {
+      "title": "管理通番",
+      "description": "管理通番。オーナーが管理対象の建物を区別するために付番した文字列。事業者によっては「施設ID」と表現する事があるが、”id”と混同する可能性があるため管理通番と表現します。施設管理では管理対象をBuildingかFacilityのいずれかを管理する単位とするが、この項目は管理対象をBuildingとする場合に指定する",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
       ],
-      "description": "性能検証法の適用状況。”耐火性能検証法”、”防火区画検証法”、”区画避難安全検証法(〇階)”、”階避難安全検証法(〇階)”、”全館避難安全検証法”などをリストで登録"
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "abstract": {
+      "title": "概要",
+      "description": "建物情報として公開可能な概要情報",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "description": {
+      "title": "説明",
+      "description": "建物情報として公開可能な詳細情報。この項目はGIFのコアデータモデルに従い必須としてある。",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "title": "状態",
+      "description": "「計画中」「建築中」「稼働中」「一時閉鎖」「閉鎖中」「解体済み」「管理対象外」などのステータス。例えば、○○小学校という施設は継続しているのに、校舎は立て替えるという場合があります。その様な場合にも過去のデータを保存しておき分析等に供したい場合は、この項目で「解体済み」などとしておきます。尚、この項目は用語定義していません。用語定義のニーズがある場合には事務局に連絡してください。",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "refLand": {
+      "title": "土地ID",
+      "description": "立地する土地を表す「[土地(Land)](https://ppp-database.org/spec/datamodel/Land/)」のEntityへのリンク。継承元のコア・データモデルで住所情報が必須のため、この項目を必須とした。複数の土地に跨って立地している場合は住所としている土地を最初のエントリとして登録する。二つ目以降の要素の順序については意味を持たない",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "x-refType": "Land"
+        }
+      },
+      "additionalProperties": false
+    },
+    "mainFunctions": {
+      "title": "主要機能",
+      "description": "建物の主な働き。例えば”耐火建物”など。この項目はGIFのコアデータモデルから継承して設けられています",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "usage": {
+      "title": "用途（都市計画）",
+      "description": "都市計画基礎調査実施要領 に準拠する。定義は[BuildingUsage](https://ppp-database.org/spec/enum/BuildingUsage/)を参照。この項目はGIFのコアデータモデルから継承して設けられています",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "buildingArea": {
+      "title": "建築面積",
+      "description": "建物の建築面積(㎡)",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "totalFloorArea": {
+      "title": "総床面積",
+      "description": "建物の延べ床面積(㎡)",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "maximumHeight": {
+      "title": "最高の高さ",
+      "description": "建物の最高点の高さ(m)",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "floorsAboveGround": {
+      "title": "地上階数",
+      "description": "建物の地上階数",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "floorsBelowGround": {
+      "title": "地下階数",
+      "description": "建物の地下階数",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "floorsRoofStructure": {
+      "title": "塔屋階数",
+      "description": "塔屋の階数。自治体によっては、12条点検の報告書で塔屋の項目があるため、この項目を用意している。自治体により登録要否を判断する必要がある",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "structure": {
+      "title": "構造",
+      "description": "不動産登記の「構造」を格納する。木造、鉄骨造、鉄筋コンクリート造、鉄骨鉄筋コンクリート造などの建物構造を登録する。RC造やRCなどと省略せずに登録する。複数登録する必要がある場合は、TextのArrayで登録する(※技術情報のJSON Schemaと補足に記述があります)",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "completionDate": {
+      "title": "竣工日",
+      "description": "建物の竣工日。次項も参照してください",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Date"
+        },
+        "value": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "additionalProperties": false
+    },
+    "completionYear": {
+      "title": "竣工年度",
+      "description": "建物の竣工年度を西暦YYYY形式で登録。竣工日が分かっている場合はcompletionDateを用いる",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Text"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "accessibility": {
+      "title": "アクセシビリティ情報",
+      "description": "詳細は、共通パーツAccessibilityを参照してください",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Accessibility"
+        },
+        "value": {
+          "type": "object",
+          "properties": {
+            "wheelchairAccessible": {
+              "type": "boolean",
+              "description": "車椅子の使用可"
+            },
+            "wheelchairRental": {
+              "type": "boolean",
+              "description": "車椅子貸出有り"
+            },
+            "caneRental": {
+              "type": "boolean",
+              "description": "ツエ貸出有り"
+            },
+            "multipurposeToilet": {
+              "type": "boolean",
+              "description": "多目的トイレ有り"
+            },
+            "ramp": {
+              "type": "boolean",
+              "description": "スロープ有り"
+            },
+            "elevator": {
+              "type": "boolean",
+              "description": "エレベータ有り"
+            },
+            "escalator": {
+              "type": "boolean",
+              "description": "エスカレーター有り"
+            },
+            "mobilitySupportForBrailleBlocks": {
+              "type": "boolean",
+              "description": "点字ブロック等の移動支援有り"
+            },
+            "brailleAndReadingAssistance": {
+              "type": "boolean",
+              "description": "点字や読上による支援有り"
+            },
+            "accompaniedByGuideDogsAndServiceDogs": {
+              "type": "boolean",
+              "description": "盲導犬・介助犬・聴導犬などの同伴可"
+            },
+            "subtitles": {
+              "type": "boolean",
+              "description": "字幕有り"
+            },
+            "writingSupport": {
+              "type": "boolean",
+              "description": "筆談対応有り"
+            },
+            "toiletForOstomates": {
+              "type": "boolean",
+              "description": "オストメイト対応トイレ有り"
+            },
+            "remarks": {
+              "type": "string",
+              "description": "その他アクセシビリティ事項"
+            },
+            "priorityParking": {
+              "type": "boolean",
+              "description": "優先駐車場有り"
+            },
+            "publicPhoneForWheelchairUsers": {
+              "type": "boolean",
+              "description": "車椅子対応公衆電話有り"
+            },
+            "barrierFreeFloor": {
+              "type": "boolean",
+              "description": "段差無し"
+            },
+            "handrail": {
+              "type": "boolean",
+              "description": "手すり有り"
+            },
+            "automaticDoor": {
+              "type": "boolean",
+              "description": "自動ドア有り"
+            }
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "floorArea": {
+      "title": "フロア床面積",
+      "description": "各階の床面積(㎡)。消防法令により定められている、防火対象物の床面積",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "acquisitionPrice": {
+      "title": "取得価格",
+      "description": "取得時の建物の取得価格(土地を除く)",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
+      "properties": {
+        "type": {
+          "const": "Number"
+        },
+        "value": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "performanceVerificationMethod": {
+      "title": "性能検証法",
+      "description": "性能検証法の適用状況。”耐火性能検証法”、”防火区画検証法”、”区画避難安全検証法(〇階)”、”階避難安全検証法(〇階)”、”全館避難安全検証法”などをリストで登録",
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "Array"
+        },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "type",
+        "value"
+      ]
     },
     "propertyClass": {
       "title": "財産区分",
+      "description": "財産の区分。”行政財産(公用財産)”、”行政財産(公共用財産)”、”普通財産”など",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -518,15 +566,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "財産の区分。”行政財産(公用財産)”、”行政財産(公共用財産)”、”普通財産”など"
+      "additionalProperties": false
     },
     "usePermission": {
       "title": "行政財産使用許可",
+      "description": "行政財産使用許可が有るか否か",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Boolean"
@@ -535,15 +584,16 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "行政財産使用許可が有るか否か"
+      "additionalProperties": false
     },
     "mixedUseFacility": {
       "title": "複合施設",
+      "description": "複合施設か否か。ここでいう複合施設とは、一つの建物内に異なる用途区分類の施設がある場合を示します。施設カルテ等で使用する項目です。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Boolean"
@@ -552,15 +602,16 @@
           "type": "boolean"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "複合施設か否か。ここでいう複合施設とは、一つの建物内に異なる用途区分類の施設がある場合を示します。施設カルテ等で使用する項目です。"
+      "additionalProperties": false
     },
     "ownership": {
       "title": "所有形態",
+      "description": "所有形態。”市”、”町”、”県”、”借上”など",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -569,15 +620,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "所有形態。”市”、”町”、”県”、”借上”など"
+      "additionalProperties": false
     },
     "rebuildingPlan": {
       "title": "更新予定時期",
+      "description": "更新を計画している時期",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -586,15 +638,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "更新を計画している時期"
+      "additionalProperties": false
     },
     "rebuildingCost": {
       "title": "更新費用",
+      "description": "予測される更新費用を円単位で登録",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
@@ -603,15 +656,16 @@
           "type": "number"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "予測される更新費用を円単位で登録"
+      "additionalProperties": false
     },
     "serviceLife": {
       "title": "耐用年数",
+      "description": "耐用年数を年単位で登録",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
@@ -620,15 +674,16 @@
           "type": "number"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "耐用年数を年単位で登録"
+      "additionalProperties": false
     },
     "numberOfBuildings": {
       "title": "棟数",
+      "description": "建物を構成する棟の数。施設カルテ等で使用する項目です。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
@@ -637,15 +692,16 @@
           "type": "number"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物を構成する棟の数。施設カルテ等で使用する項目です。"
+      "additionalProperties": false
     },
     "asbestosControl": {
       "title": "アスベスト対策",
+      "description": "アスベスト対策の状況。”対応済”など",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -654,15 +710,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "アスベスト対策の状況。”対応済”など"
+      "additionalProperties": false
     },
     "seismicDesignStandard": {
       "title": "耐震基準",
+      "description": "適用している耐震基準",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -671,15 +728,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "適用している耐震基準"
+      "additionalProperties": false
     },
     "seismicAssessment": {
       "title": "耐震診断",
+      "description": "耐震診断の状況。例えば”実施済み”、”YYYY-MM実施予定”など。年は西暦4桁で表現する。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -688,15 +746,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "耐震診断の状況。例えば”実施済み”、”YYYY-MM実施予定”など。年は西暦4桁で表現する。"
+      "additionalProperties": false
     },
     "seismicRetrofit": {
       "title": "耐震改修",
+      "description": "耐震改修の状況。例えば”実施済み”、”YYYY-MM実施予定”など。年は西暦4桁で表現する。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -705,28 +764,26 @@
           "type": "string"
         }
       },
+      "additionalProperties": false
+    },
+    "map": {
+      "title": "地図",
+      "description": "建物の位置を示す地図",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "耐震改修の状況。例えば”実施済み”、”YYYY-MM実施予定”など。年は西暦4桁で表現する。"
-    },
-    "map": {
-      "title": "地図",
-      "type": "object",
       "properties": {
         "type": {
           "const": "URL"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "format": "uri"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物の位置を示す地図"
+      "additionalProperties": false
     },
     "areaByUseByFloor": {
       "title": "フロア別用途別床面積",
@@ -814,21 +871,23 @@
     },
     "refDepartment": {
       "title": "部門ID",
+      "description": "所有する法人内に本建物の所管部門がある場合にDepartmentにリンクする。管理部門へのリンクは「建物(Building)」にもあり、管理形態によりどちらか、または両方にリンクを格納する。公共施設の場合は、どちらかの登録は必須",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
           "type": "string",
-          "x-refType": "Facility"
+          "pattern": "^urn:ngsi-ld:Department:.*",
+          "x-refType": "Department"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "所有する法人内に本建物の所管部門がある場合にDepartmentにリンクする。管理部門へのリンクは「建物(Building)」にもあり、管理形態によりどちらか、または両方にリンクを格納する。公共施設の場合は、どちらかの登録は必須"
+      "additionalProperties": false
     },
     "identificationGroup": {
       "title": "ID情報",
@@ -841,25 +900,36 @@
           "type": "array",
           "x-key": "identificationType",
           "items": {
-            "type": "object",
-            "properties": {
-              "identificationType": {
-                "title": "ID種別",
-                "type": "string",
-                "enum": [
-                  "不動産ID"
-                ]
+            "allOf": [
+              {
+                "type": "object",
+                "description": "identificationGroup.valueの配列要素の共通構造。identificationTypeのenumはモデルごとに異なるため、利用側でallOfにより追加すること。",
+                "properties": {
+                  "identificationType": {
+                    "title": "ID種別",
+                    "type": "string"
+                  },
+                  "identification": {
+                    "title": "ID",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "identificationType",
+                  "identification"
+                ],
+                "additionalProperties": false
               },
-              "identification": {
-                "title": "ID",
-                "type": "string"
+              {
+                "properties": {
+                  "identificationType": {
+                    "enum": [
+                      "不動産ID"
+                    ]
+                  }
+                }
               }
-            },
-            "required": [
-              "identificationType",
-              "identification"
-            ],
-            "additionalProperties": false
+            ]
           }
         }
       },
@@ -888,25 +958,32 @@
     },
     "refOwner": {
       "title": "法人ID",
+      "description": "所有する法人の「法人(Organization)」へりリンク。例えば、自治体の公共施設の場合は自治体の「法人」にリンクする",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
           "type": "string",
+          "pattern": "^urn:ngsi-ld:Organization:.*",
           "x-refType": "Organization"
         }
       },
+      "additionalProperties": false
+    },
+    "zones": {
+      "title": "場所",
+      "description": "施設内外の大まかな場所の名称の列です。同じ項目が「施設」にもあります。どちらを使用するのかは利用者の業務に依存しますが、基本的には「施設」に登録します。記述方法は「施設 ([Facility](https://ppp-database.org/spec/datamodel/Facility/))」のzonesを参照してください",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "所有する法人の「法人(Organization)」へりリンク。例えば、自治体の公共施設の場合は自治体の「法人」にリンクする"
-    },
-    "zones": {
-      "title": "場所",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Array"
@@ -950,48 +1027,47 @@
             ]
           }
         }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "施設内外の大まかな場所の名称の列です。同じ項目が「施設」にもあります。どちらを使用するのかは利用者の業務に依存しますが、基本的には「施設」に登録します。記述方法は「施設 ([Facility](https://ppp-database.org/spec/datamodel/Facility/))」のzonesを参照してください"
+      }
     },
     "refFacilityManager": {
       "title": "施設管理者ID",
+      "description": "施設を管理する事業者の「法人」Entityへのリンクの情報。包括施設管理業務委託の場合は包括施設管理事業者の「法人(Organization)」へのリンクとなる場合があります。但し、本項目は統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
           "type": "string",
+          "pattern": "^urn:ngsi-ld:Organization:.*",
           "x-refType": "Organization"
         }
       },
+      "additionalProperties": false
+    },
+    "buildingParent": {
+      "title": "親建物ID",
+      "description": "建物を建物と棟に階層化して管理する場合、上位階層のEntityへのリンク情報。例えば複数の棟から構成される建物において、棟のEntityから建物をリンクするなど",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "description": "施設を管理する事業者の「法人」Entityへのリンクの情報。包括施設管理業務委託の場合は包括施設管理事業者の「法人(Organization)」へのリンクとなる場合があります。但し、本項目は統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。"
-    },
-    "buildingParent": {
-      "title": "親建物ID",
-      "type": "object",
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
           "type": "string",
+          "pattern": "^urn:ngsi-ld:Building:.*",
           "x-refType": "Building"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "建物を建物と棟に階層化して管理する場合、上位階層のEntityへのリンク情報。例えば複数の棟から構成される建物において、棟のEntityから建物をリンクするなど"
+      "additionalProperties": false
     },
     "permits": {
       "title": "認可証",
@@ -1073,7 +1149,12 @@
     },
     "ventilation": {
       "title": "排気設備",
+      "description": "12条点検で報告する換気設備の概要について登録する。但し、本項目は本来BIMや建物OSで管理すべき項目である可能性があり、また統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Array"
@@ -1115,16 +1196,16 @@
             ]
           }
         }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "12条点検で報告する換気設備の概要について登録する。但し、本項目は本来BIMや建物OSで管理すべき項目である可能性があり、また統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。"
+      }
     },
     "smokeExtraction": {
       "title": "排煙設備",
+      "description": "12条点検で報告する排煙設備の概要について登録する。但し、本項目は本来BIMや建物OSで管理すべき項目である可能性があり、また統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Array"
@@ -1166,12 +1247,7 @@
             ]
           }
         }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "12条点検で報告する排煙設備の概要について登録する。但し、本項目は本来BIMや建物OSで管理すべき項目である可能性があり、また統計分析やオープンデータに適さない可能性がありますので、蓄積するデータの目的に従って登録の要否を判断する必要があります。"
+      }
     }
   },
   "required": [
