@@ -89,6 +89,16 @@
       "additionalProperties": false
     },
 
+    "RelationshipAttributeOrganization": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "pattern": "^urn:ngsi-ld:Organization:.*", "x-refType": "Organization" }
+      },
+      "additionalProperties": false
+    },
+
     "RelationshipAttributeDevice": {
       "type": "object",
       "required": ["type", "value"],

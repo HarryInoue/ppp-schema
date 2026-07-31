@@ -7,6 +7,7 @@
     "id": {
       "title": "法人ID",
       "type": "string",
+      "pattern": "^urn:ngsi-ld:Organization:.*",
       "description": "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)です。NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Organization:”<国名コード><法人番号>。国名コードは日本の場合は”JP”です。日本の法人番号を取得していない法人もあり得るため、国名コードを付けています。尚、日本以外の法人については、<法人番号>をどう定義するのか、必要時に再度検討する必要があります。同様に大半の町内会やボランティア団体は登記しておらず法人番号を持たないため、本データモデルのスコープを任意団体に広げる場合は、この文字列を再定義する必要があります"
     },
     "type": {
@@ -96,11 +97,12 @@
     "numberOfRegularEmployees": {
       "$ref": "../CommonParts.schema.json#/$defs/IntegerAttribute",
       "title": "正社員数",
-      "description": "正社員数と従業員数を記載。この項目は変動する数値の項目であり、実装するのであれば誰が更新し続けるのかなどのルール策定が必要"
+      "description": "正社員数を記載。この項目は変動する数値の項目であり、実装するのであれば誰が更新し続けるのかなどのルール策定が必要"
     },
     "numberOfEmployees": {
       "$ref": "../CommonParts.schema.json#/$defs/IntegerAttribute",
-      "title": "従業員数"
+      "title": "従業員数",
+      "description": "従業員数を記載。この項目は変動する数値の項目であり、実装するのであれば誰が更新し続けるのかなどのルール策定が必要"
     },
     "establishedDate": {
       "$ref": "../CommonParts.schema.json#/$defs/DateAttribute",

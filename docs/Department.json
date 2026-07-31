@@ -13,7 +13,7 @@
       "id",
       "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
-      "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)です。NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Department:”<国名コード><法人番号>”-“<部門コード>。法人番号は13桁の数字からなる文字列です。部門コードは組織の中で一意となる文字列です。国名コードは日本の場合は”JP”です。日本の法人番号を取得していない法人もあり得るため、国名コードを付けています。部門コードについては下記技術情報の補足も参照してください。尚、法人番号を主キーに活用する際の注意事項については「法[人(Organization)](https://ppp-database.org/spec/datamodel/Organization/)」の”id”の説明を参照してください"
+      "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)です。NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Department:”<国名コード><法人番号>”-“<部門コード>。法人番号は13桁の数字からなる文字列です。部門コードは組織の中で一意となる文字列です。国名コードは日本の場合は”JP”です。日本の法人番号を取得していない法人もあり得るため、国名コードを付けています。部門コードについては下記技術情報の補足も参照してください。尚、法人番号を主キーに活用する際の注意事項については「法[人(Organization)](https://ppp-database.org/spec/datamodel/Organization/)」の”id”の説明を参照してください"
     ],
     [
       "-",

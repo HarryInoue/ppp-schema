@@ -7,121 +7,30 @@
     "id": {
       "title": "部門ID",
       "type": "string",
-      "description": "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#%E4%B8%BB%E3%82%AD%E3%83%BC)です。NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Department:”<国名コード><法人番号>”-“<部門コード>。法人番号は13桁の数字からなる文字列です。部門コードは組織の中で一意となる文字列です。国名コードは日本の場合は”JP”です。日本の法人番号を取得していない法人もあり得るため、国名コードを付けています。部門コードについては下記技術情報の補足も参照してください。尚、法人番号を主キーに活用する際の注意事項については「法[人(Organization)](https://ppp-database.org/spec/datamodel/Organization/)」の”id”の説明を参照してください"
+      "description": "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)です。NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Department:”<国名コード><法人番号>”-“<部門コード>。法人番号は13桁の数字からなる文字列です。部門コードは組織の中で一意となる文字列です。国名コードは日本の場合は”JP”です。日本の法人番号を取得していない法人もあり得るため、国名コードを付けています。部門コードについては下記技術情報の補足も参照してください。尚、法人番号を主キーに活用する際の注意事項については「法[人(Organization)](https://ppp-database.org/spec/datamodel/Organization/)」の”id”の説明を参照してください"
     },
     "type": {
       "const": "Department",
       "description": "NGSI V2およびNGSI-LDの仕様にあわせ、必ず”Department”の文字列を登録します"
     },
     "name": {
+      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "部門名",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Text"
-        },
-        "value": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "additionalProperties": false,
       "description": "事業所や部門の名称を設定します。部門の名称はこの項目だけで部門が識別できるようにします。例えば、”○○局○○部○○課”などです。単に”第一課”などとすると、他の部局の第一課と区別がつかなくなります"
     },
     "departmentOf": {
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeOrganization",
       "title": "法人ID",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string",
-          "x-refType": "Organization"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "additionalProperties": false,
       "description": "所属する法人のへのリンクです。所属する法人 (Organization) のidを登録します。このリンクを辿ることで、法人名などの情報を得る事が出来ます"
     },
     "refFacility": {
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility",
       "title": "施設ID",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Relationship"
-        },
-        "value": {
-          "type": "string",
-          "x-refType": "Facility"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
-      "additionalProperties": false,
       "description": "部門が設置されている(入居している)施設へのリンクです。部門が設置されている施設 (Facility) のidを登録します。このリンクから幾つかのEntityを辿ることにより、住所、ビル名、フロアサイズなどの各種情報を求める事ができます。継承元のコア・データモデルに倣い必須としていますが業務に照らして要否を判断してください。"
     },
     "contactPoint": {
+      "$ref": "../../parts/ContactPoint.schema.json#/$defs/ContactPoint",
       "title": "連絡先",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "ContactPoint"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "availableLanguage": {
-                "title": "対応言語",
-                "type": "string"
-              },
-              "contactType": {
-                "title": "連絡先種別",
-                "type": "string"
-              },
-              "email": {
-                "title": "メールアドレス",
-                "type": "string",
-                "format": "email"
-              },
-              "telephone": {
-                "title": "電話番号",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "extension": {
-                "title": "内線番号",
-                "type": "string"
-              },
-              "formURL": {
-                "title": "フォーム",
-                "type": "string",
-                "format": "uri"
-              },
-              "faxNumber": {
-                "title": "FAX",
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "連絡先情報。継承元のコア・データモデルで必須となっていますが、電話番号が必須なのかメールなのか等の指定はありません。共通データ仕様でもコア・データモデルの通り必須してありますが、何を登録するのかしないのかは状況に合わせて個々に決める必要があります。項目の詳細は共通パーツを参照してください。例えば公共施設管理の所管部門の場合は、電話番号の登録を期待しているなどです"
     }
   },
