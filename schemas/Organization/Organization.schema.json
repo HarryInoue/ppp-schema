@@ -103,21 +103,8 @@
       "title": "従業員数"
     },
     "establishedDate": {
+      "$ref": "../CommonParts.schema.json#/$defs/DateAttribute",
       "title": "設立年月日",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Date"
-        },
-        "value": {
-          "type": "string",
-          "format": "date"
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "設立日を記載"
     },
     "yearOfEstablishment": {

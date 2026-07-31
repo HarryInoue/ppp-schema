@@ -284,7 +284,12 @@
     },
     "establishedDate": {
       "title": "設立年月日",
+      "description": "設立日を記載",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Date"
@@ -294,11 +299,7 @@
           "format": "date"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "description": "設立日を記載"
+      "additionalProperties": false
     },
     "yearOfEstablishment": {
       "title": "創業年",
