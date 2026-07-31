@@ -25,7 +25,17 @@
       },
       "additionalProperties": false
     },
-    
+
+    "IntegerAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Integer" },
+        "value": { "type": "integer" }
+      },
+      "additionalProperties": false
+    },
+
     "ArrayAttributeText": {
       "type": "object",
       "properties": {
@@ -63,7 +73,7 @@
       "required": ["type", "value"],
       "properties": {
         "type": { "const": "URL" },
-        "value": { "type": "string" }
+        "value": { "type": "string", "format": "uri" }
       },
       "additionalProperties": false
     },
