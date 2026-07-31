@@ -413,6 +413,7 @@
     },
     "contactPoint": {
       "title": "連絡先",
+      "description": "連絡先情報は法人と部門の両方にある。本項目は代表電話などを期待",
       "type": "object",
       "properties": {
         "type": {
@@ -464,7 +465,7 @@
         "type",
         "value"
       ],
-      "description": "連絡先情報は法人と部門の両方にある。本項目は代表電話などを期待"
+      "additionalProperties": false
     },
     "refFacility": {
       "title": "施設ID",

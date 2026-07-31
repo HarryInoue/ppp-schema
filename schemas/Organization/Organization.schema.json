@@ -345,58 +345,8 @@
       "description": "法人の登記上の住所"
     },
     "contactPoint": {
+      "$ref": "../../parts/ContactPoint.schema.json#/$defs/ContactPoint",
       "title": "連絡先",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "ContactPoint"
-        },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "availableLanguage": {
-                "title": "対応言語",
-                "type": "string"
-              },
-              "contactType": {
-                "title": "連絡先種別",
-                "type": "string"
-              },
-              "email": {
-                "title": "メールアドレス",
-                "type": "string",
-                "format": "email"
-              },
-              "telephone": {
-                "title": "電話番号",
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "extension": {
-                "title": "内線番号",
-                "type": "string"
-              },
-              "formURL": {
-                "title": "フォーム",
-                "type": "string",
-                "format": "uri"
-              },
-              "faxNumber": {
-                "title": "FAX",
-                "type": "string"
-              }
-            }
-          }
-        }
-      },
-      "required": [
-        "type",
-        "value"
-      ],
       "description": "連絡先情報は法人と部門の両方にある。本項目は代表電話などを期待"
     },
     "refFacility": {

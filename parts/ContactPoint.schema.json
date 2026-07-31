@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/parts/ContactPoint.schema.json",
+  "title": "ContactPoint",
+  "description": "連絡先を表すデータパーツ。https://ppp-database.org/spec/parts/ContactPoint/ 参照。属性名は各モデル側で決め、title/descriptionも利用側で$refの兄弟キーとして指定する。",
+  "$defs": {
+    "ContactPoint": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "ContactPoint" },
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "availableLanguage": {
+                "title": "対応言語",
+                "type": "string"
+              },
+              "contactType": {
+                "title": "連絡先種別",
+                "type": "string"
+              },
+              "email": {
+                "title": "メールアドレス",
+                "type": "string",
+                "format": "email"
+              },
+              "telephone": {
+                "title": "電話番号",
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "extension": {
+                "title": "内線番号",
+                "type": "string"
+              },
+              "formURL": {
+                "title": "フォーム",
+                "type": "string",
+                "format": "uri"
+              },
+              "faxNumber": {
+                "title": "FAX",
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
+    }
+  }
+}
