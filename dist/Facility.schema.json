@@ -447,9 +447,13 @@
       "title": "駐車場ID",
       "description": "駐車場情報のid。駐車可能な台数などの説明、料金、優先駐車場の有無などを辿れる。データモデルはSmart Data Modelsの[OffStreetParking](https://github.com/smart-data-models/dataModel.Parking/tree/a8d826a5ba45ccfe2f4d35273a5c4bfb05d85117/OffStreetParking)を参照されたい",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
-          "const": "Array"
+          "const": "Relationship"
         },
         "value": {
           "type": "array",
@@ -458,10 +462,7 @@
           }
         }
       },
-      "required": [
-        "type",
-        "value"
-      ]
+      "additionalProperties": false
     },
     "areaServed": {
       "title": "サービス担当区域",

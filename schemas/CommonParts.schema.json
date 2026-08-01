@@ -179,6 +179,16 @@
       "additionalProperties": false
     },
 
+    "RelationshipArrayAttribute": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+
     "RelationshipAttributeOrganizationOrDepartment": {
       "type": "object",
       "required": ["type", "value"],
