@@ -13,7 +13,13 @@
       "description": "必ず”FacilityStatistics”の文字列でなくてはならない"
     },
     "startDateOfPeriod": {
+      "title": "集計期間開始日",
+      "description": "統計情報の集計期間の開始日を西暦でYYYY-MM-DDの形式で登録する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Date"
@@ -23,15 +29,16 @@
           "format": "date"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "集計期間開始日",
-      "description": "統計情報の集計期間の開始日を西暦でYYYY-MM-DDの形式で登録する"
+      "additionalProperties": false
     },
     "endDateOfPeriod": {
+      "title": "集計期間終了日",
+      "description": "統計情報の集計期間の終了日を西暦でYYYY-MM-DDの形式で登録する",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Date"
@@ -41,15 +48,16 @@
           "format": "date"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "集計期間終了日",
-      "description": "統計情報の集計期間の終了日を西暦でYYYY-MM-DDの形式で登録する"
+      "additionalProperties": false
     },
     "name": {
+      "title": "統計名称",
+      "description": "統計情報の名称",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -58,15 +66,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "統計名称",
-      "description": "統計情報の名称"
+      "additionalProperties": false
     },
     "target": {
+      "title": "集計対象範囲",
+      "description": "施設内の一部である部屋やフロア単位で集計する場合、対象の範囲を記述",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Text"
@@ -75,32 +84,36 @@
           "type": "string"
         }
       },
+      "additionalProperties": false
+    },
+    "refFacility": {
+      "title": "施設ID",
+      "description": "統計の対象となる施設へのリンク",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "title": "集計対象範囲",
-      "description": "施設内の一部である部屋やフロア単位で集計する場合、対象の範囲を記述"
-    },
-    "refFacility": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "Relationship"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^urn:ngsi-ld:Facility:.*",
+          "x-refType": "Facility"
         }
       },
+      "additionalProperties": false
+    },
+    "area": {
+      "title": "集計対象面積",
+      "description": "集計対象の面積",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "title": "施設ID",
-      "description": "統計の対象となる施設へのリンク"
-    },
-    "area": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "Number"
@@ -109,12 +122,7 @@
           "type": "number"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "集計対象面積",
-      "description": "集計対象の面積"
+      "additionalProperties": false
     },
     "income": {
       "type": "object",
@@ -244,7 +252,13 @@
       "description": "資本的経費"
     },
     "depreciationCost": {
+      "title": "減価償却費",
+      "description": "減価償却費の集計期間の合計",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
@@ -253,15 +267,16 @@
           "type": "number"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "減価償却費",
-      "description": "減価償却費の集計期間の合計"
+      "additionalProperties": false
     },
     "operationDays": {
+      "title": "運営日数",
+      "description": "集計期間の内、運営した日数",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
@@ -270,15 +285,16 @@
           "type": "number"
         }
       },
+      "additionalProperties": false
+    },
+    "operationHours": {
+      "title": "運営時間",
+      "description": "日々の運営開始・終了時刻",
+      "type": "object",
       "required": [
         "type",
         "value"
       ],
-      "title": "運営日数",
-      "description": "集計期間の内、運営した日数"
-    },
-    "operationHours": {
-      "type": "object",
       "properties": {
         "type": {
           "const": "Text"
@@ -287,15 +303,16 @@
           "type": "string"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "運営時間",
-      "description": "日々の運営開始・終了時刻"
+      "additionalProperties": false
     },
     "usageCount": {
+      "title": "利用件数",
+      "description": "集計対象の集計期間中の利用件数",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
@@ -304,15 +321,16 @@
           "type": "number"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "利用件数",
-      "description": "集計対象の集計期間中の利用件数"
+      "additionalProperties": false
     },
     "availableCount": {
+      "title": "利用可能件数",
+      "description": "集計対象の集計期間中の利用可能であった全件数",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
@@ -321,15 +339,16 @@
           "type": "number"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "利用可能件数",
-      "description": "集計対象の集計期間中の利用可能であった全件数"
+      "additionalProperties": false
     },
     "numberOfUsers": {
+      "title": "利用人数",
+      "description": "集計対象の集計期間中の利用人数",
       "type": "object",
+      "required": [
+        "type",
+        "value"
+      ],
       "properties": {
         "type": {
           "const": "Number"
@@ -338,12 +357,7 @@
           "type": "number"
         }
       },
-      "required": [
-        "type",
-        "value"
-      ],
-      "title": "利用人数",
-      "description": "集計対象の集計期間中の利用人数"
+      "additionalProperties": false
     },
     "customAttribute": {
       "type": "object",
