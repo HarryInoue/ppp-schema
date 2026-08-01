@@ -270,6 +270,16 @@
       "additionalProperties": false
     },
 
+    "RelationshipAttributeDeviceOrBuildingComponent": {
+      "type": "object",
+      "required": ["type", "value"],
+      "properties": {
+        "type": { "const": "Relationship" },
+        "value": { "type": "string", "x-refType": ["Device", "BuildingComponent"] }
+      },
+      "additionalProperties": false
+    },
+
     "RelationshipAttributeDevice": {
       "type": "object",
       "required": ["type", "value"],

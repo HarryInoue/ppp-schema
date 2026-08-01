@@ -104,15 +104,8 @@
       "title": "実施者"
     },
     "refFeatureOfInterest": {
+      "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeDeviceOrBuildingComponent",
       "description": "観測対象の「設備」「部位」「備品」をリンクするためのそれぞれのIDです。",
-      "oneOf": [
-        {
-          "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeDevice"
-        },
-        {
-          "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeBuildingComponent"
-        }
-      ],
       "title": "観測対象"
     },
     "results": {

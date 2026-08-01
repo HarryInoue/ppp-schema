@@ -186,45 +186,25 @@
     },
     "refFeatureOfInterest": {
       "description": "観測対象の「設備」「部位」「備品」をリンクするためのそれぞれのIDです。",
-      "oneOf": [
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "value"
-          ],
-          "properties": {
-            "type": {
-              "const": "Relationship"
-            },
-            "value": {
-              "type": "string",
-              "pattern": "^urn:ngsi-ld:Device:.*",
-              "x-refType": "Device"
-            }
-          },
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "required": [
-            "type",
-            "value"
-          ],
-          "properties": {
-            "type": {
-              "const": "Relationship"
-            },
-            "value": {
-              "type": "string",
-              "pattern": "^urn:ngsi-ld:BuildingComponent:.*",
-              "x-refType": "BuildingComponent"
-            }
-          },
-          "additionalProperties": false
-        }
+      "title": "観測対象",
+      "type": "object",
+      "required": [
+        "type",
+        "value"
       ],
-      "title": "観測対象"
+      "properties": {
+        "type": {
+          "const": "Relationship"
+        },
+        "value": {
+          "type": "string",
+          "x-refType": [
+            "Device",
+            "BuildingComponent"
+          ]
+        }
+      },
+      "additionalProperties": false
     },
     "results": {
       "type": "object",
