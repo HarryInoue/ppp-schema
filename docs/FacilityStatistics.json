@@ -9,223 +9,223 @@
   ],
   "rows": [
     [
-      "1::1",
+      "統計ID",
       "id",
       "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
-      "必須"
+      "NGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:FacilityStatistics:”<一意となる文字列>。一意となる文字列は何でもよいが、重複しない様にルールを定める必要がある"
     ],
     [
-      "1::1",
+      "-",
       "type",
       "Text",
       "1",
-      "必須"
+      "必ず”FacilityStatistics”の文字列でなくてはならない"
     ],
     [
-      "0::1",
+      "集計期間開始日",
       "startDateOfPeriod",
       "Date",
       "1",
-      "〇"
+      "統計情報の集計期間の開始日を西暦でYYYY-MM-DDの形式で登録する"
     ],
     [
-      "0::1",
+      "集計期間終了日",
       "endDateOfPeriod",
       "Date",
       "1",
-      "〇"
+      "統計情報の集計期間の終了日を西暦でYYYY-MM-DDの形式で登録する"
     ],
     [
-      "0::1",
+      "統計名称",
       "name",
       "Text",
       "1",
-      "〇"
+      "統計情報の名称"
     ],
     [
-      "0::1",
+      "集計対象範囲",
       "target",
       "Text",
       "1",
-      ""
+      "施設内の一部である部屋やフロア単位で集計する場合、対象の範囲を記述"
     ],
     [
-      "0::1",
+      "施設ID",
       "refFacility",
       "Relationship",
       "1",
-      "〇"
+      "統計の対象となる施設へのリンク"
     ],
     [
-      "0::1",
+      "集計対象面積",
       "area",
       "Number",
       "1",
-      ""
+      "集計対象の面積"
     ],
     [
-      "0::1",
+      "収入",
       "income",
       "StructuredValue",
       "1",
-      ""
+      "収入"
     ],
     [
-      "∟-",
+      "∟使用料",
       "∟usageFee",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟手数料",
       "∟commission",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟その他収入",
       "∟otherIncome",
       "Number",
       "1"
     ],
     [
-      "0::1",
+      "運営経費",
       "operatingExpense",
       "StructuredValue",
       "1",
-      ""
+      "運営経費"
     ],
     [
-      "∟-",
+      "∟光熱費",
       "∟utilitiesFee",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟燃料費",
       "∟fuelFee",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟修繕費",
       "∟repairFee",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟建物管理委託費",
       "∟buildingManagementFee",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟使用料・賃借料",
       "∟rentalFee",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟その他経費",
       "∟otherExpense",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟事業運営費",
       "∟businessOperationCost",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟人件費",
       "∟personnelExpense",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟指定管理委託料",
       "∟designatedManagementFee",
       "Number",
       "1"
     ],
     [
-      "0::1",
+      "資本的経費",
       "capitalExpense",
       "StructuredValue",
       "1",
-      ""
+      "資本的経費"
     ],
     [
-      "∟-",
+      "∟工事費",
       "∟constructionFee",
       "Number",
       "1"
     ],
     [
-      "∟-",
+      "∟その他資本的経費",
       "∟otherCapitalExpense",
       "Number",
       "1"
     ],
     [
-      "0::1",
+      "減価償却費",
       "depreciationCost",
       "Number",
       "1",
-      ""
+      "減価償却費の集計期間の合計"
     ],
     [
-      "0::1",
+      "運営日数",
       "operationDays",
       "Number",
       "1",
-      ""
+      "集計期間の内、運営した日数"
     ],
     [
-      "0::1",
+      "運営時間",
       "operationHours",
       "Text",
       "1",
-      ""
+      "日々の運営開始・終了時刻"
     ],
     [
-      "0::1",
+      "利用件数",
       "usageCount",
       "Number",
       "1",
-      ""
+      "集計対象の集計期間中の利用件数"
     ],
     [
-      "0::1",
+      "利用可能件数",
       "availableCount",
       "Number",
       "1",
-      ""
+      "集計対象の集計期間中の利用可能であった全件数"
     ],
     [
-      "0::1",
+      "利用人数",
       "numberOfUsers",
       "Number",
       "1",
-      ""
+      "集計対象の集計期間中の利用人数"
     ],
     [
-      "0::n",
+      "追加統計項目",
       "customAttribute",
       "Array",
       "*",
-      ""
+      "任意に追加する統計項目のリスト"
     ],
     [
-      "∟-",
+      "∟項目名",
       "∟customAttributeName",
       "Text",
       "1"
     ],
     [
-      "∟-",
+      "∟項目値",
       "∟customAttributeValue",
       "Number",
       "1"
