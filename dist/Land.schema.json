@@ -363,22 +363,49 @@
       "additionalProperties": false
     },
     "landUseZone": {
-      "title": "用途地域",
-      "description": "用途地域を表す列挙型項目です。施設カルテ等や12条点検の報告等での利用を期待しており、特に、12条点検の対象となる建物では、点検結果の報告書に必要な情報です。登録して良い用語(列挙型メンバ)の定義は[「土地の用途地域 (LandUseZone)」](https://ppp-database.org/spec/enum/LandUseZone)です。",
-      "type": "object",
-      "required": [
-        "type",
-        "value"
-      ],
-      "properties": {
-        "type": {
-          "const": "Text"
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "Text"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
-        "value": {
-          "type": "string"
+        {
+          "properties": {
+            "value": {
+              "type": "string",
+              "enum": [
+                "第一種低層住居専用地域",
+                "第二種低層住居専用地域",
+                "第一種中高層住居専用地域",
+                "第二種中高層住居専用地域",
+                "第一種住居地域",
+                "第二種住居地域",
+                "準住居地域",
+                "田園住居地域",
+                "近隣商業地域",
+                "商業地域",
+                "準工業地域",
+                "工業地域",
+                "工業専用地域"
+              ],
+              "x-enumDescription": "都市計画法の「用途地域」の定めによる。用語が異なる場合、同法の定めが優先する。報告書等に記載される事を想定し、省略形は用いない。"
+            }
+          }
         }
-      },
-      "additionalProperties": false
+      ],
+      "title": "用途地域",
+      "description": "用途地域を表す列挙型項目です。施設カルテ等や12条点検の報告等での利用を期待しており、特に、12条点検の対象となる建物では、点検結果の報告書に必要な情報です。登録して良い用語(列挙型メンバ)の定義は[「土地の用途地域 (LandUseZone)」](https://ppp-database.org/spec/enum/LandUseZone)です。"
     },
     "ownership": {
       "title": "所有形態",
