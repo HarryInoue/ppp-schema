@@ -70,7 +70,14 @@
       "description": "組織種別（株式会社等）を法人名の前後のどちらに付与するかを記載します"
     },
     "category": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/OrganizationCategory.schema.json#/$defs/OrganizationCategoryEnum" }
+          }
+        }
+      ],
       "title": "組織種別",
       "description": "列挙型項目。”市区町村”、”都道府県”、”株式会社”などの区別を登録する。値は[OrganizationCategory](https://ppp-database.org/spec/enum/OrganizationCategory)を参照のこと。"
     },

@@ -94,8 +94,12 @@ def infer_type_and_occurrence(prop_schema: dict):
     と、id/typeのようなフラットな形式 {"type": "string"} / {"const": "..."} の
     両方に対応する。属性直下がoneOf（例: Observation.performedAt）やgeo:json等の
     複合ケースでは、既に部品ページ等で表現済みのため入れ子展開は行わない
-    (value_schema=Noneを返す)。
+    (value_schema=Noneを返す)。属性直下がallOf（例: Organization.category、
+    TextAttribute等の共通$defにvalueのenum制約だけ上乗せするケース)の場合は、
+    先にmerge_allof()で単一のプレーンなスキーマに合成してから処理する。
     """
+    prop_schema = merge_allof(prop_schema)
+
     if "oneOf" in prop_schema and "properties" not in prop_schema:
         types, occurrences = [], []
         for variant in prop_schema["oneOf"]:
