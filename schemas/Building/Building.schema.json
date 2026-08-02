@@ -14,7 +14,14 @@
       "description": "必ず”Building”の文字列でなくてはならない"
     },
     "category": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/BuildingCategory.schema.json#/$defs/BuildingCategoryEnum" }
+          }
+        }
+      ],
       "title": "用途（建築基準法）",
       "description": "建物の用途。”一戸建ての住宅”、”工場”等、建築基準法施行規則 （別記様式）に定める建築物用途区分 を使用できる。本項目は列挙型項目ではないが、用途について[BuildingCategory](https://ppp-database.org/spec/enum/BuildingCategory/)にて例示する。尚、入居する施設のPOIコードと一致するとは限らない"
     },
