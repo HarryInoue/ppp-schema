@@ -19,7 +19,7 @@
               },
               "contactType": {
                 "title": "連絡先種別",
-                "type": "string"
+                "$ref": "../enums/ContactPointType.schema.json#/$defs/ContactPointTypeEnum"
               },
               "email": {
                 "title": "メールアドレス",
