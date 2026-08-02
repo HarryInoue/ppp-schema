@@ -69,7 +69,14 @@
       "description": "建物の主な働き。例えば”耐火建物”など。この項目はGIFのコアデータモデルから継承して設けられています"
     },
     "usage": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/BuildingUsage.schema.json#/$defs/BuildingUsageEnum" }
+          }
+        }
+      ],
       "title": "用途（都市計画）",
       "description": "都市計画基礎調査実施要領 に準拠する。定義は[BuildingUsage](https://ppp-database.org/spec/enum/BuildingUsage/)を参照。この項目はGIFのコアデータモデルから継承して設けられています"
     },
