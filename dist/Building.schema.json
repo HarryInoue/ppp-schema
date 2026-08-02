@@ -923,9 +923,13 @@
               {
                 "properties": {
                   "identificationType": {
+                    "type": "string",
                     "enum": [
                       "不動産ID"
-                    ]
+                    ],
+                    "x-enumDescriptions": {
+                      "不動産ID": "”ID”はASCIIの英大文字(半角英大文字)。不動産IDについては、「[不動産IDルールガイドライン](https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/content/001594268.pdf)」を参照。形式は<不動産番号>”-“<特定コード>の形式。不動産番号は13桁、特定コードは4桁。いずれもASCIIの英数字。不動産番号と特定コードの間のセパレータはハイフンに統一する。他の文字は使ってはならない"
+                    }
                   }
                 }
               }

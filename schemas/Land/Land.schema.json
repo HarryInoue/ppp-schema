@@ -29,7 +29,7 @@
               {
                 "properties": {
                   "identificationType": {
-                    "enum": ["不動産ID"]
+                    "$ref": "../../enums/IdentificationType.schema.json#/$defs/RealEstateIdentificationType"
                   }
                 }
               }

@@ -30,7 +30,7 @@
               {
                 "properties": {
                   "identificationType": {
-                    "enum": ["法人番号", "自治体コード"]
+                    "$ref": "../../enums/IdentificationType.schema.json#/$defs/OrganizationIdentificationType"
                   }
                 }
               }
