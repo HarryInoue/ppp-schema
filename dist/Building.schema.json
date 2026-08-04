@@ -113,7 +113,7 @@
     },
     "nameEn": {
       "title": "建物名英語",
-      "description": "建物の米国英語表記を設定する。この項目はGIFのコアデータモデルに従い必須としてある。",
+      "description": "建物の米国英語表記を設定する。",
       "type": "object",
       "required": [
         "type",
@@ -187,7 +187,7 @@
     },
     "description": {
       "title": "説明",
-      "description": "建物情報として公開可能な詳細情報。この項目はGIFのコアデータモデルに従い必須としてある。",
+      "description": "建物情報として公開可能な詳細情報。",
       "type": "object",
       "required": [
         "type",
@@ -245,7 +245,7 @@
     },
     "mainFunctions": {
       "title": "主要機能",
-      "description": "建物の主な働き。例えば”耐火建物”など。この項目はGIFのコアデータモデルから継承して設けられています",
+      "description": "建物の主な働き。例えば”耐火建物”など。この項目は[GIF](https://ppp-database.org/howtouse/terms-g/#gif)のコアデータモデルから継承して設けられています",
       "type": "object",
       "required": [
         "type",

@@ -21,7 +21,7 @@
     "nameKana": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "施設名カナ",
-      "description": "施設のカナ表記を設定する。GIFで必須となっているため必須としています。"
+      "description": "施設のカナ表記を設定する。"
     },
     "nameEn": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
@@ -41,12 +41,12 @@
     "category": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "施設大分類",
-      "description": "施設の分類。GIFのPOIの大分類の名称を登録。GIFの規定上必須となっているので本仕様も必須としているが、必ずしも該当する分類があるとは限らない。例えば”給食センター”などはない"
+      "description": "施設の分類。[GIF](https://ppp-database.org/howtouse/terms-g/#gif)のPOIの大分類の名称を登録。必ずしも該当する分類があるとは限らない。例えば”給食センター”などはない"
     },
     "subcategory": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "施設小分類",
-      "description": "施設の分類。GIFのPOIの小分類の名称を登録。GIFの規定上必須となっているので本仕様も必須としているが、必ずしも該当する分類があるとは限らない。"
+      "description": "施設の分類。[GIF](https://ppp-database.org/howtouse/terms-g/#gif)のPOIの小分類の名称を登録。必ずしも該当する分類があるとは限らない。"
     },
     "originalCategory": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
@@ -255,7 +255,7 @@
     "zones": {
       "$ref": "../CommonParts.schema.json#/$defs/ZonesAttribute",
       "title": "場所",
-      "description": "施設内外を大まかに区分した場所の名称を最大3階層で登録します。最もおおまかな場所の名称は、zoneNameで指定します。更に区分した場所の名称は、subzoneNameの一つ目の項目で指定します。更に区分した最も細かい場所の名称は、subzoneNameの二つ目の項目で指定します。二つ目の情報はTextのリストです。この情報は、不具合の通報者、コールセンタ、受託事業者、および自治体職員間の意思疎通のために使われる事を想定しています。「建物」か「施設」のどちらかへの登録は必須です。subzoneNameのArrayは順番に意味を持ちます(順序付きリスト)。棟毎にこの「建物」の情報を登録する場合も、この場所の情報は建物全体の「建物」に登録します"
+      "description": "施設内外を大まかに区分した場所の名称を最大3階層で登録します。最もおおまかな場所の名称は、「場所大分類(zoneName)」で指定します。更に区分した場所の名称は、subzoneNameの一つ目の項目「場所中分類」で指定します。更に区分した最も細かい場所の名称は、subzoneNameの二つ目の項目「場所小分類」で指定します。二つ目の情報はTextのリストです。この情報は、不具合の通報者、コールセンタ、受託事業者、および自治体職員間などの意思疎通のために使われる共通の呼び方を登録することを想定しています。「建物」か「施設」のどちらかへの登録は必須ですが、基本的に施設に登録します。"
     },
     "managementForm": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
