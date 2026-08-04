@@ -5,12 +5,12 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた部位IDは変更する事はできません。また、改築等で部位が継続性が無い状況でを入れ替えた場合は部位IDは再度附番しなおして、別の識別子に変更する必要があります。これは、保存された過去のデータと区別するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:BuildingComponent:”<一意となる文字列>。一意となる文字列は一意であれば何でもよいが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。",
+      "description": "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた部位IDは変更する事はできません。また、改築等で部位が継続性が無い状況でを入れ替えた場合は部位IDは再度附番しなおして、別の識別子に変更する必要があります。これは、保存された過去のデータと区別するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。\n　　”urn:ngsi-ld:BuildingComponent:”<一意となる文字列>。\n一意となる文字列は一意であれば何でも構いませんが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。",
       "title": "部位ID"
     },
     "type": {
       "const": "BuildingComponent",
-      "description": "必ず”BuildingComponent”の文字列でなくてはならない"
+      "description": "必ず”BuildingComponent”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "category": {
       "allOf": [
@@ -22,32 +22,32 @@
         }
       ],
       "title": "部位種別",
-      "description": "部位の種別。列挙型項目であり、用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照"
+      "description": "部位の種別です。列挙型項目であり、用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照してください"
     },
     "name": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "部位名称",
-      "description": "部位に他と区別すべき名称が付いている場合に、名称を設定する。名称は”中央階段”、”職員門扉”などの様に利用者が使う名称を用いても、”〇小-1F-空調-A01″などの様に管理上の名称でも使用上は構わない。オーナーと管理者との協議により決まる。"
+      "description": "部位に他と区別すべき名称が付いている場合に、名称を設定します。例えば、手順書や各種案内文で用いる名称で、前記の部位IDと異なり改築等で部位を入れ替えても変わらない名前が望ましいです。名称は”中央階段”、”職員門扉”などの様に利用者が使う名称を用いても、”〇小-1F-空調-A01″などの様に管理上の名称でも仕様上は構いません。"
     },
     "nameKana": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "部位名称カナ",
-      "description": "部位の名称のカナ表記を設定する"
+      "description": "部位の名称のカナ表記を設定します。"
     },
     "nameEn": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "部位名称英語",
-      "description": "部位の名称の米国英語表記を設定する"
+      "description": "部位の名称の米国英語表記を設定します。"
     },
     "description": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "説明",
-      "description": "部位情報として公開可能な詳細情報"
+      "description": "部位情報として公開可能な詳細情報です。"
     },
     "status": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "ステータス",
-      "description": "「稼働中」、「故障中」などのステータス。この項目を利用する場合は、更新責任をだれが担うかなどのルールの策定が必要"
+      "description": "「稼働中」、「故障中」などのステータスです。この項目を利用する場合は、更新責任をだれが担うかなどのルールの策定が必要です"
     },
     "refFacility": {
       "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility",
@@ -57,27 +57,27 @@
     "refBuilding": {
       "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeBuilding",
       "title": "建物ID",
-      "description": "設置している対象の建物へのリンク。12条点検などの公的点検では部位や設備の不具合は棟毎に分けて報告する仕様になっているためこの項目があります。"
+      "description": "この部位が属する対象の建物へのリンクです。12条点検などの公的点検では部位や設備の不具合は棟毎に分けて報告する仕様になっているためこの項目があります。"
     },
     "url": {
       "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
       "title": "url",
-      "description": "設置場所写真のURLなど"
+      "description": "設置場所写真などURLです"
     },
     "remarks": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "備考",
-      "description": "備考"
+      "description": "備考を登録する項目です"
     },
     "zoneInstalled": {
       "$ref": "../CommonParts.schema.json#/$defs/ZoneInstalledAttribute",
       "title": "場所",
-      "description": "部位がある場所です。「建物(Building)」または「施設(Facility)」で定義したZonesの名称の配列で記載します。例えば[“校舎”, “2F”,”1年C組”]です。"
+      "description": "部位がある場所です。「[建物(Building)](https://ppp-database.org/spec/datamodel/Building/)」または「[施設(Facility)](https://ppp-database.org/spec/datamodel/Facility/)」で定義した「場所(Zones)」の名称の配列で記載します。例えば[“校舎”, “2F”,“1年C組”]です。"
     },
     "zoneRemarks": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "場所備考",
-      "description": "前項の補足情報を記入します。例えば”内壁”の部位情報で、前項の値が[“校舎”, “2F”,”1年C組”]である時に、更に南側の内壁である事を明示したい場合は”南側”などと記入します。"
+      "description": "前項の補足情報を記入します。例えば”内壁”の部位情報で、前項の値が[“校舎”, “2F”,“1年C組”]である時に、更に南側の内壁である事を明示したい場合は“南側”などと記入します。"
     }
   },
   "required": [
