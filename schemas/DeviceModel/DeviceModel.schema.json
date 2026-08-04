@@ -28,7 +28,14 @@
       "description": "機器のブランド名を設定する。例えば”しろくまくん”。"
     },
     "category": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/BuildingComponent.schema.json#/$defs/BuildingComponentEnum" }
+          }
+        }
+      ],
       "title": "設備種別",
       "description": "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照。尚、設備の種別が階層化されているときは、高位の階層から順番に格納する。"
     },

@@ -13,7 +13,14 @@
       "description": "必ず”BuildingComponent”の文字列でなくてはならない"
     },
     "category": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/BuildingComponent.schema.json#/$defs/BuildingComponentEnum" }
+          }
+        }
+      ],
       "title": "部位種別",
       "description": "部位の種別。列挙型項目であり、用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照"
     },

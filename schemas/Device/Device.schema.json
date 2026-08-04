@@ -18,7 +18,14 @@
       "description": "設備の提供領域。例えば照明機器や空調機器で”図書室”や”職員室”。不具合時に影響を受ける場所"
     },
     "category": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/BuildingComponent.schema.json#/$defs/BuildingComponentEnum" }
+          }
+        }
+      ],
       "title": "設備種別",
       "description": "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)。本AttributeはDeviceModelと重複しています。「機種(DeviceModel)」をリンクする場合には、この項目への情報登録は不要です。"
     },
