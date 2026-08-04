@@ -24,9 +24,7 @@
             "category": {
               "title": "現象概要",
               "type": "array",
-              "items": {
-                "type": "string"
-              }
+              "items": { "$ref": "../../enums/Phenomenon.schema.json#/$defs/PhenomenonEnum" }
             },
             "remarks": {
               "title": "現象補足",
