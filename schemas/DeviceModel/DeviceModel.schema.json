@@ -29,10 +29,12 @@
     },
     "category": {
       "allOf": [
-        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        { "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText" },
         {
           "properties": {
-            "value": { "$ref": "../../enums/BuildingComponent.schema.json#/$defs/BuildingComponentEnum" }
+            "value": {
+              "contains": { "$ref": "../../enums/BuildingComponent.schema.json#/$defs/BuildingComponentEnum" }
+            }
           }
         }
       ],
