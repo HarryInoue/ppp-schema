@@ -319,7 +319,7 @@
           "items": {
             "allOf": [
               {
-                "$ref": "../CommonParts.schema.json#/$defs/IdentificationItem"
+                "$ref": "../../parts/IdentificationGroup.schema.json#/$defs/IdentificationItem"
               },
               {
                 "properties": {

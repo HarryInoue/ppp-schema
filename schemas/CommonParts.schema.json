@@ -138,17 +138,6 @@
       "additionalProperties": false
     },
 
-    "IdentificationItem": {
-      "type": "object",
-      "description": "identificationGroup.valueの配列要素の共通構造。identificationTypeのenumはモデルごとに異なるため、利用側でallOfにより追加すること。",
-      "properties": {
-        "identificationType": { "title": "ID種別", "type": "string" },
-        "identification": { "title": "ID", "type": "string" }
-      },
-      "required": ["identificationType", "identification"],
-      "additionalProperties": false
-    },
-
     "RelationshipAttributeOrganization": {
       "type": "object",
       "required": ["type", "value"],

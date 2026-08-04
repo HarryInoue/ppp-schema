@@ -25,7 +25,7 @@
           "x-key": "identificationType",
           "items": {
             "allOf": [
-              { "$ref": "../CommonParts.schema.json#/$defs/IdentificationItem" },
+              { "$ref": "../../parts/IdentificationGroup.schema.json#/$defs/IdentificationItem" },
               {
                 "properties": {
                   "identificationType": {
@@ -88,7 +88,7 @@
         "type",
         "value"
       ],
-      "description": "土地の主要な用途です。本仕様が継承しているGIFのコア・データモデルで必須の指定があるため、本仕様でも必須としてあります。登録して良い用語(列挙型メンバ)の定義は、[LandUsage](https://ppp-database.org/spec/enum/LandUsage)を参照してください"
+      "description": "土地の主要な用途です。本仕様が継承している[GIF](https://ppp-database.org/howtouse/terms-g/#gif)のコア・データモデルで必須の指定があるため、本仕様でも必須としてあります。登録して良い用語(列挙型メンバ)の定義は、[LandUsage](https://ppp-database.org/spec/enum/LandUsage)を参照してください"
     },
     "name": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",

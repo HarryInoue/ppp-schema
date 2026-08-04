@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/parts/IdentificationGroup.schema.json",
+  "title": "IdentificationGroup",
+  "description": "各種IDを並べて登録するためのデータパーツ。https://ppp-database.org/spec/parts/IdentificationGroup/ 参照。属性名は各モデル側で決め、title/descriptionも利用側で$refの兄弟キーとして指定する。",
+  "$defs": {
+    "IdentificationItem": {
+      "type": "object",
+      "description": "identificationGroup.valueの配列要素の共通構造。identificationTypeのenumはモデルごとに異なるため、利用側でallOfにより追加すること。",
+      "properties": {
+        "identificationType": { "title": "ID種別", "type": "string" },
+        "identification": { "title": "ID", "type": "string" }
+      },
+      "required": ["identificationType", "identification"],
+      "additionalProperties": false
+    }
+  }
+}
