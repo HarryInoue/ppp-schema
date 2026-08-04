@@ -241,7 +241,14 @@
       "title": "原因"
     },
     "severityMark": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/ComplaintSeverity.schema.json#/$defs/ComplaintSeverityEnum" }
+          }
+        }
+      ],
       "title": "緊急度マーク",
       "description": "不具合に対する緊急性を示すマークを登録する項目です。登録する用語は[ComplaintSeverity](https://ppp-database.org/spec/enum/ComplaintSeverity/)をご覧ください。"
     },
