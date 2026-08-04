@@ -35,7 +35,16 @@
       "description": "検知・制御・計測する対象の部位です。部位や例えば”プール”。controlledPropertyと合わせて、プールの水位を監視するセンサであるなどと表現します。更に、「部位」として空間を登録しておくと、音楽室の空間の温湿度を計測するセンサなども表現できます。"
     },
     "controlledProperty": {
-      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText" },
+        {
+          "properties": {
+            "value": {
+              "items": { "$ref": "../../enums/ControlledProperty.schema.json#/$defs/ControlledPropertyEnum" }
+            }
+          }
+        }
+      ],
       "title": "制御対象",
       "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。本項目は、継承元のSmart Data Modelsに合わせて回数を1以上としていますが、実際にこの項目を利用するかどうかは個別に判断してください。また、本AttributeはDeviceModelと重複しています。DeviceModelをリンクする場合には、必要性は低いと考えます。"
     },

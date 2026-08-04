@@ -47,7 +47,16 @@
       "description": "機器の色を設定する。例えば”白”"
     },
     "controlledProperty": {
-      "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText" },
+        {
+          "properties": {
+            "value": {
+              "items": { "$ref": "../../enums/ControlledProperty.schema.json#/$defs/ControlledPropertyEnum" }
+            }
+          }
+        }
+      ],
       "title": "制御対象",
       "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。"
     },

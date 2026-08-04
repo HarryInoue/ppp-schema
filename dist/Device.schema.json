@@ -923,24 +923,340 @@
       ]
     },
     "controlledProperty": {
-      "title": "制御対象",
-      "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。本項目は、継承元のSmart Data Modelsに合わせて回数を1以上としていますが、実際にこの項目を利用するかどうかは個別に判断してください。また、本AttributeはDeviceModelと重複しています。DeviceModelをリンクする場合には、必要性は低いと考えます。",
-      "type": "object",
-      "properties": {
-        "type": {
-          "const": "Array"
+      "allOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "Array"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "type",
+            "value"
+          ]
         },
-        "value": {
-          "type": "array",
-          "items": {
-            "type": "string"
+        {
+          "properties": {
+            "value": {
+              "items": {
+                "type": "string",
+                "enum": [
+                  "大気汚染",
+                  "大気圧",
+                  "平均速度",
+                  "バッテリ寿命",
+                  "バッテリ供給",
+                  "CDOM（着色溶存有機物）",
+                  "コンダクタンス",
+                  "電気伝導率",
+                  "深さ",
+                  "摂食活動",
+                  "電力消費量",
+                  "エネルギー",
+                  "充填率",
+                  "遊離塩素",
+                  "ガス消費量",
+                  "ゲート開閉",
+                  "方位",
+                  "湿度",
+                  "光",
+                  "位置",
+                  "搾乳",
+                  "動作",
+                  "移動",
+                  "騒音レベル",
+                  "占有率",
+                  "酸化還元電位（ORP）",
+                  "pH",
+                  "電力",
+                  "降水量",
+                  "圧力",
+                  "屈折率",
+                  "塩分濃度",
+                  "煙",
+                  "土壌湿度",
+                  "日射量",
+                  "速度",
+                  "総溶解固形物濃度（TDS）",
+                  "温度",
+                  "交通量",
+                  "浮遊物質量（TSS）",
+                  "濁度",
+                  "水消費量",
+                  "水流量",
+                  "水位",
+                  "水質汚染",
+                  "天候状況",
+                  "重量",
+                  "風向",
+                  "風速"
+                ],
+                "x-enumDescriptionLabels": {
+                  "standardTerm": "標準用語",
+                  "description": "説明",
+                  "unitExamples": "測定単位の例"
+                },
+                "x-enumDescriptions": {
+                  "大気汚染": {
+                    "standardTerm": "airPollution",
+                    "description": "大気中の汚染物質濃度の指標",
+                    "unitExamples": "µg/m³, ppm"
+                  },
+                  "大気圧": {
+                    "standardTerm": "atmosphericPressure",
+                    "description": "大気の圧力",
+                    "unitExamples": "hPa, kPa"
+                  },
+                  "平均速度": {
+                    "standardTerm": "averageVelocity",
+                    "description": "一定時間内の平均的な速度",
+                    "unitExamples": "m/s, km/h"
+                  },
+                  "バッテリ寿命": {
+                    "standardTerm": "batteryLife",
+                    "description": "バッテリーが使用可能な残り時間や容量",
+                    "unitExamples": "%, 時間"
+                  },
+                  "バッテリ供給": {
+                    "standardTerm": "batterySupply",
+                    "description": "バッテリーからの電力供給状況",
+                    "unitExamples": "%, V"
+                  },
+                  "CDOM（着色溶存有機物）": {
+                    "standardTerm": "cdom",
+                    "description": "水中の有機物による着色度",
+                    "unitExamples": "ppb, absorbance units"
+                  },
+                  "コンダクタンス": {
+                    "standardTerm": "conductance",
+                    "description": "物質の電気を通す能力",
+                    "unitExamples": "S（ジーメンス）"
+                  },
+                  "電気伝導率": {
+                    "standardTerm": "conductivity",
+                    "description": "物質や液体の電気伝導性。導電率とも言います",
+                    "unitExamples": "S/m, mS/cm"
+                  },
+                  "深さ": {
+                    "standardTerm": "depth",
+                    "description": "基準点からの垂直方向距離",
+                    "unitExamples": "m"
+                  },
+                  "摂食活動": {
+                    "standardTerm": "eatingActivity",
+                    "description": "食事や給餌の行動量。動物行動学や酪農分野では採食活動とも言います",
+                    "unitExamples": "回数/日, g"
+                  },
+                  "電力消費量": {
+                    "standardTerm": "electricityConsumption",
+                    "description": "消費された電力量",
+                    "unitExamples": "kWh"
+                  },
+                  "エネルギー": {
+                    "standardTerm": "energy",
+                    "description": "物理的なエネルギー量",
+                    "unitExamples": "J, kWh"
+                  },
+                  "充填率": {
+                    "standardTerm": "fillingLevel",
+                    "description": "容器やタンクの充填割合",
+                    "unitExamples": "%, L"
+                  },
+                  "遊離塩素": {
+                    "standardTerm": "freeChlorine",
+                    "description": "水中の遊離塩素濃度",
+                    "unitExamples": "mg/L"
+                  },
+                  "ガス消費量": {
+                    "standardTerm": "gasConsumption",
+                    "description": "消費されたガス量",
+                    "unitExamples": "m³, L"
+                  },
+                  "ゲート開閉": {
+                    "standardTerm": "gateOpening",
+                    "description": "ゲートやバルブの開き具合",
+                    "unitExamples": "%, 度, bool"
+                  },
+                  "方位": {
+                    "standardTerm": "heading",
+                    "description": "移動体の進む方角。進行方向",
+                    "unitExamples": "度（°）"
+                  },
+                  "湿度": {
+                    "standardTerm": "humidity",
+                    "description": "空気中の水分量",
+                    "unitExamples": "%, g/m³"
+                  },
+                  "光": {
+                    "standardTerm": "light",
+                    "description": "光の強さやオン・オフ",
+                    "unitExamples": "lux, W/m², bool"
+                  },
+                  "位置": {
+                    "standardTerm": "location",
+                    "description": "対象の地理的位置",
+                    "unitExamples": "緯度経度, UTM"
+                  },
+                  "搾乳": {
+                    "standardTerm": "milking",
+                    "description": "搾乳の量または状態",
+                    "unitExamples": "L, 回数/日"
+                  },
+                  "動作": {
+                    "standardTerm": "motion",
+                    "description": "物体や人の動き検知",
+                    "unitExamples": "有無（bool）"
+                  },
+                  "移動": {
+                    "standardTerm": "movementActivity",
+                    "description": "移動や運動の程度。移動活動",
+                    "unitExamples": "m, 歩数, km"
+                  },
+                  "騒音レベル": {
+                    "standardTerm": "noiseLevel",
+                    "description": "周囲の音の強さ",
+                    "unitExamples": "dB"
+                  },
+                  "占有率": {
+                    "standardTerm": "occupancy",
+                    "description": "空間の使用・在室状況・占有状態",
+                    "unitExamples": "人数, bool"
+                  },
+                  "酸化還元電位（ORP）": {
+                    "standardTerm": "orp",
+                    "description": "液体の酸化・還元の性質",
+                    "unitExamples": "mV"
+                  },
+                  "pH": {
+                    "standardTerm": "pH",
+                    "description": "酸性・アルカリ性の指標",
+                    "unitExamples": "pH（0-14）"
+                  },
+                  "電力": {
+                    "standardTerm": "power",
+                    "description": "単位時間あたりのエネルギー量",
+                    "unitExamples": "W, kW"
+                  },
+                  "降水量": {
+                    "standardTerm": "precipitation",
+                    "description": "一定期間内の降水の深さ",
+                    "unitExamples": "mm"
+                  },
+                  "圧力": {
+                    "standardTerm": "pressure",
+                    "description": "単位面積あたりの力",
+                    "unitExamples": "Pa, kPa, bar"
+                  },
+                  "屈折率": {
+                    "standardTerm": "refractiveIndex",
+                    "description": "光の進行方向変化の比率",
+                    "unitExamples": "無次元"
+                  },
+                  "塩分濃度": {
+                    "standardTerm": "salinity",
+                    "description": "液体中の塩分割合",
+                    "unitExamples": "ppt, %"
+                  },
+                  "煙": {
+                    "standardTerm": "smoke",
+                    "description": "煙の存在や濃度",
+                    "unitExamples": "ppm, 有無"
+                  },
+                  "土壌湿度": {
+                    "standardTerm": "soilMoisture",
+                    "description": "土中の水分含有率。土壌水分、土壌含水量、地中水分量とも言う",
+                    "unitExamples": "%, m³/m³"
+                  },
+                  "日射量": {
+                    "standardTerm": "solarRadiation",
+                    "description": "単位面積あたりの日射エネルギー",
+                    "unitExamples": "W/m², MJ/m²"
+                  },
+                  "速度": {
+                    "standardTerm": "speed",
+                    "description": "瞬間的な移動速度",
+                    "unitExamples": "m/s, km/h"
+                  },
+                  "総溶解固形物濃度（TDS）": {
+                    "standardTerm": "tds",
+                    "description": "液体に溶けた物質の濃度。全溶解性固形物とも言う",
+                    "unitExamples": "mg/L, ppm"
+                  },
+                  "温度": {
+                    "standardTerm": "temperature",
+                    "description": "物質や環境の熱的状態",
+                    "unitExamples": "℃, K"
+                  },
+                  "交通量": {
+                    "standardTerm": "trafficFlow",
+                    "description": "一定時間内の交通量",
+                    "unitExamples": "台/時間"
+                  },
+                  "浮遊物質量（TSS）": {
+                    "standardTerm": "tss",
+                    "description": "液体中の懸濁物質濃度",
+                    "unitExamples": "mg/L"
+                  },
+                  "濁度": {
+                    "standardTerm": "turbidity",
+                    "description": "液体の透明度の低さ",
+                    "unitExamples": "NTU"
+                  },
+                  "水消費量": {
+                    "standardTerm": "waterConsumption",
+                    "description": "使用された水の量",
+                    "unitExamples": "m³, L"
+                  },
+                  "水流量": {
+                    "standardTerm": "waterFlow",
+                    "description": "単位時間あたりの水の流れ",
+                    "unitExamples": "L/s, m³/h"
+                  },
+                  "水位": {
+                    "standardTerm": "waterLevel",
+                    "description": "水面の高さ",
+                    "unitExamples": "m"
+                  },
+                  "水質汚染": {
+                    "standardTerm": "waterPollution",
+                    "description": "水中の汚染物質レベル",
+                    "unitExamples": "ppm, µg/L"
+                  },
+                  "天候状況": {
+                    "standardTerm": "weatherConditions",
+                    "description": "天候の状態",
+                    "unitExamples": "テキスト（晴れ, 雨など）"
+                  },
+                  "重量": {
+                    "standardTerm": "weight",
+                    "description": "物体の質量または重さ",
+                    "unitExamples": "kg, g"
+                  },
+                  "風向": {
+                    "standardTerm": "windDirection",
+                    "description": "風の吹く方向",
+                    "unitExamples": "度（°）"
+                  },
+                  "風速": {
+                    "standardTerm": "windSpeed",
+                    "description": "風の速さ",
+                    "unitExamples": "m/s, km/h"
+                  }
+                }
+              }
+            }
           }
         }
-      },
-      "required": [
-        "type",
-        "value"
-      ]
+      ],
+      "title": "制御対象",
+      "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。本項目は、継承元のSmart Data Modelsに合わせて回数を1以上としていますが、実際にこの項目を利用するかどうかは個別に判断してください。また、本AttributeはDeviceModelと重複しています。DeviceModelをリンクする場合には、必要性は低いと考えます。"
     },
     "dateInstalled": {
       "title": "設置日",
