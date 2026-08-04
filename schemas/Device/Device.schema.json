@@ -5,17 +5,17 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。また、設備を入れ替えた場合は設備IDは再度附番しなおして、別の識別子に変更する必要があります。これは、過去のデータを保存するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式とすします。”urn:ngsi-ld:Device:”<一意となる文字列>。一意となる文字列は何でもよいが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。例えば<国名コード><メーカの法人番号>-<型番>-<シリアルナンバー>などです",
+      "description": "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。また、設備を入れ替えた場合は設備IDは再度附番しなおして、別の識別子に変更する必要があります。これは、過去のデータを保存するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式とすします。”urn:ngsi-ld:Device:”<一意となる文字列>。一意となる文字列は何でもよいが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。例えば<国名コード><メーカの法人番号>-<型番>-<シリアルナンバー>などです",
       "title": "設備ID"
     },
     "type": {
       "const": "Device",
-      "description": "必ず”Device”の文字列でなくてはならない"
+      "description": "必ず”Device”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "areaServed": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "提供領域",
-      "description": "設備の提供領域。例えば照明機器や空調機器で”図書室”や”職員室”。不具合時に影響を受ける場所"
+      "description": "設備の提供領域を登録します。例えば照明機器や空調機器であれば”図書室”や”職員室”などと記載します。不具合時に影響を受ける場所です"
     },
     "category": {
       "allOf": [
@@ -27,7 +27,7 @@
         }
       ],
       "title": "設備種別",
-      "description": "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)。本AttributeはDeviceModelと重複しています。「機種(DeviceModel)」をリンクする場合には、この項目への情報登録は不要です。"
+      "description": "設備の種別です。列挙型項目であり、用語の定義は「[建物の部位(BuildingComponent)](https://ppp-database.org/spec/enum/BuildingComponent/)」を参照してください。本Attributeは「[機種(DeviceModel)](https://ppp-database.org/spec/datamodel/DeviceModel/)」と重複しています。「機種(DeviceModel)」をリンクする場合には、この項目の登録は不要です。"
     },
     "controlledAsset": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
@@ -51,42 +51,42 @@
     "dateInstalled": {
       "$ref": "../CommonParts.schema.json#/$defs/DateAttribute",
       "title": "設置日",
-      "description": "設置した日付"
+      "description": "設置した日付です。"
     },
     "dateManufactured": {
       "$ref": "../CommonParts.schema.json#/$defs/DateAttribute",
       "title": "製造日",
-      "description": "製造年月日"
+      "description": "製造年月日です。"
     },
     "description": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "説明",
-      "description": "設備情報として公開可能な詳細情報"
+      "description": "設備情報として公開可能な詳細情報です。"
     },
     "name": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "設備名称",
-      "description": "設備に他と区別すべき名称が付いている場合に、名称を設定する。”消火栓”、”AED”、”非常用発電機”など。一般名称である必要は無く、例えば”2F-lib-AC-01″などと、関係者に分かる名称でも構わない。"
+      "description": "設備に他と区別すべき名称が付いている場合に、名称を設定します。例えば、手順書や各種案内文で用いる名称で、前記の設備IDと異なり設備を入れ替えても変わらない名前が望ましいです。”消火栓”、”AED”、”非常用発電機”など。一般名称である必要は無く、例えば”消火栓2F-01″や”2F-lib-AC-01″などと、関係者に分かる名称でも構いません"
     },
     "nameKana": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "設備名称カナ",
-      "description": "設備の名称のカナ表記を設定する"
+      "description": "設備の名称のカナ表記を設定します。"
     },
     "nameEn": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "設備名称英語",
-      "description": "設備の名称の米国英語表記を設定する"
+      "description": "設備の名称の米国英語表記を設定します。"
     },
     "pricePurchased": {
       "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "購入価格",
-      "description": "購入価格 (円単位)"
+      "description": "購入価格 (円単位)です。"
     },
     "refDeviceModel": {
       "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeDeviceModel",
       "title": "機種ID",
-      "description": "機器のモデル情報である[DeviceModelのEntity](https://ppp-database.org/spec/datamodel/DeviceModel/)へのリンク"
+      "description": "機器のモデル情報である[DeviceModelのEntity](https://ppp-database.org/spec/datamodel/DeviceModel/)へのリンクです。"
     },
     "refFacility": {
       "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility",
@@ -101,12 +101,12 @@
     "remarks": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "備考",
-      "description": "備考"
+      "description": "備考です。"
     },
     "serialNumber": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "製造番号",
-      "description": "製造番号(シリアルナンバー)を登録"
+      "description": "製造番号(シリアルナンバー)を登録します。"
     },
     "status": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
@@ -116,17 +116,17 @@
     "url": {
       "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
       "title": "URL",
-      "description": "設置場所写真のURLなど"
+      "description": "設置場所写真などのURLを登録します。"
     },
     "zoneInstalled": {
       "$ref": "../CommonParts.schema.json#/$defs/ZoneInstalledAttribute",
       "title": "場所",
-      "description": "設置した場所です。「建物(Building)」または「施設(Facility)」で定義したZonesの名称の配列で記載します。例えば[“校舎”, “2F”,”1年C組”]です。"
+      "description": "設置した場所です。「建物(Building)」または「施設(Facility)」で定義したZonesの名称の配列で記載します。例えば[“校舎”,“2F”,“1年C組”]です。"
     },
     "zoneRemarks": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "場所備考",
-      "description": "前項の補足情報を記入します。例えば、前項の値が[“校舎”, “2F”,”1年C組”]である時に、更に天井である事を明示したい場合は”天井”を記入します。"
+      "description": "前項の補足情報を記入します。例えば、前項の値が[“校舎”,“2F”,“1年C組”]である時に、更に天井である事を明示したい場合は“天井”を記入します。"
     }
   },
   "required": [
