@@ -5,27 +5,27 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:DeviceModel:”<一意となる文字列>。一意となる文字列は、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます、例えば国名コードとメーカの法人番号の後にハイフンを挟んで型番を並べたものなど。",
+      "description": "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:DeviceModel:”<一意となる文字列>。一意となる文字列は、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます、例えば国名コードとメーカの法人番号の後にハイフンを挟んで型番を並べたものなど。",
       "title": "機種ID"
     },
     "type": {
       "const": "DeviceModel",
-      "description": "必ず”DeviceModel”の文字列でなくてはならない"
+      "description": "必ず”DeviceModel”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "alternateName": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "通称",
-      "description": "通称を入れる (もしあれば)"
+      "description": "通称を入れます(もしあれば)。"
     },
     "annotations": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
       "title": "注釈",
-      "description": "設備に関する注釈"
+      "description": "設備に関する注釈です。"
     },
     "brandName": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "ブランド名",
-      "description": "機器のブランド名を設定する。例えば”しろくまくん”。"
+      "description": "機器のブランド名を設定します。例えば”しろくまくん”など。"
     },
     "category": {
       "allOf": [
@@ -39,12 +39,12 @@
         }
       ],
       "title": "設備種別",
-      "description": "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照。尚、設備の種別が階層化されているときは、高位の階層から順番に格納する。"
+      "description": "設備の種別です。列挙型項目であり、用語の定義は「[施設の部位(BuildingComponent)](https://ppp-database.org/spec/enum/BuildingComponent/)」を参照してください。尚、設備の種別が階層化されているときは、高位の階層から順番に登録します。"
     },
     "color": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "色",
-      "description": "機器の色を設定する。例えば”白”"
+      "description": "機器の色を登録します。例えば”白”など"
     },
     "controlledProperty": {
       "allOf": [
@@ -58,17 +58,17 @@
         }
       ],
       "title": "制御対象",
-      "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。"
+      "description": "検知・制御・計測する対象です。列挙型項目であり、用語の定義は「[制御対象(ControlledProperty)](https://ppp-database.org/spec/enum/ControlledProperty/)」を参照してください。例えば”水位”、”温度”など。"
     },
     "dataProvider": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "プロバイダ",
-      "description": "このEntityに対するプロバイダを特定する文字列。今回のユースケースではプロバイダは存在しません。"
+      "description": "このEntityに対するプロバイダを特定する文字列です。"
     },
     "description": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "説明",
-      "description": "機種情報として公開可能な詳細情報"
+      "description": "機種情報として公開可能な詳細情報です。"
     },
     "deviceClass": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
@@ -78,7 +78,7 @@
     "documentation": {
       "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
       "title": "ドキュメント",
-      "description": "デバイスのドキュメントに対するリンク"
+      "description": "デバイスのドキュメントに対するリンクです。"
     },
     "energyLimitationClass": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
@@ -88,7 +88,7 @@
     "function": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
       "title": "機能",
-      "description": "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがある"
+      "description": "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがあります。"
     },
     "image": {
       "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
@@ -98,22 +98,22 @@
     "manufacturerName": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "メーカ名",
-      "description": "メーカ名を設定する。例えば”日立製作所”"
+      "description": "メーカ名を登録します。例えば”日立製作所”など。"
     },
     "modelName": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "モデル名",
-      "description": "機器のモデル名を設定する。例えば”RAS-DM28KE8″"
+      "description": "機器のモデル名を登録します。例えば”RAS-DM28KE8″など。"
     },
     "name": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "機種名",
-      "description": "機種に個別に名称が付いているときに、その名称を設定する"
+      "description": "機種に個別に名称が付いているときに、その名称を登録します。"
     },
     "owner": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
       "title": "所有者",
-      "description": "所有者のidです"
+      "description": "所有者のidです。一般的にはこの項目は使いません。"
     },
     "seeAlso": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
@@ -128,17 +128,17 @@
     "source": {
       "$ref": "../CommonParts.schema.json#/$defs/UrlAttribute",
       "title": "データー提供者",
-      "description": "データ提供者のurlです"
+      "description": "データ提供者のurlです。"
     },
     "supportedProtocol": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
       "title": "プロトコル",
-      "description": "サポートしているプロトコルです"
+      "description": "サポートしているプロトコルです。"
     },
     "supportedUnits": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
       "title": "精度",
-      "description": "サポートしている測定値の精度です"
+      "description": "サポートしている測定値の精度です。"
     }
   },
   "required": [

@@ -13,70 +13,70 @@
       "id",
       "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
-      "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:DeviceModel:”<一意となる文字列>。一意となる文字列は、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます、例えば国名コードとメーカの法人番号の後にハイフンを挟んで型番を並べたものなど。"
+      "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:DeviceModel:”<一意となる文字列>。一意となる文字列は、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます、例えば国名コードとメーカの法人番号の後にハイフンを挟んで型番を並べたものなど。"
     ],
     [
       "-",
       "type",
       "Text",
       "1",
-      "必ず”DeviceModel”の文字列でなくてはならない"
+      "必ず”DeviceModel”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     ],
     [
       "通称",
       "alternateName",
       "Text",
       "1",
-      "通称を入れる (もしあれば)"
+      "通称を入れます(もしあれば)。"
     ],
     [
       "注釈",
       "annotations",
       "Array",
       "*",
-      "設備に関する注釈"
+      "設備に関する注釈です。"
     ],
     [
       "ブランド名",
       "brandName",
       "Text",
       "1",
-      "機器のブランド名を設定する。例えば”しろくまくん”。"
+      "機器のブランド名を設定します。例えば”しろくまくん”など。"
     ],
     [
       "設備種別",
       "category",
       "Array",
       "*",
-      "設備の種別。列挙型項目。定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照。尚、設備の種別が階層化されているときは、高位の階層から順番に格納する。"
+      "設備の種別です。列挙型項目であり、用語の定義は「[施設の部位(BuildingComponent)](https://ppp-database.org/spec/enum/BuildingComponent/)」を参照してください。尚、設備の種別が階層化されているときは、高位の階層から順番に登録します。"
     ],
     [
       "色",
       "color",
       "Text",
       "1",
-      "機器の色を設定する。例えば”白”"
+      "機器の色を登録します。例えば”白”など"
     ],
     [
       "制御対象",
       "controlledProperty",
       "Array",
       "*",
-      "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。"
+      "検知・制御・計測する対象です。列挙型項目であり、用語の定義は「[制御対象(ControlledProperty)](https://ppp-database.org/spec/enum/ControlledProperty/)」を参照してください。例えば”水位”、”温度”など。"
     ],
     [
       "プロバイダ",
       "dataProvider",
       "Text",
       "1",
-      "このEntityに対するプロバイダを特定する文字列。今回のユースケースではプロバイダは存在しません。"
+      "このEntityに対するプロバイダを特定する文字列です。"
     ],
     [
       "説明",
       "description",
       "Text",
       "1",
-      "機種情報として公開可能な詳細情報"
+      "機種情報として公開可能な詳細情報です。"
     ],
     [
       "クラス",
@@ -90,7 +90,7 @@
       "documentation",
       "URL",
       "1",
-      "デバイスのドキュメントに対するリンク"
+      "デバイスのドキュメントに対するリンクです。"
     ],
     [
       "エネルギークラス",
@@ -104,7 +104,7 @@
       "function",
       "Array",
       "*",
-      "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがある"
+      "デバイスの機能です。SAREFで規定されており、levelControl, sensing, onOff, openClose, metering, eventNotificationなどがあります。"
     ],
     [
       "写真",
@@ -118,28 +118,28 @@
       "manufacturerName",
       "Text",
       "1",
-      "メーカ名を設定する。例えば”日立製作所”"
+      "メーカ名を登録します。例えば”日立製作所”など。"
     ],
     [
       "モデル名",
       "modelName",
       "Text",
       "1",
-      "機器のモデル名を設定する。例えば”RAS-DM28KE8″"
+      "機器のモデル名を登録します。例えば”RAS-DM28KE8″など。"
     ],
     [
       "機種名",
       "name",
       "Text",
       "1",
-      "機種に個別に名称が付いているときに、その名称を設定する"
+      "機種に個別に名称が付いているときに、その名称を登録します。"
     ],
     [
       "所有者",
       "owner",
       "Array",
       "*",
-      "所有者のidです"
+      "所有者のidです。一般的にはこの項目は使いません。"
     ],
     [
       "追加情報",
@@ -160,21 +160,21 @@
       "source",
       "URL",
       "1",
-      "データ提供者のurlです"
+      "データ提供者のurlです。"
     ],
     [
       "プロトコル",
       "supportedProtocol",
       "Array",
       "*",
-      "サポートしているプロトコルです"
+      "サポートしているプロトコルです。"
     ],
     [
       "精度",
       "supportedUnits",
       "Array",
       "*",
-      "サポートしている測定値の精度です"
+      "サポートしている測定値の精度です。"
     ]
   ]
 }

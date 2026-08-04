@@ -900,7 +900,7 @@
         }
       ],
       "title": "設備種別",
-      "description": "設備の種別です。列挙型項目であり、用語の定義は「[建物の部位(BuildingComponent)](https://ppp-database.org/spec/enum/BuildingComponent/)」を参照してください。本Attributeは「[機種(DeviceModel)](https://ppp-database.org/spec/datamodel/DeviceModel/)」と重複しています。「機種(DeviceModel)」をリンクする場合には、この項目の登録は不要です。"
+      "description": "設備の種別です。列挙型項目であり、用語の定義は「[施設の部位(BuildingComponent)](https://ppp-database.org/spec/enum/BuildingComponent/)」を参照してください。本Attributeは「[機種(DeviceModel)](https://ppp-database.org/spec/datamodel/DeviceModel/)」と重複しています。「機種(DeviceModel)」をリンクする場合には、この項目の登録は不要です。"
     },
     "controlledAsset": {
       "title": "対象部位",
