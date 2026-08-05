@@ -5,12 +5,12 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Complaint:”<一意となる番号>。一意となる番号は事業者が交代しても一意となる様な運用が必要です。",
+      "description": "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。\n　“urn:ngsi-ld:Complaint:”<一意となる番号>\n一意となる番号は事業者が交代しても一意となる様な運用が必要です。",
       "title": "案件ID"
     },
     "type": {
       "const": "Complaint",
-      "description": "必ず”Complaint”の文字列でなくてはならない"
+      "description": "必ず“Complaint”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "phenomenon": {
       "type": "object",
@@ -293,12 +293,12 @@
                   }
                 }
               },
-              "description": "列挙型メンバ。[Phenomenon](https://ppp-database.org/spec/enum/Phenomenon/)を参照。[”破損”]、[”汚損”]など"
+              "description": "現象の概要を登録します。列挙型項目であり、用語の定義は「[不具合現象(Phenomenon)](https://ppp-database.org/spec/enum/Phenomenon/)」を参照してください。例えば、[“破損”]、[“汚損”]など。"
             },
             "remarks": {
               "title": "現象補足",
               "type": "string",
-              "description": "前項の補足です。例えば、”コンクリートの割れ”など"
+              "description": "前項の補足です。例えば、“コンクリートの割れ”など。"
             }
           }
         }
@@ -312,7 +312,7 @@
     },
     "dataProvider": {
       "title": "プロバイダ",
-      "description": "データのプロバイダのid。このWGが想定するシステムでは関係しないと考えます",
+      "description": "データのプロバイダのidです。このWGが想定する業務では関係しないと考えます。",
       "type": "object",
       "required": [
         "type",
@@ -330,7 +330,7 @@
     },
     "description": {
       "title": "説明",
-      "description": "説明を記載",
+      "description": "説明を登録します。",
       "type": "object",
       "required": [
         "type",
@@ -348,7 +348,7 @@
     },
     "isFiledTo": {
       "title": "提出先",
-      "description": "苦情をエスカレーションする先。例えば自治体の所管課など",
+      "description": "苦情をエスカレーションする先。例えば自治体の所管課など。",
       "type": "object",
       "required": [
         "type",
@@ -404,7 +404,7 @@
     },
     "location": {
       "title": "座標",
-      "description": "不具合の発生個所を座標で示します。例えば、道路の陥没、河川の汚染、街角の異臭などを想定しています。今回のユースケースとは合わないと考えます",
+      "description": "不具合の発生個所を座標で示します。例えば、道路の陥没、河川の汚染、街角の異臭などの広い範囲で場所を特定することを想定しています。施設管理の局面で必要性は低いと考えます。",
       "type": "object",
       "required": [
         "type",
@@ -437,7 +437,7 @@
     },
     "name": {
       "title": "案件名",
-      "description": "案件の名称",
+      "description": "案件の名称を登録します。",
       "type": "object",
       "required": [
         "type",
@@ -455,7 +455,7 @@
     },
     "seeAlso": {
       "title": "追加情報",
-      "description": "追加情報のurlの列です",
+      "description": "追加情報のurlを登録します。",
       "type": "object",
       "required": [
         "type",
@@ -474,7 +474,7 @@
     },
     "source": {
       "title": "提供元",
-      "description": "この情報の提供元に関するurl等を格納します",
+      "description": "この情報の提供元に関するurl等を格納します。",
       "type": "object",
       "required": [
         "type",
@@ -492,7 +492,7 @@
     },
     "status": {
       "title": "ステータス",
-      "description": "活動状況を登録します。”処置中”、”完了”など。用語について「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください",
+      "description": "活動状況を登録します。“処置中”、“完了”などです。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください",
       "type": "object",
       "required": [
         "type",
@@ -521,12 +521,14 @@
             "properties": {
               "step": {
                 "title": "ステップ",
-                "type": "string"
+                "type": "string",
+                "description": "手順内のステップの名称を登録します。例え゛は、”発生”、”調査予定”、”調査実施”、”作業予定”、”作業実施”、”完了届出”、”完了承認”などです。同じ名称のタイムスタンプが複数登録されても構いません。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「案件ステップ(ComplaintStep)」を参照してください。"
               },
               "timestamp": {
                 "title": "日時",
                 "type": "string",
-                "format": "date-time"
+                "format": "date-time",
+                "description": "日付または日時です。時刻を省略する場合、00:00を指定します。"
               }
             },
             "required": [
@@ -608,12 +610,12 @@
                   "type": "string"
                 }
               ],
-              "description": "列挙メンバは建物(Building)または施設(Facility)のZonesから選択した文字列です。このArrayは順序に意味を持ち(順序付きリスト)、zoneName、subzoneNameの第一要素、subzoneNameの第二要素の順番に登録します。例えば、[”校舎”,”2F”,”1年A組”]となります"
+              "description": "列挙メンバは建物(Building)または施設(Facility)のZonesから選択した文字列です。このArrayは順序に意味を持ち(順序付きリスト)、zoneName、subzoneNameの第一要素、subzoneNameの第二要素の順番に登録します。例えば、[“校舎”,“2F”,“1年A組”]となります"
             },
             "remarks": {
               "title": "場所補足",
               "type": "string",
-              "description": "前項の補足です。例えば、”北側”など。"
+              "description": "前項の補足です。例えば、“北側”など。"
             }
           }
         }
@@ -640,7 +642,7 @@
               "items": {
                 "type": "string"
               },
-              "description": "不具合を発生した部位や設備を示す列挙型項目。用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照"
+              "description": "不具合を発生した部位や設備を登録します。列挙型項目であり、用語の定義は「[施設の部位(BuildingComponent)](https://ppp-database.org/spec/enum/BuildingComponent/)」を参照"
             },
             "refComponent": {
               "title": "部位ID",
@@ -649,12 +651,12 @@
                 "BuildingComponent",
                 "Device"
               ],
-              "description": "不具合を発生した部位([BuildingComponent](https://ppp-database.org/spec/datamodel/BuildingComponent/))または設備([Device](https://ppp-database.org/spec/datamodel/Device/))に対するリンク。BuildingComponentが登録されていない場合は省略して構わない"
+              "description": "不具合を発生した「[部位(BuildingComponent)](https://ppp-database.org/spec/datamodel/BuildingComponent/)」または「[設備(Device)](https://ppp-database.org/spec/datamodel/Device/)」に対するリンクです。「部位(BuildingComponent)」が登録されていない場合は省略して構わない"
             },
             "remarks": {
               "title": "部位補足",
               "type": "string",
-              "description": "部位の補足です。例えば”基礎部分”、”蛍光管”などと記載します。"
+              "description": "部位の補足です。例えば“基礎部分”、“蛍光管”などと記載します。"
             }
           }
         }
@@ -678,12 +680,12 @@
             "abstracts": {
               "title": "原因概要",
               "type": "string",
-              "description": "原因を示す列挙型項目。用語定義は[Cause](https://ppp-database.org/spec/enum/Cause/)を参照。例えば”車両事故”、”地震”など"
+              "description": "原因の概要を登録します。列挙型項目であり、用語の定義は「[原因(Cause)](https://ppp-database.org/spec/enum/Cause/)」を参照して下さい。例えば“車両事故”、“地震”など。"
             },
             "remarks": {
               "title": "原因補足",
               "type": "string",
-              "description": "前項の補足"
+              "description": "前項の補足を登録します。"
             }
           }
         }
@@ -734,11 +736,11 @@
         }
       ],
       "title": "緊急度マーク",
-      "description": "不具合に対する緊急性を示すマークを登録する項目です。登録する用語は[ComplaintSeverity](https://ppp-database.org/spec/enum/ComplaintSeverity/)をご覧ください。"
+      "description": "不具合に対する緊急性を示すマークを登録します。列挙型項目であり、用語の定義は「[不具合の緊急性(ComplaintSeverity)](https://ppp-database.org/spec/enum/ComplaintSeverity/)」をご覧ください。"
     },
     "severity": {
       "title": "緊急度補足",
-      "description": "不具合に対する処置の緊急性を示す項目です。sevirityMarkに対する補足の位置づけとなります。例えば”放置すると機能不全に至る可能性あり”、”施設運営に影響あり”など",
+      "description": "不具合に対する処置の緊急性を登録します。緊急度マーク(sevirityMark)に対する補足の位置づけとなります。例えば“放置すると機能不全に至る可能性あり”、“施設運営に影響あり”など。",
       "type": "object",
       "required": [
         "type",
@@ -756,7 +758,7 @@
     },
     "repairPlan": {
       "title": "修繕計画",
-      "description": "処置の計画です。”部品交換”などと記載します。修繕する場所が「場所(zones)」と異なる場合は修繕した場所も記載します。また、修繕が複数の工程や複数の箇所に及ぶ場合は、出来る限りそれぞれの箇所や修繕内容が分かる様に記述します。",
+      "description": "処置の計画です。“部品交換”などと記載します。修繕する場所が「場所(zones)」と異なる場合は修繕した場所も記載します。また、修繕が複数の工程や複数の箇所に及ぶ場合は、出来る限りそれぞれの箇所や修繕内容が分かる様に記述します。",
       "type": "object",
       "required": [
         "type",

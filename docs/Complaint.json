@@ -13,14 +13,14 @@
       "id",
       "[Id](https://ppp-database.org/spec/parts/id/)",
       "1",
-      "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Complaint:”<一意となる番号>。一意となる番号は事業者が交代しても一意となる様な運用が必要です。"
+      "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。\n　“urn:ngsi-ld:Complaint:”<一意となる番号>\n一意となる番号は事業者が交代しても一意となる様な運用が必要です。"
     ],
     [
       "-",
       "type",
       "Text",
       "1",
-      "必ず”Complaint”の文字列でなくてはならない"
+      "必ず“Complaint”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     ],
     [
       "現象",
@@ -34,35 +34,35 @@
       "∟category",
       "Array(Text)",
       "*",
-      "列挙型メンバ。[Phenomenon](https://ppp-database.org/spec/enum/Phenomenon/)を参照。[”破損”]、[”汚損”]など"
+      "現象の概要を登録します。列挙型項目であり、用語の定義は「[不具合現象(Phenomenon)](https://ppp-database.org/spec/enum/Phenomenon/)」を参照してください。例えば、[“破損”]、[“汚損”]など。"
     ],
     [
       "∟現象補足",
       "∟remarks",
       "Text",
       "1",
-      "前項の補足です。例えば、”コンクリートの割れ”など"
+      "前項の補足です。例えば、“コンクリートの割れ”など。"
     ],
     [
       "プロバイダ",
       "dataProvider",
       "Text",
       "1",
-      "データのプロバイダのid。このWGが想定するシステムでは関係しないと考えます"
+      "データのプロバイダのidです。このWGが想定する業務では関係しないと考えます。"
     ],
     [
       "説明",
       "description",
       "Text",
       "1",
-      "説明を記載"
+      "説明を登録します。"
     ],
     [
       "提出先",
       "isFiledTo",
       "Text",
       "1",
-      "苦情をエスカレーションする先。例えば自治体の所管課など"
+      "苦情をエスカレーションする先。例えば自治体の所管課など。"
     ],
     [
       "依頼者",
@@ -83,35 +83,35 @@
       "location",
       "[Point](https://ppp-database.org/spec/parts/Point/)",
       "1",
-      "不具合の発生個所を座標で示します。例えば、道路の陥没、河川の汚染、街角の異臭などを想定しています。今回のユースケースとは合わないと考えます"
+      "不具合の発生個所を座標で示します。例えば、道路の陥没、河川の汚染、街角の異臭などの広い範囲で場所を特定することを想定しています。施設管理の局面で必要性は低いと考えます。"
     ],
     [
       "案件名",
       "name",
       "Text",
       "1",
-      "案件の名称"
+      "案件の名称を登録します。"
     ],
     [
       "追加情報",
       "seeAlso",
       "URL",
       "1",
-      "追加情報のurlの列です"
+      "追加情報のurlを登録します。"
     ],
     [
       "提供元",
       "source",
       "Text",
       "1",
-      "この情報の提供元に関するurl等を格納します"
+      "この情報の提供元に関するurl等を格納します。"
     ],
     [
       "ステータス",
       "status",
       "Text",
       "1",
-      "活動状況を登録します。”処置中”、”完了”など。用語について「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください"
+      "活動状況を登録します。“処置中”、“完了”などです。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください"
     ],
     [
       "経緯",
@@ -124,13 +124,15 @@
       "∟ステップ",
       "∟step",
       "Text",
-      "1"
+      "1",
+      "手順内のステップの名称を登録します。例え゛は、”発生”、”調査予定”、”調査実施”、”作業予定”、”作業実施”、”完了届出”、”完了承認”などです。同じ名称のタイムスタンプが複数登録されても構いません。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「案件ステップ(ComplaintStep)」を参照してください。"
     ],
     [
       "∟日時",
       "∟timestamp",
       "Text",
-      "1"
+      "1",
+      "日付または日時です。時刻を省略する場合、00:00を指定します。"
     ],
     [
       "施設ID",
@@ -158,7 +160,7 @@
       "∟abstracts",
       "Array",
       "1",
-      "列挙メンバは建物(Building)または施設(Facility)のZonesから選択した文字列です。このArrayは順序に意味を持ち(順序付きリスト)、zoneName、subzoneNameの第一要素、subzoneNameの第二要素の順番に登録します。例えば、[”校舎”,”2F”,”1年A組”]となります"
+      "列挙メンバは建物(Building)または施設(Facility)のZonesから選択した文字列です。このArrayは順序に意味を持ち(順序付きリスト)、zoneName、subzoneNameの第一要素、subzoneNameの第二要素の順番に登録します。例えば、[“校舎”,“2F”,“1年A組”]となります"
     ],
     [
       "　∟場所大分類",
@@ -183,7 +185,7 @@
       "∟remarks",
       "Text",
       "1",
-      "前項の補足です。例えば、”北側”など。"
+      "前項の補足です。例えば、“北側”など。"
     ],
     [
       "部位",
@@ -197,21 +199,21 @@
       "∟abstracts",
       "Array(Text)",
       "*",
-      "不具合を発生した部位や設備を示す列挙型項目。用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照"
+      "不具合を発生した部位や設備を登録します。列挙型項目であり、用語の定義は「[施設の部位(BuildingComponent)](https://ppp-database.org/spec/enum/BuildingComponent/)」を参照"
     ],
     [
       "∟部位ID",
       "∟refComponent",
       "Text",
       "1",
-      "不具合を発生した部位([BuildingComponent](https://ppp-database.org/spec/datamodel/BuildingComponent/))または設備([Device](https://ppp-database.org/spec/datamodel/Device/))に対するリンク。BuildingComponentが登録されていない場合は省略して構わない"
+      "不具合を発生した「[部位(BuildingComponent)](https://ppp-database.org/spec/datamodel/BuildingComponent/)」または「[設備(Device)](https://ppp-database.org/spec/datamodel/Device/)」に対するリンクです。「部位(BuildingComponent)」が登録されていない場合は省略して構わない"
     ],
     [
       "∟部位補足",
       "∟remarks",
       "Text",
       "1",
-      "部位の補足です。例えば”基礎部分”、”蛍光管”などと記載します。"
+      "部位の補足です。例えば“基礎部分”、“蛍光管”などと記載します。"
     ],
     [
       "原因",
@@ -225,35 +227,35 @@
       "∟abstracts",
       "Text",
       "1",
-      "原因を示す列挙型項目。用語定義は[Cause](https://ppp-database.org/spec/enum/Cause/)を参照。例えば”車両事故”、”地震”など"
+      "原因の概要を登録します。列挙型項目であり、用語の定義は「[原因(Cause)](https://ppp-database.org/spec/enum/Cause/)」を参照して下さい。例えば“車両事故”、“地震”など。"
     ],
     [
       "∟原因補足",
       "∟remarks",
       "Text",
       "1",
-      "前項の補足"
+      "前項の補足を登録します。"
     ],
     [
       "緊急度マーク",
       "severityMark",
       "Text",
       "1",
-      "不具合に対する緊急性を示すマークを登録する項目です。登録する用語は[ComplaintSeverity](https://ppp-database.org/spec/enum/ComplaintSeverity/)をご覧ください。"
+      "不具合に対する緊急性を示すマークを登録します。列挙型項目であり、用語の定義は「[不具合の緊急性(ComplaintSeverity)](https://ppp-database.org/spec/enum/ComplaintSeverity/)」をご覧ください。"
     ],
     [
       "緊急度補足",
       "severity",
       "Text",
       "1",
-      "不具合に対する処置の緊急性を示す項目です。sevirityMarkに対する補足の位置づけとなります。例えば”放置すると機能不全に至る可能性あり”、”施設運営に影響あり”など"
+      "不具合に対する処置の緊急性を登録します。緊急度マーク(sevirityMark)に対する補足の位置づけとなります。例えば“放置すると機能不全に至る可能性あり”、“施設運営に影響あり”など。"
     ],
     [
       "修繕計画",
       "repairPlan",
       "Text",
       "1",
-      "処置の計画です。”部品交換”などと記載します。修繕する場所が「場所(zones)」と異なる場合は修繕した場所も記載します。また、修繕が複数の工程や複数の箇所に及ぶ場合は、出来る限りそれぞれの箇所や修繕内容が分かる様に記述します。"
+      "処置の計画です。“部品交換”などと記載します。修繕する場所が「場所(zones)」と異なる場合は修繕した場所も記載します。また、修繕が複数の工程や複数の箇所に及ぶ場合は、出来る限りそれぞれの箇所や修繕内容が分かる様に記述します。"
     ]
   ]
 }
