@@ -6,41 +6,41 @@
     "id": {
       "type": "string",
       "title": "統計ID",
-      "description": "NGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:FacilityStatistics:”<一意となる文字列>。一意となる文字列は何でもよいが、重複しない様にルールを定める必要がある"
+      "description": "NGSI-LDの仕様に合わせ、次の形式の識別子とする。“urn:ngsi-ld:FacilityStatistics:”<一意となる文字列>。一意となる文字列は何でもよいが、重複しない様にルールを定める必要がある"
     },
     "type": {
       "const": "FacilityStatistics",
-      "description": "必ず”FacilityStatistics”の文字列でなくてはならない"
+      "description": "必ず“FacilityStatistics”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "startDateOfPeriod": {
       "$ref": "../CommonParts.schema.json#/$defs/DateAttribute",
       "title": "集計期間開始日",
-      "description": "統計情報の集計期間の開始日を西暦でYYYY-MM-DDの形式で登録する"
+      "description": "統計情報の集計期間の開始日を西暦でYYYY-MM-DDの形式で登録します。"
     },
     "endDateOfPeriod": {
       "$ref": "../CommonParts.schema.json#/$defs/DateAttribute",
       "title": "集計期間終了日",
-      "description": "統計情報の集計期間の終了日を西暦でYYYY-MM-DDの形式で登録する"
+      "description": "統計情報の集計期間の終了日を西暦でYYYY-MM-DDの形式で登録します。"
     },
     "name": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "統計名称",
-      "description": "統計情報の名称"
+      "description": "統計情報の名称を登録します。"
     },
     "target": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "集計対象範囲",
-      "description": "施設内の一部である部屋やフロア単位で集計する場合、対象の範囲を記述"
+      "description": "施設内の一部である部屋やフロア単位で集計する場合、対象の範囲を登録します。"
     },
     "refFacility": {
       "$ref": "../CommonParts.schema.json#/$defs/RelationshipAttributeFacility",
       "title": "施設ID",
-      "description": "統計の対象となる施設へのリンク"
+      "description": "統計の対象となる施設へのリンクを登録します。"
     },
     "area": {
       "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "集計対象面積",
-      "description": "集計対象の面積"
+      "description": "集計対象の面積を登録します。"
     },
     "income": {
       "type": "object",
@@ -54,17 +54,17 @@
             "usageFee": {
               "type": "number",
               "title": "使用料",
-              "description": "収入の内、使用料の集計期間の合計"
+              "description": "収入の内、使用料の集計期間の合計を登録します。"
             },
             "commission": {
               "type": "number",
               "title": "手数料",
-              "description": "収入の内、手数料の集計期間の合計"
+              "description": "収入の内、手数料の集計期間の合計を登録します。"
             },
             "otherIncome": {
               "type": "number",
               "title": "その他収入",
-              "description": "収入の内、使用料と手数料を除く、集計期間の合計"
+              "description": "収入の内、使用料と手数料を除く、集計期間の合計を登録します。"
             }
           }
         }
@@ -74,7 +74,7 @@
         "value"
       ],
       "title": "収入",
-      "description": "収入"
+      "description": "収入を登録します。"
     },
     "operatingExpense": {
       "type": "object",
@@ -88,47 +88,47 @@
             "utilitiesFee": {
               "type": "number",
               "title": "光熱費",
-              "description": "運営経費の内、光熱費の集計期間の合計"
+              "description": "運営経費の内、光熱費の集計期間の合計を登録します。"
             },
             "fuelFee": {
               "type": "number",
               "title": "燃料費",
-              "description": "運営経費の内、燃料費の集計期間の合計"
+              "description": "運営経費の内、燃料費の集計期間の合計を登録します。"
             },
             "repairFee": {
               "type": "number",
               "title": "修繕費",
-              "description": "運営経費の内、修繕費の集計期間の合計"
+              "description": "運営経費の内、修繕費の集計期間の合計を登録します。"
             },
             "buildingManagementFee": {
               "type": "number",
               "title": "建物管理委託費",
-              "description": "運営経費の内、建物管理委託費の集計期間の合計"
+              "description": "運営経費の内、建物管理委託費の集計期間の合計を登録します。"
             },
             "rentalFee": {
               "type": "number",
               "title": "使用料・賃借料",
-              "description": "運営経費の内、使用料と賃貸料の集計期間の合計"
+              "description": "運営経費の内、使用料と賃貸料の集計期間の合計を登録します。"
             },
             "otherExpense": {
               "type": "number",
               "title": "その他経費",
-              "description": "運営経費の内、他の項目に含まれない経費の集計期間の合計"
+              "description": "運営経費の内、他の項目に含まれない経費の集計期間の合計を登録します。"
             },
             "businessOperationCost": {
               "type": "number",
               "title": "事業運営費",
-              "description": "通常経費の内、事業運営費の集計期間の合計"
+              "description": "通常経費の内、事業運営費の集計期間の合計を登録します。"
             },
             "personnelExpense": {
               "type": "number",
               "title": "人件費",
-              "description": "通常経費の内、人件費の集計期間の合計"
+              "description": "通常経費の内、人件費の集計期間の合計を登録します。"
             },
             "designatedManagementFee": {
               "type": "number",
               "title": "指定管理委託料",
-              "description": "通常経費の内、指定管理委託料の集計期間の合計"
+              "description": "通常経費の内、指定管理委託料の集計期間の合計を登録します。"
             }
           }
         }
@@ -138,7 +138,7 @@
         "value"
       ],
       "title": "運営経費",
-      "description": "運営経費"
+      "description": "運営経費を登録します。"
     },
     "capitalExpense": {
       "type": "object",
@@ -152,12 +152,12 @@
             "constructionFee": {
               "type": "number",
               "title": "工事費",
-              "description": "資本的経費の内、工事費の集計期間の合計"
+              "description": "資本的経費の内、工事費の集計期間の合計を登録します。"
             },
             "otherCapitalExpense": {
               "type": "number",
               "title": "その他資本的経費",
-              "description": "資本的経費の内、工事費以外の集計期間の合計"
+              "description": "資本的経費の内、工事費以外の集計期間の合計を登録します。"
             }
           }
         }
@@ -167,37 +167,37 @@
         "value"
       ],
       "title": "資本的経費",
-      "description": "資本的経費"
+      "description": "資本的経費を登録します。"
     },
     "depreciationCost": {
       "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "減価償却費",
-      "description": "減価償却費の集計期間の合計"
+      "description": "減価償却費の集計期間の合計を登録します。"
     },
     "operationDays": {
       "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "運営日数",
-      "description": "集計期間の内、運営した日数"
+      "description": "集計期間の内、運営した日数を登録します。"
     },
     "operationHours": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "運営時間",
-      "description": "日々の運営開始・終了時刻"
+      "description": "日々の運営開始・終了時刻を登録します。"
     },
     "usageCount": {
       "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "利用件数",
-      "description": "集計対象の集計期間中の利用件数"
+      "description": "集計対象の集計期間中の利用件数を登録します。"
     },
     "availableCount": {
       "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "利用可能件数",
-      "description": "集計対象の集計期間中の利用可能であった全件数"
+      "description": "集計対象の集計期間中の利用可能であった全件数を登録します。"
     },
     "numberOfUsers": {
       "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
       "title": "利用人数",
-      "description": "集計対象の集計期間中の利用人数"
+      "description": "集計対象の集計期間中の利用人数を登録します。"
     },
     "customAttribute": {
       "type": "object",
@@ -213,12 +213,12 @@
               "customAttributeName": {
                 "type": "string",
                 "title": "項目名",
-                "description": "任意に追加する統計項目の項目名。日本語でも構わない"
+                "description": "任意に追加する統計項目の項目名を登録します。日本語でも構いません。"
               },
               "customAttributeValue": {
                 "type": "number",
                 "title": "項目値",
-                "description": "任意に追加する統計項目の項目値"
+                "description": "任意に追加する統計項目の項目値を登録します。"
               }
             },
             "required": [
@@ -233,7 +233,7 @@
         "value"
       ],
       "title": "追加統計項目",
-      "description": "任意に追加する統計項目のリスト"
+      "description": "任意に追加する統計項目のリストを登録します。"
     }
   },
   "required": [
