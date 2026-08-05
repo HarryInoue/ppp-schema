@@ -18,7 +18,14 @@
       "description": "報告日を登録します。"
     },
     "category": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/ReportCategory.schema.json#/$defs/ReportCategoryEnum" }
+          }
+        }
+      ],
       "title": "報告書名称",
       "description": "報告書の名称を記述します。報告書の名称は自治体や事業者により異なる可能性がありますが、法令で決められている名称は法令の通りに記述します。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「[報告書種別(ReportCategory)](https://ppp-database.org/spec/enum/ReportCategory/)」を参照"
     },
