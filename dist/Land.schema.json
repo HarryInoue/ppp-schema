@@ -241,7 +241,7 @@
     },
     "location": {
       "title": "座標",
-      "description": "土地の座標点を登録します (注1)",
+      "description": "土地の座標点を登録します (注1)。代表点などの点の座標を登録する場合はPoint形式で、多角形で土地の形状を登録する場合はPolygon形式で登録します",
       "type": "object",
       "required": [
         "type",
