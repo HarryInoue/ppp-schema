@@ -5,12 +5,12 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Report:”<一意となる文字列>。事業者が交代しても一意となる様な工夫が必要です。",
+      "description": "この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とする。“urn:ngsi-ld:Report:”<一意となる文字列>。事業者が交代しても一意となる様な工夫が必要です。",
       "title": "報告ID"
     },
     "type": {
       "const": "Report",
-      "description": "必ず”Report”の文字列でなくてはならない"
+      "description": "必ず“Report”の文字列でなくてはならない"
     },
     "timestamp": {
       "title": "報告日",
@@ -90,12 +90,12 @@
           ]
         }
       ],
-      "description": "報告する点検等の実施日",
+      "description": "報告する点検等の実施日です。実施日が期間である際には、開始日と終了日をArray形式で記述します。",
       "title": "実施日"
     },
     "operationName": {
       "title": "作業名",
-      "description": "「報告書名称」の補足情報です。例えば、報告書名称を”不具合報告”とし作業名を”巡回点検”とするなど",
+      "description": "「報告書名称」の補足情報です。例えば、報告書名称を“不具合報告”とし作業名を“巡回点検”とするなど",
       "type": "object",
       "required": [
         "type",
@@ -216,7 +216,7 @@
     },
     "refComplaint": {
       "title": "案件ID",
-      "description": "本報告が関係する「案件」へのリンク。複数の案件がある場合はリストで登録する。検査の結果不具合が見つからなかった場合にも本データモデルを登録するかどうかは運用に依存するが、登録する場合は本Attributeを設定しないか、不具合現象(phenomenonのcategory)に”良好”を登録した案件 (Complaint) をリンクする。「報告」と「案件」の関係の例については、[包括施設管理における使い方(6/7)](https://ppp-database.org/howtouse/tutorial2-6/)も参考にしてください。",
+      "description": "本報告が関係する「案件」へのリンク。複数の案件がある場合はリストで登録する。検査の結果不具合が見つからなかった場合にも本データモデルを登録するかどうかは運用に依存するが、登録する場合は本Attributeを設定しないか、不具合現象(phenomenonのcategory)に“良好”を登録した案件 (Complaint) をリンクする。「報告」と「案件」の関係の例については、[包括施設管理における使い方(6/7)](https://ppp-database.org/howtouse/tutorial2-6/)も参考にしてください。",
       "type": "object",
       "properties": {
         "type": {
@@ -236,7 +236,7 @@
     },
     "equipment": {
       "title": "対象設備",
-      "description": "12条点検における検査対象の建築設備をリスト形式で登録します。登録する用語は”換気設備”、”排煙設備”、”非常用の照明装置”、および”給水設備及び排水設備”です",
+      "description": "12条点検における検査対象の建築設備をリスト形式で登録します。登録する用語は“換気設備”、“排煙設備”、“非常用の照明装置”、および“給水設備及び排水設備”です",
       "type": "object",
       "properties": {
         "type": {
@@ -284,14 +284,19 @@
             "type": "object",
             "properties": {
               "no": {
-                "type": "string"
+                "type": "string",
+                "title": "写真番号",
+                "description": "写真に識別が必要な場合に識別の情報を登録します。例えば写真の通番など。"
               },
               "url": {
                 "type": "string",
-                "format": "uri"
+                "title": "写真url",
+                "description": "写真の登録場所のURLなどを登録します。項目名はurlですが、登録する情報はurl以外でも構いません。"
               },
               "remarks": {
-                "type": "string"
+                "type": "string",
+                "title": "写真補足",
+                "description": "写真への補足を登録します。"
               }
             }
           }
@@ -324,7 +329,7 @@
     },
     "remarks": {
       "title": "備考",
-      "description": "備考",
+      "description": "備考を登録します。",
       "type": "object",
       "required": [
         "type",
@@ -342,7 +347,7 @@
     },
     "opinion": {
       "title": "所見",
-      "description": "担当者の所見",
+      "description": "担当者の所見を登録します。",
       "type": "object",
       "required": [
         "type",
@@ -370,16 +375,24 @@
             "type": "object",
             "properties": {
               "title": {
-                "type": "string"
+                "type": "string",
+                "title": "報告書タイトル",
+                "description": "電子化したドキュメントのタイトルを登録します。"
               },
               "fileName": {
-                "type": "string"
+                "type": "string",
+                "title": "報告書ファイル名",
+                "description": "電子化したドキュメントの格納ファイル名。ドキュメントがファイルサーバなどに格納されている場合に次の項目と共に使用します。"
               },
               "filePath": {
-                "type": "string"
+                "type": "string",
+                "title": "報告書パス",
+                "description": "電子化したドキュメントの格納フォルダのパスを登録します。"
               },
               "url": {
                 "type": "string",
+                "title": "報告書url",
+                "description": "電子化したドキュメントがWebサーバなどURLでアクセスできる場合に前項の代わりに使用します。",
                 "format": "uri"
               }
             },
@@ -394,7 +407,7 @@
         "type",
         "value"
       ],
-      "description": "pdf等になった、報告書の格納情報。複数の書類を登録します。12条点検の報告書を登録する場合、建築物(棟)単位の報告書は個々の建築物に対応する「報告(Report)」に登録する",
+      "description": "pdf等になった、報告書の格納情報です。複数の書類を登録できます。12条点検の報告書を登録する場合、建築物(棟)単位の報告書は個々の建築物に対応する「報告(Report)」に登録します。",
       "title": "ドキュメント"
     }
   },
