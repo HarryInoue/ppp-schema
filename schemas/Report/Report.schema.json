@@ -93,7 +93,14 @@
       "description": "12条点検における検査対象の建築設備をリスト形式で登録します。登録する用語は“換気設備”、“排煙設備”、“非常用の照明装置”、および“給水設備及び排水設備”です。"
     },
     "damageControl": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/DamageControl.schema.json#/$defs/DamageControlEnum" }
+          }
+        }
+      ],
       "title": "簡易修繕",
       "description": "簡易修繕の内容を登録します。列挙型項目であり、用語の定義は「[簡易処置(DamageControl)](https://ppp-database.org/spec/enum/DamageControl/)」を参照して下さい。尚、簡易修繕を行わなかった場合はこの項目には登録しません。"
     },
