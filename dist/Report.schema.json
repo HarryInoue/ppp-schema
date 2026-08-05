@@ -10,11 +10,11 @@
     },
     "type": {
       "const": "Report",
-      "description": "必ず“Report”の文字列でなくてはならない"
+      "description": "必ず“Report”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "timestamp": {
       "title": "報告日",
-      "description": "報告日",
+      "description": "報告日を登録します。",
       "type": "object",
       "required": [
         "type",
@@ -33,7 +33,7 @@
     },
     "category": {
       "title": "報告書名称",
-      "description": "報告書の名称を記述します。報告書の名称は自治体や事業者により異なる可能性がありますが、法令で決められている名称は法令の通りに記述します。用語の定義は[ReportCategory](https://ppp-database.org/spec/enum/ReportCategory/)を参照",
+      "description": "報告書の名称を記述します。報告書の名称は自治体や事業者により異なる可能性がありますが、法令で決められている名称は法令の通りに記述します。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「[報告書種別(ReportCategory)](https://ppp-database.org/spec/enum/ReportCategory/)」を参照",
       "type": "object",
       "required": [
         "type",
@@ -95,7 +95,7 @@
     },
     "operationName": {
       "title": "作業名",
-      "description": "「報告書名称」の補足情報です。例えば、報告書名称を“不具合報告”とし作業名を“巡回点検”とするなど",
+      "description": "「報告書名称」の補足情報です。例えば、報告書名称を“不具合報告”とし作業名を“巡回点検”とするなど。",
       "type": "object",
       "required": [
         "type",
@@ -113,7 +113,7 @@
     },
     "refSubmitter": {
       "title": "報告者",
-      "description": "報告者の法人に対するリンク。特定行政庁や自治体等に提出する公的な報告書など作成する場合は、その報告書の届出者/報告者の所属法人名や連絡先を取り出すために用います",
+      "description": "報告者の法人に対するリンク。特定行政庁や自治体等に提出する公的な報告書など作成する場合は、その報告書の届出者/報告者の所属法人名や連絡先を取り出すために用います。",
       "type": "object",
       "required": [
         "type",
@@ -153,7 +153,7 @@
     },
     "reportParent": {
       "title": "親報告",
-      "description": "12条点検の報告において、建物が複数の建築物(棟)から構成される場合、建築物の報告から建物の報告に対するリンクを登録します",
+      "description": "12条点検の報告において、建物が複数の建築物(棟)から構成される場合、建築物の報告から建物の報告に対するリンクを登録します。",
       "type": "object",
       "required": [
         "type",
@@ -236,7 +236,7 @@
     },
     "equipment": {
       "title": "対象設備",
-      "description": "12条点検における検査対象の建築設備をリスト形式で登録します。登録する用語は“換気設備”、“排煙設備”、“非常用の照明装置”、および“給水設備及び排水設備”です",
+      "description": "12条点検における検査対象の建築設備をリスト形式で登録します。登録する用語は“換気設備”、“排煙設備”、“非常用の照明装置”、および“給水設備及び排水設備”です。",
       "type": "object",
       "properties": {
         "type": {
@@ -256,7 +256,7 @@
     },
     "damageControl": {
       "title": "簡易修繕",
-      "description": "簡易修繕の内容。列挙型項目。用語の定義は[DamageControl](https://ppp-database.org/spec/enum/DamageControl/)を参照。尚、簡易修繕を行わなかった場合はこの項目には登録しません",
+      "description": "簡易修繕の内容を登録します。列挙型項目であり、用語の定義は「[簡易処置(DamageControl)](https://ppp-database.org/spec/enum/DamageControl/)」を参照して下さい。尚、簡易修繕を行わなかった場合はこの項目には登録しません。",
       "type": "object",
       "required": [
         "type",
@@ -306,7 +306,7 @@
         "type",
         "value"
       ],
-      "description": "写真を登録します",
+      "description": "写真を登録します。",
       "title": "写真"
     },
     "request": {
