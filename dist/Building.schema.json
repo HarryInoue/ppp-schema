@@ -1278,7 +1278,8 @@
             "properties": {
               "roomClassification": {
                 "title": "室用途",
-                "type": "string"
+                "type": "string",
+                "description": "“無窓居室”、“火気使用室”、“居室等”など、当該特定行政庁が示す選択肢から選んで登録します。"
               },
               "descriptions": {
                 "title": "説明",
@@ -1288,18 +1289,21 @@
                   "properties": {
                     "method": {
                       "title": "方式",
-                      "type": "string"
+                      "type": "string",
+                      "description": "“自然換気設備”、“機械換気設備”、“中央管理方式の空気調和設備”など、当該特定行政庁が示す選択肢から選んで登録します。選択肢に無いときは”その他”を登録する。該当する室が無い場合は省略します。"
                     },
                     "zone": {
                       "title": "対象",
-                      "type": "string"
+                      "type": "string",
+                      "description": "方式(method)に対応する系統数と室数を“〇系統〇室”の形式で登録する。"
                     }
                   },
                   "required": [
                     "method",
                     "zone"
                   ]
-                }
+                },
+                "description": "各換気設備の概要を記述します。"
               }
             },
             "required": [
@@ -1329,7 +1333,8 @@
             "properties": {
               "roomClassification": {
                 "title": "室用途",
-                "type": "string"
+                "type": "string",
+                "description": "“特別避難階段の階段室又は付室”、“非常用エレベーターの昇降路又は乗降ロビー”、“非常用エレベーターの乗降ロビーの用に供する付室”、“居室等”など、当該特定行政庁が示す選択肢から選んで登録します。"
               },
               "descriptions": {
                 "title": "説明",
@@ -1339,18 +1344,21 @@
                   "properties": {
                     "method": {
                       "title": "方式",
-                      "type": "string"
+                      "type": "string",
+                      "description": "“吸引式”、“給気式”、“加圧式”など、当該特定行政庁が示す選択肢から選んで登録します。該当する室が無い場合は省略します。"
                     },
                     "zone": {
                       "title": "対象",
-                      "type": "string"
+                      "type": "string",
+                      "description": "方式(method)に対応する系統数と室数を“〇〇区画”の形式で登録します。"
                     }
                   },
                   "required": [
                     "method",
                     "zone"
                   ]
-                }
+                },
+                "description": "各排煙設備の概要を記述します。"
               }
             },
             "required": [
