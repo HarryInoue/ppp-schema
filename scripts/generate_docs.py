@@ -216,12 +216,22 @@ def indent_prefix(depth: int) -> str:
 
 
 def render_field(name: str, schema: dict, depth: int) -> list:
-    """1つのネストしたフィールドを、自身+子孫の「短い行」(説明列なし)のリストとして返す。"""
+    """1つのネストしたフィールドを、自身+子孫の行のリストとして返す。
+
+    子孫自身にdescriptionがあれば5列目として含める(この行がWordPress側の
+    rowspan計算上「フル行」となり、以降の子孫がdescriptionを持たない限り
+    そちらに新たにrowspanされる)。descriptionが無ければ従来通り4列のままとし、
+    直近の(親または兄弟の)フル行からrowspanで説明を継承させる。
+    """
     indent = indent_prefix(depth)
     title = schema.get("title", "") or "-"
+    description = schema.get("description", "")
     disp_type, occurrence, children = analyze_nested(schema)
 
-    rows = [[f"{indent}{title}", f"{indent}{name}", disp_type, occurrence]]
+    row = [f"{indent}{title}", f"{indent}{name}", disp_type, occurrence]
+    if description:
+        row.append(description)
+    rows = [row]
     for child_name, child_schema in children:
         rows.extend(render_field(child_name, child_schema, depth + 1))
     return rows

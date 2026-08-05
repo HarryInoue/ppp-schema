@@ -33,13 +33,15 @@
       "∟現象概要",
       "∟category",
       "Array(Text)",
-      "*"
+      "*",
+      "列挙型メンバ。[Phenomenon](https://ppp-database.org/spec/enum/Phenomenon/)を参照。[”破損”]、[”汚損”]など"
     ],
     [
       "∟現象補足",
       "∟remarks",
       "Text",
-      "1"
+      "1",
+      "前項の補足です。例えば、”コンクリートの割れ”など"
     ],
     [
       "プロバイダ",
@@ -155,7 +157,8 @@
       "∟-",
       "∟abstracts",
       "Array",
-      "1"
+      "1",
+      "列挙メンバは建物(Building)または施設(Facility)のZonesから選択した文字列です。このArrayは順序に意味を持ち(順序付きリスト)、zoneName、subzoneNameの第一要素、subzoneNameの第二要素の順番に登録します。例えば、[”校舎”,”2F”,”1年A組”]となります"
     ],
     [
       "　∟場所大分類",
@@ -179,7 +182,8 @@
       "∟場所補足",
       "∟remarks",
       "Text",
-      "1"
+      "1",
+      "前項の補足です。例えば、”北側”など。"
     ],
     [
       "部位",
@@ -192,19 +196,22 @@
       "∟部位概要",
       "∟abstracts",
       "Array(Text)",
-      "*"
+      "*",
+      "不具合を発生した部位や設備を示す列挙型項目。用語の定義は[BuildingComponent](https://ppp-database.org/spec/enum/BuildingComponent/)を参照"
     ],
     [
       "∟部位ID",
       "∟refComponent",
       "Text",
-      "1"
+      "1",
+      "不具合を発生した部位([BuildingComponent](https://ppp-database.org/spec/datamodel/BuildingComponent/))または設備([Device](https://ppp-database.org/spec/datamodel/Device/))に対するリンク。BuildingComponentが登録されていない場合は省略して構わない"
     ],
     [
       "∟部位補足",
       "∟remarks",
       "Text",
-      "1"
+      "1",
+      "部位の補足です。例えば”基礎部分”、”蛍光管”などと記載します。"
     ],
     [
       "原因",
@@ -217,13 +224,15 @@
       "∟原因概要",
       "∟abstracts",
       "Text",
-      "1"
+      "1",
+      "原因を示す列挙型項目。用語定義は[Cause](https://ppp-database.org/spec/enum/Cause/)を参照。例えば”車両事故”、”地震”など"
     ],
     [
       "∟原因補足",
       "∟remarks",
       "Text",
-      "1"
+      "1",
+      "前項の補足"
     ],
     [
       "緊急度マーク",
