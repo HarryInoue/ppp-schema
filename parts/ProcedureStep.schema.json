@@ -13,42 +13,140 @@
     "Threshold": {
       "type": "object",
       "properties": {
-        "name": { "type": "string" },
-        "min": { "type": "number" },
-        "inclusiveMin": { "type": "boolean" },
-        "max": { "type": "number" },
-        "inclusiveMax": { "type": "boolean" },
-        "actionOnBreach": { "type": "string" }
+        "name": {
+          "type": "string",
+          "title": "閾値名",
+          "description": "この閾値に付与する名称です。複数の閾値を持つ場合に区別するために使用します。従って複数の閾値を設定する場合には閾値名は必須です。閾値を逸脱した場合、「観測活動(Observation)」では閾値名を記載する事でどの閾値なのかを区別します。例えば、“注意レベル”、“危険レベル”などです。"
+        },
+        "min": {
+          "type": "number",
+          "title": "最小値",
+          "description": "閾値の最小値"
+        },
+        "inclusiveMin": {
+          "type": "boolean",
+          "title": "最小境界",
+          "description": "閾値の最小値の境界値を含むかどうかの区別です。trueは境界値では閾値を逸脱していない、falseは逸脱している事を示します。"
+        },
+        "max": {
+          "type": "number",
+          "title": "最大値",
+          "description": "閾値の最大値"
+        },
+        "inclusiveMax": {
+          "type": "boolean",
+          "title": "最大境界",
+          "description": "閾値の最大値の境界値を含むかどうかの区別です。trueは境界値では閾値を逸脱していない、falseは逸脱している事を示します。"
+        },
+        "actionOnBreach": {
+          "type": "string",
+          "title": "処置",
+          "description": "閾値を逸脱した場合のアクションを記述します。"
+        }
       }
     },
     "MeasurementStep": {
       "type": "object",
       "required": ["stepType"],
       "properties": {
-        "stepType": { "const": "measurement" },
-        "name": { "type": "string" },
-        "stepNumber": { "type": "integer" },
-        "description": { "type": "string" },
-        "refFeatureOfInterest": { "type": "array", "items": { "type": "string" } },
-        "observedProperty": { "type": "string" },
-        "refSensors": { "type": "array", "items": { "type": "string" } },
-        "unit": { "type": "string" },
-        "Precision": { "type": "number" },
-        "thresholds": { "type": "array", "items": { "$ref": "#/$defs/Threshold" } }
+        "stepType": {
+          "const": "measurement",
+          "description": "“measurement”の固定値です"
+        },
+        "name": {
+          "type": "string",
+          "title": "作業名",
+          "description": "この作業に付与する名称です。同一Procedure内でユニークである必要があります。次のstepNumberのどちらかは必ず指定する必要があります。"
+        },
+        "stepNumber": {
+          "type": "integer",
+          "title": "ステップ番号",
+          "description": "同一Procedure内で一意な自然数です。"
+        },
+        "description": {
+          "type": "string",
+          "title": "説明",
+          "description": "この作業の説明です。"
+        },
+        "refFeatureOfInterest": {
+          "type": "array",
+          "items": { "type": "string" },
+          "title": "観測対象",
+          "description": "測定対象となる「設備」「備品」「部位」「サンプル」などへのリンクです。"
+        },
+        "observedProperty": {
+          "type": "string",
+          "title": "観測特性",
+          "description": "実際に測定した属性。温度、湿度、圧力など。用語は「制御対象(ControlledProperty)」です。"
+        },
+        "refSensors": {
+          "type": "array",
+          "items": { "type": "string" },
+          "title": "センサID",
+          "description": "利用可能な測定機器、または指定する測定機器へのリンクです。"
+        },
+        "unit": {
+          "type": "string",
+          "title": "単位",
+          "description": "測定する単位を指定します。"
+        },
+        "precision": {
+          "type": "number",
+          "title": "精度",
+          "description": "必要な精度を指定します。"
+        },
+        "thresholds": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Threshold" },
+          "title": "閾値",
+          "description": "閾値と閾値を逸脱した時のアクションを指定します。"
+        }
       }
     },
     "CheckStep": {
       "type": "object",
       "required": ["stepType","action", "expectedState"],
       "properties": {
-        "stepType": { "const": "check" },
-        "name": { "type": "string" },
-        "stepNumber": { "type": "integer" },
-        "description": { "type": "string" },
-        "refFeatureOfInterest": { "type": "array", "items": { "type": "string" } },
-        "action": { "type": "string" },
-        "expectedState": { "type": "string" },
-        "actionOnMismatch": { "type": "string" }
+        "stepType": {
+          "const": "check",
+          "description": "“check”の固定値です"
+        },
+        "name": {
+          "type": "string",
+          "title": "作業名",
+          "description": "この作業に付与する名称です。同一Procedure内でユニークである必要があります。次のstepNumberのどちらかは必ず指定する必要があります。"
+        },
+        "stepNumber": {
+          "type": "integer",
+          "title": "ステップ番号",
+          "description": "同一Procedure内で一意な自然数です。"
+        },
+        "description": {
+          "type": "string",
+          "title": "説明",
+          "description": "この作業の説明です。"
+        },
+        "refFeatureOfInterest": {
+          "type": "array",
+          "items": { "type": "string" },
+          "title": "観測対象",
+          "description": "測定対象となる「設備」「備品」「部位」「サンプル」などへのリンクです。"
+        },
+        "action": {
+          "type": "string",
+          "title": "確認内容",
+          "description": "確認する内容です。"
+        },
+        "expectedState": {
+          "type": "string",
+          "title": "期待状態",
+          "description": "期待する正常な状態です。"
+        },
+        "actionOnMismatch": {
+          "type": "string",
+          "title": "処置",
+          "description": "確認結果が不良であった時に実施すべき行動"
+        }
       },
       "additionalProperties": false
     },
@@ -56,12 +154,35 @@
       "type": "object",
       "required": ["stepType"],
       "properties": {
-        "stepType": { "const": "sample" },
-        "name": { "type": "string" },
-        "stepNumber": { "type": "integer" },
-        "description": { "type": "string" },
-        "sampleSource": { "type": "string" },
-        "sampleTarget": { "type": "string" }
+        "stepType": {
+          "const": "sample",
+          "description": "“sample”の固定値です"
+        },
+        "name": {
+          "type": "string",
+          "title": "作業名",
+          "description": "この作業に付与する名称です。同一Procedure内でユニークである必要があります。次のstepNumberのどちらかは必ず指定する必要があります。"
+        },
+        "stepNumber": {
+          "type": "integer",
+          "title": "ステップ番号",
+          "description": "同一Procedure内で一意な自然数です。"
+        },
+        "description": {
+          "type": "string",
+          "title": "説明",
+          "description": "この作業の説明です。"
+        },
+        "sampleSource": {
+          "type": "string",
+          "title": "採取源",
+          "description": "採取の対象となる「設備」「備品」「部位」「ロット」等へのリンクです。設備、備品、部位については共通データ仕様で定義されているデータモデルのidを格納します。"
+        },
+        "sampleTarget": {
+          "type": "string",
+          "title": "採取対象",
+          "description": "採取するもの。例えば、“水”、“食品”などです。"
+        }
       },
       "additionalProperties": false
     }
