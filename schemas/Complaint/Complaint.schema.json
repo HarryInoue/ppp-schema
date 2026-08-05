@@ -233,7 +233,7 @@
           "properties": {
             "abstracts": {
               "title": "原因概要",
-              "type": "string",
+              "$ref": "../../enums/Cause.schema.json#/$defs/CauseEnum",
               "description": "原因の概要を登録します。列挙型項目であり、用語の定義は「[原因(Cause)](https://ppp-database.org/spec/enum/Cause/)」を参照して下さい。例えば“車両事故”、“地震”など。"
             },
             "remarks": {
