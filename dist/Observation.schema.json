@@ -219,46 +219,115 @@
         "value": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "observedProperty": {
-                "type": "string"
+            "oneOf": [
+              {
+                "type": "object",
+                "required": [
+                  "value"
+                ],
+                "properties": {
+                  "observedProperty": {
+                    "type": "string",
+                    "title": "観測特性",
+                    "description": "作業が測定であった時、実際に測定した属性。温度、湿度、圧力など。列挙型項目であり、用語の定義は「[制御対象(ControlledProperty)](https://ppp-database.org/spec/enum/ControlledProperty/)」を参照して下さい。"
+                  },
+                  "value": {
+                    "type": [
+                      "string",
+                      "number",
+                      "boolean",
+                      "array",
+                      "object"
+                    ],
+                    "title": "測定値",
+                    "description": "作業が測定であった時、測定値。値は数値とは限りません。"
+                  },
+                  "unit": {
+                    "type": "string",
+                    "title": "単位",
+                    "description": "測定値の単位です。単位は基本的にJIS Z 8000に従う必要があります。業界標準などの単位を採用する場合でも、JISに機械的に変換できることが望ましいです。"
+                  },
+                  "precision": {
+                    "type": "number",
+                    "title": "精度",
+                    "description": "測定値の精度です。"
+                  },
+                  "thresholdBreached": {
+                    "type": "string",
+                    "title": "逸脱閾値名",
+                    "description": "逸脱した閾値。最も重篤な閾値名を記述する。但し、逸脱していなくても記述して明示的に“閾値内”を設定しても構いません。"
+                  },
+                  "actionTaken": {
+                    "type": "string",
+                    "title": "処置",
+                    "description": "実際に行った処置を記述します。例えば、閾値を逸脱した場合に実施した処置などです。"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "title": "補足",
+                    "description": "補足です。"
+                  }
+                },
+                "additionalProperties": false
               },
-              "value": {
-                "type": [
-                  "string",
-                  "number",
-                  "boolean",
-                  "object"
-                ]
+              {
+                "type": "object",
+                "required": [
+                  "observedState",
+                  "match"
+                ],
+                "properties": {
+                  "observedState": {
+                    "type": "string",
+                    "title": "観測状態",
+                    "description": "「期待状態(expectedState)」に対し実際に確認した状態です。"
+                  },
+                  "match": {
+                    "type": "boolean",
+                    "title": "一致",
+                    "description": "期待状態と観測状態が一致している場合にはtrue、一致しない場合はfalseを登録します。"
+                  },
+                  "actionTaken": {
+                    "type": "string",
+                    "title": "処置",
+                    "description": "実際に行った処置を記述します。例えば、期待値と異なっていた場合に実施した処置などです。"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "title": "補足",
+                    "description": "補足です。"
+                  }
+                },
+                "additionalProperties": false
               },
-              "unit": {
-                "type": "string"
-              },
-              "precision": {
-                "type": "number"
-              },
-              "thresholdBreached": {
-                "type": "string"
-              },
-              "actionTaken": {
-                "type": "string"
-              },
-              "notes": {
-                "type": "string"
-              },
-              "observedState": {
-                "type": "string"
-              },
-              "match": {
-                "type": "string"
+              {
+                "type": "object",
+                "required": [
+                  "sampleId"
+                ],
+                "properties": {
+                  "sampleId": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "title": "サンプルID",
+                    "description": "採取したサンプルを識別する識別子です。この識別子は共通データ仕様では定義しません。運用毎に定義する必要があります。"
+                  },
+                  "notes": {
+                    "type": "string",
+                    "title": "補足",
+                    "description": "補足です。"
+                  }
+                },
+                "additionalProperties": false
               }
-            }
+            ]
           }
         }
       },
       "additionalProperties": false,
-      "description": "観測結果と共に、付随する情報を登録する構造体です。付随する情報とは、例えば室温の測定結果と共に、外気温や日照量などの分析に役立つ情報を指します。主たる測定結果はArray内の一つ目の要素に格納します。このArrayの要素には以下のみっつの形式があります。",
+      "description": "観測結果と共に、付随する情報を登録する構造体です。付随する情報とは、例えば室温の測定結果と共に、外気温や日照量などの分析に役立つ情報を指します。主たる測定結果はArray内の一つ目の要素に格納します。このArrayの要素には、作業の種別(測定/確認/サンプル採取)に応じて以下の3つの形式があります。",
       "title": "観測結果"
     }
   }
