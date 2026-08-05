@@ -15,13 +15,13 @@
     "id": {
       "type": "string",
       "pattern": "^urn:ngsi-ld:Observation:.*",
-      "description": "測定値や確認結果を一意に識別する識別子です。この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。文字列の”urn:ngsi-ld:Observation”<一意となる文字列>です。<一意となる文字列>は一意となる文字列であれば何でもよいですが、本項目値全体でurnの規格に合致する必要がある。",
+      "description": "測定値や確認結果を一意に識別する識別子です。この項目は[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。\nNGSI-LDの仕様に合わせ、次の形式の識別子とします。文字列の“urn:ngsi-ld:Observation”<一意となる文字列>です。<一意となる文字列>は一意となる文字列であれば何でもよいですが、本項目値全体でurnの規格に合致する必要がある。",
       "title": "観測活動ID"
     },
     "type": {
       "type": "string",
       "const": "Observation",
-      "description": "必ず”Observation”の文字列でなくてはなりません。"
+      "description": "必ず“Observation”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "stepType": {
       "type": "object",
@@ -43,7 +43,7 @@
         }
       },
       "additionalProperties": false,
-      "description": "「観測手順(Procedure)」で定義した各「作業項目 (steps)」のstepTypeです。定義した手順の場合は必須ですが、定義していない作業の場合は省略します。",
+      "description": "「[観測手順 (Procedure)](https://ppp-database.org/spec/datamodel/Procedure/)」で定義した各「作業項目 (steps)」のstepTypeです。定義した手順の場合は必須ですが、定義していない作業の場合は省略します。",
       "title": "作業タイプ"
     },
     "refProcedure": {

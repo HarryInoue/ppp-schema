@@ -5,16 +5,16 @@
   "properties": {
     "id": {
       "type": "string",
-      "description": "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。また、設備を入れ替えた場合は設備IDは再度附番しなおして、別の識別子に変更する必要があります。これは、過去のデータを保存するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式とすします。”urn:ngsi-ld:Device:”<一意となる文字列>。一意となる文字列は何でもよいが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。例えば<国名コード><メーカの法人番号>-<型番>-<シリアルナンバー>などです",
+      "description": "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた設備IDは変更する事はできません。また、設備を入れ替えた場合は設備IDは再度附番しなおして、別の識別子に変更する必要があります。これは、過去のデータを保存するためのルールです。\nNGSI-LDの仕様に合わせ、次の形式とすします。“urn:ngsi-ld:Device:”<一意となる文字列>。一意となる文字列は何でもよいが、[識別子](https://ppp-database.org/standards/identifier/)として使って良い文字に限られます。例えば<国名コード><メーカの法人番号>-<型番>-<シリアルナンバー>などです",
       "title": "設備ID"
     },
     "type": {
       "const": "Device",
-      "description": "必ず”Device”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
+      "description": "必ず“Device”の文字列でなくてはならない決まりです。NGSI V2に準拠しない場合は不要です。"
     },
     "areaServed": {
       "title": "提供領域",
-      "description": "設備の提供領域を登録します。例えば照明機器や空調機器であれば”図書室”や”職員室”などと記載します。不具合時に影響を受ける場所です",
+      "description": "設備の提供領域を登録します。例えば照明機器や空調機器であれば“図書室”や“職員室”などと記載します。不具合時に影響を受ける場所です",
       "type": "object",
       "required": [
         "type",
@@ -904,7 +904,7 @@
     },
     "controlledAsset": {
       "title": "対象部位",
-      "description": "検知・制御・計測する対象の部位です。部位や例えば”プール”。controlledPropertyと合わせて、プールの水位を監視するセンサであるなどと表現します。更に、「部位」として空間を登録しておくと、音楽室の空間の温湿度を計測するセンサなども表現できます。",
+      "description": "検知・制御・計測する対象の部位です。部位や例えば“プール”。controlledPropertyと合わせて、プールの水位を監視するセンサであるなどと表現します。更に、「部位」として空間を登録しておくと、音楽室の空間の温湿度を計測するセンサなども表現できます。",
       "type": "object",
       "properties": {
         "type": {
@@ -1256,7 +1256,7 @@
         }
       ],
       "title": "制御対象",
-      "description": "検知・制御・計測する対象。列挙型項目。定義は[ControlledProperty](https://ppp-database.org/spec/enum/ControlledProperty/)。例えば”水位”、”温度”など。本項目は、継承元のSmart Data Modelsに合わせて回数を1以上としていますが、実際にこの項目を利用するかどうかは個別に判断してください。また、本AttributeはDeviceModelと重複しています。DeviceModelをリンクする場合には、必要性は低いと考えます。"
+      "description": "検知・制御・計測する対象。列挙型項目であり、用語の定義は「[制御対象(ControlledProperty)](https://ppp-database.org/spec/enum/ControlledProperty/)」を参照して下さい。例えば“水位”、“温度”など。本項目は、継承元のSmart Data Modelsに合わせて回数を1以上としていますが、実際にこの項目を利用するかどうかは個別に判断してください。また、本AttributeはDeviceModelと重複しています。DeviceModelをリンクする場合には、必要性は低いと考えます。"
     },
     "dateInstalled": {
       "title": "設置日",
@@ -1316,7 +1316,7 @@
     },
     "name": {
       "title": "設備名称",
-      "description": "設備に他と区別すべき名称が付いている場合に、名称を設定します。例えば、手順書や各種案内文で用いる名称で、前記の設備IDと異なり設備を入れ替えても変わらない名前が望ましいです。”消火栓”、”AED”、”非常用発電機”など。一般名称である必要は無く、例えば”消火栓2F-01″や”2F-lib-AC-01″などと、関係者に分かる名称でも構いません",
+      "description": "設備に他と区別すべき名称が付いている場合に、名称を設定します。例えば、手順書や各種案内文で用いる名称で、前記の設備IDと異なり設備を入れ替えても変わらない名前が望ましいです。“消火栓”、“AED”、“非常用発電機”など。一般名称である必要は無く、例えば“消火栓2F-01”や“2F-lib-AC-01”などと、関係者に分かる名称でも構いません",
       "type": "object",
       "required": [
         "type",

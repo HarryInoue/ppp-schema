@@ -128,7 +128,7 @@
                   "observedProperty": {
                     "type": "string",
                     "title": "観測特性",
-                    "description": "実際に測定した属性。温度、湿度、圧力など。用語は「制御対象(ControlledProperty)」です。"
+                    "description": "実際に測定した属性。温度、湿度、圧力など。列挙型項目であり、用語の定義は「[制御対象(ControlledProperty)](https://ppp-database.org/spec/enum/ControlledProperty/)」を参照して下さい。"
                   },
                   "refSensors": {
                     "type": "array",
@@ -156,12 +156,12 @@
                         "name": {
                           "type": "string",
                           "title": "閾値名",
-                          "description": "この閾値に付与する名称です。複数の閾値を持つ場合に区別するために使用します。従って複数の閾値を設定する場合には閾値名は必須です。閾値を逸脱した場合、「観測活動(Observation)」では閾値名を記載する事でどの閾値なのかを区別します。例えば、“注意レベル”、“危険レベル”などです。"
+                          "description": "この閾値に付与する名称です。複数の閾値を持つ場合に区別するために使用します。従って複数の閾値を設定する場合には閾値名は必須です。閾値を逸脱した場合、「[観測活動(Observation)](https://ppp-database.org/spec/datamodel/Observation/)」では閾値名を記載する事でどの閾値なのかを区別します。例えば、“注意レベル”、“危険レベル”などです。"
                         },
                         "min": {
                           "type": "number",
                           "title": "最小値",
-                          "description": "閾値の最小値"
+                          "description": "閾値の最小値です。"
                         },
                         "inclusiveMin": {
                           "type": "boolean",
@@ -171,7 +171,7 @@
                         "max": {
                           "type": "number",
                           "title": "最大値",
-                          "description": "閾値の最大値"
+                          "description": "閾値の最大値です。"
                         },
                         "inclusiveMax": {
                           "type": "boolean",
