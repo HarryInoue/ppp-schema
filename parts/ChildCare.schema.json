@@ -6,6 +6,7 @@
   "$defs": {
     "ChildCare": {
       "type": "object",
+      "x-suggested-name": "childCare",
       "properties": {
         "type": { "const": "ChildCare" },
         "value": {

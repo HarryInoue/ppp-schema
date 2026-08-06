@@ -31,11 +31,13 @@
                 "properties": {
                   "identificationType": {
                     "title": "ID種別",
-                    "type": "string"
+                    "type": "string",
+                    "description": "IDの種別を登録します。列挙型項目であり、用語の定義は「[識別子種別(IdentificationType)](https://ppp-database.org/spec/enum/IdentificationType/)」を参照してください。"
                   },
                   "identification": {
                     "title": "ID",
-                    "type": "string"
+                    "type": "string",
+                    "description": "IDを登録します。文字列に含まれる文字は、全てASCIIです。"
                   }
                 },
                 "required": [
@@ -174,6 +176,7 @@
       "title": "住所",
       "description": "住所をPostalAddress形式で設定します。郵便番号は、土地に付番された郵便番号を登録するものとし、個別郵便番号は施設のデータモデルである[Facility](https://ppp-database.org/spc/datamodel/Facility)に登録します",
       "type": "object",
+      "x-suggested-name": "postalAddress",
       "properties": {
         "type": {
           "const": "PostalAddress"

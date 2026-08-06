@@ -6,6 +6,7 @@
   "$defs": {
     "PostalAddress": {
       "type": "object",
+      "x-suggested-name": "postalAddress",
       "properties": {
         "type": { "const": "PostalAddress" },
         "value": {

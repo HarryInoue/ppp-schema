@@ -295,12 +295,14 @@
       "title": "開館時間",
       "description": "曜日ごとの開館閉館時刻の配列。",
       "type": "object",
+      "x-suggested-name": "openingHours",
       "properties": {
         "type": {
           "const": "OpeningHours"
         },
         "value": {
           "type": "array",
+          "x-suggested-name": "openingHours",
           "items": {
             "type": "string"
           },
@@ -555,6 +557,7 @@
       "title": "連絡先",
       "description": "施設の代表電話などを登録する",
       "type": "object",
+      "x-suggested-name": "contactPoint",
       "properties": {
         "type": {
           "const": "ContactPoint"
@@ -566,10 +569,12 @@
             "properties": {
               "availableLanguage": {
                 "title": "対応言語",
-                "type": "string"
+                "type": "string",
+                "description": "対応できる言語を記述します。IETF BCP 47 standardに従います。日本語では“ja”です。"
               },
               "contactType": {
                 "title": "連絡先種別",
+                "description": "連絡の種別を記述します。列挙型項目であり、用語の定義は「[連絡先種別(ContactPointType)](https://ppp-database.org/spec/enum/ContactPointType/)」を参照してください。",
                 "type": "string",
                 "enum": [
                   "不具合連絡",
@@ -589,27 +594,32 @@
               "email": {
                 "title": "メールアドレス",
                 "type": "string",
-                "format": "email"
+                "format": "email",
+                "description": "連絡先メールアドレスです。"
               },
               "telephone": {
                 "title": "電話番号",
                 "type": "array",
                 "items": {
                   "type": "string"
-                }
+                },
+                "description": "電話番号または携帯電話番号です。記述は特定のフォーマットに従います。"
               },
               "extension": {
                 "title": "内線番号",
-                "type": "string"
+                "type": "string",
+                "description": "内線番号です。"
               },
               "formURL": {
                 "title": "フォーム",
                 "type": "string",
-                "format": "uri"
+                "format": "uri",
+                "description": "連絡先がWebフォームの場合のURLです。"
               },
               "faxNumber": {
                 "title": "FAX",
-                "type": "string"
+                "type": "string",
+                "description": "ファックスの電話番号です。介護サービス事業所一覧および医療機関一覧のために追加しました。"
               }
             }
           }
@@ -669,6 +679,7 @@
       "title": "アクセシビリティ情報",
       "description": "施設のバリアフリー情報などを登録します。",
       "type": "object",
+      "x-suggested-name": "accessibility",
       "properties": {
         "type": {
           "const": "Accessibility"
@@ -765,6 +776,7 @@
       "title": "子育て支援情報",
       "description": "子育て施設の場合、受け入れ年齢と一時預かりの有無の情報の登録を推奨。共通パーツを参照",
       "type": "object",
+      "x-suggested-name": "childCare",
       "properties": {
         "type": {
           "const": "ChildCare"
@@ -779,13 +791,14 @@
             "childCareFee": {
               "description": "有料の場合の料金",
               "type": "array",
+              "x-suggested-name": "priceSpecification",
               "items": {
                 "type": "object",
                 "properties": {
                   "unitText": {
                     "title": "単位",
                     "type": "string",
-                    "description": "測定単位を示す文字列またはテキスト。”1時間あたり料金”などと記載します。"
+                    "description": "測定単位を示す文字列またはテキスト。“1時間あたり料金”などと記載します。"
                   },
                   "price": {
                     "title": "価格",
@@ -795,7 +808,7 @@
                   "priceCurrency": {
                     "title": "通貨",
                     "type": "string",
-                    "description": "支払い可能な通貨を示します。形式はISO4217です。日本円は”JPY”, 米ドルは”USD”です"
+                    "description": "支払い可能な通貨を示します。形式はISO4217です。日本円は“JPY”, 米ドルは“USD”です"
                   }
                 },
                 "required": [
@@ -822,6 +835,7 @@
             "childCareOpeningHours": {
               "description": "曜日ごとの開館閉館時刻を表す文字列のリスト。各要素は\"<曜日> <開始時刻>-<終了時刻>\"形式(例: \"Mo-Fr 09:00-17:00\")。曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字、カンマ区切りやハイフンでの範囲指定も可",
               "type": "array",
+              "x-suggested-name": "openingHours",
               "items": {
                 "type": "string"
               }

@@ -6,6 +6,7 @@
   "$defs": {
     "ContactPoint": {
       "type": "object",
+      "x-suggested-name": "contactPoint",
       "properties": {
         "type": { "const": "ContactPoint" },
         "value": {
@@ -15,34 +16,41 @@
             "properties": {
               "availableLanguage": {
                 "title": "対応言語",
-                "type": "string"
+                "type": "string",
+                "description": "対応できる言語を記述します。IETF BCP 47 standardに従います。日本語では“ja”です。"
               },
               "contactType": {
                 "title": "連絡先種別",
-                "$ref": "../enums/ContactPointType.schema.json#/$defs/ContactPointTypeEnum"
+                "$ref": "../enums/ContactPointType.schema.json#/$defs/ContactPointTypeEnum",
+                "description": "連絡の種別を記述します。列挙型項目であり、用語の定義は「[連絡先種別(ContactPointType)](https://ppp-database.org/spec/enum/ContactPointType/)」を参照してください。"
               },
               "email": {
                 "title": "メールアドレス",
                 "type": "string",
-                "format": "email"
+                "format": "email",
+                "description": "連絡先メールアドレスです。"
               },
               "telephone": {
                 "title": "電話番号",
                 "type": "array",
-                "items": { "type": "string" }
+                "items": { "type": "string" },
+                "description": "電話番号または携帯電話番号です。記述は特定のフォーマットに従います。"
               },
               "extension": {
                 "title": "内線番号",
-                "type": "string"
+                "type": "string",
+                "description": "内線番号です。"
               },
               "formURL": {
                 "title": "フォーム",
                 "type": "string",
-                "format": "uri"
+                "format": "uri",
+                "description": "連絡先がWebフォームの場合のURLです。"
               },
               "faxNumber": {
                 "title": "FAX",
-                "type": "string"
+                "type": "string",
+                "description": "ファックスの電話番号です。介護サービス事業所一覧および医療機関一覧のために追加しました。"
               }
             }
           }

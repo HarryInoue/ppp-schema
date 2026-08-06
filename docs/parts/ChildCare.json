@@ -12,112 +12,119 @@
       "rows": [
         [
           "-",
-          "childCareType",
+          "childCare",
+          "Object",
+          "1",
+          ""
+        ],
+        [
+          "∟-",
+          "∟childCareType",
           "Text",
           "1",
           "料金の種別。列挙型項目。ENUM: \"有償\"、\"無償\""
         ],
         [
-          "-",
-          "childCareFee",
+          "∟-",
+          "∟childCareFee",
           "Array(Object)",
           "*",
           "有料の場合の料金"
         ],
         [
-          "∟単位",
-          "∟unitText",
+          "　∟単位",
+          "　∟unitText",
           "Text",
           "1",
-          "測定単位を示す文字列またはテキスト。”1時間あたり料金”などと記載します。"
+          "測定単位を示す文字列またはテキスト。“1時間あたり料金”などと記載します。"
         ],
         [
-          "∟価格",
-          "∟price",
+          "　∟価格",
+          "　∟price",
           "Number",
           "1",
           "価格を数値で示します"
         ],
         [
-          "∟通貨",
-          "∟priceCurrency",
+          "　∟通貨",
+          "　∟priceCurrency",
           "Text",
           "1",
-          "支払い可能な通貨を示します。形式はISO4217です。日本円は”JPY”, 米ドルは”USD”です"
+          "支払い可能な通貨を示します。形式はISO4217です。日本円は“JPY”, 米ドルは“USD”です"
         ],
         [
-          "-",
-          "childCareFeeRemarks",
+          "∟-",
+          "∟childCareFeeRemarks",
           "Text",
           "1",
           "料金の備考"
         ],
         [
-          "-",
-          "minAge",
+          "∟-",
+          "∟minAge",
           "Number",
           "1",
           "参加可能年齢（下限）"
         ],
         [
-          "-",
-          "minAgeInMonths",
+          "∟-",
+          "∟minAgeInMonths",
           "Number",
           "1",
           "参加可能月齢"
         ],
         [
-          "-",
-          "maxAge",
+          "∟-",
+          "∟maxAge",
           "Number",
           "1",
           "参加可能年齢（上限）"
         ],
         [
-          "-",
-          "childCareOpeningHours",
+          "∟-",
+          "∟childCareOpeningHours",
           "Array(Text)",
           "*",
           "曜日ごとの開館閉館時刻を表す文字列のリスト。各要素は\"<曜日> <開始時刻>-<終了時刻>\"形式(例: \"Mo-Fr 09:00-17:00\")。曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字、カンマ区切りやハイフンでの範囲指定も可"
         ],
         [
-          "-",
-          "nursery",
+          "∟-",
+          "∟nursery",
           "Boolean",
           "1",
           "授乳室の有無"
         ],
         [
-          "-",
-          "diaperChangingCorner",
+          "∟-",
+          "∟diaperChangingCorner",
           "Boolean",
           "1",
           "おむつ替えコーナーの有無"
         ],
         [
-          "-",
-          "foodAndDrinkAvailable",
+          "∟-",
+          "∟foodAndDrinkAvailable",
           "Boolean",
           "1",
           "飲食可否"
         ],
         [
-          "-",
-          "strollerRental",
+          "∟-",
+          "∟strollerRental",
           "Boolean",
           "1",
           "ベビーカー貸出の有無"
         ],
         [
-          "-",
-          "strollerUse",
+          "∟-",
+          "∟strollerUse",
           "Boolean",
           "1",
           "ベビーカー利用の有無"
         ],
         [
-          "-",
-          "remarks",
+          "∟-",
+          "∟remarks",
           "Text",
           "1",
           "子育て支援情報の備考"

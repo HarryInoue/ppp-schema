@@ -497,6 +497,7 @@
       "title": "アクセシビリティ情報",
       "description": "詳細は、共通パーツAccessibilityを参照してください",
       "type": "object",
+      "x-suggested-name": "accessibility",
       "properties": {
         "type": {
           "const": "Accessibility"
@@ -1008,11 +1009,13 @@
                 "properties": {
                   "identificationType": {
                     "title": "ID種別",
-                    "type": "string"
+                    "type": "string",
+                    "description": "IDの種別を登録します。列挙型項目であり、用語の定義は「[識別子種別(IdentificationType)](https://ppp-database.org/spec/enum/IdentificationType/)」を参照してください。"
                   },
                   "identification": {
                     "title": "ID",
-                    "type": "string"
+                    "type": "string",
+                    "description": "IDを登録します。文字列に含まれる文字は、全てASCIIです。"
                   }
                 },
                 "required": [

@@ -12,133 +12,140 @@
       "rows": [
         [
           "-",
-          "wheelchairAccessible",
+          "accessibility",
+          "Object",
+          "1",
+          ""
+        ],
+        [
+          "∟-",
+          "∟wheelchairAccessible",
           "Boolean",
           "1",
           "車椅子の使用可"
         ],
         [
-          "-",
-          "wheelchairRental",
+          "∟-",
+          "∟wheelchairRental",
           "Boolean",
           "1",
           "車椅子貸出有り"
         ],
         [
-          "-",
-          "caneRental",
+          "∟-",
+          "∟caneRental",
           "Boolean",
           "1",
           "ツエ貸出有り"
         ],
         [
-          "-",
-          "multipurposeToilet",
+          "∟-",
+          "∟multipurposeToilet",
           "Boolean",
           "1",
           "多目的トイレ有り"
         ],
         [
-          "-",
-          "ramp",
+          "∟-",
+          "∟ramp",
           "Boolean",
           "1",
           "スロープ有り"
         ],
         [
-          "-",
-          "elevator",
+          "∟-",
+          "∟elevator",
           "Boolean",
           "1",
           "エレベータ有り"
         ],
         [
-          "-",
-          "escalator",
+          "∟-",
+          "∟escalator",
           "Boolean",
           "1",
           "エスカレーター有り"
         ],
         [
-          "-",
-          "mobilitySupportForBrailleBlocks",
+          "∟-",
+          "∟mobilitySupportForBrailleBlocks",
           "Boolean",
           "1",
           "点字ブロック等の移動支援有り"
         ],
         [
-          "-",
-          "brailleAndReadingAssistance",
+          "∟-",
+          "∟brailleAndReadingAssistance",
           "Boolean",
           "1",
           "点字や読上による支援有り"
         ],
         [
-          "-",
-          "accompaniedByGuideDogsAndServiceDogs",
+          "∟-",
+          "∟accompaniedByGuideDogsAndServiceDogs",
           "Boolean",
           "1",
           "盲導犬・介助犬・聴導犬などの同伴可"
         ],
         [
-          "-",
-          "subtitles",
+          "∟-",
+          "∟subtitles",
           "Boolean",
           "1",
           "字幕有り"
         ],
         [
-          "-",
-          "writingSupport",
+          "∟-",
+          "∟writingSupport",
           "Boolean",
           "1",
           "筆談対応有り"
         ],
         [
-          "-",
-          "toiletForOstomates",
+          "∟-",
+          "∟toiletForOstomates",
           "Boolean",
           "1",
           "オストメイト対応トイレ有り"
         ],
         [
-          "-",
-          "remarks",
+          "∟-",
+          "∟remarks",
           "Text",
           "1",
           "その他アクセシビリティ事項"
         ],
         [
-          "-",
-          "priorityParking",
+          "∟-",
+          "∟priorityParking",
           "Boolean",
           "1",
           "優先駐車場有り"
         ],
         [
-          "-",
-          "publicPhoneForWheelchairUsers",
+          "∟-",
+          "∟publicPhoneForWheelchairUsers",
           "Boolean",
           "1",
           "車椅子対応公衆電話有り"
         ],
         [
-          "-",
-          "barrierFreeFloor",
+          "∟-",
+          "∟barrierFreeFloor",
           "Boolean",
           "1",
           "段差無し"
         ],
         [
-          "-",
-          "handrail",
+          "∟-",
+          "∟handrail",
           "Boolean",
           "1",
           "手すり有り"
         ],
         [
-          "-",
-          "automaticDoor",
+          "∟-",
+          "∟automaticDoor",
           "Boolean",
           "1",
           "自動ドア有り"

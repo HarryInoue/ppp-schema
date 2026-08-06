@@ -6,6 +6,7 @@
   "$defs": {
     "Accessibility": {
       "type": "object",
+      "x-suggested-name": "accessibility",
       "properties": {
         "type": { "const": "Accessibility" },
         "value": {

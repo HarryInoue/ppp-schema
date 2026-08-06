@@ -15,14 +15,14 @@
           "identificationType",
           "Text",
           "1",
-          ""
+          "IDの種別を登録します。列挙型項目であり、用語の定義は「[識別子種別(IdentificationType)](https://ppp-database.org/spec/enum/IdentificationType/)」を参照してください。"
         ],
         [
           "ID",
           "identification",
           "Text",
           "1",
-          ""
+          "IDを登録します。文字列に含まれる文字は、全てASCIIです。"
         ]
       ]
     }

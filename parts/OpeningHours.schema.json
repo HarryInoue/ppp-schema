@@ -6,11 +6,13 @@
   "$defs": {
     "OpeningHoursValue": {
       "type": "array",
+      "x-suggested-name": "openingHours",
       "items": { "type": "string" },
       "description": "曜日ごとの開館閉館時刻を表す文字列のリスト。各要素は\"<曜日> <開始時刻>-<終了時刻>\"形式(例: \"Mo-Fr 09:00-17:00\")。曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字、カンマ区切りやハイフンでの範囲指定も可"
     },
     "OpeningHours": {
       "type": "object",
+      "x-suggested-name": "openingHours",
       "properties": {
         "type": { "const": "OpeningHours" },
         "value": { "$ref": "#/$defs/OpeningHoursValue" }

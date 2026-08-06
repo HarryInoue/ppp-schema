@@ -22,7 +22,16 @@ $defが{"properties":{"type":{"const":...},"value":{...}}}という
 NGSIラッパー形式の場合はvalueの中身を展開し、ラッパーを持たない
 プレーンなオブジェクト形式($refで他の$defから参照される断片、例:
 Threshold/MeasurementStep等)の場合はそのproperties直下を展開する。
-どちらの場合も、各トップレベル属性は常にフル行(5列)として出力し、
+
+$defが`x-suggested-name`(カスタムキーワード)を持つ場合、valueまたは
+def自体(集団項目/Array、あるいはObject)を表す代表行を1行出力してから
+子孫を展開する(データモデル表のStructuredValue属性と同じ見せ方。
+属性名はモデル側が決めるため$def自体には存在しないので、x-suggested-name
+で代表的な名前を明示する。例: ContactPoint→"contactPoint")。
+`x-suggested-name`を持たない$def(Threshold/MeasurementStep/
+IdentificationItem等、oneOf分岐やarray要素として使われるだけの断片)は
+代表行を作らず、properties直下を直接トップレベル行として展開する。
+どちらの場合も、各トップレベル行は常にフル行(5列)として出力し、
 入れ子の子孫はgenerate_docs.pyのrender_field()を再利用して展開する
 (子孫のrowspan判定は既存ロジックのまま)。
 """
@@ -73,6 +82,7 @@ def render_part_field(name: str, schema: dict) -> list:
 
 def build_def_table(def_schema: dict) -> dict:
     def_schema = merge_allof(def_schema)
+    suggested_name = def_schema.get("x-suggested-name")
     props = def_schema.get("properties")
 
     if props and "type" in props and "value" in props:
@@ -83,11 +93,15 @@ def build_def_table(def_schema: dict) -> dict:
         # または中身の無いbareな値スキーマ(例: OpeningHoursValue)
         value_schema = def_schema
 
-    _, _, children = analyze_nested(value_schema)
-
-    rows = []
-    for name, schema in children:
-        rows.extend(render_part_field(name, schema))
+    if suggested_name:
+        # 集団項目(Array)やObject全体を表す代表行を1行出力してから子孫を展開する
+        rows = render_part_field(suggested_name, value_schema)
+    else:
+        # 代表名を持たない断片は、properties直下を直接トップレベル行として展開する
+        _, _, children = analyze_nested(value_schema)
+        rows = []
+        for name, schema in children:
+            rows.extend(render_part_field(name, schema))
 
     return {"columns": COLUMNS, "rows": rows}
 

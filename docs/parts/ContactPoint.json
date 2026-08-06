@@ -11,53 +11,60 @@
       ],
       "rows": [
         [
-          "対応言語",
-          "availableLanguage",
-          "Text",
-          "1",
-          ""
-        ],
-        [
-          "連絡先種別",
-          "contactType",
-          "Text",
-          "1",
-          ""
-        ],
-        [
-          "メールアドレス",
-          "email",
-          "Text",
-          "1",
-          ""
-        ],
-        [
-          "電話番号",
-          "telephone",
-          "Array(Text)",
+          "-",
+          "contactPoint",
+          "Array(Object)",
           "*",
           ""
         ],
         [
-          "内線番号",
-          "extension",
+          "∟対応言語",
+          "∟availableLanguage",
           "Text",
           "1",
-          ""
+          "対応できる言語を記述します。IETF BCP 47 standardに従います。日本語では“ja”です。"
         ],
         [
-          "フォーム",
-          "formURL",
+          "∟連絡先種別",
+          "∟contactType",
           "Text",
           "1",
-          ""
+          "連絡の種別を記述します。列挙型項目であり、用語の定義は「[連絡先種別(ContactPointType)](https://ppp-database.org/spec/enum/ContactPointType/)」を参照してください。"
         ],
         [
-          "FAX",
-          "faxNumber",
+          "∟メールアドレス",
+          "∟email",
           "Text",
           "1",
-          ""
+          "連絡先メールアドレスです。"
+        ],
+        [
+          "∟電話番号",
+          "∟telephone",
+          "Array(Text)",
+          "*",
+          "電話番号または携帯電話番号です。記述は特定のフォーマットに従います。"
+        ],
+        [
+          "∟内線番号",
+          "∟extension",
+          "Text",
+          "1",
+          "内線番号です。"
+        ],
+        [
+          "∟フォーム",
+          "∟formURL",
+          "Text",
+          "1",
+          "連絡先がWebフォームの場合のURLです。"
+        ],
+        [
+          "∟FAX",
+          "∟faxNumber",
+          "Text",
+          "1",
+          "ファックスの電話番号です。介護サービス事業所一覧および医療機関一覧のために追加しました。"
         ]
       ]
     }
