@@ -22,7 +22,7 @@
           "identification",
           "Text",
           "1",
-          "IDを登録します。文字列に含まれる文字は、全てASCIIです。"
+          "IDを登録します。文字列に含まれる文字は、全てASCIIです([GIF](https://ppp-database.org/howtouse/terms-g/#gif)では半角英数字と表現しています)。"
         ]
       ]
     }

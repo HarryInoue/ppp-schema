@@ -38,7 +38,7 @@
                   "identification": {
                     "title": "ID",
                     "type": "string",
-                    "description": "IDを登録します。文字列に含まれる文字は、全てASCIIです。"
+                    "description": "IDを登録します。文字列に含まれる文字は、全てASCIIです([GIF](https://ppp-database.org/howtouse/terms-g/#gif)では半角英数字と表現しています)。"
                   }
                 },
                 "required": [
@@ -529,7 +529,7 @@
                 "items": {
                   "type": "string"
                 },
-                "description": "電話番号または携帯電話番号です。記述は特定のフォーマットに従います。"
+                "description": "電話番号、携帯電話番号です。電話番号は“+-0123456789”の文字からなる文字列とし、“+”は文字列の先頭のみ許されます。"
               },
               "extension": {
                 "title": "内線番号",
@@ -545,7 +545,7 @@
               "faxNumber": {
                 "title": "FAX",
                 "type": "string",
-                "description": "ファックスの電話番号です。介護サービス事業所一覧および医療機関一覧のために追加しました。"
+                "description": "ファックスの電話番号です。記述はtelephoneと同じ形式とします。推奨データセットの介護サービス事業所一覧および医療機関一覧のために追加しました。"
               }
             }
           }

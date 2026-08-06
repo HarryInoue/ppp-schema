@@ -1015,7 +1015,7 @@
                   "identification": {
                     "title": "ID",
                     "type": "string",
-                    "description": "IDを登録します。文字列に含まれる文字は、全てASCIIです。"
+                    "description": "IDを登録します。文字列に含まれる文字は、全てASCIIです([GIF](https://ppp-database.org/howtouse/terms-g/#gif)では半角英数字と表現しています)。"
                   }
                 },
                 "required": [

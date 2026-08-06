@@ -9,7 +9,7 @@
       "description": "identificationGroup.valueの配列要素の共通構造。identificationTypeのenumはモデルごとに異なるため、利用側でallOfにより追加すること。",
       "properties": {
         "identificationType": { "title": "ID種別", "type": "string", "description": "IDの種別を登録します。列挙型項目であり、用語の定義は「[識別子種別(IdentificationType)](https://ppp-database.org/spec/enum/IdentificationType/)」を参照してください。" },
-        "identification": { "title": "ID", "type": "string", "description": "IDを登録します。文字列に含まれる文字は、全てASCIIです。" }
+        "identification": { "title": "ID", "type": "string", "description": "IDを登録します。文字列に含まれる文字は、全てASCIIです([GIF](https://ppp-database.org/howtouse/terms-g/#gif)では半角英数字と表現しています)。" }
       },
       "required": ["identificationType", "identification"],
       "additionalProperties": false
