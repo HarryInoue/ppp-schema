@@ -123,6 +123,7 @@
                       "type": "string"
                     },
                     "title": "観測対象",
+                    "x-refType": null,
                     "description": "測定対象となる「設備」「備品」「部位」「サンプル」などへのリンクです。"
                   },
                   "observedProperty": {
@@ -136,6 +137,7 @@
                       "type": "string"
                     },
                     "title": "センサID",
+                    "x-refType": null,
                     "description": "利用可能な測定機器、または指定する測定機器へのリンクです。"
                   },
                   "unit": {
@@ -223,6 +225,7 @@
                       "type": "string"
                     },
                     "title": "観測対象",
+                    "x-refType": null,
                     "description": "測定対象となる「設備」「備品」「部位」「サンプル」などへのリンクです。"
                   },
                   "action": {

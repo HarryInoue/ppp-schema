@@ -94,7 +94,7 @@
         [
           "観測対象",
           "refFeatureOfInterest",
-          "Array(Text)",
+          "Array(Relationship)",
           "*",
           "測定対象となる「設備」「備品」「部位」「サンプル」などへのリンクです。"
         ],
@@ -108,7 +108,7 @@
         [
           "センサID",
           "refSensors",
-          "Array(Text)",
+          "Array(Relationship)",
           "*",
           "利用可能な測定機器、または指定する測定機器へのリンクです。"
         ],
@@ -217,7 +217,7 @@
         [
           "観測対象",
           "refFeatureOfInterest",
-          "Array(Text)",
+          "Array(Relationship)",
           "*",
           "測定対象となる「設備」「備品」「部位」「サンプル」などへのリンクです。"
         ],
