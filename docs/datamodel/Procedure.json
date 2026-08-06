@@ -48,7 +48,7 @@
       "steps",
       "Array",
       "*",
-      "「作業指示(ProcedureStep)」を要素とするArrayです。出来る限り実際の手順の順序に合わせて登録する事を推奨します。"
+      "「[作業指示(ProcedureStep)](https://ppp-database.org/spec/parts/ProcedureStep/)」を要素とするArrayです。出来る限り実際の手順の順序に合わせて登録する事を推奨します。"
     ]
   ]
 }
