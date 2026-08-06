@@ -1,0 +1,30 @@
+{
+  "source_file": "IdentificationGroup",
+  "defs": {
+    "IdentificationItem": {
+      "columns": [
+        "呼称",
+        "Attribute name",
+        "type",
+        "回数",
+        "説明"
+      ],
+      "rows": [
+        [
+          "ID種別",
+          "identificationType",
+          "Text",
+          "1",
+          ""
+        ],
+        [
+          "ID",
+          "identification",
+          "Text",
+          "1",
+          ""
+        ]
+      ]
+    }
+  }
+}

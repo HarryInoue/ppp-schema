@@ -1,0 +1,69 @@
+{
+  "source_file": "PriceSpecification",
+  "defs": {
+    "PriceSpecificationValue": {
+      "columns": [
+        "呼称",
+        "Attribute name",
+        "type",
+        "回数",
+        "説明"
+      ],
+      "rows": [
+        [
+          "単位",
+          "unitText",
+          "Text",
+          "1",
+          "測定単位を示す文字列またはテキスト。”1時間あたり料金”などと記載します。"
+        ],
+        [
+          "価格",
+          "price",
+          "Number",
+          "1",
+          "価格を数値で示します"
+        ],
+        [
+          "通貨",
+          "priceCurrency",
+          "Text",
+          "1",
+          "支払い可能な通貨を示します。形式はISO4217です。日本円は”JPY”, 米ドルは”USD”です"
+        ]
+      ]
+    },
+    "PriceSpecification": {
+      "columns": [
+        "呼称",
+        "Attribute name",
+        "type",
+        "回数",
+        "説明"
+      ],
+      "rows": [
+        [
+          "単位",
+          "unitText",
+          "Text",
+          "1",
+          "測定単位を示す文字列またはテキスト。”1時間あたり料金”などと記載します。"
+        ],
+        [
+          "価格",
+          "price",
+          "Number",
+          "1",
+          "価格を数値で示します"
+        ],
+        [
+          "通貨",
+          "priceCurrency",
+          "Text",
+          "1",
+          "支払い可能な通貨を示します。形式はISO4217です。日本円は”JPY”, 米ドルは”USD”です"
+        ]
+      ]
+    }
+  }
+}
