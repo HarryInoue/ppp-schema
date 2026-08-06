@@ -196,6 +196,12 @@ def analyze_nested(schema: dict):
             occurrence = f"*(最大{max_items})" if max_items else "*"
             if items.get("type") == "object" and "properties" in items:
                 return "Array(Object)", occurrence, list(items["properties"].items())
+            if "x-refType" in items:
+                # ラッパー無しの裸フィールド(NGSI type/valueを持たない)でも、
+                # x-refTypeキーの有無でRelationshipかどうかを判定する。値が
+                # null(13モデル外への参照)でもキー自体はRelationshipである
+                # ことを示すため、値の真偽ではなくキーの存在で判定すること。
+                return "Array(Relationship)", occurrence, []
             item_type = display_json_type(items.get("type", ""))
             disp = f"Array({item_type})" if item_type else "Array"
             return disp, occurrence, []
@@ -204,6 +210,10 @@ def analyze_nested(schema: dict):
 
     if json_type == "object" and "properties" in schema:
         return "Object", "1", list(schema["properties"].items())
+
+    if "x-refType" in schema:
+        # 配列と同様、ラッパー無しの単体フィールドについても同じ判定を行う
+        return "Relationship", "1", []
 
     return display_json_type(json_type), "1", []
 

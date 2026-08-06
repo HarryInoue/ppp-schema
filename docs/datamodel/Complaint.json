@@ -204,7 +204,7 @@
     [
       "∟部位ID",
       "∟refComponent",
-      "Text",
+      "Relationship",
       "1",
       "不具合を発生した「[部位(BuildingComponent)](https://ppp-database.org/spec/datamodel/BuildingComponent/)」または「[設備(Device)](https://ppp-database.org/spec/datamodel/Device/)」に対するリンクです。「部位(BuildingComponent)」が登録されていない場合は省略して構わない"
     ],
