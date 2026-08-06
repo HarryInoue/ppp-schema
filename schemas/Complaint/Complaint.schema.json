@@ -88,7 +88,14 @@
       "description": "この情報の提供元に関するurl等を格納します。"
     },
     "status": {
-      "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
+      "allOf": [
+        { "$ref": "../CommonParts.schema.json#/$defs/TextAttribute" },
+        {
+          "properties": {
+            "value": { "$ref": "../../enums/ComplaintStatus.schema.json#/$defs/ComplaintStatusEnum" }
+          }
+        }
+      ],
       "title": "ステータス",
       "description": "活動状況を登録します。“処置中”、“完了”などです。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください"
     },

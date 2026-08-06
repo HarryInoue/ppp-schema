@@ -491,22 +491,38 @@
       "additionalProperties": false
     },
     "status": {
-      "title": "ステータス",
-      "description": "活動状況を登録します。“処置中”、“完了”などです。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください",
-      "type": "object",
-      "required": [
-        "type",
-        "value"
-      ],
-      "properties": {
-        "type": {
-          "const": "Text"
+      "allOf": [
+        {
+          "type": "object",
+          "required": [
+            "type",
+            "value"
+          ],
+          "properties": {
+            "type": {
+              "const": "Text"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
-        "value": {
-          "type": "string"
+        {
+          "properties": {
+            "value": {
+              "type": "string",
+              "x-enumDescription": "この属性は列挙型項目ではなく、値に制約は設けない。以下のx-enumDescriptionsは代表的な用語の定義であり、必要に応じて他の用語も使用できる。",
+              "x-enumDescriptions": {
+                "完了": "以下の状況である事を示します。どの状況であっても、オーナーの承認が得られている必要があります。\n・修繕が完了し、修繕の完了をオーナーが承認された\n・不具合が見つからなかった。つまり、「案件(Complaint)」の「現象(phenomenon)」が“良好”である\n・修繕を行わない事が承認された\n・今後の作業や承認条件が決まらない事が承認された。例えば、完了条件や完了判断時期などが無い“経過観察”など",
+                "(その他)": "“完了”以外の状況である事を示します。つまり、何らかの作業や判断が残っている状況である事を示しています。"
+              }
+            }
+          }
         }
-      },
-      "additionalProperties": false
+      ],
+      "title": "ステータス",
+      "description": "活動状況を登録します。“処置中”、“完了”などです。列挙型項目でありませんが、一部の用語を定義しています。用語の定義は「[案件ステータス(ComplaintStatus)](https://ppp-database.org/spec/enum/complaintstatus/)」を参照してください"
     },
     "timestamps": {
       "type": "object",
