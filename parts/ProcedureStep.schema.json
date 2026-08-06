@@ -51,7 +51,8 @@
       "properties": {
         "stepType": {
           "const": "measurement",
-          "description": "“measurement”の固定値です"
+          "title": "作業タイプ",
+          "description": "“measurement”の固定値です。作業タイプが「測定(measurement)」である事を示します。"
         },
         "name": {
           "type": "string",
@@ -84,8 +85,8 @@
           "type": "array",
           "items": { "type": "string" },
           "title": "センサID",
-          "x-refType": null,
-          "description": "利用可能な測定機器、または指定する測定機器へのリンクです。"
+          "description": "利用可能な測定機器、または指定する測定機器へのリンクです。",
+          "x-refType": null
         },
         "unit": {
           "type": "string",
@@ -111,7 +112,8 @@
       "properties": {
         "stepType": {
           "const": "check",
-          "description": "“check”の固定値です"
+          "title": "作業タイプ",
+          "description": "“check”の固定値です。作業タイプが「確認(check)」である事を示します。"
         },
         "name": {
           "type": "string",
@@ -132,8 +134,8 @@
           "type": "array",
           "items": { "type": "string" },
           "title": "観測対象",
-          "x-refType": null,
-          "description": "測定対象となる「設備」「備品」「部位」「サンプル」などへのリンクです。"
+          "description": "測定対象となる「設備」「備品」「部位」「サンプル」などへのリンクです。",
+          "x-refType": null
         },
         "action": {
           "type": "string",
@@ -159,7 +161,8 @@
       "properties": {
         "stepType": {
           "const": "sample",
-          "description": "“sample”の固定値です"
+          "title": "作業タイプ",
+          "description": "“sample”の固定値です。作業タイプが「サンプル採取(sample)」である事を示します。"
         },
         "name": {
           "type": "string",
@@ -179,7 +182,8 @@
         "sampleSource": {
           "type": "string",
           "title": "採取源",
-          "description": "採取の対象となる「設備」「備品」「部位」「ロット」等へのリンクです。設備、備品、部位については共通データ仕様で定義されているデータモデルのidを格納します。"
+          "description": "採取の対象となる「設備」「備品」「部位」「ロット」等へのリンクです。設備、備品、部位については共通データ仕様で定義されているデータモデルのidを格納します。",
+          "x-refType": null
         },
         "sampleTarget": {
           "type": "string",
