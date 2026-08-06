@@ -6,7 +6,7 @@
     "id": {
       "type": "string",
       "title": "統計ID",
-      "description": "NGSI-LDの仕様に合わせ、次の形式の識別子とする。“urn:ngsi-ld:FacilityStatistics:”<一意となる文字列>。一意となる文字列は何でもよいが、重複しない様にルールを定める必要がある"
+      "description": "この項目はNGSI V2仕様における[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)ですので、一旦割り当てた案件IDは変更する事はできません。NGSI-LDの仕様に合わせ、次の形式の識別子とします。\n　“urn:ngsi-ld:FacilityStatistics:”<一意となる文字列>\n一意となる文字列は何でも構いませんが、重複しない様にルールを定める必要があります"
     },
     "type": {
       "const": "FacilityStatistics",
