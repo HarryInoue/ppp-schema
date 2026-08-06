@@ -1,0 +1,129 @@
+{
+  "source_file": "ObservationResult",
+  "defs": {
+    "MeasurementResult": {
+      "columns": [
+        "呼称",
+        "Attribute name",
+        "type",
+        "回数",
+        "説明"
+      ],
+      "rows": [
+        [
+          "観測特性",
+          "observedProperty",
+          "Text",
+          "1",
+          "作業が測定であった時、実際に測定した属性。温度、湿度、圧力など。列挙型項目であり、用語の定義は「[制御対象(ControlledProperty)](https://ppp-database.org/spec/enum/ControlledProperty/)」を参照して下さい。"
+        ],
+        [
+          "測定値",
+          "value",
+          "Text / Number / Boolean / array / object",
+          "1",
+          "作業が測定であった時、測定値。値は数値とは限りません。"
+        ],
+        [
+          "単位",
+          "unit",
+          "Text",
+          "1",
+          "測定値の単位です。単位は基本的にJIS Z 8000に従う必要があります。業界標準などの単位を採用する場合でも、JISに機械的に変換できることが望ましいです。"
+        ],
+        [
+          "精度",
+          "precision",
+          "Number",
+          "1",
+          "測定値の精度です。"
+        ],
+        [
+          "逸脱閾値名",
+          "thresholdBreached",
+          "Text",
+          "1",
+          "逸脱した閾値。最も重篤な閾値名を記述する。但し、逸脱していなくても記述して明示的に“閾値内”を設定しても構いません。"
+        ],
+        [
+          "処置",
+          "actionTaken",
+          "Text",
+          "1",
+          "実際に行った処置を記述します。例えば、閾値を逸脱した場合に実施した処置などです。"
+        ],
+        [
+          "補足",
+          "notes",
+          "Text",
+          "1",
+          "補足です。"
+        ]
+      ]
+    },
+    "CheckResult": {
+      "columns": [
+        "呼称",
+        "Attribute name",
+        "type",
+        "回数",
+        "説明"
+      ],
+      "rows": [
+        [
+          "観測状態",
+          "observedState",
+          "Text",
+          "1",
+          "「期待状態(expectedState)」に対し実際に確認した状態です。"
+        ],
+        [
+          "一致",
+          "match",
+          "Boolean",
+          "1",
+          "期待状態と観測状態が一致している場合にはtrue、一致しない場合はfalseを登録します。"
+        ],
+        [
+          "処置",
+          "actionTaken",
+          "Text",
+          "1",
+          "実際に行った処置を記述します。例えば、期待値と異なっていた場合に実施した処置などです。"
+        ],
+        [
+          "補足",
+          "notes",
+          "Text",
+          "1",
+          "補足です。"
+        ]
+      ]
+    },
+    "SampleResult": {
+      "columns": [
+        "呼称",
+        "Attribute name",
+        "type",
+        "回数",
+        "説明"
+      ],
+      "rows": [
+        [
+          "サンプルID",
+          "sampleId",
+          "Array(Text)",
+          "*",
+          "採取したサンプルを識別する識別子です。この識別子は共通データ仕様では定義しません。運用毎に定義する必要があります。"
+        ],
+        [
+          "補足",
+          "notes",
+          "Text",
+          "1",
+          "補足です。"
+        ]
+      ]
+    }
+  }
+}
