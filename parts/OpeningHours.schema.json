@@ -2,20 +2,24 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://ppp-database.org/spec/parts/OpeningHours.schema.json",
   "title": "OpeningHours",
-  "description": "開館時間を表すデータパーツ。https://ppp-database.org/spec/parts/OpeningHours/ 参照。OpeningHoursValueはvalueのみ(他の部品にネストする場合に使用)、OpeningHoursはtype+value丸ごと(トップレベル属性として使う場合に使用)。",
+  "description": "開館時間を表すデータパーツ。https://ppp-database.org/spec/parts/OpeningHours/ 参照。OpeningHoursValueは配列要素1件分の文字列形式、OpeningHoursはtype+value丸ごと(トップレベル属性として使う場合に使用)。",
   "$defs": {
     "OpeningHoursValue": {
-      "type": "array",
-      "x-suggested-name": "openingHours",
-      "items": { "type": "string" },
-      "description": "サービスを提供する時間帯を表す文字列のリストです。各要素は“<曜日> <開始時刻>-<終了時刻>”の形式で表現します(例: “Mo-Fr 09:00-17:00”)。曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字で表現し、カンマ区切りで複数の曜日を並べたり、連続する曜日をハイフンで繋いで範囲指定したりできます。開始時刻・終了時刻はHH:MMの24時間形式で表現します。開始時刻が終了時刻より大きい場合は、夜間を通じて開館していると解釈します。"
+      "type": "string",
+      "x-suggested-name": "openingHour",
+      "description": "各要素は“<曜日> <開始時刻>-<終了時刻>”の形式で表現します(例: “Mo-Fr 09:00-17:00”)。曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字で表現し、カンマ区切りで複数の曜日を並べたり、連続する曜日をハイフンで繋いで範囲指定したりできます。開始時刻・終了時刻はHH:MMの24時間形式で表現します。開始時刻が終了時刻より大きい場合は、夜間を通じて開館していると解釈します。"
     },
     "OpeningHours": {
       "type": "object",
       "x-suggested-name": "openingHours",
       "properties": {
         "type": { "const": "OpeningHours" },
-        "value": { "$ref": "#/$defs/OpeningHoursValue" }
+        "value": {
+          "type": "array",
+          "title": "開館時間",
+          "description": "サービスを提供する時間帯を表す文字列のリストです。",
+          "items": { "$ref": "#/$defs/OpeningHoursValue" }
+        }
       },
       "required": ["type", "value"],
       "additionalProperties": false
