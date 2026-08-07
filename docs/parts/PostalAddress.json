@@ -48,7 +48,7 @@
         [
           "∟郵便番号",
           "∟postalCode",
-          "Text",
+          "[PostalCode](https://ppp-database.org/spec/parts/PostalCode/)",
           "1",
           "日本国内の住所についてはハイフンを使わず、連続した7桁の数字からなる文字列。グローバル標準に合わせて項目を追加"
         ]

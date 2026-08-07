@@ -237,6 +237,7 @@
     },
     "postalCode": {
       "title": "個別郵便番号",
+      "x-partType": "PostalCode",
       "description": "施設が個別郵便番号を有する場合に登録する。このAttributeに登録が無い場合は、リンクを辿ってLandのpostalCodeを参照する",
       "type": "object",
       "required": [
@@ -601,9 +602,10 @@
                 "title": "電話番号",
                 "type": "array",
                 "items": {
-                  "type": "string"
+                  "type": "string",
+                  "x-partType": "Telephone"
                 },
-                "description": "電話番号、携帯電話番号です。電話番号は“+-0123456789”の文字からなる文字列とし、“+”は文字列の先頭のみ許されます。"
+                "description": "電話番号、携帯電話番号です。電話番号は“+-0123456789”の文字からなる文字列とし、“+”は文字列の先頭のみ許されます。詳しくは[データパーツの説明](https://ppp-database.org/spec/parts/telephone/)を参照して下さい。"
               },
               "extension": {
                 "title": "内線番号",

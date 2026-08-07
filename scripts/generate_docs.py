@@ -47,9 +47,23 @@ JSON_TYPE_DISPLAY = {
 
 
 def linkify_type(type_name: str) -> str:
-    """type列の値を、部品ページが存在すれば [text](url) 記法に変換する。"""
+    """type列の値を、PART_LINKSに載っていれば [text](url) 記法に変換する。
+
+    PART_LINKSは手動更新のホワイトリストで、トップレベル属性(NGSIラッパーの
+    "type" const)にのみ適用される。新規追加分はx-partType([[linkify_part]]参照)
+    を使うこと。PART_LINKSは既存の未移行フィールドとの互換性のために残している。
+    """
     url = PART_LINKS.get(type_name)
     return f"[{type_name}]({url})" if url else type_name
+
+
+def linkify_part(name: str) -> str:
+    """x-partTypeで宣言された名前を、/spec/parts/{name}/ への固定パターンリンクに
+    変換する。x-partTypeキーの存在自体が「対応する独自ページが実在する」という
+    スキーマ側の明示的な宣言なので、linkify_type()と異なりホワイトリスト参照は
+    行わない(URLパターンの組み立てのみ生成側の責務とする)。
+    """
+    return f"[{name}](https://ppp-database.org/spec/parts/{name}/)"
 
 
 def display_json_type(json_type) -> str:
@@ -131,6 +145,16 @@ def infer_type_and_occurrence(prop_schema: dict):
         display_type = " / ".join(linkify_type(n) for n in geo_names) if geo_names else ngsi_type
         return display_type, occurrence, None, None
 
+    # x-partTypeはvalue側(NGSIラッパーのvalue直下、例: telephoneのitems)にも、
+    # prop_schema側(title/descriptionと同じ$refの兄弟キーとしての配置、例:
+    # Facility.postalCodeの様に共通$defを$refで参照しつつ属性固有に付与する
+    # ケース)にも置かれうるため、両方をチェックする。
+    part_type = value_schema.get("x-partType") or prop_schema.get("x-partType")
+    if part_type:
+        # 独自ページを持つ構造であることが明示されているため、既にそちらで
+        # 説明済みとみなしサブ構造の展開は行わない(value_schema=None)。
+        return linkify_part(part_type), occurrence, None, None
+
     return linkify_type(ngsi_type), occurrence, value_schema, ngsi_type
 
 
@@ -190,6 +214,15 @@ def analyze_nested(schema: dict):
             children = [(f"[{i}]", item) for i, item in enumerate(items)]
             return "Array", "1", children
 
+        if "x-partType" in schema:
+            # x-partTypeが配列フィールド自身(items内ではなく"type":"array"と
+            # 同階層)に付与されているケース。既にそのページで説明済みのため
+            # サブ構造の展開は行わない(x-refTypeより優先度が高い、より具体的な
+            # シグナルなので先にチェックする)。
+            max_items = schema.get("maxItems")
+            occurrence = f"*(最大{max_items})" if max_items else "*"
+            return f"Array({linkify_part(schema['x-partType'])})", occurrence, []
+
         if "x-refType" in schema:
             # x-refTypeが配列フィールド自身(items内ではなく"type":"array"と
             # 同階層)に付与されているケース。値がnull(13モデル外への参照)
@@ -203,6 +236,10 @@ def analyze_nested(schema: dict):
             items = merge_allof(items)
             max_items = items.get("maxItems")
             occurrence = f"*(最大{max_items})" if max_items else "*"
+            if "x-partType" in items:
+                # x-partTypeがitems側に付与されているケース(同じ判定をここでも行う。
+                # 例: ContactPoint.telephoneのitemsにx-partType: "Telephone")
+                return f"Array({linkify_part(items['x-partType'])})", occurrence, []
             if items.get("type") == "object" and "properties" in items:
                 return "Array(Object)", occurrence, list(items["properties"].items())
             if "x-refType" in items:
@@ -216,6 +253,10 @@ def analyze_nested(schema: dict):
 
     if json_type == "object" and "properties" in schema:
         return "Object", "1", list(schema["properties"].items())
+
+    if "x-partType" in schema:
+        # 配列と同様、ラッパー無しの単体フィールドについても同じ判定を行う
+        return linkify_part(schema["x-partType"]), "1", []
 
     if "x-refType" in schema:
         # 配列と同様、ラッパー無しの単体フィールドについても同じ判定を行う

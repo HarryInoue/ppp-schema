@@ -76,6 +76,7 @@
     "postalCode": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "個別郵便番号",
+      "x-partType": "PostalCode",
       "description": "施設が個別郵便番号を有する場合に登録する。このAttributeに登録が無い場合は、リンクを辿ってLandのpostalCodeを参照する"
     },
     "refBuilding": {
