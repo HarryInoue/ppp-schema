@@ -9,21 +9,38 @@ schemas/CommonParts.schema.json                共通属性($defs)。モデル�
 schemas/{EntityType}/{EntityType}.schema.json  各データモデルのJSON Schema（唯一の原本）
 parts/{PartName}.schema.json                   https://ppp-database.org/spec/parts/{PartName}/ に対応する部品定義
 enums/{EnumName}.schema.json                   https://ppp-database.org/spec/enum/{EnumName}/ に対応する列挙語彙定義（下記「用語集」参照）
-scripts/generate_docs.py                       スキーマから表データ(docs/{EntityType}.json)を生成
-scripts/generate_dist.py                       スキーマから$ref完全展開・自己完結の公開用スキーマ(dist/{EntityType}.schema.json)を生成
-scripts/refresolve.py                          $refのローカル解決ロジック（generate_docs/dist共通）
-docs/{EntityType}.json                         生成された表データ（GitHub Pagesで公開）
-dist/{EntityType}.schema.json                  生成された公開用スキーマ（$refなし、GitHub Pagesで公開）
+
+scripts/generate_docs.py                       データモデルの表データ(docs/table/{EntityType}.json)を生成
+scripts/generate_enum_docs.py                  用語集の表データ(docs/enum/{EnumFileName}.json)を生成
+scripts/generate_parts_docs.py                 データパーツの表データ(docs/parts/{PartFileName}.json)を生成
+scripts/generate_dist.py                       スキーマから$ref完全展開・自己完結の公開用スキーマ(docs/schema/{EntityType}.schema.json)を生成
+scripts/refresolve.py                          $refのローカル解決ロジック（上記4スクリプト共通）
+
+docs/table/{EntityType}.json                   生成された表データ（GitHub Pagesで公開、[ppp-datamodel]ショートコードで使用）
+docs/enum/{EnumFileName}.json                  生成された表データ（1ファイルに複数$defsを含む、[ppp-enum]ショートコードで使用）
+docs/parts/{PartFileName}.json                 生成された表データ（1ファイルに複数$defsを含む、[ppp-parts]ショートコードで使用）
+docs/schema/{EntityType}.schema.json           生成された公開用スキーマ（$refなし、GitHub Pagesで公開）
 ```
+
+GitHub Pagesは`docs/`をルートとして配信しているため（例:
+`https://ppp-database.github.io/ppp-schema/table/Organization.json`）、
+`docs/`配下は全て何らかの形でWeb公開される生成物であり、直接編集しないこと。
 
 ## 表データ・公開用スキーマの生成
 
 ```
 python scripts/generate_docs.py
+python scripts/generate_enum_docs.py
+python scripts/generate_parts_docs.py
 python scripts/generate_dist.py
 ```
 
-`docs/{EntityType}.json` は https://ppp-database.org の各データモデルページにWordPressショートコード経由で埋め込まれる。
+`docs/table/`・`docs/enum/`・`docs/parts/`配下のJSONは https://ppp-database.org
+の各ページにWordPressショートコード([ppp-datamodel]/[ppp-enum]/[ppp-parts])
+経由で埋め込まれる。`docs/enum/`・`docs/parts/`は1つのソースファイル
+(`enums/`・`parts/`配下の1ファイル)に含まれる複数の`$defs`をまとめて1つの
+JSONとして出力し、ショートコード側の`def`パラメータでどの`$def`を表示するか
+選択する。
 
 ## 用語集（enum）
 
