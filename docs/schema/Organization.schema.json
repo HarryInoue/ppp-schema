@@ -431,13 +431,14 @@
       "title": "登記住所",
       "description": "法人の登記上の住所",
       "type": "object",
-      "x-suggested-name": "postalAddress",
+      "x-suggested-name": "address",
       "properties": {
         "type": {
           "const": "PostalAddress"
         },
         "value": {
           "type": "object",
+          "title": "住所",
           "properties": {
             "addressCountry": {
               "title": "国",

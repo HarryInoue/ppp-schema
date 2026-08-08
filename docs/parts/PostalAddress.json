@@ -11,8 +11,8 @@
       ],
       "rows": [
         [
-          "-",
-          "postalAddress",
+          "住所",
+          "address",
           "[PostalAddress](https://ppp-database.org/spec/parts/PostalAddress/)",
           "1",
           ""

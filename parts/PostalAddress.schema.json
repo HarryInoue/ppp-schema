@@ -6,11 +6,12 @@
   "$defs": {
     "PostalAddress": {
       "type": "object",
-      "x-suggested-name": "postalAddress",
+      "x-suggested-name": "address",
       "properties": {
         "type": { "const": "PostalAddress" },
         "value": {
           "type": "object",
+          "title": "住所",
           "properties": {
             "addressCountry": {
               "title": "国",

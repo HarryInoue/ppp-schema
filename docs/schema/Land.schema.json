@@ -176,13 +176,14 @@
       "title": "住所",
       "description": "住所をPostalAddress形式で設定します。郵便番号は、土地に付番された郵便番号を登録するものとし、個別郵便番号は施設のデータモデルである[Facility](https://ppp-database.org/spc/datamodel/Facility)に登録します",
       "type": "object",
-      "x-suggested-name": "postalAddress",
+      "x-suggested-name": "address",
       "properties": {
         "type": {
           "const": "PostalAddress"
         },
         "value": {
           "type": "object",
+          "title": "住所",
           "properties": {
             "addressCountry": {
               "title": "国",
