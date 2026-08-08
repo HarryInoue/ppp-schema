@@ -302,9 +302,9 @@
           "const": "OpeningHours"
         },
         "value": {
-          "type": "array",
           "title": "開館時間",
           "description": "サービスを提供する時間帯を表す文字列のリストです。各要素は曜日、開館時刻、閉館時刻を以下の文字列で表現します。\n　“<曜日>(空白)<開始時刻>-<終了時刻>”\n曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字で表現し、カンマ区切りで複数の曜日を並べたり、連続する曜日をハイフンで繋いで範囲指定したりできます。例えば、“Mo-Fr 09:00-17:00”など。(空白)は半角のブランク文字です。\n開始時刻・終了時刻はHH:MMの24時間形式で表現します。開始時刻が終了時刻より大きい場合は、夜間を通じて開館していると解釈します。",
+          "type": "array",
           "items": {
             "type": "string"
           }
@@ -836,26 +836,10 @@
             },
             "childCareOpeningHours": {
               "description": "対応時間帯。施設等のサービス時間帯と異なる場合にOpeningHoursの形式で登録する",
-              "type": "object",
-              "x-suggested-name": "openingHours",
-              "properties": {
-                "type": {
-                  "const": "OpeningHours"
-                },
-                "value": {
-                  "type": "array",
-                  "title": "開館時間",
-                  "description": "サービスを提供する時間帯を表す文字列のリストです。各要素は曜日、開館時刻、閉館時刻を以下の文字列で表現します。\n　“<曜日>(空白)<開始時刻>-<終了時刻>”\n曜日はMo,Tu,We,Th,Fr,Sa,Suの2文字で表現し、カンマ区切りで複数の曜日を並べたり、連続する曜日をハイフンで繋いで範囲指定したりできます。例えば、“Mo-Fr 09:00-17:00”など。(空白)は半角のブランク文字です。\n開始時刻・終了時刻はHH:MMの24時間形式で表現します。開始時刻が終了時刻より大きい場合は、夜間を通じて開館していると解釈します。",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "required": [
-                "type",
-                "value"
-              ],
-              "additionalProperties": false
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
             },
             "nursery": {
               "type": "boolean",

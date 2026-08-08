@@ -22,7 +22,7 @@
             "minAgeInMonths": { "type": "number", "description": "参加可能月齢" },
             "maxAge": { "type": "number", "description": "参加可能年齢（上限）" },
             "childCareOpeningHours": {
-              "$ref": "OpeningHours.schema.json#/$defs/OpeningHours",
+              "$ref": "OpeningHours.schema.json#/$defs/OpeningHoursValue",
               "description": "対応時間帯。施設等のサービス時間帯と異なる場合にOpeningHoursの形式で登録する"
             },
             "nursery": { "type": "boolean", "description": "授乳室の有無" },

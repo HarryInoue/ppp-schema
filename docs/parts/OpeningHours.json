@@ -1,6 +1,16 @@
 {
   "source_file": "OpeningHours",
   "defs": {
+    "OpeningHoursValue": {
+      "columns": [
+        "呼称",
+        "Attribute name",
+        "type",
+        "回数",
+        "説明"
+      ],
+      "rows": []
+    },
     "OpeningHours": {
       "columns": [
         "呼称",
