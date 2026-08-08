@@ -22,7 +22,7 @@
       "x-suggested-name": "priceSpecification",
       "properties": {
         "type": { "const": "Array" },
-        "value": { "$ref": "#/$defs/PriceSpecificationValue" }
+        "value": { "$ref": "#/$defs/PriceSpecificationValue", "title": "料金表" }
       },
       "required": ["type", "value"],
       "additionalProperties": false
