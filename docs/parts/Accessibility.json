@@ -11,140 +11,140 @@
       ],
       "rows": [
         [
-          "-",
+          "アクセシビリティー",
           "accessibility",
           "[Accessibility](https://ppp-database.org/spec/parts/Accessibility/)",
           "1",
           ""
         ],
         [
-          "∟-",
+          "∟車椅子使用可否",
           "∟wheelchairAccessible",
           "Boolean",
           "1",
           "車椅子の使用可"
         ],
         [
-          "∟-",
+          "∟車椅子貸出",
           "∟wheelchairRental",
           "Boolean",
           "1",
           "車椅子貸出有り"
         ],
         [
-          "∟-",
+          "∟杖貸出",
           "∟caneRental",
           "Boolean",
           "1",
-          "ツエ貸出有り"
+          "杖貸出有り"
         ],
         [
-          "∟-",
+          "∟多目的トイレ",
           "∟multipurposeToilet",
           "Boolean",
           "1",
           "多目的トイレ有り"
         ],
         [
-          "∟-",
+          "∟スロープ",
           "∟ramp",
           "Boolean",
           "1",
           "スロープ有り"
         ],
         [
-          "∟-",
+          "∟エレベータ",
           "∟elevator",
           "Boolean",
           "1",
           "エレベータ有り"
         ],
         [
-          "∟-",
+          "∟エスカレーター",
           "∟escalator",
           "Boolean",
           "1",
           "エスカレーター有り"
         ],
         [
-          "∟-",
+          "∟点字ブロック等の移動支援",
           "∟mobilitySupportForBrailleBlocks",
           "Boolean",
           "1",
           "点字ブロック等の移動支援有り"
         ],
         [
-          "∟-",
+          "∟点字・読み上げ支援",
           "∟brailleAndReadingAssistance",
           "Boolean",
           "1",
           "点字や読上による支援有り"
         ],
         [
-          "∟-",
+          "∟補助犬同伴可否",
           "∟accompaniedByGuideDogsAndServiceDogs",
           "Boolean",
           "1",
           "盲導犬・介助犬・聴導犬などの同伴可"
         ],
         [
-          "∟-",
+          "∟字幕",
           "∟subtitles",
           "Boolean",
           "1",
           "字幕有り"
         ],
         [
-          "∟-",
+          "∟筆談対応",
           "∟writingSupport",
           "Boolean",
           "1",
           "筆談対応有り"
         ],
         [
-          "∟-",
+          "∟オストメイト対応トイレ",
           "∟toiletForOstomates",
           "Boolean",
           "1",
           "オストメイト対応トイレ有り"
         ],
         [
-          "∟-",
+          "∟備考",
           "∟remarks",
           "Text",
           "1",
           "その他アクセシビリティ事項"
         ],
         [
-          "∟-",
+          "∟優先駐車場",
           "∟priorityParking",
           "Boolean",
           "1",
           "優先駐車場有り"
         ],
         [
-          "∟-",
+          "∟車椅子対応公衆電話",
           "∟publicPhoneForWheelchairUsers",
           "Boolean",
           "1",
           "車椅子対応公衆電話有り"
         ],
         [
-          "∟-",
+          "∟バリアフリー床",
           "∟barrierFreeFloor",
           "Boolean",
           "1",
           "段差無し"
         ],
         [
-          "∟-",
+          "∟手すり",
           "∟handrail",
           "Boolean",
           "1",
           "手すり有り"
         ],
         [
-          "∟-",
+          "∟自動ドア",
           "∟automaticDoor",
           "Boolean",
           "1",

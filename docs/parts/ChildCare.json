@@ -11,21 +11,21 @@
       ],
       "rows": [
         [
-          "-",
+          "子育て支援",
           "childCare",
           "[ChildCare](https://ppp-database.org/spec/parts/ChildCare/)",
           "1",
           ""
         ],
         [
-          "∟-",
+          "∟料金種別",
           "∟childCareType",
           "Text",
           "1",
           "料金の種別。列挙型項目。ENUM: \"有償\"、\"無償\""
         ],
         [
-          "∟-",
+          "∟料金",
           "∟childCareFee",
           "Array(StructuredValue)",
           "*",
@@ -53,77 +53,77 @@
           "支払い可能な通貨を示します。形式はISO4217です。日本円は“JPY”, 米ドルは“USD”です"
         ],
         [
-          "∟-",
+          "∟料金備考",
           "∟childCareFeeRemarks",
           "Text",
           "1",
           "料金の備考"
         ],
         [
-          "∟-",
+          "∟参加可能年齢(下限)",
           "∟minAge",
           "Number",
           "1",
           "参加可能年齢（下限）"
         ],
         [
-          "∟-",
+          "∟参加可能月齢",
           "∟minAgeInMonths",
           "Number",
           "1",
           "参加可能月齢"
         ],
         [
-          "∟-",
+          "∟参加可能年齢(上限)",
           "∟maxAge",
           "Number",
           "1",
           "参加可能年齢（上限）"
         ],
         [
-          "∟-",
+          "∟対応時間帯",
           "∟childCareOpeningHours",
           "Array(Text)",
           "*",
           "対応時間帯。施設等のサービス時間帯と異なる場合にOpeningHoursの形式で登録する"
         ],
         [
-          "∟-",
+          "∟授乳室",
           "∟nursery",
           "Boolean",
           "1",
           "授乳室の有無"
         ],
         [
-          "∟-",
+          "∟おむつ替えコーナー",
           "∟diaperChangingCorner",
           "Boolean",
           "1",
           "おむつ替えコーナーの有無"
         ],
         [
-          "∟-",
+          "∟飲食可否",
           "∟foodAndDrinkAvailable",
           "Boolean",
           "1",
           "飲食可否"
         ],
         [
-          "∟-",
+          "∟ベビーカー貸出",
           "∟strollerRental",
           "Boolean",
           "1",
           "ベビーカー貸出の有無"
         ],
         [
-          "∟-",
+          "∟ベビーカー利用",
           "∟strollerUse",
           "Boolean",
           "1",
           "ベビーカー利用の有無"
         ],
         [
-          "∟-",
+          "∟備考",
           "∟remarks",
           "Text",
           "1",

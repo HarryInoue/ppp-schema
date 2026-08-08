@@ -688,80 +688,100 @@
         },
         "value": {
           "type": "object",
+          "title": "アクセシビリティー",
           "properties": {
             "wheelchairAccessible": {
+              "title": "車椅子使用可否",
               "type": "boolean",
               "description": "車椅子の使用可"
             },
             "wheelchairRental": {
+              "title": "車椅子貸出",
               "type": "boolean",
               "description": "車椅子貸出有り"
             },
             "caneRental": {
+              "title": "杖貸出",
               "type": "boolean",
-              "description": "ツエ貸出有り"
+              "description": "杖貸出有り"
             },
             "multipurposeToilet": {
+              "title": "多目的トイレ",
               "type": "boolean",
               "description": "多目的トイレ有り"
             },
             "ramp": {
+              "title": "スロープ",
               "type": "boolean",
               "description": "スロープ有り"
             },
             "elevator": {
+              "title": "エレベータ",
               "type": "boolean",
               "description": "エレベータ有り"
             },
             "escalator": {
+              "title": "エスカレーター",
               "type": "boolean",
               "description": "エスカレーター有り"
             },
             "mobilitySupportForBrailleBlocks": {
+              "title": "点字ブロック等の移動支援",
               "type": "boolean",
               "description": "点字ブロック等の移動支援有り"
             },
             "brailleAndReadingAssistance": {
+              "title": "点字・読み上げ支援",
               "type": "boolean",
               "description": "点字や読上による支援有り"
             },
             "accompaniedByGuideDogsAndServiceDogs": {
+              "title": "補助犬同伴可否",
               "type": "boolean",
               "description": "盲導犬・介助犬・聴導犬などの同伴可"
             },
             "subtitles": {
+              "title": "字幕",
               "type": "boolean",
               "description": "字幕有り"
             },
             "writingSupport": {
+              "title": "筆談対応",
               "type": "boolean",
               "description": "筆談対応有り"
             },
             "toiletForOstomates": {
+              "title": "オストメイト対応トイレ",
               "type": "boolean",
               "description": "オストメイト対応トイレ有り"
             },
             "remarks": {
+              "title": "備考",
               "type": "string",
               "description": "その他アクセシビリティ事項"
             },
             "priorityParking": {
+              "title": "優先駐車場",
               "type": "boolean",
               "description": "優先駐車場有り"
             },
             "publicPhoneForWheelchairUsers": {
+              "title": "車椅子対応公衆電話",
               "type": "boolean",
               "description": "車椅子対応公衆電話有り"
             },
             "barrierFreeFloor": {
+              "title": "バリアフリー床",
               "type": "boolean",
               "description": "段差無し"
             },
             "handrail": {
+              "title": "手すり",
               "type": "boolean",
               "description": "手すり有り"
             },
             "automaticDoor": {
+              "title": "自動ドア",
               "type": "boolean",
               "description": "自動ドア有り"
             }
@@ -785,12 +805,15 @@
         },
         "value": {
           "type": "object",
+          "title": "子育て支援",
           "properties": {
             "childCareType": {
+              "title": "料金種別",
               "type": "string",
               "description": "料金の種別。列挙型項目。ENUM: \"有償\"、\"無償\""
             },
             "childCareFee": {
+              "title": "料金",
               "description": "有料の場合の料金",
               "type": "array",
               "x-suggested-name": "priceSpecification",
@@ -819,22 +842,27 @@
               }
             },
             "childCareFeeRemarks": {
+              "title": "料金備考",
               "type": "string",
               "description": "料金の備考"
             },
             "minAge": {
+              "title": "参加可能年齢(下限)",
               "type": "number",
               "description": "参加可能年齢（下限）"
             },
             "minAgeInMonths": {
+              "title": "参加可能月齢",
               "type": "number",
               "description": "参加可能月齢"
             },
             "maxAge": {
+              "title": "参加可能年齢(上限)",
               "type": "number",
               "description": "参加可能年齢（上限）"
             },
             "childCareOpeningHours": {
+              "title": "対応時間帯",
               "description": "対応時間帯。施設等のサービス時間帯と異なる場合にOpeningHoursの形式で登録する",
               "type": "array",
               "items": {
@@ -842,26 +870,32 @@
               }
             },
             "nursery": {
+              "title": "授乳室",
               "type": "boolean",
               "description": "授乳室の有無"
             },
             "diaperChangingCorner": {
+              "title": "おむつ替えコーナー",
               "type": "boolean",
               "description": "おむつ替えコーナーの有無"
             },
             "foodAndDrinkAvailable": {
+              "title": "飲食可否",
               "type": "boolean",
               "description": "飲食可否"
             },
             "strollerRental": {
+              "title": "ベビーカー貸出",
               "type": "boolean",
               "description": "ベビーカー貸出の有無"
             },
             "strollerUse": {
+              "title": "ベビーカー利用",
               "type": "boolean",
               "description": "ベビーカー利用の有無"
             },
             "remarks": {
+              "title": "備考",
               "type": "string",
               "description": "子育て支援情報の備考"
             }

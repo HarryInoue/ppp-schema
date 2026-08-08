@@ -11,26 +11,29 @@
         "type": { "const": "ChildCare" },
         "value": {
           "type": "object",
+          "title": "子育て支援",
           "properties": {
-            "childCareType": { "type": "string", "description": "料金の種別。列挙型項目。ENUM: \"有償\"、\"無償\"" },
+            "childCareType": { "title": "料金種別", "type": "string", "description": "料金の種別。列挙型項目。ENUM: \"有償\"、\"無償\"" },
             "childCareFee": {
+              "title": "料金",
               "$ref": "PriceSpecification.schema.json#/$defs/PriceSpecificationValue",
               "description": "有料の場合の料金"
             },
-            "childCareFeeRemarks": { "type": "string", "description": "料金の備考" },
-            "minAge": { "type": "number", "description": "参加可能年齢（下限）" },
-            "minAgeInMonths": { "type": "number", "description": "参加可能月齢" },
-            "maxAge": { "type": "number", "description": "参加可能年齢（上限）" },
+            "childCareFeeRemarks": { "title": "料金備考", "type": "string", "description": "料金の備考" },
+            "minAge": { "title": "参加可能年齢(下限)", "type": "number", "description": "参加可能年齢（下限）" },
+            "minAgeInMonths": { "title": "参加可能月齢", "type": "number", "description": "参加可能月齢" },
+            "maxAge": { "title": "参加可能年齢(上限)", "type": "number", "description": "参加可能年齢（上限）" },
             "childCareOpeningHours": {
+              "title": "対応時間帯",
               "$ref": "OpeningHours.schema.json#/$defs/OpeningHoursValue",
               "description": "対応時間帯。施設等のサービス時間帯と異なる場合にOpeningHoursの形式で登録する"
             },
-            "nursery": { "type": "boolean", "description": "授乳室の有無" },
-            "diaperChangingCorner": { "type": "boolean", "description": "おむつ替えコーナーの有無" },
-            "foodAndDrinkAvailable": { "type": "boolean", "description": "飲食可否" },
-            "strollerRental": { "type": "boolean", "description": "ベビーカー貸出の有無" },
-            "strollerUse": { "type": "boolean", "description": "ベビーカー利用の有無" },
-            "remarks": { "type": "string", "description": "子育て支援情報の備考" }
+            "nursery": { "title": "授乳室", "type": "boolean", "description": "授乳室の有無" },
+            "diaperChangingCorner": { "title": "おむつ替えコーナー", "type": "boolean", "description": "おむつ替えコーナーの有無" },
+            "foodAndDrinkAvailable": { "title": "飲食可否", "type": "boolean", "description": "飲食可否" },
+            "strollerRental": { "title": "ベビーカー貸出", "type": "boolean", "description": "ベビーカー貸出の有無" },
+            "strollerUse": { "title": "ベビーカー利用", "type": "boolean", "description": "ベビーカー利用の有無" },
+            "remarks": { "title": "備考", "type": "string", "description": "子育て支援情報の備考" }
           }
         }
       },
