@@ -7,7 +7,7 @@
     "PointValue": {
       "type": "object",
       "properties": {
-        "type": { "const": "Point" },
+        "type": { "const": "Point", "description": "必ず“Point”を指定します。" },
         "coordinates": {
           "type": "array",
           "title": "座標値",
@@ -40,7 +40,7 @@
       "x-suggested-name": "location",
       "properties": {
         "type": { "const": "geo:json" },
-        "value": { "$ref": "#/$defs/PointValue" }
+        "value": { "$ref": "#/$defs/PointValue", "title": "座標" }
       },
       "required": ["type", "value"],
       "additionalProperties": false

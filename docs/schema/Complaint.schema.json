@@ -412,10 +412,12 @@
           "const": "geo:json"
         },
         "value": {
+          "title": "座標",
           "type": "object",
           "properties": {
             "type": {
-              "const": "Point"
+              "const": "Point",
+              "description": "必ず“Point”を指定します。"
             },
             "coordinates": {
               "type": "array",

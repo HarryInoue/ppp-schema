@@ -7,7 +7,7 @@
     "PolygonValue": {
       "type": "object",
       "properties": {
-        "type": { "const": "Polygon" },
+        "type": { "const": "Polygon", "description": "必ず“Polygon”を指定します。" },
         "coordinates": {
           "type": "array",
           "title": "座標値",
@@ -50,7 +50,7 @@
       "x-suggested-name": "location",
       "properties": {
         "type": { "const": "geo:json" },
-        "value": { "$ref": "#/$defs/PolygonValue" }
+        "value": { "$ref": "#/$defs/PolygonValue", "title": "座標" }
       },
       "required": ["type", "value"],
       "additionalProperties": false

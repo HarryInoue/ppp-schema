@@ -52,7 +52,7 @@
         [
           "-",
           "priceSpecification",
-          "Array(StructuredValue)",
+          "Array",
           "*",
           ""
         ],

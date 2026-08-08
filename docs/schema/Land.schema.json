@@ -253,10 +253,12 @@
               "const": "geo:json"
             },
             "value": {
+              "title": "座標",
               "type": "object",
               "properties": {
                 "type": {
-                  "const": "Point"
+                  "const": "Point",
+                  "description": "必ず“Point”を指定します。"
                 },
                 "coordinates": {
                   "type": "array",
@@ -303,10 +305,12 @@
               "const": "geo:json"
             },
             "value": {
+              "title": "座標",
               "type": "object",
               "properties": {
                 "type": {
-                  "const": "Polygon"
+                  "const": "Polygon",
+                  "description": "必ず“Polygon”を指定します。"
                 },
                 "coordinates": {
                   "type": "array",

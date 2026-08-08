@@ -13,7 +13,7 @@
         [
           "-",
           "contactPoint",
-          "Array(StructuredValue)",
+          "[ContactPoint](https://ppp-database.org/spec/parts/ContactPoint/)",
           "*",
           ""
         ],

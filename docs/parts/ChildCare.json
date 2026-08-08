@@ -13,7 +13,7 @@
         [
           "-",
           "childCare",
-          "StructuredValue",
+          "[ChildCare](https://ppp-database.org/spec/parts/ChildCare/)",
           "1",
           ""
         ],

@@ -43,6 +43,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_docs import (
     COLUMNS,
     analyze_nested,
+    linkify_type,
     merge_allof,
     render_field,
 )
@@ -53,17 +54,26 @@ PARTS_DIR = REPO_ROOT / "parts"
 DOCS_DIR = REPO_ROOT / "docs" / "parts"
 
 
-def render_part_field(name: str, schema: dict) -> list:
+def render_part_field(name: str, schema: dict, type_override: str = None) -> list:
     """パーツ$defのトップレベル属性1件を、常にフル行(5列)として出力する。
 
     データモデル表のbuild_table()と同様、トップレベル行は自身の説明が
     空でも常に5列で出す(WordPress側のrowspan計算が「フル行」として
     認識するため)。子孫の展開はrender_field()を再利用する(子孫自身が
     説明を持つかどうかによるrowspan制御はそちらの既存ロジックに委ねる)。
+
+    type_overrideが指定された場合(NGSIラッパー自身のtype const、例:
+    "geo:json"や"ContactPoint")、valueの形状から推測した型表示ではなく
+    その値をそのまま型列に使う。NGSI Normalized形式で必須・keyValues形式
+    で省略される「属性直下のtype」は型列に表示し、value内部のサブ属性
+    (名前がたまたま"type"であっても)は他のサブ属性と同列に行として
+    展開する、という使い分けに基づく。
     """
     title = schema.get("title", "") or "-"
     description = schema.get("description", "")
     disp_type, occurrence, children = analyze_nested(schema)
+    if type_override:
+        disp_type = linkify_type(type_override)
 
     rows = [[title, name, disp_type, occurrence, description]]
     for child_name, child_schema in children:
@@ -77,16 +87,19 @@ def build_def_table(def_schema: dict) -> dict:
     props = def_schema.get("properties")
 
     if props and "type" in props and "value" in props:
-        # NGSIラッパー形式: type(const)は表示せず、valueの中身を展開する
+        # NGSIラッパー形式: valueの中身を展開しつつ、type(const)は代表行の
+        # 型列にそのまま使う(下記type_override)
         value_schema = merge_allof(props["value"])
+        wrapper_type_const = props["type"].get("const")
     else:
         # ラッパーを持たないプレーンなオブジェクト($refでのみ参照される断片)
         # または中身の無いbareな値スキーマ(例: OpeningHoursValue)
         value_schema = def_schema
+        wrapper_type_const = None
 
     if suggested_name:
         # 集団項目(Array)やObject全体を表す代表行を1行出力してから子孫を展開する
-        rows = render_part_field(suggested_name, value_schema)
+        rows = render_part_field(suggested_name, value_schema, type_override=wrapper_type_const)
     else:
         # 代表名を持たない断片は、properties直下を直接トップレベル行として展開する
         _, _, children = analyze_nested(value_schema)
