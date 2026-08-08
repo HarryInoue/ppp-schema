@@ -277,11 +277,12 @@ def analyze_nested(schema: dict):
         return "Relationship", "1", []
 
     if json_type is None and "const" in schema:
-        # 例: {"const": "geo:json"}、{"const": "Point"}、stepType:
-        # {"const": "measurement"}等、typeキーを持たずconstのみで値を固定する
-        # フィールド。明示された値そのものを型列に表示する(genericな
-        # "Text"表示にすると、そのconstが何を意味するかが失われるため)。
-        return str(schema["const"]), "1", []
+        # stepType等、typeキーを持たずconstのみのフィールド。NGSI上、
+        # サブ属性自体にtypeを明示する仕組みは無く、たまたま"type"という
+        # 名前のサブ属性であっても(例: GeoJSONのPoint/Polygon判別子)値の
+        # 実体はstringに過ぎないため、constの値ではなくJSON型を逆算して
+        # 表示する(値そのものはdescription側で説明する)。
+        return display_json_type(_json_type_of_const(schema["const"])), "1", []
 
     return display_json_type(json_type), "1", []
 
