@@ -262,6 +262,12 @@ def analyze_nested(schema: dict):
         # 配列と同様、ラッパー無しの単体フィールドについても同じ判定を行う
         return "Relationship", "1", []
 
+    if json_type is None and "const" in schema:
+        # stepType等、typeキーを持たずconstのみのフィールド(NGSIラッパーの
+        # "type"属性とは別物で、モデル固有の判別用フィールド)。constの値から
+        # JSON型を逆算して表示する。
+        return display_json_type(_json_type_of_const(schema["const"])), "1", []
+
     return display_json_type(json_type), "1", []
 
 

@@ -42,9 +42,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from generate_docs import (
     COLUMNS,
-    _json_type_of_const,
     analyze_nested,
-    display_json_type,
     merge_allof,
     render_field,
 )
@@ -65,14 +63,7 @@ def render_part_field(name: str, schema: dict) -> list:
     """
     title = schema.get("title", "") or "-"
     description = schema.get("description", "")
-
-    if "type" not in schema and "const" in schema:
-        # stepType等、typeを持たずconstのみのフィールド(NGSIラッパーの
-        # "type"属性とは別物で、モデル固有の判別用フィールド)
-        disp_type = display_json_type(_json_type_of_const(schema["const"]))
-        occurrence, children = "1", []
-    else:
-        disp_type, occurrence, children = analyze_nested(schema)
+    disp_type, occurrence, children = analyze_nested(schema)
 
     rows = [[title, name, disp_type, occurrence, description]]
     for child_name, child_schema in children:
