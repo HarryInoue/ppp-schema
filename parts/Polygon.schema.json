@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/parts/Polygon.schema.json",
+  "title": "Polygon",
+  "description": "座標(多角形)を表すデータパーツ。https://ppp-database.org/spec/parts/Polygon/ 参照。PolygonValueはvalueのみ(他の部品にネストする場合に使用)、Polygonはtype+value丸ごと(トップレベル属性として使う場合に使用)。属性名は各モデル側で決め、title/descriptionも利用側で$refの兄弟キーとして指定する。",
+  "$defs": {
+    "PolygonValue": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "Polygon" },
+        "coordinates": {
+          "type": "array",
+          "title": "座標値",
+          "description": "多角形を構成する外周(および内部の穴)を表すリングのリストです。",
+          "items": {
+            "type": "array",
+            "title": "リング",
+            "description": "面を囲む多角形の頂点をリスト形式で登録します。このArrayは順番が意味を持つ順序付きリストであり、多角形の隣り合う頂点の順番に記述します。最初の頂点と最後の頂点の座標は一致する必要があります。従って、最も頂点が少ない三角形の土地でも、4つの要素から構成されます。",
+            "minItems": 4,
+            "items": {
+              "type": "array",
+              "title": "頂点",
+              "items": [
+                {
+                  "type": "number",
+                  "title": "経度",
+                  "description": "経度を基本的に小数点以下6桁で記載します。西経はマイナスの値で表示します。度・分・秒などの他の表現形式は使えません。必要であれば、入力時や表示時に処理系で変換します。"
+                },
+                {
+                  "type": "number",
+                  "title": "緯度",
+                  "description": "緯度を基本的に小数点以下6桁で記載します。南緯はマイナスの値で表示します。度・分・秒などの他の表現形式は使えません。必要であれば、入力時や表示時に処理系で変換します。"
+                },
+                {
+                  "type": "number",
+                  "title": "高度",
+                  "description": "高度をメートル単位で記載します。"
+                }
+              ],
+              "minItems": 2,
+              "maxItems": 3
+            }
+          }
+        }
+      },
+      "required": ["type", "coordinates"]
+    },
+    "Polygon": {
+      "type": "object",
+      "x-suggested-name": "location",
+      "properties": {
+        "type": { "const": "geo:json" },
+        "value": { "$ref": "#/$defs/PolygonValue" }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
+    }
+  }
+}

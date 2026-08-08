@@ -116,7 +116,10 @@
       "description": "土地の敷地面積(㎡)。公共施設の土地では必須です(施設カルテ等で使用します)"
     },
     "location": {
-      "$ref": "../CommonParts.schema.json#/$defs/GeoJsonPointOrPolygon",
+      "oneOf": [
+        { "$ref": "../../parts/Point.schema.json#/$defs/Point" },
+        { "$ref": "../../parts/Polygon.schema.json#/$defs/Polygon" }
+      ],
       "title": "座標",
       "description": "土地の座標点を登録します (注1)。代表点などの点の座標を登録する場合はPoint形式で、多角形で土地の形状を登録する場合はPolygon形式で登録します"
     },

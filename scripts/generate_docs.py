@@ -234,7 +234,11 @@ def analyze_nested(schema: dict):
 
         if isinstance(items, dict):
             items = merge_allof(items)
-            max_items = items.get("maxItems")
+            # 回数(occurrence)は「この配列自身」の要素数上限を示すべきなので、
+            # schema自身のmaxItemsを見る(itemsのmaxItemsは入れ子側の制約であり別物。
+            # 例: Polygon.coordinates→リング→頂点で、頂点自身のmaxItems:3が
+            # リングの要素数だと誤認識されるバグがあった)
+            max_items = schema.get("maxItems")
             occurrence = f"*(最大{max_items})" if max_items else "*"
             if "x-partType" in items:
                 # x-partTypeがitems側に付与されているケース(同じ判定をここでも行う。
@@ -248,6 +252,12 @@ def analyze_nested(schema: dict):
             if "x-refType" in items:
                 # x-refTypeがitems側に付与されているケース(同じ判定をここでも行う)
                 return "Array(Relationship)", occurrence, []
+            if items.get("type") == "array":
+                # 配列の配列(例: Polygon.coordinatesのリング)。各要素は均質な
+                # ので、tuple形式と同じ命名規則で"[i]"という1件の代表子を返し、
+                # itemsスキーマ自身(タイトル・説明・入れ子構造込み)をそのまま
+                # 子として展開する(render_field()が再帰的にさらに展開する)。
+                return "Array", occurrence, [("[i]", items)]
             item_type = display_json_type(items.get("type", ""))
             disp = f"Array({item_type})" if item_type else "Array"
             return disp, occurrence, []

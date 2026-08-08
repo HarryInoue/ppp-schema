@@ -188,67 +188,6 @@
       "additionalProperties": false
     },
 
-    "GeoJsonPointOrPolygon": {
-      "type": "object",
-      "required": ["type", "value"],
-      "properties": {
-        "type": { "const": "geo:json" },
-        "value": {
-          "oneOf": [
-            {
-              "type": "object",
-              "properties": {
-                "type": { "const": "Point" },
-                "coordinates": {
-                  "type": "array",
-                  "items": { "type": "number", "minItems": 2, "maxItems": 3 }
-                }
-              },
-              "required": ["type", "coordinates"]
-            },
-            {
-              "type": "object",
-              "properties": {
-                "type": { "const": "Polygon" },
-                "coordinates": {
-                  "type": "array",
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "array",
-                      "items": { "type": "number", "minItems": 2, "maxItems": 3 }
-                    }
-                  }
-                }
-              },
-              "required": ["type", "coordinates"]
-            }
-          ]
-        }
-      },
-      "additionalProperties": false
-    },
-
-    "GeoJsonPoint": {
-      "type": "object",
-      "required": ["type", "value"],
-      "properties": {
-        "type": { "const": "geo:json" },
-        "value": {
-          "type": "object",
-          "properties": {
-            "type": { "const": "Point" },
-            "coordinates": {
-              "type": "array",
-              "items": { "type": "number" }
-            }
-          },
-          "required": ["type", "coordinates"]
-        }
-      },
-      "additionalProperties": false
-    },
-
     "RelationshipAttributeReport": {
       "type": "object",
       "required": ["type", "value"],

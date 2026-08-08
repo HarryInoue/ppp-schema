@@ -406,10 +406,7 @@
       "title": "座標",
       "description": "不具合の発生個所を座標で示します。例えば、道路の陥没、河川の汚染、街角の異臭などの広い範囲で場所を特定することを想定しています。施設管理の局面で必要性は低いと考えます。",
       "type": "object",
-      "required": [
-        "type",
-        "value"
-      ],
+      "x-suggested-name": "location",
       "properties": {
         "type": {
           "const": "geo:json"
@@ -422,9 +419,27 @@
             },
             "coordinates": {
               "type": "array",
-              "items": {
-                "type": "number"
-              }
+              "title": "座標値",
+              "description": "値が2個または3個のNumberのリストです。以下の順序でそれぞれの値を設定します。",
+              "items": [
+                {
+                  "type": "number",
+                  "title": "経度",
+                  "description": "基本的に経度を小数点以下6桁で記載します。西経はマイナスの値で表示します。度・分・秒などの他の表現形式は使えません。必要であれば、入力時や表示時に処理系で変換します。"
+                },
+                {
+                  "type": "number",
+                  "title": "緯度",
+                  "description": "基本的に緯度を小数点以下6桁で記載します。南緯はマイナスの値で表示します。度・分・秒などの他の表現形式は使えません。必要であれば、入力時や表示時に処理系で変換します。"
+                },
+                {
+                  "type": "number",
+                  "title": "高度",
+                  "description": "高度をメートル単位で記載します。"
+                }
+              ],
+              "minItems": 2,
+              "maxItems": 3
             }
           },
           "required": [
@@ -433,6 +448,10 @@
           ]
         }
       },
+      "required": [
+        "type",
+        "value"
+      ],
       "additionalProperties": false
     },
     "name": {

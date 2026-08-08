@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://ppp-database.org/spec/parts/Point.schema.json",
+  "title": "Point",
+  "description": "座標(点)を表すデータパーツ。https://ppp-database.org/spec/parts/Point/ 参照。PointValueはvalueのみ(他の部品にネストする場合に使用)、Pointはtype+value丸ごと(トップレベル属性として使う場合に使用)。属性名は各モデル側で決め、title/descriptionも利用側で$refの兄弟キーとして指定する。",
+  "$defs": {
+    "PointValue": {
+      "type": "object",
+      "properties": {
+        "type": { "const": "Point" },
+        "coordinates": {
+          "type": "array",
+          "title": "座標値",
+          "description": "値が2個または3個のNumberのリストです。以下の順序でそれぞれの値を設定します。",
+          "items": [
+            {
+              "type": "number",
+              "title": "経度",
+              "description": "基本的に経度を小数点以下6桁で記載します。西経はマイナスの値で表示します。度・分・秒などの他の表現形式は使えません。必要であれば、入力時や表示時に処理系で変換します。"
+            },
+            {
+              "type": "number",
+              "title": "緯度",
+              "description": "基本的に緯度を小数点以下6桁で記載します。南緯はマイナスの値で表示します。度・分・秒などの他の表現形式は使えません。必要であれば、入力時や表示時に処理系で変換します。"
+            },
+            {
+              "type": "number",
+              "title": "高度",
+              "description": "高度をメートル単位で記載します。"
+            }
+          ],
+          "minItems": 2,
+          "maxItems": 3
+        }
+      },
+      "required": ["type", "coordinates"]
+    },
+    "Point": {
+      "type": "object",
+      "x-suggested-name": "location",
+      "properties": {
+        "type": { "const": "geo:json" },
+        "value": { "$ref": "#/$defs/PointValue" }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
+    }
+  }
+}
