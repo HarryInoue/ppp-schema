@@ -13,7 +13,7 @@
         [
           "-",
           "childCare",
-          "Object",
+          "StructuredValue",
           "1",
           ""
         ],
@@ -27,7 +27,7 @@
         [
           "∟-",
           "∟childCareFee",
-          "Array(Object)",
+          "Array(StructuredValue)",
           "*",
           "有料の場合の料金"
         ],

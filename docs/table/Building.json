@@ -305,7 +305,7 @@
     [
       "∟-",
       "∟floorInformation",
-      "Array(Object)",
+      "Array(StructuredValue)",
       "*",
       "階ごとに次項の用途と床面積のリストを登録します。"
     ],
@@ -388,7 +388,7 @@
     [
       "∟-",
       "∟subzones",
-      "Array(Object)",
+      "Array(StructuredValue)",
       "*"
     ],
     [
@@ -496,7 +496,7 @@
     [
       "∟説明",
       "∟descriptions",
-      "Array(Object)",
+      "Array(StructuredValue)",
       "*",
       "各換気設備の概要を記述します。"
     ],
@@ -531,7 +531,7 @@
     [
       "∟説明",
       "∟descriptions",
-      "Array(Object)",
+      "Array(StructuredValue)",
       "*",
       "各排煙設備の概要を記述します。"
     ],

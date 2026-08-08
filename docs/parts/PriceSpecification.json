@@ -13,7 +13,7 @@
         [
           "-",
           "priceSpecification",
-          "Array(Object)",
+          "Array(StructuredValue)",
           "*",
           ""
         ],
@@ -52,7 +52,7 @@
         [
           "-",
           "priceSpecification",
-          "Array(Object)",
+          "Array(StructuredValue)",
           "*",
           ""
         ],

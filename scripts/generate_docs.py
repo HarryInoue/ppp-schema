@@ -241,7 +241,10 @@ def analyze_nested(schema: dict):
                 # 例: ContactPoint.telephoneのitemsにx-partType: "Telephone")
                 return f"Array({linkify_part(items['x-partType'])})", occurrence, []
             if items.get("type") == "object" and "properties" in items:
-                return "Array(Object)", occurrence, list(items["properties"].items())
+                # NGSI v2ではobjectをStructuredValueと表現する
+                # (StructuredValueは本来array/object両方を含むが、arrayは
+                # 別途"Array"と表現する運用のため、ここでは常にobjectを指す)
+                return "Array(StructuredValue)", occurrence, list(items["properties"].items())
             if "x-refType" in items:
                 # x-refTypeがitems側に付与されているケース(同じ判定をここでも行う)
                 return "Array(Relationship)", occurrence, []
@@ -252,7 +255,8 @@ def analyze_nested(schema: dict):
         return "Array", "*", []
 
     if json_type == "object" and "properties" in schema:
-        return "Object", "1", list(schema["properties"].items())
+        # NGSI v2ではobjectをStructuredValueと表現する(上記と同じ理由)
+        return "StructuredValue", "1", list(schema["properties"].items())
 
     if "x-partType" in schema:
         # 配列と同様、ラッパー無しの単体フィールドについても同じ判定を行う

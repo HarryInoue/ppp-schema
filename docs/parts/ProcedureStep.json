@@ -129,7 +129,7 @@
         [
           "閾値",
           "thresholds",
-          "Array(Object)",
+          "Array(StructuredValue)",
           "*",
           "閾値と閾値を逸脱した時のアクションを指定します。"
         ],
