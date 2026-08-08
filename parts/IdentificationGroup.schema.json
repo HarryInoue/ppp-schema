@@ -13,6 +13,21 @@
       },
       "required": ["identificationType", "identification"],
       "additionalProperties": false
+    },
+    "IdentificationGroup": {
+      "type": "object",
+      "x-suggested-name": "identificationGroup",
+      "properties": {
+        "type": { "const": "IdentificationGroup" },
+        "value": {
+          "type": "array",
+          "title": "ID情報",
+          "description": "各種IDを配列として登録するデータパーツです。配列の要素は「ID種別(identificationType)」と「ID(identification)」の組み合わせです。このパーツ内のサブアトリビュートに対し条件を指定して検索する場合、identificationTypeとidentificationを同時に条件指定するか、identificationだけで条件指定して検索したEntityを再度検証して目的のidentificationTypeのidentificationに一致しているかを確認する必要があります。",
+          "items": { "$ref": "#/$defs/IdentificationItem" }
+        }
+      },
+      "required": ["type", "value"],
+      "additionalProperties": false
     }
   }
 }

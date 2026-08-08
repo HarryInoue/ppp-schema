@@ -25,6 +25,38 @@
           "IDを登録します。文字列に含まれる文字は、全てASCIIです([GIF](https://ppp-database.org/howtouse/terms-g/#gif)では半角英数字と表現しています)。"
         ]
       ]
+    },
+    "IdentificationGroup": {
+      "columns": [
+        "呼称",
+        "Attribute name",
+        "type",
+        "回数",
+        "説明"
+      ],
+      "rows": [
+        [
+          "ID情報",
+          "identificationGroup",
+          "Array(Object)",
+          "*",
+          "各種IDを配列として登録するデータパーツです。配列の要素は「ID種別(identificationType)」と「ID(identification)」の組み合わせです。このパーツ内のサブアトリビュートに対し条件を指定して検索する場合、identificationTypeとidentificationを同時に条件指定するか、identificationだけで条件指定して検索したEntityを再度検証して目的のidentificationTypeのidentificationに一致しているかを確認する必要があります。"
+        ],
+        [
+          "∟ID種別",
+          "∟identificationType",
+          "Text",
+          "1",
+          "IDの種別を登録します。列挙型項目であり、用語の定義は「[識別子種別(IdentificationType)](https://ppp-database.org/spec/enum/IdentificationType/)」を参照してください。"
+        ],
+        [
+          "∟ID",
+          "∟identification",
+          "Text",
+          "1",
+          "IDを登録します。文字列に含まれる文字は、全てASCIIです([GIF](https://ppp-database.org/howtouse/terms-g/#gif)では半角英数字と表現しています)。"
+        ]
+      ]
     }
   }
 }
