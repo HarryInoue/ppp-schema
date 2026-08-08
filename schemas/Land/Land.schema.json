@@ -7,11 +7,11 @@
     "id": {
       "title": "土地ID",
       "type": "string",
-      "description": "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)です。データを登録する時点で登記済みの土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とします。”urn:ngsi-ld:Land:”<不動産ID>。不動産IDについては、「[不動産IDルールガイドライン](https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/content/001594268.pdf)」を参照してください。このガイドラインでは土地の不動産IDは<不動産番号>”-0000″の形式。不動産番号は13桁のASCII文字列。不動産番号直後の文字はハイフン(“-“)以外も利用可能となっていますが、idとして利用する場合はハイフンのみ利用可能です。\nデータを登録する時点で登記していない土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とする。”urn:ngsi-ld:Land:”<国名コード><法人番号>-<通番>、または”urn:ngsi-ld:Land:”<UUID>。<国名コード>は日本の法人が所有する土地の場合は”JP”、<法人番号>は土地を所有する法人番号、<通番>はその法人内で定める重複のない任意の文字列です。<UUID>はUUIDの規格に従う重複の無いランダムな16進文字列です。\n不動産IDのルールは今後変更されるかもしれませんが、その場合も一旦割り当てたidは変更する事はできません。"
+      "description": "本データモデルの[主キー](https://ppp-database.org/howtouse/terms-2/#主キー)です。データを登録する時点で登記済みの土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とします。“urn:ngsi-ld:Land:”<不動産ID>。不動産IDについては、「[不動産IDルールガイドライン](https://www.mlit.go.jp/tochi_fudousan_kensetsugyo/content/001594268.pdf)」を参照してください。このガイドラインでは土地の不動産IDは<不動産番号>“-0000”の形式。不動産番号は13桁のASCII文字列。不動産番号直後の文字はハイフン(“-”)以外も利用可能となっていますが、idとして利用する場合はハイフンのみ利用可能です。\nデータを登録する時点で登記していない土地については、NGSI-LDの仕様に合わせ、次の形式の識別子とする。“urn:ngsi-ld:Land:”<国名コード><法人番号>-<通番>、または“urn:ngsi-ld:Land:”<UUID>。<国名コード>は日本の法人が所有する土地の場合は“JP”、<法人番号>は土地を所有する法人番号、<通番>はその法人内で定める重複のない任意の文字列です。<UUID>はUUIDの規格に従う重複の無いランダムな16進文字列です。\n不動産IDのルールは今後変更されるかもしれませんが、その場合も一旦割り当てたidは変更する事はできません。"
     },
     "type": {
       "type": "string",
-      "description": "NGSI V2およびNGSI-LDの仕様にあわせ、必ず”Land”の文字列を登録します"
+      "description": "NGSI V2およびNGSI-LDの仕様にあわせ、必ず“Land”の文字列を登録します"
     },
     "identificationGroup": {
       "title": "ID情報",
@@ -93,7 +93,7 @@
     "name": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "土地名",
-      "description": "土地の名前がある場合は必ず設定します。”○○公園”など。但し、小学校など、通常建物名称や施設名称で呼ばれる場合は省略して構いません"
+      "description": "土地の名前がある場合は必ず設定します。“○○公園”など。但し、小学校など、通常建物名称や施設名称で呼ばれる場合は省略して構いません"
     },
     "alternateName": {
       "$ref": "../CommonParts.schema.json#/$defs/ArrayAttributeText",
@@ -153,7 +153,7 @@
     "ownership": {
       "$ref": "../CommonParts.schema.json#/$defs/TextAttribute",
       "title": "所有形態",
-      "description": "所有形態。”市”、”町”、”県”、”借上”げなど。公共施設の場合は必須です(施設カルテ等で使用します)。但し、建物が”借上”の場合、記入は必須ではない"
+      "description": "所有形態。“市”、“町”、“県”、“借上”げなど。公共施設の場合は必須です(施設カルテ等で使用します)。但し、建物が“借上”の場合、記入は必須ではない"
     },
     "acquisitionPrice": {
       "$ref": "../CommonParts.schema.json#/$defs/NumberAttribute",
